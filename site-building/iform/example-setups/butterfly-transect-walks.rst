@@ -1,5 +1,5 @@
 Butterfly Transect Walks Example Setup
-######################################
+--------------------------------------
 
 Indicia includes a prebuilt form designed for inputting flying insect counts 
 along a transect walk which has been divided into sections. This form was 
@@ -35,8 +35,8 @@ Here are some files you may like to have available to import into the system:
 |            | containing the county names, including a column title (which can|
 |            | be anything you like).                                          |
 +------------+-----------------------------------------------------------------+
-|            | This file is only required if your recording scheme is divided  |
-|            | into regional branches. An ESRI SHP file format list of the     |
+| Branches   | This file is only required if your recording scheme is divided  |
+| CSV        | into regional branches. An ESRI SHP file format list of the     |
 |            | boundaries of each branch, containing the branch names and the  |
 |            | polygon defined in projection EPSG:27700 or EPSG:4326.          |
 +------------+-----------------------------------------------------------------+
@@ -84,12 +84,12 @@ Here are some files you may like to have available to import into the system:
 |            |   recorders will need to draw their routes on a map before      |
 |            |   inputting records.                                            |
 +------------+-----------------------------------------------------------------+
-| Sections   |                                                                 |
+| Sections   | An ESRI SHP file of the section lines                           |
 | SHP        |                                                                 |
 +------------+-----------------------------------------------------------------+
 
 Termlists
----------
+^^^^^^^^^
 
 Before setting up the form, you will need to have certain terms and termlists
 configured on the warehouse as follows. All the termlists you create should be

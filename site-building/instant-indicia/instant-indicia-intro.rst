@@ -1,8 +1,9 @@
+***************
 Instant Indicia
-===============
+***************
 
 Introduction
-------------
+============
 
 So, why are we interested in Instant Indicia?
 
