@@ -5,7 +5,7 @@ Overview
 What exactly is Indicia?
 ========================
 
-.. only:: not ii-intro
+.. only:: not iiintro
 
   .. image:: ../images/jigsaw.jpg
     :width: 600px

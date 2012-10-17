@@ -11,15 +11,15 @@ the connection would be insecure.
 Therefore, Indicia uses digest authentication, in which the following steps are
 taken:
 
-# The client requests a public token from the server, known as a nonce.
-# The server generates the public token and returns it to the client.
-# The client combines the public token with the password and then hashes this 
-  combined token using a non-reversible algorithm.
-# The client sends this hashed token with the public token when performing the
-  web-services request which is to be kept secure.
-# The server receives the request and combines the public token with the 
-  expected password, then hashes it using the same algorithm as the client.
-# This hashed token is compared with the one sent from the client to determine
-  if the client has sent the correct token and therefore knows the password. 
-  Note that at no point does the password get sent across the connection so this
-  approach is safe for insecure connections to web services.
+#. The client requests a public token from the server, known as a nonce.
+#. The server generates the public token and returns it to the client.
+#. The client combines the public token with the password and then hashes this 
+   combined token using a non-reversible algorithm.
+#. The client sends this hashed token with the public token when performing the
+   web-services request which is to be kept secure.
+#. The server receives the request and combines the public token with the 
+   expected password, then hashes it using the same algorithm as the client.
+#. This hashed token is compared with the one sent from the client to determine
+   if the client has sent the correct token and therefore knows the password. 
+   Note that at no point does the password get sent across the connection so this
+   approach is safe for insecure connections to web services.
