@@ -1,7 +1,7 @@
 The Prebuilt Form Library
-#########################
+=========================
 
 .. toctree::
-  :hidden:
 
+  import_helper
   mnhnl_dynamic_1
