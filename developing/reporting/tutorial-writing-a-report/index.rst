@@ -1,5 +1,5 @@
 Tutorial: Writing a report
-##########################
+==========================
 
 .. sidebar:: Prerequisites
   

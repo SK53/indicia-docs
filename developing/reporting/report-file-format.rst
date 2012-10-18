@@ -3,7 +3,7 @@ Report File Format
 
 .. seealso::
 
-  :doc:`tutorial-building-a-report/index`
+  :doc:`tutorial-writing-a-report/index`
 
 Reports in Indicia are defined by placing XML files in the **reports** folder on
 the warehouse which define the SQL query to run against the database, the

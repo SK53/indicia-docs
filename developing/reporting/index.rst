@@ -5,4 +5,4 @@ Developing Reports
 .. toctree::
 
   report-file-format
-  tutorial-building-a-report/index
+  tutorial-writing-a-report/index
