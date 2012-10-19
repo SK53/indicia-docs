@@ -16,5 +16,7 @@ of HTML and PHP and that you have
 
 .. note::
 
-  Throughout this tutorial, the address of the warehouse will be referred to as
-  ``<warehouse_url>``. Make sure you replace this with the real URL!
+  This tutorial is for people who want to learn how to develop Indicia forms 
+  using PHP. If you are not a PHP developer then don't forget that using PHP
+  is just one of several ways of creating data input forms and other website
+  functionality so this tutorial is probably not for you!
