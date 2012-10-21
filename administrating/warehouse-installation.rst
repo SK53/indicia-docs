@@ -1,7 +1,6 @@
-.. index:: Installation - Warehouse 
-
+********************************
 Installing the Indicia warehouse
-################################
+********************************
 
 This guide is a quick summary of the steps required to install the Indicia 
 Warehouse. You don't have to install the Warehouse to use Indicia if you are 

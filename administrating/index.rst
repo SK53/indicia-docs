@@ -4,4 +4,5 @@ Administering and maintaining Indicia
 
 .. toctree::
 
-   warehouse-installation
+  warehouse-installation
+  website-agreements

@@ -22,7 +22,8 @@ help:
 	@echo "  epub               to make an epub"
 	@echo "  latex              to make LaTeX files, you can set PAPER=a4 or PAPER=letter"
 	@echo "  latexpdf           to make LaTeX files and run them through pdflatex"
-	@echo "  latexpdf-iiintro   to make LaTeX files and run them through pdflatex for the Instant Indicia introduction document"
+	@echo "  latexpdf-iiintro    to make LaTeX files for the Instant Indicia Introduction and run them through pdflatex"
+	@echo "  latexpdf-developer  to make LaTeX files for Indicia Developer Training and run them through pdflatex"
 	@echo "  changes            to make an overview of all changed/added/deprecated items"
 	@echo "  linkcheck          to check all external links for integrity"
 	@echo "  doctest            to run all doctests embedded in the documentation (if enabled)"
@@ -54,10 +55,16 @@ latexpdf:
 	@echo "pdflatex finished; the PDF files are in $(BUILDDIR)/latex."
 
 latexpdf-iiintro:
-	$(SPHINXBUILD) -b latex -t iiintro -c alternate-docs/iiintro $(ALLSPHINXOPTS) $(BUILDDIR)/latex-ii-intro
+	$(SPHINXBUILD) -b latex -t iiintro -c alternate-docs/iiintro $(ALLSPHINXOPTS) $(BUILDDIR)/latex-iiintro
 	@echo "Running LaTeX files through pdflatex..."
-	$(MAKE) -C $(BUILDDIR)/latex-ii-intro all-pdf
+	$(MAKE) -C $(BUILDDIR)/latex-iiintro all-pdf
 	@echo "pdflatex finished; the PDF files are in $(BUILDDIR)/latex-ii-intro."
+
+latexpdf-developer:
+	$(SPHINXBUILD) -b latex -t iiintro -c alternate-docs/developer $(ALLSPHINXOPTS) $(BUILDDIR)/latex-developer
+	@echo "Running LaTeX files through pdflatex..."
+	$(MAKE) -C $(BUILDDIR)/latex-developer all-pdf
+	@echo "pdflatex finished; the PDF files are in $(BUILDDIR)/latex-developer."
 
 changes:
 	$(SPHINXBUILD) -b changes $(ALLSPHINXOPTS) $(BUILDDIR)/changes

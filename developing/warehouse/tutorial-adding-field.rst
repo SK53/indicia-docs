@@ -518,4 +518,6 @@ to a database entity which go beyond the scope of this tutorial, such as
 updating the websites editor to provide a list of the taxon groups the website
 owns, or updating the list_taxon_groups and detail_taxon_groups database views
 with the new field. The view changes could be handled in a very similar way to 
-our extension of the gv_taxon_groups view.
+our extension of the gv_taxon_groups view. Note that because of the way the web-
+services work, once the list and detail views for taxon groups are updated the
+new field will become accessible without any need for additional code.

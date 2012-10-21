@@ -27,6 +27,7 @@ at this point we can just return an empty array, e.g.
 
 .. code-block:: php
 
+  <?php
   public static function get_parameters() {   
     return array();
   }
