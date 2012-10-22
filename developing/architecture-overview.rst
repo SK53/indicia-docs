@@ -5,7 +5,7 @@ Architecture Overview
 If you need a brief introduction to the technical architecture of Indicia, then 
 read on. 
 
-Indicia consists of 2 main components:
+A website built using Indicia consists of 2 main components:
 
 * The warehouse
 * The client website
@@ -13,7 +13,9 @@ Indicia consists of 2 main components:
 The warehouse consists of the database itself and administration tools as well 
 as a set of web-services which allow the client website to communicate with it. 
 The client website is the part which hosts the online recording, reporting and 
-other pages which the end-user sees. The division into two components serves to 
+other pages which the end-user sees. Indicia uses a *distributed architecture*,
+meaning that the client website and the warehouse can be on separate machines
+connected only via the internet. The division into two components serves to 
 keep the administration interfaces and the end-user interfaces completely 
 separate. Also, a fully featured online recording solution makes heavy demands 
 on the server technology, in particular to allow it to properly support spatial 
@@ -119,18 +121,105 @@ and tabs to the existing warehouse user interface.
 Warehouse UI
 ------------
 
-The warehouse user interface code consists of a series of Kohana views. 
+The warehouse user interface code consists of a series of Kohana views. Each 
+view is a simple PHP file which outputs the HTML required for the view. For the 
+most part, the warehouse code uses the same client helper library API for the
+user interface code as client websites. For example, the grids you can see in 
+the warehouse when browsing data are the same ``report_helper::report_grid``
+component used to add grids to client websites. However, because Indicia's 
+warehouse was originally developed in parallel to the client helper library, 
+some of the earlier views utilise the HTML helper provided by Kohana to generate
+the HTML output. These are being converted to use the client helper library API
+to keep the code consistent, but this is a lower priority than many other tasks.
 
-.. todo:: 
-
-  mention the separation between earlier kohana code and later code which uses
-  the client helpers.
+Likewise, the import facilities available on the warehouse are use the exact
+same ``import_helper`` class as the one provided in the client helper library
+API to build import facilities for client websites.
 
 Web services
 ------------
 
+As you can see from the earlier diagram, the web services are key to the 
+interactions between the client website and the warehouse. Web services use the
+same protocols that we use everyday for browsing the internet but instead of 
+providing a user interface (website), web services provide a programmatic 
+interface. In a typical web transaction, a *user* sends a request to a specified
+*web address*. The *server* responds with the *web page*. A typical web service
+transaction might involve the *user* being a piece of code on the 
+client website. The *user* sends a request to a specified *web address*. The
+*server* responds with some *data*. The code then processes that data before 
+rendering the web page as appropriate.
+
+The web services in Indicia are comprehensive in comparison with some systems
+where the web services were added as an afterthought, because the Indicia
+architecture means that every single interaction with the data on the warehouse
+must go through the web services. Every record, every report and every map you 
+see on websites like `iRecord <http://www.brc.ac.uk/irecord>`_ is obtained
+via the web services. Indicia's web services provide the following facilities:
+
+* Data services
+
+  * Read individual database records
+  * Read lists of database records according to provided sort and filter criteria.
+    This supports pagination in grids by allowing **limit** and **offset** 
+    parameters
+  * Write to records for edits and deletes
+
+* Reporting Services
+
+  * Read the output of reports, also with support for pagination in grids by 
+    allowing **limit** and **offset** parameters
+
+* Other web services
+
+  * Authenticate a client website
+  * Spatial reference operations including transformations from map coordinates to
+    and from any spatial reference notation.
+  * Bulk import records
+  * Apply verification rules to proposed records
+
+The data access via Indicia's web services requires secure authentication and 
+applies authorisation so that each client website cannot see data that belongs
+to other websites by default.
+
 Extension modules
 -----------------
 
+The Kohana framework provides useful support for extensibility via the concept
+of modules, which allow the provision of additional models, views and 
+controllers as well as the overriding of existing code from the main 
+application. Indicia's warehouse extends this idea by allowing modules to hook
+into various bits of core functionality. For example, Indicia allows a module
+to provide additional items to add to the main menu or new tabs for an existing
+page. Indicia's module framework can even be used to extend the data model with 
+completely new entities and attributes and to support accessing these via the
+web services. Therefore any extensions to the data model which are not likely
+to be useful to the majority of online recording surveys should be implemented
+via modules, helping to keep the core of Indicia lightweight and efficient.
+
+Example modules which extend the data module include:
+
+* **taxon_designations** for supporting designations information for species.
+* **individuals_and_associations** for supporting records of individual 
+  organisms and the associations with others, e.g. ringed birds or family 
+  groups.
+
 GeoServer
 ---------
+
+`GeoServer <http://geoserver.org>`_ is an open source software server that 
+allows users to share geospatial data. GeoServer publishes data using open 
+standards and therefore provides an ideal platform for publishing Indicia's
+PostGIS spatial database over the web. Data can be published directly as map
+images or layers for overlay onto web mapping applications and GIS applications,
+or a variety of text based spatial formats.
+
+GeoServer is a separate optional installation which should site alongside the 
+warehouse on the same server. Although Indicia is capable of drawing maps 
+without GeoServer, any attempt to map more than a few thousand points on a 
+single map is likely to hit performance problems both in the browser's 
+JavaScript engine (which is responsible for adding points to the map) and 
+because of the size of the download file. On option that GeoServer provides
+is a Web Mapping Service (WMS) which renders the map layer image on the server
+and sends the image to the client. This results in drastically improved 
+performance when rendering maps with large numbers of records.
