@@ -27,7 +27,9 @@ Here are some files you may like to have available to import into the system:
 | CSV        | describing sites in your recording scheme.                      |
 |            | This should be provided as a CSV file with a single column      |
 |            | containing the county names, including a column title (which can|
-|            | be anything you like).                                          |
+|            | be anything you like). If available, a sort order column        |
+|            | containing an integer for each term can be used to enforce a    |
+|            | non-alphabetical sort order.                                    |
 +------------+-----------------------------------------------------------------+
 | Management | Provide a list of the management terms that will be available   |
 | CSV        | for describing sites in your recording scheme.                  |
@@ -87,6 +89,21 @@ Here are some files you may like to have available to import into the system:
 | Sections   | An ESRI SHP file of the section lines                           |
 | SHP        |                                                                 |
 +------------+-----------------------------------------------------------------+
+| Species    | A CSV file of each of the species you would like to be able to  |
+| CSV        | record. Should have a column for the latin name plus a column   |
+|            | for the common name, plus one column for any species code       |
+|            | systems you would like to be able to use, e.g. BRC codes.       |
+|            | You can provide additional species lists if you want to be able |
+|            | to record additional species groups via additional tabs.        |
++------------+-----------------------------------------------------------------+
+
+Website registration and survey
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+As with any Indicia based survey, you will need a website registration on the 
+warehouse plus an entry in the list of surveys, belonging to the website.
+Give your survey a name that you will remember as being associated with the
+butterfly transect walk survey you are configuring.
 
 Termlists
 ^^^^^^^^^
@@ -103,7 +120,8 @@ owned by your website registration on the warehouse.
   file of counties into the list, setting the language to English for all rows
   and mapping your column to the **term** field.
 * Create a termlist called **Transect width (m)** and setup terms called **5**,
-  **6**, **10** and **other**. You can modify this list if your scheme has a
+  **6**, **10** and **other**, with the Sort Order set to **5**, **6**, **10** 
+  and **9999** respectively. You can modify this list if your scheme has a
   different set of possible transect widths. 
 * Create a termlist called **All or single species** with terms for **All** and
   **Single**. Set both terms to English language, with their sort order set to
@@ -111,13 +129,17 @@ owned by your website registration on the warehouse.
 * Create a termlist called **Climate of transect** with terms for **Lowland** 
   and **Upland**. Set both terms to English language, with their sort order set
   to **0** and **1** respectively.
-* Create a termlist called **Habitats**. Use the warehouse import tool to import
-  the CSV file of habitats into the list, setting the language to English for 
-  all rows and mapping your column to the **term** field.
-* Create a termlist called **Management**. Use the warehouse import tool to
+* Create a termlist called **BMS Habitats** or similar. Use the warehouse import
+  tool to import the CSV file of habitats into the list, setting the language to
+  English for all rows and mapping your column to the **term** field. Also
+  import the sort order if provided to ensure the habitats are in the correct 
+  order.
+* Create a termlist called **BMS Management**. Use the warehouse import tool to
   import the CSV file of management terms into the list, setting the language to
   English for all rows and mapping your column to the **term** field.
 
+Species Lists
+^^^^^^^^^^^^^
 .. todo::
   
   Custom attributes & remaining setup
