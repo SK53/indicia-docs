@@ -98,7 +98,7 @@ run:
   of each ``<column>`` element in the ``<columns>`` section. For example, the 
   query could read ``select #columns# from taxa`` and there could be 2
   ``<column>`` definitions with the **sql** attribute set to "id" and "taxon"
-  respectively, resulting in a query ``select id, taxon from taxa".
+  respectively, resulting in a query ``select id, taxon from taxa``.
 * #field_sql# - replaced by the contents of the ``<field_sql>`` element and used
   to separate the list of fields from the rest of the SQL statement, which 
   allows the warehouse to replace the field list with ``count(*)`` in order to 
@@ -429,6 +429,8 @@ Declaring SQL for each column
 .. todo::
  
   complete this section
+
+.. _vaguedate-label:
 
 Element <vagueDate>
 ===================
