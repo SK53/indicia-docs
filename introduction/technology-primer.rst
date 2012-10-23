@@ -115,9 +115,18 @@ can provide online recording, reporting and other specialist facilities. For
 Indicia, we have elected to focus our efforts on a single CMS called Drupal for
 the following reasons:
 
-.. todo::
- 
-  Drupal choice image
+* Drupal is one of the most used free and open source content management 
+  systems.
+* Drupal is built using PHP and JavaScript so closely matches the toolset used 
+  for Indicia development.
+* Although Drupal has a higher learning curve than some CMS, it is also one of 
+  the most powerful.
+* There is a huge library of free modules available which extend the core 
+  functionality of Drupal for all sorts of purposes.
+* Drupal is widely used in the biodiversity "industry".
+* We felt that it would be better to focus available resources on a single, 
+  high quality CMS integration than to spread the available effort across 
+  several different CMS.
 
 It is possible to use Indicia alongside many of the other available content 
 management systems though of course it will be a bit more work, since the 

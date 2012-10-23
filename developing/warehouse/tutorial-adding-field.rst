@@ -4,13 +4,13 @@ Tutorial: Adding a new attribute to the Indicia core
 Indicia takes the approach of only including attributes in the core data model 
 if they are likely to be of use to most surveys, as the core data model should 
 be kept as lightweight and efficient as possible. All other attributes are 
-handled by adding custom attributes you the survey. On occasion though you might 
-decide that a particular attribute would be of benefit to other if it existed in 
-the core code. We'll work through an example enhancement - extending the Taxon 
-Group entity to support a link to a website, so that each taxon group can either 
-have no website associated with it and therefore be available to all, or can 
-have a website associated with it so that the taxon group is only available to 
-that website. Currently all taxon groups are global so this might well be a 
+handled by adding custom attributes to the survey. On occasion though you might 
+decide that a particular attribute would be of benefit to others if it existed 
+in the core code. We'll work through an example enhancement - extending the 
+Taxon Group entity to support a link to a website, so that each taxon group can 
+either have no website associated with it and therefore be available to all, or 
+can have a website associated with it so that the taxon group is only available 
+to that website. Currently all taxon groups are global so this might well be a 
 useful enhancement. 
 
 Database scripts
@@ -94,11 +94,11 @@ version of the script:
 Now we must save the script in the correct place so that the warehouse's upgrade 
 code can find it. Since this is a change to the warehouse core, we need to save 
 the script into the indicia_setup module's db folder. Browse to 
-modules\indicia_setup\db within your warehouse's file folder. You will find a 
+`modules/indicia_setup/db` within your warehouse's file folder. You will find a 
 folder for each version of Indicia containing the upgrade scripts currently 
 available for that version, each named version_x_x_x. Unless you have good 
-reason to do otherwise, always select folder with the highest version number to 
-save your script in. So, create a text file containing the above script then 
+reason to do otherwise, always select the folder with the highest version number 
+to save your script in. So, create a text file containing the above script then 
 open the appropriate folder and save your script with the following file name 
 format:: 
 
@@ -293,7 +293,7 @@ like:
   );
   ?>
   
-See `defining relationships in ORM <http://docs.kohanaphp.com/libraries/orm/starting?s[]=has&s[]=many#defining_relationships_in_orm>`_
+See `defining relationships in ORM <http://docs.kohanaphp.com/libraries/orm/starting#defining_relationships_in_orm>`_
 for more information on this topic.
 
 View code

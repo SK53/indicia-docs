@@ -20,12 +20,13 @@ keep the administration interfaces and the end-user interfaces completely
 separate. Also, a fully featured online recording solution makes heavy demands 
 on the server technology, in particular to allow it to properly support spatial 
 data. Therefore this separation allows a single warehouse to be shared between 
-multiple client websites. As long as partner can be found able to host a 
-website, this means that the server technology required to run online recording 
-on a client website is minimal and indeed, most cheap web hosting services will 
-support Indicia based online recording. 
+multiple client websites. As long as partner able to host a warehouse can be 
+found, the server technology required to run online recording on a client 
+website is minimal. In fact, most cheap web hosting services will support 
+Indicia based online recording client websites. 
 
 .. image:: ../images/diagrams/warehouse-multiple-websites.png
+  :width: 400pt
   :alt: A single warehouse can serve multiple client websites
 
 Warehouse architecture
@@ -145,10 +146,10 @@ same protocols that we use everyday for browsing the internet but instead of
 providing a user interface (website), web services provide a programmatic 
 interface. In a typical web transaction, a *user* sends a request to a specified
 *web address*. The *server* responds with the *web page*. A typical web service
-transaction might involve the *user* being a piece of code on the 
-client website. The *user* sends a request to a specified *web address*. The
-*server* responds with some *data*. The code then processes that data before 
-rendering the web page as appropriate.
+transaction is instigated by some code on the client website. The *code* sends a
+request to a specified *web address*. The *server* responds with some *data*. 
+The *code* then processes that data before rendering the web page as 
+appropriate.
 
 The web services in Indicia are comprehensive in comparison with some systems
 where the web services were added as an afterthought, because the Indicia
@@ -214,12 +215,12 @@ PostGIS spatial database over the web. Data can be published directly as map
 images or layers for overlay onto web mapping applications and GIS applications,
 or a variety of text based spatial formats.
 
-GeoServer is a separate optional installation which should site alongside the 
+GeoServer is a separate optional installation which should sit alongside the 
 warehouse on the same server. Although Indicia is capable of drawing maps 
 without GeoServer, any attempt to map more than a few thousand points on a 
 single map is likely to hit performance problems both in the browser's 
 JavaScript engine (which is responsible for adding points to the map) and 
-because of the size of the download file. On option that GeoServer provides
+because of the size of the download file. One option that GeoServer provides
 is a Web Mapping Service (WMS) which renders the map layer image on the server
 and sends the image to the client. This results in drastically improved 
 performance when rendering maps with large numbers of records.

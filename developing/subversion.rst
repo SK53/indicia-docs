@@ -33,13 +33,13 @@ affecting the master copy until you are satisfied that the experiment has
 succeeded. If it fails, just delete the branch!
 
 Without a source control such as Subversion, working as a collaborative team 
-would be a quagmire of accidental overwrites of each other changes, untraceable 
-mistakes and other such nightmares.
+would be a quagmire of accidental overwrites of each other's changes, 
+untraceable mistakes and other such nightmares.
 
 .. note::
 
   If you are not familiar with Subversion or version control in general then 
-  this might be a good time to read a primer, for example you the 
+  this might be a good time to read a primer, for example the 
   `Subversion manual <http://svnbook.red-bean.com/>`_ contains chapters on 
   Version Control Basics and Version Control the Subversion Way which provide a 
   good starting point.

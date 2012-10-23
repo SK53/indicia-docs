@@ -28,7 +28,9 @@ the following filter using the following parameter and try it out:
 The parameter uses a lookup datatype to create a drop-down selection in the parameters 
 form for the quality required of the records to include. Each entry is separated 
 by a comma, with the actual value used preceding the colon and the label 
-displayed to the user after the colon. 
+displayed to the user after the colon. We also need some SQL which uses the new
+quality parameter, so insert the following code into the very end of the 
+``<query>`` element so it forms the last line of the ``where`` clause:
 
 .. code-block:: sql
   
@@ -40,9 +42,9 @@ records by the verification status and record certainty. You should find now
 that when you load the report in your Drupal site you are presented with a 
 parameters input form as follows: 
 
-.. todo::
-
-  Screenshot of parameters form
+.. image:: ../../../images/screenshots/tutorials/report-data-quality-parameter.png
+  :width: 800px
+  :alt: The Data Quality input parameter for our report.
 
 Try selecting different options for the Data quality parameter to see what 
 happens when you run the report. If you are stuck, here is the full text of the 

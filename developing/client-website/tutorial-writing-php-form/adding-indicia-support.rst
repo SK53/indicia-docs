@@ -23,7 +23,7 @@ it up:
 #. The only option we need to set for this is the ``$base_url`` which needs to 
    be set to the URL of the warehouse. This should be the full URL of the 
    path to the warehouse including trailing slash, e.g. 
-   ``http://testwarehouse.indicia.org.uk/`` or ``http://localhost/indicia``. So
+   ``http://testwarehouse.indicia.org.uk/`` or ``http://localhost/indicia/``. So
    set this option as appropriate and save the file.
 #. On your tutorial.php page, add a new line just after the ``<body>`` element 
    and paste in the following:

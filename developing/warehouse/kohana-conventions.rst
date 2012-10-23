@@ -38,7 +38,7 @@ for accessing survey data. There are several problems with this approach:
   and so forth. There is nothing stopping a model class being stored in a 
   different folder or having a typo in the file name for example.
 
-The principle of convetion over configuration means that the Kohana framework
+The principle of convention over configuration means that the Kohana framework
 avoids the necessity for extensive configuration files by publishing conventions
 regarding things like class names, file names and locations. The framework code
 can then be written with the assumption that the conventions are followed and
@@ -46,11 +46,7 @@ because the code will simply not work if conventions are not followed, it forces
 consistency. It also saves time once the developer has learnt these conventions
 since there is no need to write the configuration for each thing you do. Rather 
 than go into detail about all the conventions here you can read about them in 
-the Kohana documentation. 
-
-.. todo::
-
-  Turn last 2 words into hyperlink to kohana conventions page.
+the `Kohana 101 documentation <http://pixelpeter.com/kohana/kohana101.pdf>`_. 
 
 Folder Structure Conventions
 ----------------------------

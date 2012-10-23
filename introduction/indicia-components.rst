@@ -29,9 +29,9 @@ share this resource with other organisations which don’t. For example in the
 following diagram the warehouse supports 3 online recording websites for various
 schemes and societies (it could be many more).
 
-.. todo::
-
-  Diagram
+.. image:: ../images/diagrams/warehouse-multiple-websites.png
+  :width: 600px
+  :alt: One website supports multiple client websites
 
 The second component required of course is the online recording website itself.
 This is the part you will definitely need to build but Indicia is designed to 

@@ -15,7 +15,7 @@ template, replacing My title, My Description and My query as appropriate:
   </report>
 
 Copying in the query and giving it a title and description should give us 
-something like the following. Note that we have remove the semi-colon from the 
+something like the following. Note that we have removed the semi-colon from the 
 end of the query as well as converted the query into XML compliant text by 
 replacing the ``>`` with the XML safe equivalent ``&gt;``. 
 `More information on the characters you might need to replace in this way 
@@ -30,7 +30,7 @@ replacing the ``>`` with the XML safe equivalent ``&gt;``.
     select o.public_entered_sref, o.preferred_taxon, o.default_common_name, 
         o.date_start, o.date_end, o.date_type 
     from cache_occurrences o
-    where o.cache_created_on&gt;now()-'1 month'::interval;
+    where o.cache_created_on&gt;now()-'1 month'::interval
     </query>
   </report>
 

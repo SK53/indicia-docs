@@ -5,6 +5,12 @@ Report File Format
 
   :doc:`tutorial-writing-a-report/index`
 
+.. only:: developer
+
+  We've included the full specification of the report file format here for your
+  reference, but don't worry, you are not expected to work through and learn all
+  of this during the developer training course!
+
 Reports in Indicia are defined by placing XML files in the **reports** folder on
 the warehouse which define the SQL query to run against the database, the
 input parameters and the output columns. Report files must be valid XML 
@@ -73,19 +79,19 @@ filter into the query.
   attributes in the report output. Use in conjunction with the **smpattrs**
   datatype for a report parameter. Defaults to "s.id" which is based on the 
   assumption that the samples table is joined into the query with a table alias
-  "s".
+  "s". See :ref:`attrs-label` for more info.
 * *occurrences_id_field* - identifies the field in the SQL query which is used to 
   join to the occurrence_attribute_values table in order to include occurrence 
   custom attributes in the report output. Use in conjunction with the 
   **occattrs** datatype for a report parameter. Defaults to "o.id" which is 
   based on the assumption that the samples table is joined into the query with a
-  table alias "o".
+  table alias "o". See :ref:`attrs-label` for more info.
 * *locations_id_field* - identifies the field in the SQL query which is used to 
   join to the location_attribute_values table in order to include location 
   custom attributes in the report output. Use in conjunction with the 
   **locattrs** datatype for a report parameter. Defaults to "l.id" which is 
   based on the assumption that the locations table is joined into the query with 
-  a table alias "l".
+  a table alias "l". See :ref:`attrs-label` for more info.
 
 Replacements Tokens
 ^^^^^^^^^^^^^^^^^^^
@@ -214,18 +220,23 @@ Element <parameters>
 Attributes
 ----------
 
-* **name**
+* **name** -
   The name of the attribute. Must consist of alphabetic characters,
   numbers and underscores only. The attribute is wrapped in hashes to create the
-  replacement token which will be replaced in the query. For example, if the 
-  parameter named "startdate" is set to 01/10/2012, then the report might 
-  include a clause ``WHERE date>'#startdate#'`` which would be replaced when the
-  report is run to form the SQL ``WHERE date>'01/10/2012'``.
-* **display**
-  The text used to label the parameter in the parameter request screen.
-* **description**
-  Gives a further description, and may be used in describing reports/parameters.
-* **datatype**
+  replacement token which will be replaced in the query. For example, if 
+  
+  * a parameter named "startdate" is passed a value 01/10/2012 when the report 
+    is run
+  * the report include a clause ``WHERE date>'#startdate#'`` in the SQL
+
+  then the clause would be replaced when the report is run to form the SQL 
+  ``WHERE date>'01/10/2012'``.
+* **display** -
+  The text used to label the parameter in the input parameters form displayed to 
+  the user before running the report.
+* **description** -
+  Gives a further description displayed alongside the parameter in the form.
+* **datatype** -
   Used in determining the type of control to show when requesting the parameter. 
   Currently, the core module report interface supports datatypes 'text', 
   'lookup', 'date', 'geometry', 'polygon', 'line', 'point', 'idlist', 
@@ -233,40 +244,54 @@ Attributes
   will show a datepicker control. Lookup will show a select box. Geometry, 
   Polygon, Line and Point all require a map for the user to draw the input 
   parameter shape onto. Finally, idlist, smpattrs, occattrs and locattrs are 
-  special datatypes that are described below. When viewing the parameters form 
-  in the Warehouse interface, the contents of the lookup are populated using the 
-  query in the query attribute. When using the report_grid control in the 
-  data_entry_helper class, the contents of the lookup are populated using the 
-  population_call attribute. Alternatively a fixed set of values can be 
-  specified by using the lookup_values attribute.
-* **query** is used to provide an SQL query used to populate the select box for 
+  special datatypes that are described in the section :ref:`attrs-label`. When 
+  viewing the parameters form in the Warehouse interface, the contents of the 
+  lookup are populated using the query in the query attribute. When using the 
+  report_grid control in the data_entry_helper class, the contents of the lookup 
+  are populated using the population_call attribute. Alternatively a fixed set 
+  of values can be specified by using the lookup_values attribute.
+* **query** -
+  Used to provide an SQL query used to populate the select box for 
   lookup parameters. The query should return 2 fields, the key and display 
   value. This only works on the warehouse and does not work for reports run from
   client websites, since they cannot directly issue SQL queries, so it is 
   recommended that you use the **population_call** attribute instead.
-* **population_call**
+* **population_call** -
   Allows report parameter forms on client websites to populate the select boxes 
-  when the datatype is lookup, for example when using the report_grid control. 
-  The format is either direct:table name:id field:caption field, e.g. 
-  "direct:survey:id:title" or report:report name:id field:caption field, e.g. 
-  "report:myreport:id:title" where myreport must return fields named id and 
-  title. At the moment additional parameters cannot be provided.
-* **lookup_values** allows specification of a fixed list of values for a lookup 
-  rather than one populated from the database. Specify each entry as key:value 
-  with commas between them, for example "all:All,C:Complete,S:Sent for 
-  verification,V:Verified".
-* **linked_to**
+  shown in the report's input parameters form. The format of the value specified 
+  for this attribute should be either of the following, replacing the values in 
+  <> as appropriate: 
+  
+  * direct:<table name>:<value field>:<caption field>
+  * report:<report name>:<value field>:<caption field>
+
+  The first part of the value is set to direct or report to indicate loading 
+  data from a table or report respectively. This is followed by the table name
+  or report name (including path), then the name of the field which provides
+  the underlying parameter value to pass into the report, then finally the name
+  of the field which provides the caption to display to the user for this value
+  in the drop down. Examples include "direct:survey:id:title" or 
+  "report:my_reports/taxon_groups:id:title" where my_reports/taxon_groups.xml 
+  is a report which must return fields named id and title. At the moment 
+  additional parameters cannot be provided.
+* **lookup_values** -
+  Allows specification of a fixed list of values for a parameter with the lookup
+  datatype. This is an alternative to using population_call to populate the 
+  select box in the parameters input form from the database. Specify each entry 
+  as key:value with commas between them, for example "all:All,C:Complete,S:Sent 
+  for verification,V:Verified".
+* **linked_to** -
   Available only for select parameters and allows another select to be specified
   as the parent. In this case, the values in this select are filtered using the 
   value in the parent select. For example, a select for survey might be linked 
   to a select for website, meaning that selecting a website repopulates the list 
   of available surveys.
-* **linked_filter_field**
+* **linked_filter_field** -
   Applies when using **linked_to**, and allows the filtered field in the entity 
   accessed by the population_call to be specified. In the above example of a 
   survey lookup linked to a website lookup, the survey lookup would specify this 
   as website_id.
-* **emptyvalue** 
+* **emptyvalue** -
   Allows a special value to be used when the parameter is left 
   blank by the user. As an example, take an integer parameter, with SQL syntax 
   WHERE id=#id#. If the user leaves this parameter blank, then invalid SQL is 
@@ -275,10 +300,10 @@ Attributes
   most cases will return no records. Consider replacing the SQL with ``WHERE 
   (id=#id# OR #id#=0)`` to create a filter that will return all records when 
   left blank.
-* **fieldname**
+* **fieldname** -
   Use in conjunction with the **idlist** datatype. For more information see
   :ref:`idlist-label`
-* **alias**
+* **alias** -
   Use in conjunction with the **idlist** datatype. For more information see
   :ref:`idlist-label`
 
@@ -317,18 +342,85 @@ you would expect a parameter defined like:
 Parameters which require additional joins
 -----------------------------------------
 
-.. todo:: 
+Sometimes, a query join is required in a report only when a parameter has a 
+value, or has a certain value. Including the join in the report at all times 
+would normally reduce performance of the report even when the join was not 
+necessary. For example, a parameter filtering on the record's survey title might 
+require a join to the surveys table which would not otherwise be required. In 
+this case, specify a child element of the parameter called ``<join>`` which 
+contains the join SQL, and ensure that the query contains the ``#joins#`` tag so 
+that the pre-processor knows where to insert the join. The following example is 
+from a verification report which only includes a join to the locations table if 
+the expert's region of expertise is specified:
 
-  complete this section
+.. code-block:: xml
+
+  <param name='expertise_location' display='Location of Expertise' 
+      description='Provide the location in which your expertise applies' 
+      datatype='lookup' population_call='direct:location:id:name'>
+    <join>
+      JOIN locations lexpert ON st_intersects(lexpert.boundary_geom, s.geom) 
+        AND lexpert.id=#expertise_location#
+    </join>  
+  </param>
+
+It is also possible to qualify the join, by specifying attributes **operator** 
+and **value**. The operator must be set to equal or notequal and the value 
+should then be set to define a filter on when this join is applied to the report 
+SQL. 
+
+.. _attrs-label:
 
 Optional custom attributes
 --------------------------
 
-.. todo::
+The parameter datatypes *smpattrs*, *occattrs* and *locattrs* are special types 
+used to allow the input of a comma separated list of custom attributes to be 
+added to the report output. Attributes can be sample attributes, occurrence 
+attributes and location attributes respectively and can be provided either by 
+specifying the attribute caption or ID in the comma separated list. To use 
+parameters of these types it is necessary to fulfill several requirements in the 
+way your report is specified:
 
-  complete this section
+#. The report must use the *field_sql* element to separate the field list from 
+   the SQL statement, so that additional fields can be added to the list as 
+   required.
+#. The report query must contain a tag *#joins#* in the SQL in a position where 
+   additional joins can be inserted.
+#. The query must include a table which contains the ID attribute that the 
+   attribute values are linked to, for example the sample ID, occurrence ID or 
+   location ID.
+#. If the ID fields can be referred to in the SQL using *s.id*, *o.id* and 
+   *l.id* then no further changes are required. You can override these defaults, 
+   for example if you have a query listing occurrences which does not join in the 
+   samples table but need to be able to add sample attribute values. In this 
+   case, the query element needs an attribute *samples_id_field* which 
+   identifies the field reference that can be used in the SQL to join to the 
+   sample, in this case *o.sample_id*.
 
-.. _columns-label:
+You can also use the output column as if it were a normally declared column in 
+your report. This lets you specify the column details in the report_grid options 
+to show or hide a column, set the caption etc, or to specify the column in the 
+extraParams in order to filter for a specific column value. To do this you need 
+to work out the name of the custom attribute's report column. This will be of 
+the pattern *attr_(location|sample|occurrence)_(ref)*, where ref is the 
+attribute's ID or caption depending on how you requested the attribute 
+originally, with the caption being converted to lowercase and all 
+non-alphanumeric characters converted to underscores. There is also a second 
+hidden column added called *attr_id_(location|sample|occurrence)_(ref)* which 
+contains the attribute value table's ID useful if you need to identify which 
+record to update to change the data underlying the report. For example, if a 
+sample attribute has ID 4 and caption "CMS User ID" then you can request this in 
+either of the following ways:
+
+==============================  =======================  =====================================
+Parameter request for smpattrs  Output column name       sample_attribute_value.id column name
+==============================  =======================  =====================================
+4	                              attr_location_4	         attr_id_location_4
+CMS User ID                     attr_sample_cms_user_id  attr_id_location_cms_user_id
+==============================  =======================  =====================================
+
+.. _columns-label: 
 
 Element <columns>
 =================
@@ -358,7 +450,7 @@ Attributes
   Should match the name used in the query:
 
   * ``SELECT foo FROM websites`` should have name *foo*
-  * ``SELECT bar AS baz`` FROM websites should have name *baz* (not *bar*)
+  * ``SELECT bar AS baz FROM websites`` should have name *baz* (not *bar*)
   * ``SELECT w.foo FROM websites`` should have name foo, not w.foo, though where 
     there is ambiguity renaming your columns with 'AS' is the recommended 
     solution. Failing to match this correctly may leave phantom columns in the 

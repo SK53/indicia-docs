@@ -75,7 +75,7 @@ performs 3 tasks if, and only if, the form has posted data:
 #. Forwards this submission to the data services' **save** method.
 #. Outputs any resulting errors, or a success message if all is well.
 
-Now, reload your web page, fill in a date, species name and grid referenece then 
+Now, reload your web page, fill in a date, species name and grid reference then 
 click the Submit button. If everything is correct, you will see an error:
 
 .. image:: ../../../images/screenshots/tutorials/unauthenticated-error.png

@@ -118,7 +118,7 @@ taxon_list_id parameter values we've set for the form are available as
 Now, search through your ``get_form`` method for the references to the survey_id
 and taxon_list_id and replace the hard coded values with the values from the 
 ``$args`` array. You can also remove the debug message from the top of the 
-method. For reference, the my version of this method now looks like:
+method. For reference, my version of this method now looks like:
 
 .. code-block:: php
 
