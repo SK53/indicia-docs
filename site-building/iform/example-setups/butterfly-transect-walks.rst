@@ -96,6 +96,12 @@ Here are some files you may like to have available to import into the system:
 |            | You can provide additional species lists if you want to be able |
 |            | to record additional species groups via additional tabs.        |
 +------------+-----------------------------------------------------------------+
+| Wind Speed | A CSV file of each of the wind speed terms you would like to be |
+| CSV        | able to record.                                                 |
++------------+-----------------------------------------------------------------+
+| Wind Dir   | A CSV file of each of the wind direction terms you would like   |
+| CSV        | to be able to record.                                           |
++------------+-----------------------------------------------------------------+
 
 Website registration and survey
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -137,10 +143,138 @@ owned by your website registration on the warehouse.
 * Create a termlist called **BMS Management**. Use the warehouse import tool to
   import the CSV file of management terms into the list, setting the language to
   English for all rows and mapping your column to the **term** field.
+* Create a termlist called **BMS Wind Speeds**. Use the warehouse import tool to
+  import the CSV file of wind speed terms into the list, setting the language to
+  English for all rows and mapping your column to the **term** field.
+* Create a termlist called **BMS Wind Directions**. Use the warehouse import 
+  tool to import the CSV file of wind direction terms into the list, setting the 
+  language to English for all rows and mapping your column to the **term** 
+  field.
+* Create a termlist called **BMS Temperatures**. Use the warehouse import tool 
+  to import the CSV file of temperature terms into the list, setting the 
+  language to English for all rows and mapping your column to the **term** 
+  field.
 
 Species Lists
 ^^^^^^^^^^^^^
+
+Before importing the species lists you want to be able to record against, ensure
+that the **Taxon Code types** termlist contains a term for any species codes 
+that you would like to import alongside the species names, e.g. for BRC codes
+or Species ID 2010. You must provide species names in a spreadsheet with the 
+following columns, note that the exact column names used does not matter:
+
+* Latin name - the latin name of the species, imported into the **Taxon > 
+  Taxon** field.
+* Common names - the common name(s) of the species, imported into the **Other 
+  Fields > CommonNames** field. Provide as a comma separated list, with the 
+  preferred first. You can follow each name by a pipe (|) then the 3 letter ISO 
+  639 language code for the language, e.g.::
+
+    Green Woodpecker|eng,Pic vert|fra
+
+  This field can be ommitted if common names are not used.
+* Codes - any coding systems for the species such as BRC codes, imported into 
+  the **Other Fields > Codes** field. The field can contain several codes 
+  separated by a comma. Each code must contain the code name (matching the term 
+  in the Taxon Code types termlist), followed by a pipe (|), then the actual 
+  code, e.g::
+
+    Species ID 2010|172500,BRC Code|123456
+
+Custom Attributes
+^^^^^^^^^^^^^^^^^
+
+Setup the following location attributes for the UKBMS survey. Do not make any of
+them required at this stage or link them to the location types as this needs to 
+be done after import. The attribute is described as block/sub-block/caption, 
+followed by the description of the attribute. For example, you should create
+a location attribute called county which is a lookup, linked to the BMS Counties
+termlist. On the survey setup attributes you will need to make the attribute
+required and linked to the Transect location type, but only after the import
+of any existing transects.
+
+* **Site details/Details/County**
+  Lookup, BMS Counties termlist, linked to Transect location type, required for 
+  the survey.
+* **Site details/Details/No. of sections**
+  Integer, linked to Transect location type, minimum 0, required for survey
+* **Site details/Details/Overall length (m)**
+  Integer, linked to Transect location type, minimum 0, required for survey
+* **Site details/Details/Transect width (m)**
+  Lookup, Transect widths termlist, linked to Transect location type, required 
+  for survey
+* **Site details/Details/Year established**
+  Integer, linked to Transect location type
+* **Site details/Details/All or single species**
+  Lookup, All or single species termlist, linked to Transect location type
+* **Site details/Details/Climate of transect**
+  Lookup, Climate of transect termlist, linked to Transect location type
+* **Habitat and management/Habitat/Principal transect habitat**
+  Lookup, Habitats termlist, linked to Transect location type
+* **Habitat and management/Habitat/2nd transect habitat**
+  Lookup, Habitats termlist, linked to Transect location type
+* **Habitat and management/Habitat/Principal habitat present**
+  Lookup, Habitats termlist, linked to Section location type
+* **Habitat and management/Habitat/2nd habitat present**
+  Lookup, Habitats termlist, linked to Section location type
+* **Habitat and management/Habitat/3rd habitat present**
+  Lookup, Habitats termlist, linked to Section location type
+* **Habitat and management/Habitat/4th habitat present**
+  Lookup, Habitats termlist, linked to Section location type
+* **Habitat and management/Habitat/Habitat text description**
+  Text, linked to Section location type
+* **Habitat and management/Habitat/Notes on land use and management**
+  Text, not linked to a specific location type
+* **Habitat and management/Management/Primary management**
+  Lookup, Management termlist, linked to Section location type
+* **Habitat and management/Management/Secondary management**
+  Lookup, Management termlist, linked to Section location type
+* **Habitat and management/Management/Management text description**
+  Text, linked to Section location type
+* **Section/Details/Section length (m)**
+  Integer, minimum 0, linked to Section location type
+* **CMS User ID**
+  Integer, available to other websites, linked to Transect location type
+* **Sensitive**
+  Boolean, available to other websites, linked to Transect location type
+
+Setup the following custom attributes for occurrences in your survey:
+
+* **Abundance Count**
+  integer, required for the survey, minimum value 0, system function = Count or 
+  abundance of a sex or life stage.
+
+Setup the following custom attributes for samples in your survey:
+
+* **Recorder Name**
+  Text, system function=full name, sample method=Transect
+* **Start Time (hh:mm)**
+  Text, regexp=/^([0-1][0-9]|2[0-3]):([0-5][0-9])$/, required for survey, 
+  default control type=text_input, sample Method=Transect, available to other
+  websites
+* **End Time (hh:mm)**
+  Text, regexp=/^([0-1][0-9]|2[0-3]):([0-5][0-9])$/, required for survey, 
+  default control type=text_input, sample Method=Transect, available to other
+  websites
+* **% sun**
+  Integer, min value=0, max value=100
+* **Temp (Deg C)**
+  Lookup, BMS Temperatures list, required for survey, sample method=Transect
+* **Wind Direction**
+  Lookup, BMS Wind Directions list, Default value=Not recorded/no data, default 
+  control type=select, sample Method=Transect
+* **Wind Speed**
+  Lookup, UKBMS Wind Speeds list, required for survey, default control 
+  type=select, sample method=Transect
+* **CMS User ID**
+  Use the existing attribute, Sample Method=Transect. This attribute is not 
+  needed if the Easy Login module is enabled.
+* **CMS Username**
+  Use the existing attribute, Sample Method=Transect. This attribute is not 
+  needed if the Easy Login module is enabled.
+
 .. todo::
   
-  Custom attributes & remaining setup
+  Remaining setup of forms in Drupal
 
