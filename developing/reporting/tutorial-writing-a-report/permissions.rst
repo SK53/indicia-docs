@@ -38,7 +38,8 @@ like the following:
 .. code-block:: xml
 
   <?xml version="1.0" encoding="UTF-8"?>
-  <report title="Tutorial" description="Display some records for the report writing tutorial">
+  <report title="Tutorial" 
+      description="Display some records for the report writing tutorial">
     <query>
     select #columns#
     from cache_occurrences o
@@ -48,16 +49,19 @@ like the following:
     </query>
     <columns>
       <column name="id" sql="o.id" visible="false" datatype="integer" />
-      <column name="public_entered_sref" sql="o.public_entered_sref" display="Grid Ref" datatype="text" />
-      <column name="preferred_taxon" sql="o.preferred_taxon" display="Species" datatype="text" />
-      <column name="default_common_name" sql="o.default_common_name" display="Common Name" datatype="text" />
+      <column name="public_entered_sref" sql="o.public_entered_sref" 
+          display="Grid Ref" datatype="text" />
+      <column name="preferred_taxon" sql="o.preferred_taxon" 
+          display="Species" datatype="text" />
+      <column name="default_common_name" sql="o.default_common_name" 
+          display="Common Name" datatype="text" />
       <column name="date_start" sql="o.date_start" visible="false" />
       <column name="date_end" sql="o.date_end" visible="false" />
       <column name="date_type" sql="o.date_type" visible="false" />
       <column name="date" display="Date" datatype="date"  />
     </columns>
   </report>
-  
+ 
 Try running the report again on your Drupal site. You will see only the records 
 that your client website has permission to view for reporting purposes. 
 

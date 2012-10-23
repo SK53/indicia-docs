@@ -37,7 +37,8 @@ report output. Hence the report should now look like the following:
 .. code-block:: xml
 
   <?xml version="1.0" encoding="UTF-8"?>
-  <report title="Tutorial" description="Display some records for the report writing tutorial">
+  <report title="Tutorial" 
+      description="Display some records for the report writing tutorial">
     <query>
     select #columns#
     from cache_occurrences o
@@ -45,9 +46,12 @@ report output. Hence the report should now look like the following:
     </query>
     <columns>
       <column name="id" sql="o.id" visible="false"/>
-      <column name="public_entered_sref" sql="o.public_entered_sref" display="Grid Ref"/>
-      <column name="preferred_taxon" sql="o.preferred_taxon" display="Species"/>
-      <column name="default_common_name" sql="o.default_common_name" display="Common Name"/>
+      <column name="public_entered_sref" sql="o.public_entered_sref" 
+          display="Grid Ref"/>
+      <column name="preferred_taxon" sql="o.preferred_taxon" 
+          display="Species"/>
+      <column name="default_common_name" sql="o.default_common_name" 
+          display="Common Name"/>
       <column name="date_start" sql="o.date_start" visible="false" />
       <column name="date_end" sql="o.date_end" visible="false" />
       <column name="date_type" sql="o.date_type" visible="false" />

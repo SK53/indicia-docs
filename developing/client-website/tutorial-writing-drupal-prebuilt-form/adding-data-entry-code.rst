@@ -52,6 +52,7 @@ This translates to:
 
 .. code-block:: php
 
+  <?php
   public static function get_form($args, $node, $response=null) {
     $r = '<form id="entry-form" method="POST">'.
         '<input type="hidden" name="website_id" value="1"/>'.
@@ -84,6 +85,7 @@ This translates to:
         '</form>';
     return $r;
   }
+  ?>
 
 If you follow this through you should see that the translation between standard 
 PHP code using the Indicia client helpers and a prebuilt form's code is pretty 

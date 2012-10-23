@@ -30,7 +30,9 @@ following:
 
   <?php
   ...
-  $auth = data_entry_helper::get_read_write_auth($connection['website_id'], $connection['password']);
+  $auth = data_entry_helper::get_read_write_auth(
+      $connection['website_id'], $connection['password']
+  );
   ...
   ?>
 
@@ -98,7 +100,10 @@ of code:
 
 You should see something like the following::
 
-  Array ( [language] => en [website_id] => 1 [password] => password [view_access_control] => 0 [permission_name] => [survey_id] => 1 [taxon_list_id] => 1 [redirect_on_success] => [message_after_save] => 1 [additional_css] => )
+  Array ( [language] => en [website_id] => 1 [password] => password 
+  [view_access_control] => 0 [permission_name] => [survey_id] => 1 
+  [taxon_list_id] => 1 [redirect_on_success] => [message_after_save] => 1 
+  [additional_css] => )
 
 In amongst this block of information you can see that the survey_id and 
 taxon_list_id parameter values we've set for the form are available as 
@@ -123,7 +128,9 @@ method. For reference, the my version of this method now looks like:
     $r = '<form id="entry-form" method="POST">'.
         '<input type="hidden" name="website_id" value="1"/>'.
         '<input type="hidden" name="survey_id" value="'.$args['survey_id'].'"/>';
-    $auth = data_entry_helper::get_read_write_auth($connection['website_id'], $connection['password']);
+    $auth = data_entry_helper::get_read_write_auth(
+        $connection['website_id'], $connection['password']
+    );
     data_entry_helper::enable_validation('entry_form');
     $r .= $auth['write'];
     $r .= data_entry_helper::date_picker(array(

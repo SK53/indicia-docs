@@ -310,7 +310,9 @@ you would expect a parameter defined like:
 
 .. code-block:: xml
 
-  <param name='idlist' display='List of IDs' description='Comma separated list of occurrence IDs to filter to.' datatype='idlist' fieldname='o.id' alias='occurrence_id' />
+  <param name="idlist" display="List of IDs"
+      description="Comma separated list of occurrence IDs to filter to." 
+      datatype="idlist" fieldname="o.id" alias="occurrence_id" />
 
 Parameters which require additional joins
 -----------------------------------------
@@ -379,9 +381,9 @@ Attributes
   Multiple images can be comma separated in the field output to output mutiple
   thumbnails.
 * **mappable** can be set to true to declare a column which can then be output 
-  using the ``report_helper::report_map`` method. The column must output a 
-  `WKT <http://en.wikipedia.org/wiki/Well-known_text>`_ definition of the 
-  geometry to be mapped, e.g. the column definition in the SQL might be 
+  using the ``report_helper`` class' ``report_map`` method. The column must 
+  output a `WKT <http://en.wikipedia.org/wiki/Well-known_text>`_ definition of 
+  the geometry to be mapped, e.g. the column definition in the SQL might be 
   ``st_astext(geom)``.
 * **orderby** can be set to the name of another column in the report (including 
   hidden columns) when a column that is logically selected for sorting 

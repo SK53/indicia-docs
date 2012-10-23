@@ -17,8 +17,12 @@ the following filter using the following parameter and try it out:
 .. code-block:: xml
 
   <params>
-    <param name="quality" display="Data quality" description="Quality level required of data to be included in the map." datatype="lookup" 
-            lookup_values="V:Data must be verified,C:Data must be verified or certain,L:Data must be at least likely,!D:Include anything not dubious or rejected,!R:Include anything not rejected" />
+    <param name="quality" display="Data quality" 
+        description="Quality level required of data to be included in the map." 
+        datatype="lookup" 
+        lookup_values="V:Data must be verified,C:Data must be verified or certain, 
+            L:Data must be at least likely,!D:Include anything not dubious or rejected,
+            !R:Include anything not rejected" />
   </params>
   
 The parameter uses a lookup datatype to create a drop-down selection in the parameters 
@@ -47,7 +51,8 @@ report at this stage:
 .. code-block:: xml
 
   <?xml version="1.0" encoding="UTF-8"?>
-  <report title="Tutorial" description="Display some records for the report writing tutorial">
+  <report title="Tutorial" 
+      description="Display some records for the report writing tutorial">
     <query>
     select #columns#
     from cache_occurrences o
@@ -57,14 +62,21 @@ report at this stage:
     and quality_check('#quality#', o.record_status, o.certainty)=true
     </query>
     <params>
-      <param name="quality" display="Data quality" description="Quality level required of data to be included in the map." datatype="lookup" 
-            lookup_values="V:Data must be verified,C:Data must be verified or certain,L:Data must be at least likely,!D:Include anything not dubious or rejected,!R:Include anything not rejected" />
+      <param name="quality" display="Data quality" 
+          description="Quality level required of data to be included in the map." 
+          datatype="lookup" 
+          lookup_values="V:Data must be verified,C:Data must be verified or certain,
+              L:Data must be at least likely,!D:Include anything not dubious or rejected,
+              !R:Include anything not rejected" />
     </params>
     <columns>
       <column name="id" sql="o.id" visible="false" datatype="integer" />
-      <column name="public_entered_sref" sql="o.public_entered_sref" display="Grid Ref" datatype="text" />
-      <column name="preferred_taxon" sql="o.preferred_taxon" display="Species" datatype="text" />
-      <column name="default_common_name" sql="o.default_common_name" display="Common Name" datatype="text" />
+      <column name="public_entered_sref" sql="o.public_entered_sref" 
+          display="Grid Ref" datatype="text" />
+      <column name="preferred_taxon" sql="o.preferred_taxon" 
+          display="Species" datatype="text" />
+      <column name="default_common_name" sql="o.default_common_name" 
+          display="Common Name" datatype="text" />
       <column name="date_start" sql="o.date_start" visible="false" />
       <column name="date_end" sql="o.date_end" visible="false" />
       <column name="date_type" sql="o.date_type" visible="false" />

@@ -11,7 +11,8 @@ like:
 .. code-block:: xml
 
   <?xml version="1.0" encoding="UTF-8"?>
-  <report title="Tutorial" description="Display some records for the report writing tutorial">
+  <report title="Tutorial" 
+      description="Display some records for the report writing tutorial">
     <query>
     ...
     </query>
@@ -49,7 +50,8 @@ this:
 .. code-block:: xml
 
   <?xml version="1.0" encoding="UTF-8"?>
-  <report title="Tutorial" description="Display some records for the report writing tutorial">
+  <report title="Tutorial" 
+      description="Display some records for the report writing tutorial">
     <query>
     select o.id, o.public_entered_sref, o.preferred_taxon, o.default_common_name, 
         o.date_start, o.date_end, o.date_type 

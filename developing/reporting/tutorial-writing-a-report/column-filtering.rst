@@ -17,7 +17,8 @@ definitions. Your XML document should now look like:
 .. code-block:: xml
 
   <?xml version="1.0" encoding="UTF-8"?>
-  <report title="Tutorial" description="Display some records for the report writing tutorial">
+  <report title="Tutorial" 
+        description="Display some records for the report writing tutorial">
     <query>
     select #columns#
     from cache_occurrences o
@@ -25,9 +26,12 @@ definitions. Your XML document should now look like:
     </query>
     <columns>
       <column name="id" sql="o.id" visible="false" datatype="integer" />
-      <column name="public_entered_sref" sql="o.public_entered_sref" display="Grid Ref" datatype="text" />
-      <column name="preferred_taxon" sql="o.preferred_taxon" display="Species" datatype="text" />
-      <column name="default_common_name" sql="o.default_common_name" display="Common Name" datatype="text" />
+      <column name="public_entered_sref" sql="o.public_entered_sref" 
+          display="Grid Ref" datatype="text" />
+      <column name="preferred_taxon" sql="o.preferred_taxon" 
+          display="Species" datatype="text" />
+      <column name="default_common_name" sql="o.default_common_name" 
+          display="Common Name" datatype="text" />
       <column name="date_start" sql="o.date_start" visible="false" />
       <column name="date_end" sql="o.date_end" visible="false" />
       <column name="date_type" sql="o.date_type" visible="false" />

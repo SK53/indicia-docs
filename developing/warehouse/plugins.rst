@@ -94,13 +94,13 @@ should be displayed on the tab), title (the title of the tab). For example:
   }
 
 In this example, a new tab titled Site Management is attached to the view in 
-application/views/location/location_edit.php. When clicked, the tab loads the 
-content from the controllers/site_management_overview.php file within the 
-plugin. This must declare a class Site_management_overview_Controller derived 
-from Controller or one of its subclasses, with a public Index method since this 
-is the default controller action. The optional value allowForNew can be set to 
-false for tabs which must not be displayed when creating a new record but become 
-available when editing a record.
+location_edit.php, in the application/views/location folder. When clicked, the 
+tab loads the content from the controllers/site_management_overview.php file 
+within the plugin. This must declare a class Site_management_overview_Controller 
+derived from Controller or one of its subclasses, with a public Index method 
+since this is the default controller action. The optional value allowForNew can 
+be set to false for tabs which must not be displayed when creating a new record 
+but become available when editing a record.
 
 alter_menu hook
 ^^^^^^^^^^^^^^^

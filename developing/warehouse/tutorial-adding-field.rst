@@ -34,8 +34,8 @@ following script I've generated using pgAdmin, which:
   -- ALTER TABLE indicia.taxon_groups DROP COLUMN website_id;
 
   ALTER TABLE indicia.taxon_groups ADD COLUMN website_id integer;
-  COMMENT ON COLUMN indicia.taxon_groups.website_id 
-    IS 'Identifies the website that owns this taxon group, if any. Foreign key to the websites table.';
+  COMMENT ON COLUMN indicia.taxon_groups.website_id IS 
+  'Identifies the website that owns this taxon group, if any. FK to websites table.';
 
   -- Foreign Key: indicia.fk_taxon_groups_websites
 
@@ -81,7 +81,8 @@ version of the script:
   -- Column: website_id
 
   ALTER TABLE taxon_groups ADD COLUMN website_id integer;
-  COMMENT ON COLUMN taxon_groups.website_id IS 'Identifies the website that owns this taxon group, if any. Foreign key to the websites table.';
+  COMMENT ON COLUMN taxon_groups.website_id IS 
+  'Identifies the website that owns this taxon group, if any. FK to websites table.';
 
   -- Foreign Key: fk_taxon_groups_websites
 
@@ -146,8 +147,8 @@ field values. Yet we know that the class supports code such as:
 .. code-block:: php
 
   <?php
-  // Use Kohana's ORM class' factory function to create an instance of the taxon group model 
-  // and point it to existing record ID 1.
+  // Use Kohana's ORM class' factory function to create an instance of the taxon 
+  // group model and point it to existing record ID 1.
   $obj = ORM::factory('taxon_group', 1);
   // Change the title
   $obj->title='I changed the title';
@@ -232,7 +233,8 @@ round" the model, for example:
 
   <?php
   $person=$obj->created_by->person->created_by->person;
-  echo '<br/>The person who created the person who created this taxon group was '.$person->first_name.' '.$person->surname;
+  echo '<br/>The person who created the person who created this taxon group was '.
+      $person->first_name.' '.$person->surname;
   ?>
   
 This code is of course fairly ridiculous and because ORM will have to issue a 
@@ -324,20 +326,27 @@ like the following:
 .. code-block:: php
 
   <p>This page allows you to specify the details of a taxon group.</p>
-  <form class="cmxform" action="<?php echo url::site().'taxon_group/save'; ?>" method="post">
+  <form class="cmxform" action="<?php echo url::site().'taxon_group/save'; ?>" 
+      method="post">
   <?php echo $metadata ?>
   <fieldset>
-  <input type="hidden" name="taxon_group:id" value="<?php echo html::initial_value($values, 'taxon_group:id'); ?>" />
+  <input type="hidden" name="taxon_group:id" value="<?php 
+      echo html::initial_value($values, 'taxon_group:id'); 
+  ?>" />
   <legend>Taxon Group details</legend>
   <ol>
   <li>
   <label for="title">Title</label>
-  <input id="title" name="taxon_group:title" value="<?php echo html::initial_value($values, 'taxon_group:title'); ?>" />
+  <input id="title" name="taxon_group:title" value="<?php 
+      echo html::initial_value($values, 'taxon_group:title'); 
+  ?>" />
   <?php echo html::error_message($model->getError('taxon_group:title')); ?>
   </li>
   <li>
   <label for="title">External key</label>
-  <input id="title" name="taxon_group:external_key" value="<?php echo html::initial_value($values, 'taxon_group:external_key'); ?>" />
+  <input id="title" name="taxon_group:external_key" value="<?php 
+      echo html::initial_value($values, 'taxon_group:external_key'); 
+  ?>" />
   <?php echo html::error_message($model->getError('taxon_group:external_key')); ?>
   </li>
   </ol>
@@ -347,7 +356,10 @@ like the following:
   ?>
   </form>  
 
-There's no need to learn every intricacy of this code since it uses the style of coding we were forced to use in the warehouse before the client helper libraries were ready. So, paste the following code into your copy of the file, on a new line after the last `</li>` and before the closing `</ol>`:
+There's no need to learn every intricacy of this code since it uses the style of
+coding we were forced to use in the warehouse before the client helper libraries 
+were ready. So, paste the following code into your copy of the file, on a new 
+line after the last `</li>` and before the closing `</ol>`:
 
 .. code-block:: php
 
@@ -357,9 +369,14 @@ There's no need to learn every intricacy of this code since it uses the style of
     <option value="">&lt;Please select&gt;</option>
   <?php
     if (!is_null($this->auth_filter))
-      $websites = ORM::factory('website')->where(array('deleted'=>'f'))->in('id',$this->auth_filter['values'])->orderby('title','asc')->find_all();
+      $websites = ORM::factory('website')
+          ->where(array('deleted'=>'f'))
+          ->in('id',$this->auth_filter['values'])
+          ->orderby('title','asc')->find_all();
     else
-      $websites = ORM::factory('website')->where(array('deleted'=>'f'))->orderby('title','asc')->find_all();
+      $websites = ORM::factory('website')
+          ->where(array('deleted'=>'f'))
+          ->orderby('title','asc')->find_all();
     $selected = html::initial_value($values, 'taxon_group:website_id'); 
     foreach ($websites as $website) {
       echo '	<option value="'.$website->id.'" ';
@@ -372,7 +389,13 @@ There's no need to learn every intricacy of this code since it uses the style of
   <?php echo html::error_message($model->getError('taxon_group:website_id')); ?>
   </li>
   
-This code adds a new entry into the list of form inputs, wrapped in the `<li>..</li>` element. It outputs a label for the new control then creates an HTML select form control. This is populated with a list of the websites that the user is allowed to see and the current one loaded from the existing taxon_group record is selected. Now, save the file and load up the edit page for an existing taxon group in your warehouse. You should see that the website control has appeared on our view's output:
+This code adds a new entry into the list of form inputs, wrapped in the 
+``<li>..</li>`` element. It outputs a label for the new control then creates an 
+HTML select form control. This is populated with a list of the websites that the 
+user is allowed to see and the current one loaded from the existing taxon_group 
+record is selected. Now, save the file and load up the edit page for an existing 
+taxon group in your warehouse. You should see that the website control has 
+appeared on our view's output:
 
 .. todo::
 
@@ -381,9 +404,22 @@ This code adds a new entry into the list of form inputs, wrapped in the `<li>..<
 Controller code
 ---------------
 
-Try selecting a website in the select box then saving the taxon group. Now, click the edit link in the grid again to reload it. You will find that the taxon group model has automatically saved and reloaded the selected website without writing any code. Of course, this does not mean you won't need to write controller code at all, just that the basic handling of field saving and loading is automatic. 
+Try selecting a website in the select box then saving the taxon group. Now, 
+click the edit link in the grid again to reload it. You will find that the taxon 
+group model has automatically saved and reloaded the selected website without 
+writing any code. Of course, this does not mean you won't need to write 
+controller code at all, just that the basic handling of field saving and loading 
+is automatic. 
 
-There is one thing we should do in the controller though, declare a permissions function which dictates to the warehouse whether the current logged-in user is able to view and edit a particular taxon group record. We don't want to let people view or edit groups belonging to websites that they are not at least editors for. To do this, add the following line of code to end of the **constructor** of the controller class as well as the additional **record_authorised** method to your ``Taxon_Group_Controller`` class. This makes use of the ``$auth_filter`` member data for an Indicia controller class which normally describes a list of website IDs the user has access to:
+There is one thing we should do in the controller though, declare a permissions 
+function which dictates to the warehouse whether the current logged-in user is 
+able to view and edit a particular taxon group record. We don't want to let 
+people view or edit groups belonging to websites that they are not at least 
+editors for. To do this, add the following line of code to end of the 
+**constructor** of the controller class as well as the additional 
+**record_authorised** method to your ``Taxon_Group_Controller`` class. This 
+makes use of the ``$auth_filter`` member data for an Indicia controller class 
+which normally describes a list of website IDs the user has access to:
 
 .. code-block:: php
 
@@ -398,8 +434,9 @@ There is one thing we should do in the controller though, declare a permissions 
     ...
     
     /**
-     * Check access to the edit page of a taxon group. Groups cannot be edited if not core admin, unless they are linked 
-     * to your website(s) or are not linked to anything.
+     * Check access to the edit page of a taxon group. Groups cannot be edited if 
+     * not core admin, unless they are linked to your website(s) or are not linked to 
+     * anything.
      */
     protected function record_authorised ($id)
     {

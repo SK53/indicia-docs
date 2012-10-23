@@ -43,9 +43,14 @@ group of diagnostic messages. Mine looks like the following::
     Success: PHP version is 5.3.1.
     Success: The cUrl PHP library is installed.
     Success: Indicia Warehouse URL responded to a POST request.
-    Warning: The $geoserver_url setting in helper_config.php should include the protocol (e.g. http://).
-    Warning: The following configuration entries are not specified in helper_config.php : $geoserver_url, $geoplanet_api_key, $bing_api_key, $flickr_api_key, $flickr_api_secret. This means the respective areas of functionality will not be available.
-    The cache path setting in helper_config.php points to a read only directory (client_helpers/cache/). This will result in slow form loading performance.
+    Warning: The $geoserver_url setting in helper_config.php should include the protocol 
+    (e.g. http://).
+    Warning: The following configuration entries are not specified in helper_config.php :
+    $geoserver_url, $geoplanet_api_key, $bing_api_key, $flickr_api_key, 
+    $flickr_api_secret. This means the respective areas of functionality will not be 
+    available.
+    The cache path setting in helper_config.php points to a read only directory 
+    (client_helpers/cache/). This will result in slow form loading performance.
 
   Just to be sure PHP is working!
 

@@ -7,8 +7,9 @@ The first method in our prebuilt form class template is as follows:
 
   <?php
   /** 
-   * Return the form metadata. Note the title of this method includes the name of the form file. This ensures
-   * that if inheritance is used in the forms, subclassed forms don't return their parent's form definition.
+   * Return the form metadata. Note the title of this method includes the name of the 
+   * form file. This ensures that if inheritance is used in the forms, subclassed 
+   * forms don't return their parent's form definition.
    * @return array The definition of the form.
    */
   public static function get_<form_name>_definition() {

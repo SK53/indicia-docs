@@ -54,12 +54,15 @@ attribute to tell Indicia that it contains mapping data.
 
   <column name="geom" visible="false" mappable="true" sql="st_astext(o.public_geom)" />
   
-Save that and try reloading the Drupal Report Map page you created. You should see the dots now appear on the map. For reference, here is the entire report XML document you should have created:
+Save that and try reloading the Drupal Report Map page you created. You should 
+see the dots now appear on the map. For reference, here is the entire report XML 
+document you should have created:
 
 .. code-block:: xml
 
   <?xml version="1.0" encoding="UTF-8"?>
-  <report title="Tutorial" description="Display some records for the report writing tutorial">
+  <report title="Tutorial" 
+      description="Display some records for the report writing tutorial">
     <query samples_id_field="o.sample_id">
     select #columns#
     from cache_occurrences o
@@ -70,16 +73,27 @@ Save that and try reloading the Drupal Report Map page you created. You should s
     and quality_check('#quality#', o.record_status, o.certainty)=true
     </query>
     <params>
-      <param name="quality" display="Data quality" description="Quality level required of data to be included in the map." datatype="lookup" 
-              lookup_values="V:Data must be verified,C:Data must be verified or certain,L:Data must be at least likely,!D:Include anything not dubious or rejected,!R:Include anything not rejected" />
-      <param name="smpattrs" display="Sample attribute list" description="Comma separated list of sample attribute IDs to include" datatype="smpattrs" />
-      <param name="occattrs" display="Occurrence attribute list" description="Comma separated list of occurrence attribute IDs to include" datatype="occattrs" />
+      <param name="quality" display="Data quality" 
+          description="Quality level required of data to be included in the map." 
+          datatype="lookup" 
+          lookup_values="V:Data must be verified,C:Data must be verified or certain,
+              L:Data must be at least likely,!D:Include anything not dubious or rejected,
+              !R:Include anything not rejected" />
+      <param name="smpattrs" display="Sample attribute list" 
+          description="Comma separated list of sample attribute IDs to include" 
+          datatype="smpattrs" />
+      <param name="occattrs" display="Occurrence attribute list" 
+          description="Comma separated list of occurrence attribute IDs to include" 
+          datatype="occattrs" />
     </params>
     <columns>
       <column name="id" sql="o.id" visible="false" datatype="integer" />
-      <column name="public_entered_sref" sql="o.public_entered_sref" display="Grid Ref" datatype="text" />
-      <column name="preferred_taxon" sql="o.preferred_taxon" display="Species" datatype="text" />
-      <column name="default_common_name" sql="o.default_common_name" display="Common Name" datatype="text" />
+      <column name="public_entered_sref" sql="o.public_entered_sref" 
+          display="Grid Ref" datatype="text" />
+      <column name="preferred_taxon" sql="o.preferred_taxon" 
+          display="Species" datatype="text" />
+      <column name="default_common_name" sql="o.default_common_name" 
+          display="Common Name" datatype="text" />
       <column name="date_start" sql="o.date_start" visible="false" />
       <column name="date_end" sql="o.date_end" visible="false" />
       <column name="date_type" sql="o.date_type" visible="false" />
