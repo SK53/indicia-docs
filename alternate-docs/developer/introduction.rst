@@ -26,3 +26,10 @@ recording forms. Through the course you will cover:
 * Enhancing the Indicia core
 * Extending the Indicia core with a module
 
+.. tip::
+
+  All the course material is available via the new documentation website on 
+  `Read the Docs <http:://indicia-docs.readthedocs.org>`_. This is a work in 
+  progress, so we will be posting lots of new documentation over the next few 
+  months.
+

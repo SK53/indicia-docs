@@ -274,6 +274,199 @@ Setup the following custom attributes for samples in your survey:
   Use the existing attribute, Sample Method=Transect. This attribute is not 
   needed if the Easy Login module is enabled.
 
+Drupal site setup
+^^^^^^^^^^^^^^^^^
+
+Starting with a Drupal site setup using Instant Indicia, with the iform and
+indicia_features modules updated to the latest code (at least version 0.8.2), 
+perform the following setup tasks. Also ensure that your site is configured
+with the correct warehouse, website ID and password on the IForm settings page.
+
+Install Drupal modules
+""""""""""""""""""""""
+
+Install the following modules for Drupal: 
+
+* **Chaos tools**
+* **Page manager**
+* **Panels** 
+* **Views**
+* **Views UI**
+* **Views content panes**
+
+Create a home page
+""""""""""""""""""
+
+#. First we need to create a Drupal node to hold the chart which appears on the
+   home page. Select **Content management > Add content > Indicia pages** from 
+   the Drupal admin menu. Set the **Page title** to "Records for this year so
+   far".
+#. Under the **Form Selection** section, set **Select Form Category** to 
+   "Reporting" and the **Select Form** to "Report Calendar Summary". Click the
+   **Load Settings Form** button.
+#. Specify the following settings for the form:
+
+   * **Report Settings - Report Name** =Reports for Prebuilt Forms/UKBMS/UKBMS
+     Annual Summary Table Occurrence list
+   * **Report Settings - Preset Parameter Values** = ::
+
+       survey_id=n
+       user_id=
+       location_id=
+       occattrs=
+       date_from=
+       date_to=
+       taxon_list_id=n
+     
+     Make sure that you set n to the survey's ID and the ID of your main species
+     list respectively.
+   * **Report Settings - Vertical Axis** = taxon
+   * **Report Settings - Count Column** = Abundance Count
+   * **Report Output - Output chart** = ticked
+   * **Report Output - Default output type** = Chart.
+   * **Controls - Date filter type** = This year (no user control)
+   * **Controls - Drupal permission for manager mode** = manager
+   * **Date Axis Options - Start of week definition** = date=Apr-01
+   * **Date Axis Options - Week One Contains** = Apr-01
+   * **Date Axis Options - Restrict displayed weeks** = -3:30
+   * **Chart Options - Chart Type** = Line
+   * **Chart Options - Chart X-axis labels** = Week number only
+   * **Chart Options - Include total series** = ticked
+   * **Chart Options - Chart Height** = 200
+   * **Advanced Chart Options - Axes Options** - paste the following into the 
+     **Edit source** view then click **Edit w/form** to save it::
+
+       {
+         "yaxis":
+         {
+           "min":0,
+           "showMinorTicks":false,
+           "tickOptions":
+           {
+             "showGridline":false,
+             "formatString":"%.0f"
+           },
+           "max":500
+         },
+         "xaxis":
+         {
+           "labelOptions":
+           {
+             "label":"Week no."
+           }
+         }
+       }
+
+     Click **Save** to save the node.
+
+#. Visit the **Site building > Views** menu item on the Drupal admin menu. Click
+   *enable** beside the **frontpage** view.
+#. Select **Site building > Pages > Add custom page** from the Drupal admin 
+   menu. 
+#. Set the **Administrative title** and **Machine name** of the page to "home".
+#. Set the path to "home" and tick **Make this your site home page**.
+#. Set **Variant type** to **Panel** if it is not already.
+#. Tick **Visible menu item**. Leave the other checkboxes unticked.
+#. Click **Continue**.
+#. On the next **Menu settings** page, select **Normal menu entry**, then enter
+   "Home" as the **title**, and set the **Menu** to "Primary links". This adds
+   a menu item to the main site menu. Click **Continue**.
+#. On the **Choose layout** page, select the radio button for **Builders - 
+   Flexible**. Click **Continue**.
+#. On the **Panel settings** page, just click **Continue**.
+#. On the **Panel content** page, click **Show layout designer**. On the **Row**
+   drop down menu, select **Add region to the left**. Set the **Region title**
+   to "News" and click **Save**.
+#. Click **Hide layout designer**. On the *gears icon* in the top left of the 
+   News section, select **Add content**.
+#. On the popup dialog that appears, select **Views** in the bar on the left, 
+   then select *frontpage*. Click **Continue** to select the **defaults** 
+   display. Click the **Finish** button to add the view to the page. 
+   On the **gears icon** in the top left of the **Center** pane, select **Add
+   content**. In the popup that appears, select **Existing node**. Search for 
+   the "Records for this year so far" node, check the box to override the title
+   but leave the title blank, and uncheck the tickbox for including node links.
+   Set the **Build mode** to "Full node" and click **Finish**.
+#. Click **Update and Save**.
+
+Now might be a good time to create a new Story content item to check that this
+appears on the home page.
+
+My Sites
+^^^^^^^^
+
+Add a new Indicia Pages content item and use the following settings:
+
+#. **Page title** = My sites
+#. **Menu settings - Menu link title** = My Sites
+#. **Menu settings - Parent item** = <Primary links>
+#. **Select Form Category** = Reporting
+#. **Select Form** = Report Grid
+#. **URL Path** = site-list
+
+Then, click the **Load Settings Form** button and enter the following settings
+in the configuration form which appears:
+
+* **Report Settings - Report Name** = Library/Locations/Species and occurrence
+  counts by site
+* **Report Settings - Preset parameter values** = ::
+
+    date_from=
+    date_to=
+    survey_id=
+    location_type_id=Transect
+    locattrs=CMS User ID
+    attr_location_cms_user_id={user_id}
+* **Report Settings - Columns Configuration** = select the **View Source** mode 
+  then paste the following settings, finally click **View w/form** to save the
+  settings. ::
+
+    [
+      {
+        "fieldname":"id",
+        "visible":false
+      },
+      {
+        "fieldname":"name",
+        "display":"Site Name"
+      },
+      {
+        "fieldname":"occurrences",
+        "display":"No. of records"
+      },
+      {
+        "fieldname":"taxa",
+        "display":"No. of species"
+      },
+      {
+        "fieldname":"groups",
+        "visible":false
+      },
+      {
+        "fieldname":"attr_location_cms_user_id",
+        "visible":false
+      },
+      {
+        "display":"Actions",
+        "actions":
+        [
+          {
+            "caption":"edit",
+            "url":"{rootFolder}site-details",
+            "urlParams":
+            {
+              "id":"{id}"
+            }
+          }
+        ]
+      }
+    ]
+* **Report Settings - Footer** =
+
+  .. code-block:: html
+
+    <a href="{rootFolder}site-details" class="pager-button">Add Site</a>
+
 .. todo::
   
   Remaining setup of forms in Drupal
