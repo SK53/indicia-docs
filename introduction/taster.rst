@@ -170,9 +170,17 @@ example is from the iRecord Explore facility.
 Verification
 ============
 
+Although Indicia started out as a toolkit for the online capture of wildlife
+records, it was obvious from the outset that there were many other potential
+benefits of the online approach. Providing a centralised online verification 
+tool is one such benefit, since records can be immediately available to 
+verifiers and there are opportunities to increase the efficiency significantly
+using automated checks, rapid verification and other tools. Indicia includes
+a ready made verification system as used on iRecord:
+
 .. todo::
 
-  Complete verification taster
+  Verification image
 
 Bulk import
 ===========
