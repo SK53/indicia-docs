@@ -6,7 +6,7 @@ Contents
 
   index
   introduction/index
-  site-building/building-your-site
+  site-building/index
   administrating/index
   contributing/index
   developing/index
