@@ -13,6 +13,12 @@ Indicia Developer Training
   * Have access to a development installation of Drupal with the IForm module, 
     e.g. Instant Indicia
 
+.. only:: html
+
+  .. image:: ../../images/jigsaw.jpg
+    :width: 400pt
+    :alt: Indicia solves your online recording puzzles
+
 Welcome to the Indicia Developer Training course. This course is aimed at PHP 
 developers who want to learn about developing code for the Indicia online 
 recording toolkit, including core code changes, extension modules and custom
