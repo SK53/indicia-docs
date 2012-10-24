@@ -5,16 +5,6 @@ Overview
 What exactly is Indicia?
 ========================
 
-.. only:: not iiintro
-
-  .. image:: ../images/jigsaw.jpg
-    :width: 600px
-    :alt: Indicia provides the building pieces for online recording websites.
-
-.. todo:: 
-
-  Suitable image here for PDF which does not duplicate the front page
-
 .. sidebar:: Highlights
   
   * Build online systems to capture, map, report and verify wildlife records

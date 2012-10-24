@@ -1,8 +1,6 @@
 Contents
 ########
 
-.. todolist::
-
 .. toctree::
   :maxdepth: 2
 
@@ -13,3 +11,6 @@ Contents
   contributing/index
   developing/index
   help
+
+.. todolist::
+

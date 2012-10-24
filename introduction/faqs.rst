@@ -43,9 +43,27 @@ common and easy to identify species, or all records by a trusted recorder. Email
 communication facilities and integration with NBN Record Cleaner rules combine 
 to make verification both simple and fast.
 
-
 Is Indicia supported?
 ---------------------
+
+Yes. Indicia currently has the following support and help options:
+
+* A forum at http://forums.nbn.org.uk/viewforum.php?id=25
+* A live chatroom at http://jabbr.net/#/rooms/indicia
+
+If you would like something more concrete than free community support then there
+are a number of developers available who can provide paid for support or compete
+website development. The best approach would be to post a message requesting 
+assistance on the forum. 
+
+.. note::
+
+  When choosing the technologies used for Indicia, we have consciously elected
+  to stick with widely used, free and open source tools. Therefore finding 
+  developers with the right skillset (mainly PHP and JavaScript) is relatively
+  easy and there are no up-front costs to get set up as a developer. You can 
+  :doc:`find out more about the technology <technology>` or 
+  :doc:`dive straight in to the developer documentation <../developing/index>`. 
 
 Is there a mobile interface for Indicia?
 ----------------------------------------
@@ -58,6 +76,11 @@ lookup species names and report on the data that a mobile application requires.
 mobile application written using Indicia as the platform for storing the 
 records, thereby benefitting from the reporting, verification and other data 
 management tools.
+
+Currently, a mobile app is being developed for the `UK Ladybird Recording Scheme
+<http://www.ladybird-survey.org>`_ and as part of this project a generic 
+approach to building mobile applications to run alongside Drupal websites is 
+being developed.
 
 What do I need to do to setup my own online recording site?
 -----------------------------------------------------------

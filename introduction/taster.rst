@@ -167,16 +167,44 @@ example is from the iRecord Explore facility.
   :width: 600px
   :alt: The iRecord Explore page.
 
-Data Management
-===============
-
-.. todo::
-
-  Fill in the data management section, e.g. a couple of warehouse screen shots
-
-Web-Services
+Verification
 ============
 
 .. todo::
 
-  Fill in the web services section
+  Complete verification taster
+
+Bulk import
+===========
+
+.. todo:: 
+  
+  Complete bulk import taster
+
+Survey Management
+=================
+
+When you build an online recording website there are a number of things you will
+need to be able to configure, such as lists of species to record against or 
+lists of terms to provide options for drop-down boxes on your forms. In Indicia
+there is a back-end website called the warehouse which you can log into as the
+administrator of a recording website, but which your recorders will never log 
+into. This provides a simple user interface for setting up the various 
+supporting data required by your online recording form, including bulk import
+from spreadsheet files, browsing, adding, editing or deleting any item of data.
+
+.. image:: ../images/screenshots/warehouse/managing-county-terms.png
+  :width: 700px
+  :alt: Managing the list of counties on the warehouse
+
+One of the reasons why you will log into the warehouse is to configure new
+surveys. For each survey you setup you can choose which *custom attributes* to
+include on the recording form; you can even create completely new ones and 
+define the allowed values, validation rules or any other aspect of the 
+attribute.  This means you can build recording forms that are as simple or 
+advanced as you want. There is even a drag and drop editor which lets you define
+the organisation of the attributes that will appear on your recording forms:
+
+.. image:: ../images/screenshots/warehouse/setup-survey-attributes.png
+  :width: 700px
+  :alt: Organising the attributes for a survey

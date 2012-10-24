@@ -36,6 +36,11 @@ html:
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
 
+html-developer:
+	$(SPHINXBUILD) -b html -t developer -c alternate-docs/developer $(ALLSPHINXOPTS) $(BUILDDIR)/html-developer
+	@echo
+	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html-developer."
+
 epub:
 	$(SPHINXBUILD) -b epub $(ALLSPHINXOPTS) $(BUILDDIR)/epub
 	@echo
@@ -58,10 +63,10 @@ latexpdf-iiintro:
 	$(SPHINXBUILD) -b latex -t iiintro -c alternate-docs/iiintro $(ALLSPHINXOPTS) $(BUILDDIR)/latex-iiintro
 	@echo "Running LaTeX files through pdflatex..."
 	$(MAKE) -C $(BUILDDIR)/latex-iiintro all-pdf
-	@echo "pdflatex finished; the PDF files are in $(BUILDDIR)/latex-ii-intro."
+	@echo "pdflatex finished; the PDF files are in $(BUILDDIR)/latex-iiintro."
 
 latexpdf-developer:
-	$(SPHINXBUILD) -b latex -t iiintro -c alternate-docs/developer $(ALLSPHINXOPTS) $(BUILDDIR)/latex-developer
+	$(SPHINXBUILD) -b latex -t developer -c alternate-docs/developer $(ALLSPHINXOPTS) $(BUILDDIR)/latex-developer
 	@echo "Running LaTeX files through pdflatex..."
 	$(MAKE) -C $(BUILDDIR)/latex-developer all-pdf
 	@echo "pdflatex finished; the PDF files are in $(BUILDDIR)/latex-developer."
