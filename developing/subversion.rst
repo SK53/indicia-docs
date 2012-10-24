@@ -39,7 +39,7 @@ untraceable mistakes and other such nightmares.
 .. note::
 
   If you are not familiar with Subversion or version control in general then 
-  this might be a good time to read a primer, for example the 
+  there are several primers available on the web, for example the 
   `Subversion manual <http://svnbook.red-bean.com/>`_ contains chapters on 
   Version Control Basics and Version Control the Subversion Way which provide a 
   good starting point.
@@ -91,6 +91,25 @@ your disk. By convention it splits the code for each project or sub-project into
   we use tags to keep copies of the released code that was used for stable 
   downloads for future reference.
 
+Terminology
+===========
+
+There are a few variations on terminology used alongside version control systems
+but for Subversion the following terms apply:
+
+* **checkout** - obtaining a local copy of the code held in Subversion
+* **update** - updating a local copy of code that was previously checked out
+  from Subversion
+* **commit** - uploading local changes into the Subversion source repository
+* **merge** - updating a local copy of code which has changed both locally
+  and on the Subversion repository
+* **conflict** - the result of a **merge** when one section of the code has 
+  changed both locally and on the repository so that automatic merging cannot
+  take place. Subversion clients tend to provide tools for **conflict 
+  resolution**
+* **diff** - a view of the differences between 2 versions of the same file, 
+  e.g. the local copy and the master copy.
+
 Navigating the Indicia repository
 =================================
 
@@ -123,12 +142,12 @@ trunk folder
 IForm Module
 ------------
 
-.. todo::
-
-  Complete this section
-
-Note that the iform module code includes an external link to the client_helpers folder
-and media folder.
-
-For the rest of this section we will assume you are
-using TortoiseSVN.
+The second sub-project within Indicia's source code is the Drupal IForm 
+integration module. The source code for this is held under
+http://indicia.googlecode.com/svn/drupal/modules/iform, with branches, tags
+and trunk sub-folders as before. Within the iform code we use *svn:external*,
+which is a definition that the iform code should include some code held 
+elsewhere when you obtain a copy of the code. This allows the IForm module to 
+include a copy of the *media* and *client_helpers* folders from the warehouse's
+code so there is no need to maintain 2 physical copies of the code which is 
+being used in 2 different contexts.
