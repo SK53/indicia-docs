@@ -7,9 +7,10 @@ Indicia online recording toolkit. Indicia is an open source community project
 that simplifies the building of biological recording websites and mobile
 applications. 
 
-You will find useful information here whether you are still deciding if Indicia 
-is the product for you, you need details on administering or building websites 
-or even want to start to help developing Indicia code.
+The Indicia manual should provide useful information whether you are still 
+deciding if online recording or Indicia is right for you, you need details on 
+administering or building websites or even if you feel you are ready start to 
+help developing the Indicia project code itself.
 
 .. only:: html
 
@@ -62,3 +63,8 @@ Getting Help
 :doc:`Find out about the various places you can get help<help>` on using, 
 building and developing biological recording websites using Indicia.
 
+.. note::
+
+  Like all other parts of the Indicia ecosystem, the Indicia manual is a free
+  and open source project. :doc:`Find out about how you can contribute 
+  <contributing/index>`.
