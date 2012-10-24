@@ -86,7 +86,7 @@ are not yet part of the development team, a good way to do this is to create a
 patch. This is really easy with TortoiseSVN:
 
 #. Right click the file or folder containing the changes and select 
-   **TortoiseSVN > Create patch...* from the context menu. 
+   **TortoiseSVN > Create patch...** from the context menu. 
 #. On the dialog that pops up, ensure the correct files are ticked then click
    **Ok**.
 #. You are now presented with a File Save dialog, so save your patch somewhere.
