@@ -8,5 +8,4 @@ Developing for the Warehouse
   tutorial-adding-field
   about-modules
   plugins
-  tutorial-plugins
   tutorial-entity-module

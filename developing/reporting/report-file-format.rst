@@ -520,9 +520,78 @@ Attributes
 Declaring SQL for each column
 -----------------------------
 
-.. todo::
- 
-  complete this section
+There are certain limitations to what the Indicia reporting engine can do with 
+the columns SQL all defined in a single block, either in the query or using the 
+``<field_sql>`` element. For example, any query with aggregate functions in it 
+cannot return an accurate record count for the grid paginator. Consider the 
+following query:
+
+.. code-block:: sql
+
+  select l.id, l.name, count(s.id) as sample_count
+  from locations l
+  join samples s on s.location_id=l.id
+  group by l.id, l.name
+
+This returns a list of locations with their sample counts. If we use the 
+``<field_sql>`` approach, then Indicia will run a select count(*) query to get 
+the count of records for the paginator, since this will return the count of 
+sample records not the count of locations. To get round these restrictions, you 
+can define the SQL for each field in the ``<column>`` definition using an 
+attribute called ``sql`` then specify a replacement in the SQL statement 
+*#columns#*. You don’t need to define each field’s alias as the column name will 
+be used for that (since they must be the same). You can also define attributes 
+aggregate (set to true for columns that define an aggregate function so they can 
+be skipped in the count query), distincton (set to true for any columns that you 
+don’t want to duplicate ever) and in_count (set to true if the column should be 
+included in the count query, which defaults to true for distincton columns but 
+false otherwise). To illustrate these points, here is the SQL and column list 
+for the above query:
+
+.. code-block:: xml
+
+  <query>
+  select #columns#
+  from locations l
+  join samples s on s.location_id=l.id
+  group by l.id, l.name
+  </query>
+  <columns>
+  <column name="id" sql="l.id" />
+  <column name="name" sql="l.name " />
+  <column name="sample_count" sql="count(s.id)" aggregate="true" />
+  </columns>
+
+By marking the aggregate column, then Indicia is able to correctly count the 
+distinct non-aggregate values enabling the pager for a report grid to know the 
+correct number of pages. To illustrate the use of distincton, consider writing a 
+query which returns a list of locations plus a sample date, where you don’t 
+actually care which sample date is returned (you just want to know that it has 
+been sampled). Here's the query to do this:
+
+.. code-block:: sql
+
+  select distinct on (l.id) l.id, l.name, s.date_start
+  from locations l
+  join samples s on s.location_id=l.id
+
+Here's how you could represent that in report XML:
+
+.. code-block:: xml
+
+  <sql>
+  select #columns#
+  from locations l
+  join samples s on s.location_id=l.id
+  </sql>
+  <columns>
+  <column name="id" sql="l.id" distincton="true" />
+  <column name="name" sql="l.name " />
+  <column name="date" sql="s.date_start" />
+  </columns>
+
+Note that the **distincton** support was added for Indicia 0.8 and is not 
+available in earlier versions.
 
 .. _vaguedate-label:
 

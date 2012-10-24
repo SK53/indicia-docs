@@ -395,11 +395,7 @@ HTML select form control. This is populated with a list of the websites that the
 user is allowed to see and the current one loaded from the existing taxon_group 
 record is selected. Now, save the file and load up the edit page for an existing 
 taxon group in your warehouse. You should see that the website control has 
-appeared on our view's output:
-
-.. todo::
-
-  image of the taxon group edit showing the new control
+appeared on our view's output.
 
 Controller code
 ---------------
