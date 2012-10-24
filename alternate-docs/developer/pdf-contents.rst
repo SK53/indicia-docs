@@ -9,5 +9,4 @@ Contents
   ../../developing/client-website/index
   ../../developing/subversion
   ../../developing/reporting/index
-  ../../developing/web-services/index
   ../../developing/warehouse/index
