@@ -50,7 +50,7 @@ We are going to add a configuration setting for selecting the survey and the
 species list which this form is linked to. To do this, we need to add 
 the configuration settings to the array returned by our ``get_parameters`` 
 method. Each configuration parameter is represented by an associative array
-with values for **title**, **caption**, **description** and **type**. The title
+with values for **name**, **caption**, **description** and **type**. The title
 is the name given to this parameter when referred to in code, the caption is the
 display label and the type represents the type of the input control, which maps
 to a control defined by a method in the data_entry_helper class. Update your 
