@@ -20,11 +20,11 @@ help developing the Indicia project code itself.
 
   .. sidebar:: Choosing Indicia?
 
-    * Do you need online recording?
-    * Do you want simple data entry?
-    * Do you want to upload photographs?
-    * Would you like to customise recording forms, reports and maps exactly to 
-      your needs?
+    * Are you looking for an online recording system for wildlife records?
+    * Do you want a flexible and cost effective system?
+    * Do you want simple data entry, but the option to customise the recording
+      forms for your own needs?
+    * Do you need the ability to upload photographs?
 
     If the answer is yes then Indicia is for you.
 
