@@ -16,7 +16,7 @@ Indicia Developer Training
 .. only:: html
 
   .. image:: ../../images/jigsaw.jpg
-    :width: 400pt
+    :width: 400px
     :alt: Indicia solves your online recording puzzles
 
 Welcome to the Indicia Developer Training course. This course is aimed at PHP 
