@@ -20,7 +20,7 @@ match your own setup:
     <input type="hidden" name="survey_id" value="1"/>
   <?php   
     $auth = data_entry_helper::get_read_write_auth(1, 'password');
-    data_entry_helper::enable_validation('entry_form');
+    data_entry_helper::enable_validation('entry-form');
     echo $auth['write'];
     echo data_entry_helper::date_picker(array(
       'fieldname'=>'sample:date',
@@ -58,7 +58,7 @@ This translates to:
         '<input type="hidden" name="website_id" value="1"/>'.
         '<input type="hidden" name="survey_id" value="1"/>';
     $auth = data_entry_helper::get_read_write_auth(1, 'password');
-    data_entry_helper::enable_validation('entry_form');
+    data_entry_helper::enable_validation('entry-form');
     $r .= $auth['write'];
     $r .= data_entry_helper::date_picker(array(
       'fieldname'=>'sample:date',

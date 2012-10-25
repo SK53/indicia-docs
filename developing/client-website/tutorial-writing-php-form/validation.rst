@@ -28,7 +28,7 @@ code, after the line which calls ``get_read_write_auth``:
 
   <?php
     ...
-    data_entry_helper::enable_validation('entry_form');
+    data_entry_helper::enable_validation('entry-form');
     ...
   ?>
 

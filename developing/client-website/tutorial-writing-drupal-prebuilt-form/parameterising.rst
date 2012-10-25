@@ -131,7 +131,7 @@ method. For reference, my version of this method now looks like:
     $auth = data_entry_helper::get_read_write_auth(
         $connection['website_id'], $connection['password']
     );
-    data_entry_helper::enable_validation('entry_form');
+    data_entry_helper::enable_validation('entry-form');
     $r .= $auth['write'];
     $r .= data_entry_helper::date_picker(array(
       'fieldname'=>'sample:date',
