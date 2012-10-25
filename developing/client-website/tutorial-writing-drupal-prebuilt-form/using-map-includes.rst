@@ -81,7 +81,9 @@ Rather than passing a hard-coded set of options to the map panel, this code
 must now use the map.php's helper functions to get the array. Note that not
 only is there an array of options to pass to the ``map_panel`` method, but
 there is a second array of options to pass direct to the **OpenLayers**
-JavaScript object.
+JavaScript object, though this is optional and won't be covered in this 
+tutorial. You can find out more about these options in the `OpenLayers 
+documentation <http://dev.openlayers.org/docs/files/OpenLayers/Map-js.html>`_.
 
 .. note::
 
