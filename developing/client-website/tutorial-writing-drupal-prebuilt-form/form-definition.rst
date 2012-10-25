@@ -56,7 +56,3 @@ just put a simple message up to test that everything is working:
     return 'It works!';  
   }
   ?>
-
-There are 2 other methods in the template, but there is no need to implement 
-them just to check the PHP file is working, so next let's try setting it up
-within Drupal.

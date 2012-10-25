@@ -1,9 +1,11 @@
 Other essential tasks
 ---------------------
 
-There are a few other essential tasks to perform before we can try out our new
-tutorial prebuilt form in Drupal. The next method is called ``get_parameters`` 
-and is defined as:
+There are a couple of methods at the end of the class template called 
+``get_submission`` and ``get_redirect_on_success`` which we can ignore for now,
+as they are optional. There are a few other essential tasks to perform before we 
+can try out our new tutorial prebuilt form in Drupal. The next method we do need 
+to implement is called ``get_parameters`` and is defined as:
 
 .. code-block:: php
 
