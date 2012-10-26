@@ -11,8 +11,8 @@ following code into the file and save it:
 
   <!DOCTYPE html>
   <html>
-    <title>Indicia tutorial</title>
   <head>
+    <title>Indicia tutorial</title>
   </head>
   <body>
   <?php

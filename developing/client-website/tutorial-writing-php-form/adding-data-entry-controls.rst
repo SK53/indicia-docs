@@ -72,8 +72,8 @@ This means that your whole code page should look like the following:
 
   <!DOCTYPE html>
   <html>
-    <title>Indicia tutorial</title>
   <head>
+    <title>Indicia tutorial</title>
   </head>
   <body>
   <?php 

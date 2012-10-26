@@ -12,8 +12,8 @@ and add a submit button. Here's the code for the entire page showing the new
 
   <!DOCTYPE html>
   <html>
-    <title>Indicia tutorial</title>
   <head>
+    <title>Indicia tutorial</title>
   </head>
   <body>
     <form method="POST">
@@ -114,8 +114,8 @@ Your code should now look like the following:
 
   <!DOCTYPE html>
   <html>
-    <title>Indicia tutorial</title>
   <head>
+    <title>Indicia tutorial</title>
   </head>
   <body>
     <?php
