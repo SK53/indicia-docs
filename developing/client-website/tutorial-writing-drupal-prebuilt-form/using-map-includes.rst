@@ -85,6 +85,16 @@ JavaScript object, though this is optional and won't be covered in this
 tutorial. You can find out more about these options in the `OpenLayers 
 documentation <http://dev.openlayers.org/docs/files/OpenLayers/Map-js.html>`_.
 
+The code to use the map.php's helper functions is as follows:
+
+.. code-block::
+
+  <?php
+    $mapOpts = iform_map_get_map_options($args, $auth['read']);
+    $olOptions = iform_map_get_ol_options($args);
+    $r .= data_entry_helper::map_panel($mapOpts, $olOpts);
+  ?>
+
 .. note::
 
   OpenLayers is the name of the JavaScript library Indicia uses to add maps to 
