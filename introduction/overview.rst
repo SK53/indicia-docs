@@ -7,9 +7,11 @@ What exactly is Indicia?
 
 .. sidebar:: Highlights
   
-  * Build online systems to capture, map, report and verify wildlife records
-  * Complete flexibility
-  * Free and open source
+    * An online recording system for wildlife records
+    * Flexible and cost effective
+    * Easy and rapid data entry
+    * Fully customisable
+    * An open source, community owned project
 
 Put simply, Indicia's aim is to reduce the cost of and increase the quality of
 websites developed for biological recording. 
@@ -24,10 +26,14 @@ recording functionality. Or, if you are starting from scratch then Instant
 Indicia gives you a ready to configure website installation that can be set up
 as you require without any coding. 
 
-Because Indicia allows complete flexibility in the data entry forms that can be
-created, it is suitable for anything from public participation surveys targeted
-at school children right through to structured long-term monitoring projects 
-performed by professional surveyors.
+Being a toolkit for you to build your own websites, you might worry that it will
+take too much effort. Don't worry, the Instant Indicia tutorials available on 
+the `download page <http://code.google.com/p/indicia/downloads/list>`_ take you 
+through the process of **building your very own recording website in about 3 
+hours**. Because Indicia allows complete flexibility in the data entry forms 
+that can be created, it is suitable for anything from public participation 
+surveys targeted at school children right through to structured long-term 
+monitoring projects performed by professional surveyors.
 
 Conceived as part of the 
 `Open Air Laboratories (OPAL) <http://www.OPALexplorenature.org/>`_ and
@@ -66,5 +72,5 @@ Key Features
 * Use Instant Indicia to provide a rapid installation of an online recording
   website with simple configuration, whilst retaining the full flexibility of 
   Indicia.
-* All this whilst free and open source no software fees and all developments on 
-  Indicia are provided to the community to benefit all.
+* All this whilst free and open source - every development of Indicia is made
+  available to the biological recording community to benefit all.

@@ -18,22 +18,20 @@ help developing the Indicia project code itself.
     :width: 400px
     :alt: Indicia solves your online recording puzzles
 
-  .. sidebar:: Choosing Indicia?
+  .. sidebar:: About Indicia
 
-    * Are you looking for an online recording system for wildlife records?
-    * Do you want a flexible and cost effective system?
-    * Do you want simple data entry, but the option to customise the recording
-      forms for your own needs?
-    * Do you need the ability to upload photographs?
-
-    If the answer is yes then Indicia is for you.
+    * An online recording system for wildlife records
+    * Flexible and cost effective
+    * Easy and rapid data entry
+    * Fully customisable
+    * An open source, community owned project
 
 Introduction
 ============
 
 If you are still deciding whether to use Indicia or just want an overview of the 
-project, then :doc:`get an introduction to the project here 
-</introduction/index>`.
+project, then why not :doc:`read an introduction to the project 
+</introduction/index>` here.
 
 Building an online recording website
 ====================================

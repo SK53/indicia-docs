@@ -8,8 +8,9 @@ but does give a feel for the range of surveys that can be supported. Firstly,
 we'll look through some examples which are aimed at engaging the public in 
 biological recording. These tend to have easy to use forms for capturing a 
 species selected from a limited list of target species, a date and place. 
-Normally the species involved will be very easily identified, or at least some 
-form of identification assistance is provided.
+Normally the species involved will be easily identifiable and the site may 
+provide additional identification assistance to make recording as simple as 
+possible.
 
 BBC Breathing Places Ladybird Survey
 ====================================
@@ -29,7 +30,7 @@ ladybird parasite survey also on the BBC Breathing Places site!
 Maach Mat!
 ==========
 
-Another example of this sort of public participation survey is the 
+Another example of a public participation survey is the 
 `Maach Mat (Take Part) survey <http://data.mnhn.lu/en/maach_mat>`_ run by the
 *Musée national d'histoire naturelle* in Luxembourg. This survey has a very 
 limited list of easily identified species to record in several categories. It's
@@ -49,20 +50,22 @@ participate in a survey of potential pollinators or to have a go at a simple
 "Discover Pollinators" checklist. The former was designed in collaboration with 
 scientists at the `Centre for Ecology & Hydrology <http://www.ceh.ac.uk>`_ to 
 ensure that the resultant data could be used in subsequent analysis despite 
-having been collected by unknown members of the public. The survey's results 
-have been compared to results collected by trained volunteers during the event 
-to provide useful data on the accuracy of citizen science records. The online 
-recording forms were designed using Indicia to match the paper forms used in the
-field to ensure that the input was as intuitive as possible.
+having been collected by members of the public with no prior expertise. The 
+survey's results have been compared against results collected by trained 
+volunteers during the event to provide useful data on the accuracy of citizen 
+science records. The online recording forms, shown below, were designed using 
+Indicia to closely match the paper forms used in the field to ensure that the 
+input was as intuitive as possible.
 
 .. image:: ../images/screenshots/websites/ofs-pollinator-input.png
   :width: 600px
-  :alt: Inputting pollinator survey records for Open Farm Sunday
+  :alt: Entering pollinator survey records for Open Farm Sunday
 
 The Discover Pollinators form was intended to provide an opportunity for the 
 public to engage with biological recording who had not been involved before. 
-Again, the web version of the form was carefully matched to the paper version in
-the field to ensure familiarity.
+Again, the web version of the form below was carefully matched to the paper 
+version as used in the field to ensure familiarity for members of the public
+inputting their records.
 
 .. image:: ../images/screenshots/websites/ofs-discover-pollinators.png
   :width: 600px
@@ -74,7 +77,7 @@ North East Cetacean Project
 `The North East Cetacean Project <http://www.northeastcetaceans.org.uk>`_ was one 
 of the first surveys launched using Indicia and collects ad-hoc cetacean 
 sigthings in the Northumberland region of England. The data input form includes
-identification information for each species to help with record accuracy.
+identification information for each species to help with recording accuracy.
 
 .. image:: ../images/screenshots/websites/necp-input-species.png
   :width: 600px
@@ -84,8 +87,8 @@ NatureSpot
 ==========
 
 It's also possible to use Indicia to build recording sites which are aimed at 
-enthusiasts, perhaps recording across a much wider taxonomic range or even 
-recording any taxon at all. An example of this is the 
+regular recorders, either for those recording within a taxonomic group or 
+for generalist recorders working across groups. An example of the latter is the 
 `NatureSpot <http://www.naturespot.org.uk>`_ site which allows naturalists in 
 Leicestershire and Rutland to record all their sightings and photographs. This 
 site supports entry of lists of any species at a particular date and time along
@@ -108,19 +111,28 @@ you want around the online recording. In this case, NatureSpot features a
 comprehensive library of species accounts for species found in Leicestershire
 and Rutland. There are also pages describing the wild places of the area which 
 include content and site photos created using Drupal alongside recent records
-and record photos from Indicia, using the site's boundary polygon to 
-automatically calculate which records to include on the wild place's page.
+and record photos from Indicia. These pages are of interest for a couple of 
+reasons:
+
+* The records and photos shown on each wild places page are calculated by 
+  Indicia using the site's boundary polygon to automatically work out which 
+  records to include. This sort of *spatial query* is easy because of the 
+  **PostGIS** spatial database used by Indicia. 
+* Drupal's content management facilities allow local site editors to edit the 
+  text content on each wild place or species page using easy-to-use text 
+  editors. There is therefore no need to pay a developer for general site 
+  maintenance of this nature.
 
 iRecord
 =======
 
 `iRecord <http://www.brc.ac.uk/irecord>`_ is a general recording site for the 
-United Kingdom, managed and hosted by `BRC <http://www.brc.ac.uk>`_. 
+United Kingdom, managed and hosted by the `Biological Records Centre <http://www.brc.ac.uk>`_. 
 
-iRecord provides an expert verification portal not only for 
-records collected on iRecord itself but any other websites sharing the BRC
-Indicia warehouse hosting facilities that opt in via Indicia's data sharing
-agreement facilities.
+As well as online recording, iRecord provides an expert verification portal not 
+only for records collected on iRecord itself but any other websites sharing the 
+BRC Indicia warehouse hosting facilities that opt in via Indicia's :doc:`data 
+sharing agreement <../administrating/website-agreements>` facilities.
 
 iRecord used Instant Indicia as a starting point for the website build with a 
 selection of configured prebuilt forms for both data entry, reporting and 
@@ -136,13 +148,14 @@ be launched to the public in 2013.
   :width: 600px
   :alt: Summary of the Garden Biolitz results.
 
-
 SPIPOLL
 =======
 
-Engaging citizen scientists across France, `SPIPOLL <http://www.spipoll.org>`_ 
+As well as these generic recording solutions, it is also possible to use 
+Indicia to develop highly specialised forms matched to particular survey 
+methodologies. Engaging citizen scientists across France, `SPIPOLL <http://www.spipoll.org>`_ 
 involves recording and photographing pollinators visiting flowers and includes 
-tight integration into an existing Drupal site, advanced search gallery and a 
+tight integration into an existing Drupal site, an advanced search gallery and a 
 highly customised data entry system. 
 
 .. image:: ../images/screenshots/websites/spipoll-collection.png
@@ -157,14 +170,16 @@ integration with a Bayesian key to help identify the pollinating insects.
 Biomonitoring Luxembourg
 ========================
 
-As well as these generic recording solutions, it is also possible to use 
-Indicia to develop highly specialised forms matched to particular survey 
-methodologies, such as this form for long term grid based monitoring of 
-butterflies in Luxembourg:
+In Luxembourg, Indicia is not only used for public participation exercises like
+Maach Mat, but also for long term monitoring of bird, bat, butterfly, reptile
+and mammal species. The participant recorders follow strict methodologies for 
+each of the surveys and the recording forms are correspondingly built for 
+purpose. The following screenshot shows the customised input screen for 
+butterfly transect recording:
 
-.. todo:: 
-
-  image
+.. image:: ../images/screenshots/websites/lux-butterflies.png
+  :width: 700px
+  :alt: Recording butterfly transects in Luxembourg
 
 Developing specialist solutions such as this does require some code to be 
 written, but they are much easier to develop using the Indicia toolkit as a 
