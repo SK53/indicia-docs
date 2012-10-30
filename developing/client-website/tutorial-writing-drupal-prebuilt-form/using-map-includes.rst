@@ -87,7 +87,7 @@ documentation <http://dev.openlayers.org/docs/files/OpenLayers/Map-js.html>`_.
 
 The code to use the map.php's helper functions is as follows:
 
-.. code-block::
+.. code-block:: php
 
   <?php
     $mapOpts = iform_map_get_map_options($args, $auth['read']);
