@@ -1,6 +1,6 @@
-******************
-Indicia Components
-******************
+************
+Architecture
+************
 
 In order to understand how to setup your own online recording using Indicia you 
 first need to understand the key components that go together to build the 
@@ -16,7 +16,7 @@ which we will look at later, designed for use by people whose role it is to set
 up and configure the surveys that are being conducted.
 
 Because the database used by Indicia is fully able to handle geographic objects
-such as site boundaries, known as being *spatially enabled*, you can link the 
+such as site boundaries as it is fully *spatially enabled*, you can link the 
 data in a warehouse easily to a GIS (Geographical Information System) 
 application, Google Earth or online map. However this does mean that the 
 technology used on the warehouse may not run on a typical low-cost hosted 
@@ -45,6 +45,11 @@ servers.
 There are several possible approaches to building your website using 
 Indicia, these include:
 
-* Instant Indicia - the fastest and simplest way to get started
-* The Drupal IForm module
-* Using the Indicia programmers interface from your own PHP code
+* :doc:`Instant Indicia <instant-indicia>` - the fastest and simplest way to get 
+  started
+* :doc:`The Drupal IForm module <../site-building/iform/index>`
+* :doc:`Using the Indicia programmers interface from your own PHP code 
+  <../developing/client-website/tutorial-writing-php-form/index>`
+
+You can find out more about the site building choices in 
+`../site-building/building-your-website`.

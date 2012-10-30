@@ -5,9 +5,8 @@ Taster
 Ok, we know that Indicia is about building online biological recording websites
 using a suite of tools services and components. But what sorts of things might 
 I expect to get? This section illustrates just a few examples but don't forget 
-that Indicia is open source and fully extensible so you can create your own 
-controls and other facilities for just the extra bits you need if you have 
-access to a programmer.
+that Indicia is open source and fully extensible so there are no limits to what
+can be achieved.
 
 Data entry
 ==========

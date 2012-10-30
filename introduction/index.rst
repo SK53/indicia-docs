@@ -33,7 +33,7 @@ In this section you will find the following:
   faqs
   open-source
   taster
-  indicia-components
+  architecture
   instant-indicia
   technology-primer
   technology
