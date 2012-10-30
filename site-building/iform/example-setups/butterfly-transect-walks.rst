@@ -470,4 +470,6 @@ in the configuration form which appears:
 .. todo::
   
   Remaining setup of forms in Drupal
-
+  Enable easy login
+  Site details form setup
+  Enable AJAX Proxy - can be done after saving the site details form as "Enable AJAX Proxy" button appears.
