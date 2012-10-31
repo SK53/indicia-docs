@@ -136,7 +136,9 @@ the options for running the Warehouse are as follows:
    limited, there are some, for example those in the following list:
 
    * http://www.nethosted.co.uk/uk-web-hosting.php
-   * http://www.devisland.net/
+   * http://www.devisland.net
+   * http://www.memset.com
+   * http://www.a2hosting.com
 
    Please note that this list is not an endorsement in anyway, merely a 
    suggestion of some hosts to investigate. For the ultimate in power and 
