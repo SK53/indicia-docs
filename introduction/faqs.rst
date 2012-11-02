@@ -148,7 +148,7 @@ the options for running the Warehouse are as follows:
 #. Share a server with a partner organisation that is willing and capable of 
    hosting the Warehouse on your behalf. At this time the only organisation 
    planning to do this on behalf of other organisations is the `Biological 
-   Records Centre <http://www.brc.ac.uk`_, but that does not mean there won't be 
+   Records Centre <http://www.brc.ac.uk>`_, but that does not mean there won't be 
    more.
 
 Remember with options 1 and 2 there is an overhead of installation and 
