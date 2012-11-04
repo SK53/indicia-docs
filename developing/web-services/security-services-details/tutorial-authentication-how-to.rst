@@ -37,15 +37,86 @@ web server.
   ?>
 
 Having defined these variables, we need to the next step is to build the URL 
-which the authentication web services are found at. This is simply a case of 
-appending
+which the authentication web services are found at. As we are going to call the
+``get_read_nonce`` method this is simply a case of appending the following:
 
 .. code-block:: php
 
   <?php
 
+  ...
+  $serviceUrl = $warehouseUrl.'index.php/services/security/get_read_nonce';
+  
   ?>
 
+Next, we use the cUrl library to send an HTTP post to the web service with the
+website ID as a post argument:
 
- send an *HTTP post* to the
-warehouse
+.. code-block:: php
+
+  <?php
+  
+  ...
+  $postargs="website_id=$website_id";
+  $session = curl_init();
+  // Set the POST options.
+  curl_setopt($session, CURLOPT_URL, $serviceUrl);
+  curl_setopt($session, CURLOPT_POST, true);
+  curl_setopt($session, CURLOPT_POSTFIELDS, $postargs);
+  curl_setopt($session, CURLOPT_HEADER, false);
+  curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
+  // Do the POST and then close the session
+  $nonce = curl_exec($session);
+  $headers = curl_getinfo($session);
+  if (curl_errno($session) || $headers['http_code']!==200)
+    throw new Exception("cUrl error number: ".curl_errno($session));
+  curl_close($session);
+  
+  ?>
+
+Now, the ``$response`` variable holds the nonce returned from the warehouse. In
+order to fulfill the requirements of the digest authentication, we must use this
+nonce along with the website password to create the **auth token**. We use the 
+``sha1`` algorithm to do this which is considered to be non-reversible.
+
+.. code-block:: php
+
+  <?php
+ 
+  ...
+  $auth_token=sha1("$nonce:$password");
+  
+  ?>
+
+We now know the ``$nonce`` and ``$auth_token`` which can be attached as GET or 
+POST parameters to web services requests to authenticate them. In this example 
+we called the **get_read_auth** web service, it simply requires a change to use 
+the **get_auth** web service to obtain write authorisation tokens.
+
+For reference, here is the complete code:
+
+.. code-block:: php
+
+  <?php
+
+  $website_id=1;
+  $password='password';
+  $warehouseUrl='http://localhost/indicia/';
+  $serviceUrl = $warehouseUrl.'index.php/services/security/get_read_nonce';
+  $postargs="website_id=$website_id";
+  $session = curl_init();
+  // Set the POST options.
+  curl_setopt($session, CURLOPT_URL, $serviceUrl);
+  curl_setopt($session, CURLOPT_POST, true);
+  curl_setopt($session, CURLOPT_POSTFIELDS, $postargs);
+  curl_setopt($session, CURLOPT_HEADER, false);
+  curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
+  // Do the POST and then close the session
+  $nonce = curl_exec($session);
+  $headers = curl_getinfo($session);
+  if (curl_errno($session) || $headers['http_code']!==200)
+    throw new Exception("cUrl error number: ".curl_errno($session));
+  curl_close($session);
+  $auth_token=sha1("$nonce:$password");
+
+  ?>
