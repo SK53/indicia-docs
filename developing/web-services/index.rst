@@ -6,7 +6,6 @@ Web Services
 
   authentication-overview
   authentication-client-helpers
-  tutorial-authentication-how-to
   data-services-read-record
   data-services-read-dataset
   data-services-read-client-helpers
@@ -16,4 +15,6 @@ Web Services
   data-services-write-client-helpers
   tutorial-data-services-write
   reporting-services
+  user-identifiers
+  security-services-details/index
 
