@@ -3,18 +3,22 @@ Authentication Overview
 
 When a client website makes a read or write request to the warehouse's web 
 services, it is necessary to authenticate the request rather like a website
-requiring you to log in before you can get full access to the site. The web 
-services in Indicia restrict access to the data content by website registration,
-so the list of websites on the warehouse is effectively the list of web service
-logins. Therefore, to gain access to the web services requires the request to 
-be authenticated using the website ID and password. In an ideal world a 
-secure connection would be used so that the password can be passed between the 
-client and server to authenticate. Secure communications over the internet are
-normally dependent on using a secure socket layer (SSL) - this is the technology
-in use when you visit online payment sites with the website's protocol set to
-*https*. This type of connection requires additional configuration on the server
-so, in Indicia, we cannot rely on it being an option. Therefore we had to design
-the web services so that they are secure even across an insecure connection.
+requires you to log in before you can get full access to the site. The process
+of authentication can be described as *checking you are who you say you are*. 
+In most cases, authentication will be followed by a process of *authorisation*, 
+in otherwords *granting you access to only things you are authorised to see*. 
+The web services in Indicia restrict access to the data content on a client 
+website basis, so the purpose of authentication is to check that web service
+requests are coming from the correct website. Therefore, to gain access to the 
+web services requires the request to be authenticated using the website ID and 
+password. In an ideal world a secure connection would be used so that the 
+password can be passed between the client and server to authenticate. Secure 
+communications over the internet are normally dependent on using a secure socket 
+layer (SSL) - this is the industry standard technology in use when you visit 
+online payment sites with the website's protocol set to *https*. This type of 
+connection requires additional configuration on the server so, in Indicia, we 
+cannot rely on it being an option. Therefore we had to design the web services 
+so that they are secure even across an insecure connection.
 
 Instead of https, Indicia uses **digest authentication** which is a protocol for 
 authentication that does not require the password to be sent from the client to 

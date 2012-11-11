@@ -2,6 +2,15 @@
 Web Services
 ************
 
+Indicia's web services are a key component of the Indicia warehouse, since all
+interactions between the client website and the warehouse are via web services. This
+approach means there is no practical difference between hosting your client website on 
+the same machine as the warehouse or hosting it on the other side of the globe. The web
+services are effectively a set of functions that can be called remotely, for example 
+functions which return data, allow addition of records to the warehouse, or perform 
+utility calculations such as spatial reference transformations where these can't be 
+handled on the client.
+
 .. toctree::
 
   authentication-overview
