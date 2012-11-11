@@ -1,26 +1,26 @@
 Authentication using the Client Helpers
 =======================================
 
-The client helpers library API, as you would expect, has built in simple support
-for handling web service authentication so you don't need to worry too much 
-about the technical details of how the **digest authentication** works.
-Authorisation generally works by providing a website ID and password to a 
-method which returns one or more of the following:
+The client helpers library API, as you would expect, has built in simple support for
+handling web service authentication so you don't need to worry too much about the
+technical details of how the **digest authentication** works. The authorisation process
+requires a website ID and password to be provided to a method which then creates tokens
+which can be used to provide that web service requests are authentic. These methods then
+return one or more of the following:
 
-* Write authorisation tokens in the form of HTML, containing hidden inputs which
-  embed the authorisation tokens into your form.
-* Read authorisation tokens in the form of a PHP array which can be passed to 
-  the various client helper controls which need to read from the web services
-  such as the controls which populate themselves from a termlist.
-* Write authorisation tokens in the form of a PHP array which can be passed to 
-  any JavaScript that does AJAX posting of form data.
-
-The authorisation methods are implemented in the **helper_base** class, which is 
-the base class for all the client helper classes. This means that you can access 
-them using the **data_entry_helper**, **report_helper**, **map_helper** or 
-**import_helper** class, whichever is the most convenient for the code you are
-writing. They are static methods so must be called using the `::` construct as
-in the following example:
+* Write authorisation tokens in the form of HTML, containing hidden inputs which embed
+  the authorisation tokens into your form.
+* Read authorisation tokens in the form of a PHP array which can be passed to the
+	various client helper controls which need to read from the web services such as the
+	controls which populate themselves from a termlist.
+* Write authorisation tokens in the form of a PHP array which can be passed to any
+	JavaScript that does AJAX posting of form data.
+	
+The authorisation methods are implemented in the **helper_base** class, which is the base
+class for all the client helper classes. This means that you can access them using the
+**data_entry_helper**, **report_helper**, **map_helper** or **import_helper** class,
+whichever is the most convenient for the code you are writing. They are static methods so
+must be called using the `::` construct as in the following example:
 
 .. code-block:: php
 
@@ -29,9 +29,9 @@ in the following example:
   ?>
 
 The Indicia API documentation includes a definition of the authorisation methods
-`get_auth`, `get_read_auth` and `get_read_write_auth`. A few examples of their
-use follows, based on authenticating against the default demonstration website
-entry on the warehouse.
+`get_auth`, `get_read_auth` and `get_read_write_auth`. A few examples of their use
+follows, based on authenticating against the default demonstration website entry on the
+warehouse.
 
 .. code-block:: php
 
