@@ -92,22 +92,46 @@ functionality: ::
 Install PHP and a web server
 ============================
 
-If you are installing on Windows, then you will typically want to use IIS 
-(Internet Information Services) or Apache as your web server software. For other
-operating systems we recommend the Apache web server. This tutorial is written 
-on the assumption that you are using Apache, though the steps will mostly be the
-same (except with different folder locations) for IIS.
+If you are installing on Windows, then you will typically want to use IIS (Internet
+Information Services) or Apache as your web server software. For other operating systems
+we recommend the Apache web server. This tutorial is written on the assumption that you
+are using Apache, though the steps will mostly be the same (except with different folder
+locations) for IIS.
 
-There are many tutorials on the web on how to install PHP and a webserver such 
-as Apache. PHP version 5.3 is recommended though PHP 5.2 should work. PHP 5.4 is not currently supported.
-The following guide explains installation of PHP, Apache and MySQL on Windows: 
-http://www.php-mysql-tutorial.com/install-apache-php-mysql.php. MySQL is not 
-required by the Indicia Warehouse. Another alternative is to install a ready 
-made 'stack' with a set of predefined components all packaged into one install 
-kit. An example is XAMPP though note that version 1.7.4 removed several modules 
-from previous versions making Indicia installation more difficult. You can 
-download version 1.7.3 for Windows from 
-http://sourceforge.net/projects/xampp/files/XAMPP%20Windows/1.7.3/.
+There are many tutorials on the web on how to install PHP and a webserver such as Apache.
+PHP version 5.3 is recommended though PHP 5.2 should work. PHP 5.4 is not currently
+supported. The following guide explains installation of PHP, Apache and MySQL on Windows:
+http://www.php-mysql-tutorial.com/install-apache-php-mysql.php. MySQL is not required by
+the Indicia Warehouse. Another alternative is to install a ready made 'stack' with a set
+of predefined components all packaged into one install kit. Rather than install each
+component individually, you might like to consider installing a *stack*, that is a single
+installation which packages all the things you need for the web server. Here are a few
+examples for your consideration:
+
+**Windows**
+
+* `WampServer <http://www.wampserver.com/en/>`_
+
+**Mac**
+
+* `MAMP <http://www.mamp.info/en/index.html>`_
+
+**Any operating system**
+
+* `XAMPP <http://www.apachefriends.org/en/xampp.html>`_
+
+Whichever you choose, please make sure you install a version which includes PHP 5.2.x or 
+(preferably) PHP 5.3.x, as PHP 5.4 is not yet supported for the Indicia warehouse code.
+
+After installation, all installations of a PHP web server will have 2 things you are going
+to need to find before going on:
+
+#. Your website's *root* folder. This is the folder on your hard disk which will be 
+mapped to a base URL in your browser such as ``http://localhost``. You will place files in 
+here to create content on your websites. For XAMPP you need to look for a folder called
+**htdocs**, which by default is inside your XAMPP installation folder. For WampServer look
+for a folder called **www**.
+#. Your **php.ini** file, the configuration settings file for your PHP environment. 
 
 After installing PHP, edit your php.ini file and uncomment the following two 
 lines by removing the semi-colon at the start. This enables the pgsql module 
@@ -146,3 +170,179 @@ cURL and pgsql libraries are loaded.
   loading the pgsql libraries for PHP on a Windows Apache server, because of the 
   paths not being correct. For more information on this issue see 
   http://stackoverflow.com/questions/551734/php-not-loading-php-pgsql-dll-on-windows.*
+  
+Get the Warehouse code
+======================
+First, create yourself a folder inside your web server's root folder, for example
+htdocs\indicia. Now, download the `Indicia warehouse code <http://code.google.com/p/indicia/downloads/list>`_
+and unzip it. Inside the zip file you will find a file called Indicia. Copy the contents
+of this folder into the folder you have just created on your webserver. Please note, if
+you are re-installing the Indicia Warehouse for whatever reason, always remove the
+contents of the previous installation from the folder completely before copying over the
+new files, otherwise the configuration files created during installation will be still
+present and you won't be able to reinstall from scratch.
+
+If you are running on a hosted server, it may be easiest to download and unzip the code
+into a local folder then use an FTP tool to upload it into a folder created on your web
+server account.
+
+Run the Setup
+=============
+
+The Setup procedure will automatically start if you access the index.php file in the root
+of the website. So, just enter this into your web browser, for example
+http://localhost/indicia/index.php, and load the page. This should display the Indicia
+Setup Check page, which with any luck will show something similar to the following:
+
+.. image:: ../images/screenshots/warehouse/setup_check.png
+  :width: 700px
+  :alt: The warehouse installation setup check screen.
+  
+Each of the tasks that the Indicia Warehouse has identified still needs your attention are
+listed on this page in a warning box. Assuming that you have enabled the cUrl and
+PostgreSQL PHP extensions earlier in this guide and that an appropriate version of PHP is
+installed (at least 5.2), then the things you will need to attend to are as follows:
+
+Directory Access
+----------------
+
+If your server is a production server then you should ensure that each folder has the
+required permissions, and no more. This section of the setup check gives you some pointers
+to the permission problems that currently exist, listing the folders that it has tested
+which have correct permissions as well as the ones which don't. In our case, the reports
+and trigger templates folders are writeable but should be readonly. Once you have
+corrected them you can refresh the page to check that it has worked.
+
+If you are installing a server for development or private purposes then it is safe to
+ignore the fact that the reports and trigger templates folders are writeable. Click the
+Acknowledge button and confirm that you are happy to ignore this on the next screen to
+allow you to proceed with the installation.
+
+Demo configuration
+------------------
+
+Click the Configure Demo Pages button, then you will be presented with the Demo
+Configuration page:
+
+.. image:: ../images/screenshots/warehouse/setup_demo.png
+  :width: 700px
+  :alt: The warehouse demo setup installation page.
+  
+This page allows you to provide a link to a `GeoServer <http://geoserver.org/>`_
+installation on your server which can provide access to the spatial data in your
+Warehouse. If you don't have one, don't worry as this is only required for some
+distribution mapping functionality and can be added later.
+
+In addition, this page allows you to specify API keys for various web services used by the
+Indicia demo pages. If you don't specify them now, they can be entered later by editing
+the file ``client_helpers/helper_config.php``. Also note that these settings are only for
+the demo pages on the warehouse, so it is safe to save this page with blank settings if
+you are not going to use the demo pages.
+
+Email Configuration
+-------------------
+
+Click the Configure email button, then you will be presented with the Email Configuration 
+page:
+
+.. image:: ../images/screenshots/warehouse/setup_email.png
+  :width: 700px
+  :alt: The warehouse email setup installation page.
+  
+On this page, you need to provide the information Indicia needs to connect to a mail
+server in order to send forgotten password reminder emails. If you are running a
+development server or don't need this functionality, you can click the Skip email
+configuration button. Here are some notes on the setup options:
+
+**Outgoing mail server** is the address you use to send mail out to from this account.
+This would be the smtp address given by your email provider, e.g. smtp.domain.com.
+
+**Username for email connection** is the username used by your email application to
+connect to your email account.
+
+**Password for email connection** is the password used by your email application to
+connect to your email account.
+
+You should normall be able to leave the other settings as they are, though you can
+configure the port if using a non-standard port, as well as the title used and server name
+given in forgotten password emails. Note that if you want to change these settings at a
+later date, they are stored in the Warehouse's email configuration file in
+application/config/email.php.
+
+Database Configuration
+----------------------
+
+Click the Configure database button, then you will be presented with the Database 
+Configuration page:
+
+.. image:: ../images/screenshots/warehouse/setup_db.png
+  :width: 700px
+  :alt: The warehouse database setup installation page.
+  
+Specify the name of the database you have created, plus the username and password of the
+user you created earlier. Additionally, there is an option to enter a second username and
+password for the user that reports will be run with. For ultimate security this should be
+a separate user account with access to select from appropriate tables only, though for a
+test installation it is fine to use the same username and password as the main user. You
+will also be asked to enter a schema name - typically you can enter "indicia" as the
+schema name but if you need to run more than one Indicia warehouse on a single PostgreSQL
+database you can use another name.
+
+The Host and Port can be left at their default settings if PostgreSQL is running on the
+local machine on the default port.
+
+Once done, just click the Submit button. It will take a few seconds to return to the Setup
+Check page now because the database itself is being installed and prepared for use.
+
+Once you have done all the setup tasks required, you will see the following:
+
+.. image:: ../images/screenshots/warehouse/setup_complete.png
+  :width: 700px
+  :alt: The warehouse installation complete message page.
+  
+If everything has worked, clicking the button on the message will take you to the login
+page for the Indicia Warehouse Module. The initial login username is admin, with no
+password, but after logging in you will be immediately taken to the page that requests you
+to change your password and setup other details of the admin login.
+
+Finally, after setting up the login account you will be redirected to the Home page, where
+you will see a message indicating that you need to upgrade the database to the latest
+version. Click the upgrade button to complete the installation process.
+
+That's it!
+
+Next Steps
+==========
+
+Security
+--------
+
+To secure your Indicia installation, you need to prevent directory access to each of the
+folders. In addition you should block all access to the application\cache folder since
+this is where requested authentication details from data entry pages are stored. To do
+this on Apache, assuming that .htaccess is supported on your server and mod_rewrite is
+installed, rename the file example.htaccess in the root of the indicia installation folder
+to just .htaccess.
+
+Optimisation 
+------------
+  
+If you are able to set the default search path for your indicia user that
+accesses the database, then it is possible to implement a performance improvement. To do
+this, run the following script replacing indicia_user with your username:
+
+.. code-block: sql
+
+  ALTER USER indicia_user SET search_path = indicia, public, pg_catalog; 
+
+Now, open the indicia.php file in the application/config folder using a text editor. Find
+the entry called apply_schema and set it to false. You can create the entry if it is not
+already present:
+
+.. code-block:: php
+
+  <?php
+  ...
+  $config['apply_schema']=false;
+  ...
+  ?>
