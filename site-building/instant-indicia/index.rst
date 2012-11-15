@@ -28,3 +28,4 @@ ready-made building blocks and performing a few configuration tasks.
 .. toctree::
 
   features/index
+  example-setups/index
