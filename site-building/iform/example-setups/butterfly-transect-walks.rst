@@ -197,6 +197,8 @@ of any existing transects.
 * **Site details/Details/County**
   Lookup, BMS Counties termlist, linked to Transect location type, required for 
   the survey.
+* **Site details/Details/Sensitive**
+  Boolean, available to other websites, linked to Transect location type
 * **Site details/Details/No. of sections**
   Integer, linked to Transect location type, minimum 0, required for survey
 * **Site details/Details/Overall length (m)**
@@ -236,8 +238,6 @@ of any existing transects.
   Integer, minimum 0, linked to Section location type
 * **CMS User ID**
   Integer, available to other websites, linked to Transect location type
-* **Sensitive**
-  Boolean, available to other websites, linked to Transect location type
 
 Setup the following custom attributes for occurrences in your survey:
 
@@ -262,11 +262,11 @@ Setup the following custom attributes for samples in your survey:
 * **Temp (Deg C)**
   Lookup, BMS Temperatures list, required for survey, sample method=Transect
 * **Wind Direction**
-  Lookup, BMS Wind Directions list, Default value=Not recorded/no data, default 
-  control type=select, sample Method=Transect
+  Lookup, BMS Wind Directions list, Default value=Not recorded/no data, required for
+  survey, default control type=select, sample Method=Transect
 * **Wind Speed**
-  Lookup, UKBMS Wind Speeds list, required for survey, default control 
-  type=select, sample method=Transect
+  Lookup, UKBMS Wind Speeds list, Default value=Not recorded/no data, required for survey,
+  default control type=select, sample method=Transect
 * **CMS User ID**
   Use the existing attribute, Sample Method=Transect. This attribute is not 
   needed if the Easy Login module is enabled.
