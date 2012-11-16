@@ -6,4 +6,5 @@ Administering and maintaining Indicia
 
   installation-requirements
   warehouse-installation
+  warehouse-upgrading
   website-agreements
