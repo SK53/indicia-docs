@@ -3,8 +3,8 @@ How to write authentication code tutorial
 
 .. sidebar:: Prerequisites
 
-  * You've read :doc:`authentication-overview` and 
-    :doc:`authentication-client-helpers`.
+  * You've read :doc:`../authentication-overview` and 
+    :doc:`../authentication-client-helpers`.
   * You are competent in a language you want to be able to authenticate from
     and are able to port the examples from PHP.
   * You have access to a warehouse suitable for testing against and have 

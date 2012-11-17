@@ -123,47 +123,47 @@ Setting up the form structure
 
 * **Form Structure** - paste the following text in::
 
-  =About you= 
-  [*]
-  @smpAttr:36|helpText=Please provide your first name
-  @smpAttr:36|class=control-width-5
-  @smpAttr:58|helpText=Please provide your surname
-  @smpAttr:58|class=control-width-5
-  @smpAttr:8|helpText=Please provide your email. This will only be used to contact you if we require further information to verify the record.
-  @smpAttr:8|class=control-width-5
-  =Species=
-  [date]
-  @class=control-width-4
-  @lockable=true
-  [*]
-  @smpAttr:127|class=control-width-5
-  @smpAttr:127|default={profile_last_name}, {profile_first_name}
-  @smpAttr:127|helpText=Enter the recorder's name, if different.
-  @smpAttr:127|lockable=true
-  ?Please enter all the species you saw at one site on a single day and any other information about them.  Then move to the <strong>When and where was it?</strong> tab before submitting your records.?
-  [species]
-  @resizeWidth=1500
-  @resizeHeight=1500
-  @occAttr:18|default={profile_last_name}, {profile_first_name}
-  @helpText=Use * as a wildcard when searching for species names.
-  [species attributes]
-  =Place=
-  [spatial reference]
-  @lockable=true
-  @class=control-width-4
-  @label=Enter a spatial reference<br/><strong>Or</strong> simply click on your position on the map
-  <div id="map-help" style="display: none" class="ui-state-highlight ui-corner-all page-notice"></div>
-  <br/>
-  [*]
-  @smpAttr:56|lookUpListCtrl=hierarchical_select
-  [sample comment]
-  |
-  [map]
-  @helpToPickPrecisionMin=100
-  @helpToPickPrecisionMax=10
-  @helpToPickPrecisionSwitchAt=100
-  @helpDiv=map-help
-  =*=
+    =About you= 
+    [*]
+    @smpAttr:36|helpText=Please provide your first name
+    @smpAttr:36|class=control-width-5
+    @smpAttr:58|helpText=Please provide your surname
+    @smpAttr:58|class=control-width-5
+    @smpAttr:8|helpText=Please provide your email. This will only be used to contact you if we require further information to verify the record.
+    @smpAttr:8|class=control-width-5
+    =Species=
+    [date]
+    @class=control-width-4
+    @lockable=true
+    [*]
+    @smpAttr:127|class=control-width-5
+    @smpAttr:127|default={profile_last_name}, {profile_first_name}
+    @smpAttr:127|helpText=Enter the recorder's name, if different.
+    @smpAttr:127|lockable=true
+    ?Please enter all the species you saw at one site on a single day and any other information about them.  Then move to the <strong>When and where was it?</strong> tab before submitting your records.?
+    [species]
+    @resizeWidth=1500
+    @resizeHeight=1500
+    @occAttr:18|default={profile_last_name}, {profile_first_name}
+    @helpText=Use * as a wildcard when searching for species names.
+    [species attributes]
+    =Place=
+    [spatial reference]
+    @lockable=true
+    @class=control-width-4
+    @label=Enter a spatial reference<br/><strong>Or</strong> simply click on your position on the map
+    <div id="map-help" style="display: none" class="ui-state-highlight ui-corner-all page-notice"></div>
+    <br/>
+    [*]
+    @smpAttr:56|lookUpListCtrl=hierarchical_select
+    [sample comment]
+    |
+    [map]
+    @helpToPickPrecisionMin=100
+    @helpToPickPrecisionMax=10
+    @helpToPickPrecisionSwitchAt=100
+    @helpDiv=map-help
+    =*=
 
 Because the form structure contains a | splitter on the mapping page, we need to 
 add a dash of CSS to get the layout right. 
