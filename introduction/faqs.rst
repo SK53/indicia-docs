@@ -183,6 +183,13 @@ typically you will use one of the following:
   you don't even need to download the data to perform many basic analysis 
   operations. 
 
+Which versions of Drupal does Indicia integrate with?
+-----------------------------------------------------
+
+At the time of writing (November 2012), the Indicia integration module is available for
+Drupal 6 and work is currently in progress on the Drupal 7 version, which will be
+released this winter.
+
 Can Indicia use a MySQL database?
 ---------------------------------
 
