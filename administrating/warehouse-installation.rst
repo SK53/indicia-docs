@@ -98,15 +98,14 @@ we recommend the Apache web server. This tutorial is written on the assumption t
 are using Apache, though the steps will mostly be the same (except with different folder
 locations) for IIS.
 
-There are many tutorials on the web on how to install PHP and a webserver such as Apache.
-PHP version 5.3 is recommended though PHP 5.2 should work. PHP 5.4 is not currently
-supported. The following guide explains installation of PHP, Apache and MySQL on Windows:
-http://www.php-mysql-tutorial.com/install-apache-php-mysql.php. MySQL is not required by
-the Indicia Warehouse. Another alternative is to install a ready made 'stack' with a set
-of predefined components all packaged into one install kit. Rather than install each
-component individually, you might like to consider installing a *stack*, that is a single
-installation which packages all the things you need for the web server. Here are a few
-examples for your consideration:
+There are many tutorials on the web on how to install PHP and a webserver such as
+Apache. PHP version 5.3 is recommended though PHP 5.2 should work. PHP 5.4 is not
+currently supported. The following guide explains installation of PHP, Apache and MySQL
+on Windows: http://www.php-mysql-tutorial.com/install-apache-php-mysql.php. MySQL is
+not required by the Indicia Warehouse. Rather than install each component individually,
+you might like to consider installing a *stack*, that is a single installation which
+packages all the things you need for the web server. Here are a few examples for your
+consideration:
 
 **Windows**
 
