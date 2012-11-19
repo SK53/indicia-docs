@@ -30,5 +30,6 @@ forum functionality.
 
 .. toctree::
 
+  installation
   features/index
   example-setups/index

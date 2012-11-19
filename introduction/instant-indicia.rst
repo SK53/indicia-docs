@@ -37,4 +37,4 @@ preclude you using any of the advanced configuration options available in the
 Drupal IForm module or even utilising the deep customisability of hand-written
 code in PHP should you ever need to. 
   
-  
+:doc:`Find out more about Instant Indicia <../site-building/instant-indicia/index>`.
