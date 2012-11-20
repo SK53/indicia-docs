@@ -83,9 +83,9 @@ full set of files required (including the Drupal files). Once copied, your file 
 might look something like this example, where I am setting up Instant Indicia in a
 subfolder of a website called **naturewatch**:
 
-.. todo::
-
-  Copy over image
+.. image:: ../../images/screenshots/tutorials/ii-install-files.png
+  :width: 700px
+  :alt: The files required for Instant Indicia
   
 Once the files have been uploaded to the correct location, accessing the folder using your
 web browser should display a page allowing you to select whether to install a basic
@@ -108,9 +108,9 @@ can work out the URL to access:
 * If installing on a remote machine using FTP into a subfolder then you can access the 
   page using your domain name and the subfolder (e.g. http://www.mysite.com/subfolder).
   
-.. todo::
-
-  Copy over image
+.. image:: ../../images/screenshots/tutorials/ii-install-select-profile.png
+  :width: 700px
+  :alt: Selecting the Instant Indicia installation profile
 
 For now, we’ll leave this part of the installation as there a couple of other tasks to
 undertake before proceeding.
@@ -146,9 +146,9 @@ password required to create databases in MySQL yourself using PhpMyAdmin, but th
 tool provided within CPanel for creating databases. Look for the Databases section and
 click the link called MySQL Databases to access it. 
 
-.. todo::
-
-  Copy over image
+.. image:: ../../images/screenshots/tutorials/ii-install-cpanel-db.png
+  :width: 700px
+  :alt: Accessing MySQL via CPanel
   
 The CPanel MySQL databases tool provides you with a box to type in the name of your
 database and a Create Database button, it is as easy as that. Note that CPanel may enforce
@@ -176,9 +176,9 @@ follow these steps to create the database:
    it something that helps you remember it is for the site you are building. Press Create
    when ready.
 
-.. todo::
-
-  Copy over image
+.. image:: ../../images/screenshots/tutorials/ii-install-phpmyadmin-create-db.png
+  :width: 700px
+  :alt: Creating a database using PhpMyAdmin
   
 Create a user
 ^^^^^^^^^^^^^
@@ -235,24 +235,24 @@ To create a user account for your website to access MySQL using PhpMyAdmin:
   
 #. Click the Go button, highlighted in red below.
 
-.. todo::
-
-  Copy over image
+.. image:: ../../images/screenshots/tutorials/ii-install-phpmyadmin-create-user.png
+  :width: 700px
+  :alt: Creating a user using PhpMyAdmin
   
 That will create the user but leave you on the details view of that user. Several new
 sections will have appeared on the page, including one called Database specific 
 privileges:
 
-.. todo::
-
-  Copy over image
+.. image:: ../../images/screenshots/tutorials/ii-install-phpmyadmin-database-privileges.png
+  :width: 700px
+  :alt: Database specific privileges using PhpMyAdmin
   
 Simply select your new database in the drop down and PhpMyAdmin will take you to a view of
 the database privileges for that user on that database:
 
-.. todo::
-
-  Copy over image
+.. image:: ../../images/screenshots/tutorials/ii-install-phpmyadmin-user-privileges.png
+  :width: 700px
+  :alt: Database specific privileges using PhpMyAdmin
 
 Tick every box in this section or click the Check All link to give your user account full
 access to this database. This is important because it lets Drupal and the various modules
@@ -273,9 +273,9 @@ Drupal, or to use the Instant Indicia profile. On the left of the page you can s
 you are on the first of several steps required for installation. Select the Instant
 Indicia profile and click Save and continue.
 
-.. todo::
-
-  Copy over image
+.. image:: ../../images/screenshots/tutorials/ii-install-select-profile.png
+  :width: 700px
+  :alt: Selecting the Instant Indicia installation profile
 
 Because the Instant Indicia installation is currently only available in English, the
 installer will skip the Choose language step and proceed to verify that your server meets
@@ -295,9 +295,9 @@ on the ownership of the file and you may need to use the chown command line tool
 the file ownership. More information on setting the correct file permissions for a Drupal
 installation can be found at http://drupal.org/documentation/install/settings-file.
 
-.. todo::
-
-  Copy over image
+.. image:: ../../images/screenshots/tutorials/ii-install-setup-db.png
+  :width: 700px
+  :alt: Setting up the database connection for Instant Indicia
   
 This step lets you tell Drupal how to connect to your MySQL database that you created
 earlier. The Database type should be mysql because that is the name of the library Drupal
@@ -318,9 +318,9 @@ Once the database is created, you will see the Configure site page. This page le
 up various things like the site title and admin account which are required for all Drupal
 installations:
 
-.. todo::
-
-  Copy over image
+.. image:: ../../images/screenshots/tutorials/ii-install-setup-site.png
+  :width: 700px
+  :alt: Setting up the site settings for Instant Indicia
   
 At the top of the site you may see a note about setting the settings.php file to read
 only. Drupal will attempt to do make this change itself but if it does not have the
@@ -341,9 +341,9 @@ state as Drupal will choose the best settings for your server. Click the Save an
 button when you are ready and Drupal will proceed to the Configure Indicia page where you
 set up Indicia specific settings.
 
-.. todo::
-
-  Copy over image
+.. image:: ../../images/screenshots/tutorials/ii-install-iform-settings-1.png
+  :width: 700px
+  :alt: The first Indicia specific settings page
   
 The first thing to do here is to provide Indicia with some information about the warehouse
 you are going to connect to. There are several pre-configured warehouses available to pick
@@ -379,9 +379,9 @@ API Keys can be left blank or filled in as desired.
 
 Finally on this page is a map settings section:
 
-.. todo::
-
-  Copy over image
+.. image:: ../../images/screenshots/tutorials/ii-install-iform-settings-2.png
+  :width: 700px
+  :alt: The second Indicia specific settings page
   
 This lets you set a default zoom and centre point for maps displayed by your site, though
 these settings can be overridden on a page by page basis. You can leave the map where it
@@ -402,6 +402,6 @@ If you need to change any of these settings in future, then don’t worry as the
 configuration page provided which lets you do that. When you are done, press the Save
 button to complete the installation and you will see the following page.
 
-.. todo::
-
-  Copy over image
+.. image:: ../../images/screenshots/tutorials/ii-install-done.png
+  :width: 700px
+  :alt: Installation complete!
