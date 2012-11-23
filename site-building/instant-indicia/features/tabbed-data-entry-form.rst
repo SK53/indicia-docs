@@ -10,3 +10,7 @@ This feature is the simplest way to enable record submission on your website.
 .. todo::
 
   A see also link to the tutorial content
+  
+.. todo::
+  
+  Flesh this out
