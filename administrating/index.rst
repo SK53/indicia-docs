@@ -7,5 +7,6 @@ Administering and maintaining Indicia
   installation-requirements
   warehouse-installation
   warehouse-upgrading
+  geoserver-setup
   importing
   website-agreements
