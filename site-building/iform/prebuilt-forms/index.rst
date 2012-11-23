@@ -5,4 +5,5 @@ The Prebuilt Form Library
 
   generic-settings
   importer
-  mnhnl_dynamic_1
+  mnhnl-dynamic-1
+  quick-species-maps
