@@ -1,0 +1,2 @@
+Registration Terms of Use
+-------------------------

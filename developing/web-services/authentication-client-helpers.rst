@@ -5,7 +5,7 @@ The client helpers library API, as you would expect, has built in simple support
 handling web service authentication so you don't need to worry too much about the
 technical details of how the **digest authentication** works. The authorisation process
 requires a website ID and password to be provided to a method which then creates tokens
-which can be used to provide that web service requests are authentic. These methods then
+which can be used to prove that web service requests are authentic. These methods then
 return one or more of the following:
 
 * Write authorisation tokens in the form of HTML, containing hidden inputs which embed
