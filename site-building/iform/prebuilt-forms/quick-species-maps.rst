@@ -6,9 +6,9 @@ recorded species, with the ability to compare up to 4 species on a single map. A
 listing recorded species with numbers of available records is shown, plus controls for
 easily adding or removing a species from the map.
 
-.. todo:: 
-
-  screenshot
+.. image:: ../../../images/screenshots/prebuilt_forms/quick-species-maps.png
+  :width: 700px
+  :alt: The Quick Species Maps prebuilt form in action.
 
 This page type requires `GeoServer <http://geoserver.org>`_ to be set up on the warehouse,
 with a layer defined that exposes a list of occurrence records including the species'
