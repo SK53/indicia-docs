@@ -16,7 +16,6 @@ settings. The settings you will need to consider include:
 
 * **View access control** and **Permission name for view access control** - as described
   under :doc:`generic-settings`.
-  
 * **Type of data to import** - Select whether you want to set up an import for occurrences
   (= biological records) or locations. There is a third option, to use a setting provided
   in the page URL as a **type** parameter. For example you would need to append 
