@@ -6,7 +6,7 @@ recorded species, with the ability to compare up to 4 species on a single map. A
 listing recorded species with numbers of available records is shown, plus controls for
 easily adding or removing a species from the map.
 
-.. image:: ../../../images/screenshots/prebuilt_forms/quick-species-maps.png
+.. image:: ../../../images/screenshots/prebuilt-forms/quick-species-maps.png
   :width: 700px
   :alt: The Quick Species Maps prebuilt form in action.
 
