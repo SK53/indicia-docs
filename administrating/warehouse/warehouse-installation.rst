@@ -193,7 +193,7 @@ of the website. So, just enter this into your web browser, for example
 http://localhost/indicia/index.php, and load the page. This should display the Indicia
 Setup Check page, which with any luck will show something similar to the following:
 
-.. image:: ../images/screenshots/warehouse/setup_check.png
+.. image:: ../../images/screenshots/warehouse/setup_check.png
   :width: 700px
   :alt: The warehouse installation setup check screen.
   
@@ -223,7 +223,7 @@ Demo configuration
 Click the Configure Demo Pages button, then you will be presented with the Demo
 Configuration page:
 
-.. image:: ../images/screenshots/warehouse/setup_demo.png
+.. image:: ../../images/screenshots/warehouse/setup_demo.png
   :width: 700px
   :alt: The warehouse demo setup installation page.
   
@@ -244,7 +244,7 @@ Email Configuration
 Click the Configure email button, then you will be presented with the Email Configuration 
 page:
 
-.. image:: ../images/screenshots/warehouse/setup_email.png
+.. image:: ../../images/screenshots/warehouse/setup_email.png
   :width: 700px
   :alt: The warehouse email setup installation page.
   
@@ -274,7 +274,7 @@ Database Configuration
 Click the Configure database button, then you will be presented with the Database 
 Configuration page:
 
-.. image:: ../images/screenshots/warehouse/setup_db.png
+.. image:: ../../images/screenshots/warehouse/setup_db.png
   :width: 700px
   :alt: The warehouse database setup installation page.
   
@@ -295,7 +295,7 @@ Check page now because the database itself is being installed and prepared for u
 
 Once you have done all the setup tasks required, you will see the following:
 
-.. image:: ../images/screenshots/warehouse/setup_complete.png
+.. image:: ../../images/screenshots/warehouse/setup_complete.png
   :width: 700px
   :alt: The warehouse installation complete message page.
   
