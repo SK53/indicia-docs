@@ -13,7 +13,7 @@ following settings:
 * **Test Type** = LocationLookupAttrList
 * **Error Message** = Records for this site type must be checked
 * **Reverse Rule** - tick this box if you want to report records where the site type is
-  not in the list of terms, rather than in the list of terms.
+  in the list of terms, rather than not in the list of terms.
 * **Metadata** = 
   SurveyId=n
   Attr=m
@@ -27,3 +27,11 @@ attribute you want to check. You only need to set the JoinMethod option to meani
 your survey stores the meaning_id of the term rather than the termlists_term_id in the
 attribute's int_value field - most surveys do not do this so if you aren't sure then 
 leave this setting out.
+
+.. note::
+
+  Because this rule requires the location_id to be filled in to detect the location for a
+  record, the survey's data input form must capture a location as well as a grid 
+  reference. This rule does not use a spatial query to work out the location for each 
+  record, so the rule is only really appropriate for surveys which capture records against
+  a defined list of sites.

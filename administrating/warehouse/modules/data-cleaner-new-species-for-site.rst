@@ -12,3 +12,11 @@ in the warehouse, create a new verification rule with the following settings:
 * **Metadata** = SurveyId=n
 
 For the latter, replace *n* with the ID of the survey you want to scan.
+
+.. note::
+
+  Because this rule requires the location_id to be filled in to detect the location for a
+  record, the survey's data input form must capture a location as well as a grid 
+  reference. This rule does not use a spatial query to work out the location for each 
+  record, so the rule is only really appropriate for surveys which capture records against
+  a defined list of sites.
