@@ -11,7 +11,14 @@ in the warehouse, create a new verification rule with the following settings:
 * **Error Message** = Species not previously recorded at this site
 * **Metadata** = SurveyId=n
 
-For the latter, replace *n* with the ID of the survey you want to scan.
+For the latter, replace *n* with the ID of the survey you want to scan. If you want to 
+only detect records of certain species when they are new at a site, you can add the 
+following:
+
+* **Other Data** = ::
+  
+    [Taxa]
+    list of preferred taxon names, one per line...
 
 .. note::
 

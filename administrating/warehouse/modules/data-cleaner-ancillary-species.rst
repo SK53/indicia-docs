@@ -14,10 +14,11 @@ settings:
 * **Error Message** = This species requires|does not require additional checks
 * **Reverse Rule** - tick this box if you want to report records where the species is
   in the provided list of species, rather than not in the list of species.
-* **Metadata** = 
-  SurveyId=n
-* **Other Data** =
-  ...
+* **Metadata** = ::
+
+    SurveyId=n
+    
+* **Other Data** = ... (see below)
   
 In the metadata, replace *n* with the survey ID. In the other data section, provide a list
 of species names under the heading [Taxa], or species taxon version keys under the heading

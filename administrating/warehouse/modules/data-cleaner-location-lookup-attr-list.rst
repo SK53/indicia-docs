@@ -14,13 +14,16 @@ following settings:
 * **Error Message** = Records for this site type must be checked
 * **Reverse Rule** - tick this box if you want to report records where the site type is
   in the list of terms, rather than not in the list of terms.
-* **Metadata** = 
-  SurveyId=n
-  Attr=m
-  JoinMethod=meaning_id
-* **Other Data** =
-  [Terms]
-  followed by a list of terms, one per line...
+* **Metadata** = ::
+  
+    SurveyId=n
+    Attr=m
+    JoinMethod=meaning_id
+    
+* **Other Data** = ::
+    
+    [Terms]
+    followed by a list of terms, one per line...
   
 In the metadata, replace *n* with the survey ID and *m* with the ID of the location 
 attribute you want to check. You only need to set the JoinMethod option to meaning_id when
