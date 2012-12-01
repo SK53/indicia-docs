@@ -1,6 +1,28 @@
 Warehouse Extension Modules
 ===========================
 
+The warehouse is designed as a lightweight core essential for all biological recording
+usages of Indicia, with a set of optional extension modules that each enable a specific
+area of functionality. 
+
+Installation
+^^^^^^^^^^^^
+
+Modules can be installed on warehouses by editing the
+application/config/config.php file using a text editor, then finding the definition of the
+$config['modules'] array. Ensure that this contains the following line, replacing 
+module_name with the name of the file system folder which contains the module:
+
+.. code-block:: php
+
+  <?php
+  ...
+  MODPATH.'module_name',
+  ...
+  ?>
+
+The modules are listed below.
+
 .. toctree::
 
   cache-builder
@@ -14,7 +36,7 @@ Warehouse Extension Modules
   data-cleaner-period
   data-cleaner-period-within-year
   data-cleaner-sample-attribute-changes-for-site
-  cata-cleaner-sample-lookup-attr-outside-range
+  data-cleaner-sample-lookup-attr-outside-range
   data-cleaner-sample-time-attr-outside-range
   data-cleaner-species-location-name
   data-cleaner-without-polygon
