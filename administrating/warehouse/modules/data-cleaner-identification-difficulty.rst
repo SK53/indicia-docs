@@ -12,7 +12,7 @@ for a list of taxa. For correct configuration in the warehouse, create a new
 verification rule with the following settings:
 
 * **Title** and **Description** set as required.
-* **Test Type** = SampleAttributeChangesForSite
+* **Test Type** = IdentificationDifficulty
 * **Error Message** = ...
 * **Other Data** = ::
 
