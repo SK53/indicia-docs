@@ -26,4 +26,5 @@ handled on the client.
   reporting-services
   user-identifiers
   security-services-details/index
+  import-services
 
