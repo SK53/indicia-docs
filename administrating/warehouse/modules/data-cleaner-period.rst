@@ -16,11 +16,11 @@ the warehouse, create a new verification rule with the following settings:
   a date range rather than not in a date range.
 * **Metadata** = ::
 
-  StartDate=start of the date range in hhhhmmdd format.
-  EndDate=end of the date range in hhhhmmdd format
-  Tvk=External key (normally the preferred taxon version key) of the species
-  Taxon=Preferred taxon name
-  TaxonMeaningId=Meaning ID from the database for the species
+    StartDate=start of the date range in hhhhmmdd format.
+    EndDate=end of the date range in hhhhmmdd format
+    Tvk=External key (normally the preferred taxon version key) of the species
+    Taxon=Preferred taxon name
+    TaxonMeaningId=Meaning ID from the database for the species
   
 Note that you only need to supply a Tvk, Taxon or TaxonMeaningId setting to identify the 
 species.

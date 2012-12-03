@@ -16,18 +16,18 @@ verification rule with the following settings:
 * **Error Message** = ...
 * **Other Data** = ::
 
-  [Data]
-  list of external keys (e.g. taxon version keys), one per line. Each key is followed by 
-  an = then the message ID (a number from one to five)
-  [Taxa]
-  list of preferred taxon names as an alternative to the Data section. Each key is 
-  followed by an = then the message ID (a number from one to five)
-  [Ini]
-  1=*message for difficulty rating 1*
-  2=*message for difficulty rating 2*
-  3=*message for difficulty rating 3*
-  4=*message for difficulty rating 4*
-  5=*message for difficulty rating 5*
+    [Data]
+    list of external keys (e.g. taxon version keys), one per line. Each key is followed by 
+    an = then the message ID (a number from one to five)
+    [Taxa]
+    list of preferred taxon names as an alternative to the Data section. Each key is 
+    followed by an = then the message ID (a number from one to five)
+    [Ini]
+    1=*message for difficulty rating 1*
+    2=*message for difficulty rating 2*
+    3=*message for difficulty rating 3*
+    4=*message for difficulty rating 4*
+    5=*message for difficulty rating 5*
 
 So, a rule's Other Data section will contain a Data section and an Ini section, or a Taxa
 section and an Ini section, depending on whether the taxa are being listed by external
