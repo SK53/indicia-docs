@@ -57,7 +57,7 @@ The modules are listed below.
   nbn-species-dict-sync
   notify-verifications-and-comments
   people-tidier
-  phpUnit
+  phpunit
   spatial-index-builder
   sref-channel-islands
   sref-mtb
