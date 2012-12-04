@@ -20,14 +20,22 @@ module_name with the name of the file system folder which contains the module:
   MODPATH.'module_name',
   ...
   ?>
+  
+In some cases, the modules install additional menu items or tabs into the Indicia 
+warehouse user interface. Because the warehouse's user interface is cached for performance
+reasons, when you install such a module you will need to remove the files from the
+``application/cache`` folder in the warehouse installation folder which follow either of 
+the following patterns otherwise the user interface updates will not take place until
+after the next cache update:
 
-.. todo:: 
+* tabs-*
+* indicia-menu-*
 
-  Notes on clearing cache
-
-The modules are listed below.
+Module List
+^^^^^^^^^^^
 
 .. toctree::
+  :maxdepth: 1
 
   cache-builder
   data-cleaner
