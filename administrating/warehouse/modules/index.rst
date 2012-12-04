@@ -54,7 +54,7 @@ The modules are listed below.
   indicia-svc-validation
   individuals-and-associations
   log-browser
-  nbn-species-dict-synch
+  nbn-species-dict-sync
   notify-verifications-and-comments
   people-tidier
   phpUnit
