@@ -28,4 +28,5 @@ handled on the client.
   security-services-details/index
   import-services
   spatial-services
+  validation-services
 
