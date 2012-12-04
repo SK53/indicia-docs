@@ -27,4 +27,5 @@ handled on the client.
   user-identifiers
   security-services-details/index
   import-services
+  spatial-services
 
