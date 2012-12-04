@@ -43,3 +43,10 @@ exist for the links to be created). The spreadsheet must have the following colu
 * start date
 * source
 * geographic constraint
+
+Installation notes
+^^^^^^^^^^^^^^^^^^
+
+Because this module adds new database tables, please ensure that you log into the
+warehouse and visit the ``index.php/home/upgrade`` page in order to install the new
+tables.
