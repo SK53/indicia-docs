@@ -14,6 +14,9 @@ into Indicia species lists. It provides the following functions:
 * An **NBN Species Dict Sync** tab for the list page for taxon designations, allowing
   you to pull NBN taxon designations into Indicia's taxon designations list.
 
+Installation notes
+^^^^^^^^^^^^^^^^^^
+
 When you install this module, you also need to configure the module to provide your `NBN
 web services registration key <http://data.nbn.org.uk/Documentation/Web_Services/Web_Services-SOAP/Registration/>`_.
 To do this, duplicate the file in your warehouse installation folder 

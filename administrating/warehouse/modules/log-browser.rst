@@ -8,6 +8,9 @@ access to the warehouse or at least one of the registered websites.
 
 .. image:: ../../../images/screenshots/warehouse/log_browser.png
   :width: 700px
+  
+Installation notes
+^^^^^^^^^^^^^^^^^^
 
 After installation you should search for files containing the word *menu* in the 
 application/cache folder on the warehouse and delete them, otherwise the caching system
