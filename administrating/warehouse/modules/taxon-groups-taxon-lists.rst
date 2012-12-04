@@ -25,6 +25,6 @@ Installation notes
 
 After installation you should first log in to your warehouse and visit the page
 ``index.php/home/upgrade`` to install the new database table. Then, search for files
-\starting with the word *tabs-* in the application/cache folder on the warehouse and
+starting with the word *tabs-* in the application/cache folder on the warehouse and
 delete them, otherwise the caching system will prevent the new tab from appearing for a
 while.
