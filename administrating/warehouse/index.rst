@@ -11,5 +11,6 @@ other data related tasks.
 
   warehouse-installation
   warehouse-upgrading
+  warehouse-backups
   modules/index
   website-agreements

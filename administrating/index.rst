@@ -6,5 +6,6 @@ Administering and maintaining Indicia
 
   installation-requirements
   warehouse/index
+  drupal/index
   geoserver-setup
   importing
