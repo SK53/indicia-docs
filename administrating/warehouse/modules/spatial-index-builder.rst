@@ -30,6 +30,26 @@ configuration setting, described below.
   doing reports that group by location to draw maps. An example report which does this is
   ``reports/library/locations/occurrence_counts_mappable_summary.xml``.
   
+Report Support
+^^^^^^^^^^^^^^
+
+The Spatial Index Builder module is required if you plan to use any of the following
+reports:
+
+* ``library/occurrences/explore_list_using_spatial_index_builder.xml`` - used to filter
+  the explore output to the user's locality set in their preferences.
+* ``library/occurrence_images/explore_list_using_spatial_index_builder.xml`` - used to 
+  filter the explore output to the user's locality set in their preferences.
+* ``library/occurrences/nbn_exchange.xml`` - used to attach a Vice County to the NBN
+  Exchange Format download, therefore the location type **Vice County** must be one of the
+  indexed location types.
+* ``library/locations/occurrence_counts_mappable_summary.xml`` - used to increase 
+  performance of the :doc:`Summary Reports <../../../site-building/instant-indicia/features/summary-reports>` 
+  output when grouped by locations.
+* ``library/locations/species_counts_mappable_summary.xml`` - used to increase 
+  performance of the :doc:`Summary Reports <../../../site-building/instant-indicia/features/summary-reports>` 
+  output when grouped by locations.
+  
 Database notes
 ^^^^^^^^^^^^^^
 
