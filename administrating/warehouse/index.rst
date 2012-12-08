@@ -14,3 +14,5 @@ other data related tasks.
   warehouse-backups
   modules/index
   website-agreements
+  scheduled-tasks
+  triggers-actions
