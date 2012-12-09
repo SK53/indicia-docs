@@ -9,5 +9,6 @@ Drupal client website running Indicia, for example when using :doc:`Instant Indi
 
 .. toctree::
 
+  permissions
   drupal-mysql-backups
   preventing-spam
