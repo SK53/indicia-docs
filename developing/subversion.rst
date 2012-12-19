@@ -32,7 +32,7 @@ an environment in which you can safely experiment with the code without
 affecting the master copy until you are satisfied that the experiment has 
 succeeded. If it fails, just delete the branch!
 
-Without a source control such as Subversion, working as a collaborative team 
+Without a source control system such as Subversion, working as a collaborative team 
 would be a quagmire of accidental overwrites of each other's changes, 
 untraceable mistakes and other such nightmares.
 
@@ -41,7 +41,7 @@ untraceable mistakes and other such nightmares.
   If you are not familiar with Subversion or version control in general then 
   there are several primers available on the web, for example the 
   `Subversion manual <http://svnbook.red-bean.com/>`_ contains chapters on 
-  Version Control Basics and Version Control the Subversion Way which provide a 
+  **Version Control Basics** and **Version Control the Subversion Way** which provide a 
   good starting point.
 
 Obtaining Indicia's code
