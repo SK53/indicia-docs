@@ -30,6 +30,20 @@ services**. Some basic principles are:
     * **nbn** - for a tab delimited file compatible with the NBN Exchange format
     * **xml** - for an XML document format. 
     
+* Requests sent to the Data Services return the records only by default. You can also 
+  request the specification of the columns returned or the count of records. The following
+  URL parameters can be provided via GET or POST to control this:
+  
+  * **wantRecords** controls whether the records are returned
+  * **wantColumns** controls whether the column specifications are returned
+  * **wantCount** controls whether the record count is returned (e.g. can be used for
+    providing pagination information in a grid). 
+    
+  If your Data Services request returns only one of the available types of information 
+  (records, columns or count), then the required information is returned as the top level
+  item in the response. If there are more than one pieces of information requested then 
+  the top level of the response will be an array or list of the items, each containing the
+  relevant set of records, set of columns or count as a sub-item.
 * Although RESTful standards dictate that the GET request is used to get information
   whereas POST requests are used to post records back, the Data Services support POST as
   well as GET for all parameters. The main reason for this is to support long queries that

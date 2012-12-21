@@ -44,7 +44,33 @@ Example response:
     "taxon_list_id":"2"
   }]
   
-Example 2 - detailed attributes of occurrence ID 10 in XML format
+Example 2 - information on a taxon group, including column and count
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This request uses the **wantColumns** and **wantCount** URL parameters.
+
+Request::
+
+  http://localhost/indicia/index.php/services/data/taxon_group/4
+  ?mode=json&nonce=<nonce>&auth_token=<auth_token>&wantColumns=1&wantCount=1
+  
+Example response:
+
+.. code-block:: json
+  
+  {
+    "records":[
+      {"id":"4","title":"Beetles","website_id":null}
+    ],
+    "columns":{
+      "id":{"type":"int","max":2147483647,"unsigned":false,"null":true},
+      "title":{"type":"string","null":true},
+      "website_id":{"type":"int","max":2147483647,"unsigned":false,"null":true}
+    },
+    "count":1
+  }
+  
+Example 3 - detailed attributes of occurrence ID 10 in XML format
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This request uses the default list_occurrences view to return minimal information of a 
@@ -88,7 +114,7 @@ Example response:
   <taxon_list_id>2</taxon_list_id>
   </occurrence>
   
-Example 3 - reading a record using the Client Helpers API in PHP
+Example 4 - reading a record using the Client Helpers API in PHP
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Using the PHP Client Helpers API, the first example's request can be invoked using the
