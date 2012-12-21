@@ -44,6 +44,8 @@ services**. Some basic principles are:
   item in the response. If there are more than one pieces of information requested then 
   the top level of the response will be an array or list of the items, each containing the
   relevant set of records, set of columns or count as a sub-item.
+* For cross-site retrieval using **JSONP**, an optional callback method can be specified 
+  by providing ?callback=methodname in the GET string.
 * Although RESTful standards dictate that the GET request is used to get information
   whereas POST requests are used to post records back, the Data Services support POST as
   well as GET for all parameters. The main reason for this is to support long queries that
@@ -58,5 +60,17 @@ services**. Some basic principles are:
   terms in HTML `<li>` elements, requested when accessing the termlists_term entity with
   `mode=li` as a parameter.
   
+Attaching XSL to XML output
+---------------------------
+
+By passing a GET parameter called xsl to the URL, an XSL transformation can be linked to
+by the returned XML document. Either a fully qualified path to the XSL document is
+required, or if just a file name is given then the XSL document must exist in the folder
+\media\services\stylesheets within the website root. An example file called default.xsl is
+provided. For example
+``http://www.mysite.com/index.php/services/data/termlist?xsl=default.xsl`` retrieves the 
+XML document listing all termlists into the browser and formats it on the client using the 
+XSL file to appear as an HTML table.
+
 Information on how to read individual records and lists of records in one go are in the
 following pages.
