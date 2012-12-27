@@ -16,6 +16,7 @@ handled on the client.
   authentication-overview
   authentication-client-helpers
   data-services-reading
+  data-services-entity-list
   data-services-read-record
   data-services-read-dataset
   data-services-read-client-helpers
