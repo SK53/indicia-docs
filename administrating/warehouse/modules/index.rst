@@ -72,5 +72,6 @@ Module List
   sref-osgb
   sref-osie
   sref-utm
+  survey-cleanup
   taxon-designations
   taxon-groups-taxon-lists
