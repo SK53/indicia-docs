@@ -6,7 +6,7 @@ As well as the :doc:`support for reading individual records from the database
 records in one request. Reading a set of records from the Data Services follows the
 :doc:`general principles for reading data <data-services-reading>`. If your request URL
 contains the singular form of the table name, plus authentication tokens and no other 
-parameters then you will receive an XML document containing all the records from that
+parameters then you will receive a JSON document containing all the records from that
 entity which your website is allowed to see. There are a number of GET or POST parameters
 which can filter, format and sort the results as described below.
 

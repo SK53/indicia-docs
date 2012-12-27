@@ -22,7 +22,7 @@ record.
 Request::
 
   http://www.mywarehouse.com/index.php/services/data/occurrence/10
-  &mode=json&nonce=<nonce>&auth_token=<auth_token>
+  &nonce=<nonce>&auth_token=<auth_token>
 
 Example response:
 
@@ -52,7 +52,7 @@ This request uses the **wantColumns** and **wantCount** URL parameters.
 Request::
 
   http://localhost/indicia/index.php/services/data/taxon_group/4
-  ?mode=json&nonce=<nonce>&auth_token=<auth_token>&wantColumns=1&wantCount=1
+  ?nonce=<nonce>&auth_token=<auth_token>&wantColumns=1&wantCount=1
   
 Example response:
 
@@ -79,7 +79,7 @@ record.
 Request::
 
   http://www.mywarehouse.com/index.php/services/data/occurrence/10
-  &view=detail&nonce=<nonce>&auth_token=<auth_token>
+  &view=detail&mode=xml&nonce=<nonce>&auth_token=<auth_token>
 
 Example response:
 

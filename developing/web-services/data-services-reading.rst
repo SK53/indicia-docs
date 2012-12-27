@@ -21,7 +21,7 @@ services**. Some basic principles are:
   case **list_termlists_terms**. The prefix of the table loaded can be overridden by
   specifying a **view** GET or POST parameter, e.g. specifying view=detail will load
   records from ``detail_termlists_terms``.
-* Calls to the URLs normally return a formatted XML document describing the results. 
+* Calls to the URLs normally return a formatted JSON document describing the results. 
   Provide a GET or POST parameter called **mode** with one of the following values to 
   override the output format:
   
@@ -63,13 +63,13 @@ services**. Some basic principles are:
 Attaching XSL to XML output
 ---------------------------
 
-By passing a GET parameter called xsl to the URL, an XSL transformation can be linked to
-by the returned XML document. Either a fully qualified path to the XSL document is
-required, or if just a file name is given then the XSL document must exist in the folder
-\media\services\stylesheets within the website root. An example file called default.xsl is
-provided. For example
-``http://www.mysite.com/index.php/services/data/termlist?xsl=default.xsl`` retrieves the 
-XML document listing all termlists into the browser and formats it on the client using the 
+By using mode=xsl and passing a GET parameter called xsl to the URL, an XSL transformation
+can be linked to by the returned XML document. Either a fully qualified path to the XSL
+document is required, or if just a file name is given then the XSL document must exist in
+the folder \media\services\stylesheets within the website root. An example file called
+default.xsl is provided. For example
+``http://www.mysite.com/index.php/services/data/termlist?xsl=default.xsl`` retrieves the
+XML document listing all termlists into the browser and formats it on the client using the
 XSL file to appear as an HTML table.
 
 Information on how to read individual records and lists of records in one go are in the
