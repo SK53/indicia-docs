@@ -3,7 +3,7 @@ Species Accounts
 
 .. note::
 
-  This feature's development is in progress.
+  This feature's development is still in progress.
   
 .. todo::
   
