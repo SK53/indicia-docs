@@ -113,22 +113,3 @@ Example response:
   <zero_abundance>f</zero_abundance>
   <taxon_list_id>2</taxon_list_id>
   </occurrence>
-  
-Example 4 - reading a record using the Client Helpers API in PHP
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Using the PHP Client Helpers API, the first example's request can be invoked using the
-following code:
-
-.. code-block:: php
-
-  <?php
-    // This example authenticates against the demonstration website
-    $readAuth=data_entry_helper::get_read_auth(1, 'password');
-    $records=data_entry_helper::get_population_data(array(
-      'table' => 'occurrence',
-      'extraParams' => $readAuth + array('id'=>10),
-      'nocache' => true // forces a load from the db rather than local cache
-    ));
-    // $records[0] is now an array holding the record details
-  ?>

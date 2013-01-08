@@ -98,6 +98,16 @@ proves they are not human. Spam registrations will normally fill every single fi
 web form before submitting the form. So, Spamicide adds a hidden input control to the
 form which a spambot will inadvertently fill in, thus announcing itself as non-human.
 
+In our experience, Spamicide does reduce the number of spam registrations but quite a few
+still get through.
+
+Spambot
+"""""""
+
+The `Spambot module <http://drupal.org/project/spambot>`_ checks user registrations 
+against the database of known spammers on http://www.stopforumspam.com. It also adds 
+useful features to help deal with existing spam accounts. 
+
 Login Toboggan
 """"""""""""""
 

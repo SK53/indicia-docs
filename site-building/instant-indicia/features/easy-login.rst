@@ -13,7 +13,9 @@ populated so there is no need for the **CMS User ID** and **CMS Username** attri
 be used.
 
 Easy Login also enables the association of a user with a preferred recording location
-and preferred species groups in their account profiles.
+and preferred species groups in their account profiles. The location types available for 
+selection can be configured on the **Site configuration > IForm > Settings** page by 
+setting the **Location type for profile locality options** option.
 
 .. todo::
   
