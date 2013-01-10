@@ -27,8 +27,17 @@ The following configuration options are useful when setting up an **Easy Downloa
   defines a Drupal permission that, if the user has it, enables the option to download
   other people's data.
 * **Allow my data download** - use this to enable downloading of the user's own records.
+* **Allow expert's data download** - use this to enable downloading of records that an 
+  expert has expertise over.
+* **Allow all data download** - use this to enable downloading of all records.  
 * **Survey for download** - select a specific survey to enable download for, or leave
   to allow the user to select.
+* **CSV format download?** - enable this to allow downloading using CSV file format for
+  spreadsheets.
+* **NBN format download?** - enable this to allow downloading using NBN exchange file 
+  format for submission to the NBN Gateway.
+* **Survey for download** - select the survey to be available for download, or leave blank
+  to allow the choice.
 * **CSV Download format report** - a report used to obtain the data for CSV download. 
   Normally you should leave the default report selected. *If you select another report
   then you will need to ensure it has compatible input parameters*. Note that you can 
@@ -51,9 +60,11 @@ The following configuration options are useful when setting up an **Easy Downloa
 * **NBN Additional parameters** - as described above but for NBN download format report
   parameters. Note that the default behaviour is to download only verified records in 
   NBN format though this can of course be overridden.
+* **Limit to number of records** - define a maximum number of records for download. 
+  Default is 20000.
 
-A usage scenario
-----------------
+Example scenario 1
+------------------
 
 To provide a download page for the coordinators of a specific survey, you might:
 
@@ -69,3 +80,38 @@ To provide a download page for the coordinators of a specific survey, you might:
    have access to the form will not see the menu item.
 #. Set up a role called **<survey name> coordinator** and put the coordinators of the
    survey into this role.
+
+
+Example scenario 2
+------------------
+
+To provide a download page for the someone who has a regional collation of records such
+as a local record centre:
+
+#. Use the SHP file upload facilities on the warehouse's Locations list to upload a list
+   of the regional boundaries that are being collated for, eg. the boundaries of each LRC.
+   Set the boundaries to a location type **LRC boundary**, creating the term if it does 
+   not already exist.
+#. Enable the Easy Login Instant Indicia feature.
+#. On the **Site configuration > IForm > Settings** page in Drupal, scroll to the bottom. 
+   Set the **Location Type for profile collation options** to the term you created for 
+   location types, e.g. "LRC Boundary".
+#. Add a new Easy Download page. Set the **View access control** option and set the 
+   permission name to "collate regional records".
+#. Make sure **Allow my data download** and **Allow expert's data download** are unticked
+   and **Allow all data download** is ticked.
+#. Enable the options for **CSV format download?** and **NBN format download?** as you
+   require.
+#. Edit the setting for **CSV Additional parameters** by adding::
+   
+     ownLocality=1
+     location_id={profile_location_collation}
+  
+   This forces the report to be filtered to the user's collation location boundary, 
+   because the default report used for download uses these 2 input parameters. 
+   Repeat this for the **NBN Additional parameters**.
+#. Add the users you want to download to the **Regional Collator** role. After adding the
+   role and saving, go to their **Preferences** page and edit their **Location of 
+   collation** to select the boundary this user is allowed to download. Save their 
+   profile.
+#. 
