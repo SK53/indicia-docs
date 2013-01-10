@@ -71,6 +71,17 @@ websites facing the same problems with the same technologies and hundreds of dev
 keen to solve them. Fortunately some of these solutions have been wrapped as easily 
 installable Drupal modules which you can easily install.
 
+Spambot
+"""""""
+
+The `Spambot module <http://drupal.org/project/spambot>`_ checks user registrations 
+against the database of known spammers on http://www.stopforumspam.com. It also adds 
+useful features to help deal with existing spam accounts. 
+
+In our experience, though not 100% effective, the Spambot module does prevent the majority
+of spam user registrations and does not make the registration process more complex to the 
+normal user, so is a good first choice.
+
 Captcha and reCaptcha
 """""""""""""""""""""
 
@@ -100,13 +111,6 @@ form which a spambot will inadvertently fill in, thus announcing itself as non-h
 
 In our experience, Spamicide does reduce the number of spam registrations but quite a few
 still get through.
-
-Spambot
-"""""""
-
-The `Spambot module <http://drupal.org/project/spambot>`_ checks user registrations 
-against the database of known spammers on http://www.stopforumspam.com. It also adds 
-useful features to help deal with existing spam accounts. 
 
 Login Toboggan
 """"""""""""""
