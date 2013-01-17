@@ -52,7 +52,7 @@ Indicia currently has the following support and help options:
 * A live chatroom at http://jabbr.net/#/rooms/indicia
 
 If you would like something more concrete than free community support then there
-are a number of developers available who can provide paid for support or compete
+are a number of developers available who can provide paid for support or complete
 website development. The best approach would be to post a message requesting 
 assistance on the forum. 
 
