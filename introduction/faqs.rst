@@ -70,7 +70,7 @@ Will the Indicia project be supported into the future?
 
 .. todo::
 
-  answer question about support
+  answer question about support in the future
 
 Is there a mobile interface for Indicia?
 ----------------------------------------
