@@ -14,14 +14,14 @@ warehouse, create a new verification rule with the following settings:
 * **Error Message** = ...
 * **Metadata** ::
 
-  DataFieldName=Species
-  DataRecordId=set to the external key (normally the Taxon Version Key) of the species to
-    checked
+    DataFieldName=Species
+    DataRecordId=set to the external key (normally the Taxon Version Key) of the species to
+    check
 
 * **Other Data** ::
 
-  [grid square size]
-  list of grid squares, 1 per line
+    [grid square size]
+    list of grid squares, 1 per line
   
 Note that DataFieldName should always be set to Species. The `NBN Record Cleaner 
 <http://data.nbn.org.uk/recordcleaner/documentation/NBNRecordCleanerRuleGuide.pdf>`_

@@ -17,12 +17,12 @@ a new verification rule with the following settings:
   a date range rather than not in a date range.
 * **Metadata** = ::
 
-  StartDate=start of the date range in mmdd format
-  EndDate=end of the date range in mmdd format
-  Tvk=External key (normally the preferred taxon version key) of the species
-  Taxon=Preferred taxon name
-  TaxonMeaningId=Meaning ID from the database for the species
-  DataFieldName=...
+    StartDate=start of the date range in mmdd format
+    EndDate=end of the date range in mmdd format
+    Tvk=External key (normally the preferred taxon version key) of the species
+    Taxon=Preferred taxon name
+    TaxonMeaningId=Meaning ID from the database for the species
+    DataFieldName=...
   
 Note that you only need to supply a Tvk, Taxon or TaxonMeaningId setting to identify the 
 species. ``DataFieldName`` is provided for compatibility with the NBN Record Cleaner rule
