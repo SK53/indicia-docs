@@ -501,9 +501,9 @@ Attributes
   (a CSS colour specification, e.g. '#00FF00'), **strokeOpacity** (a number from 
   0 to 1), **strokeWidth** (number of pixels wide to draw the perimeter line), 
   **strokeDashStyle** (dot, dash, dashdot, longdash, longdashdot or solid), 
-  **fillColor** (as strokeColor), fillOpacity (as strokeOpacity). For example, a
-  report could vary the opacity of output grid references on the map according 
-  to size by including this column in the SQL:
+  **fillColor** (as strokeColor), fillOpacity (as strokeOpacity) graphicZIndex (higher 
+  number draws on top of lower number). For example, a report could vary the opacity of 
+  output grid references on the map according to size by including this column in the SQL:
 
   .. code-block:: sql
 
