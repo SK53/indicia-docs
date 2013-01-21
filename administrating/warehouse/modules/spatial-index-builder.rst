@@ -62,7 +62,7 @@ Installation notes
 
 #. Once the module is enabled, log into the warehouse and visit ``index.php/home/upgrade``
    in order to install the new database tables.
-#. You must ensure that the :doc:`<../scheduled-tasks>` are configured for the warehouse.
+#. You must ensure that the :doc:`../scheduled-tasks` are configured for the warehouse.
 #. If you want to limit the location types that are indexed, then you must duplicate the
    file ``modules/spatial-index-builder/config/spatial_index_builder.php.example`` and
    call the duplicated file ``spatial_index_builder.php``. Now edit the file using a text
