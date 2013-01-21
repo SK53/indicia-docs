@@ -12,11 +12,11 @@ new verification rule with the following settings:
 * **Error Message** = ...
 * **Metadata** ::
 
-  SurveyId=ID of the survey being checked
-  LocationNames=List of allowed location names, comma separated
-  Tvk=External key (normally the preferred taxon version key) of the species
-  Taxon=Preferred taxon name
-  TaxonMeaningId=Meaning ID from the database for the species
+    SurveyId=ID of the survey being checked
+    LocationNames=List of allowed location names, comma separated
+    Tvk=External key (normally the preferred taxon version key) of the species
+    Taxon=Preferred taxon name
+    TaxonMeaningId=Meaning ID from the database for the species
   
 Note that you only need to supply one of the Tvk, Taxon or TaxonMeaningId settings in 
 order to identify
