@@ -11,7 +11,7 @@ services**. Some basic principles are:
 * The Data Services are accessed via the URL of the site root + /index.php/services/data/ 
   + the name of the required data entity, which is the singular version of the required 
   table name, for example ``http://www.mysite.com/index.php/services/data/termlist``. Here
-  is a :doc:`list of available entities <entity-list>`.
+  is a :doc:`list of available entities <data-services-entity-list>`.
 * The attributes returned for each record are loaded from database views rather than 
   direct from the table. This gives the chance to return meaningful information for each
   record, for example the **termlists_term** entity is used to load terms from a term
