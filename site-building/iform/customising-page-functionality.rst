@@ -14,13 +14,13 @@ Add your own CSS stylesheets
 ----------------------------
 
 To include your own CSS files, you need to create a .css file and place it in 
-the folder sites\all\modules\iform\client_helpers\prebuilt_forms\css. The file 
+the folder ``sites\all\modules\iform\client_helpers\prebuilt_forms\css``. The file 
 should be called node.nid.css where nid is the node id of the Drupal page your 
 form is on.
 
 In addition, developers of prebuilt forms can provide CSS that is added to the 
 page for all instances of a particular form by creating a file called 
-sites\all\modules\iform\client_helpers\prebuilt_forms\css\form-name.css, 
+``sites\all\modules\iform\client_helpers\prebuilt_forms\css\form-name.css``, 
 replacing form-name with the name of the form. For example you will find a file 
 called verification_1.css in this location which is used for all instances of 
 the verification_1.php form.
