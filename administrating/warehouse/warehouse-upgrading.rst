@@ -32,7 +32,7 @@ Developer Notes
 ===============
 
 If you are maintaining an Indicia Warehouse which is being kept up to date from the
-:doc:`Subversion repository <../developing/subversion>` rather than downloaded releases,
+:doc:`Subversion repository <../../developing/subversion>` rather than downloaded releases,
 you won't see the upgrade notification on the home page after an SVN update unless the
 application version has changed. However, there are a couple of options for upgrading your
 database on a more ad-hoc basis:
