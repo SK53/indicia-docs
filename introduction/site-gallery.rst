@@ -132,7 +132,7 @@ United Kingdom, managed and hosted by the `Biological Records Centre <http://www
 As well as online recording, iRecord provides an expert verification portal not 
 only for records collected on iRecord itself but any other websites sharing the 
 BRC Indicia warehouse hosting facilities that opt in via Indicia's :doc:`data 
-sharing agreement <../administrating/website-agreements>` facilities.
+sharing agreement <../administrating/warehouse/website-agreements>` facilities.
 
 iRecord used Instant Indicia as a starting point for the website build with a 
 selection of configured prebuilt forms for both data entry, reporting and 
