@@ -20,8 +20,6 @@ import sys, os
 
 # -- General configuration -----------------------------------------------------
 
-todo_include_todos=True
-
 # If your documentation needs a minimal Sphinx version, state it here.
 #needs_sphinx = '1.0'
 
@@ -39,10 +37,10 @@ source_suffix = '.rst'
 #source_encoding = 'utf-8-sig'
 
 # The master toctree document.
-master_doc = 'contents'
+master_doc = 'alternate-docs/advanced/contents'
 
 # General information about the project.
-project = u'Indicia'
+project = u'Indicia Developer Training'
 copyright = u'2012, Indicia Team'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -66,7 +64,7 @@ release = '0.8.1'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = ['_build','alternate-docs']
+exclude_patterns = ['_build']
 
 # The reST default role (used for this markup: `text`) to use for all documents.
 #default_role = None
@@ -95,7 +93,7 @@ highlight_language = 'php'
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'default'
+html_theme = 'nature'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -114,7 +112,7 @@ html_theme = 'default'
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
-html_logo = "images/logo.png"
+html_logo = "../../images/logo.png"
 
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
@@ -186,14 +184,15 @@ latex_elements = {
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
+
 latex_documents = [
-  ('pdf-contents', 'Indicia.tex', u'Indicia Documentation',
+  ('alternate-docs/advanced/pdf-contents', 'Indicia.tex', 'Indicia Advanced Training',
    u'Indicia Team', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
-latex_logo = 'images/logo.png'
+latex_logo = '../../images/jigsaw.jpg'
 
 # For "manual" documents, if this is true, then toplevel headings are parts,
 # not chapters.
@@ -203,7 +202,7 @@ latex_logo = 'images/logo.png'
 #latex_show_pagerefs = False
 
 # If true, show URL addresses after external links.
-#latex_show_urls = True
+latex_show_urls = True
 
 # Documents to append as an appendix to all manuals.
 #latex_appendices = []
@@ -217,7 +216,7 @@ latex_logo = 'images/logo.png'
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'indicia', u'Indicia Documentation',
+    ('index', 'indicia', u'Indicia Advanced Training',
      [u'Indicia Team'], 1)
 ]
 
@@ -231,7 +230,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'Indicia', u'Indicia Documentation',
+  ('index', 'Indicia', u'Indicia Advanced Training',
    u'Indicia Team', 'Indicia', 'One line description of project.',
    'Miscellaneous'),
 ]
