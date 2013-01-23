@@ -75,7 +75,7 @@ Instant Indicia provides an optional feature called Easy Login which links any u
 accounts created on your Drupal website with a user account on the Indicia warehouse. The
 user's email is used to uniquely identify users, which means that if someone registers on 
 several websites that share the same warehouse, there will only be one user account 
-created on the warehouse. This means that each user is uniquely identifiable across the 
+created on the warehouse. Therefore each user is uniquely identifiable across the 
 warehouse. This approach has the following benefits over storing a content management 
 system user ID:
 

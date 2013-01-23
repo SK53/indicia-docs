@@ -1,8 +1,7 @@
-*************************
-Indicia Advanced Training
-*************************
+Walkthrough - Building your own iRecord
+---------------------------------------
 
-.. sidebar:: Course Prerequisites
+.. sidebar:: Prerequisites
 
   These tutorials are more advanced than the Introduction to Instant Indicia, so before
   starting it is worth making sure you at least know the basics of Drupal and Instant 
@@ -14,20 +13,12 @@ Indicia Advanced Training
   * a species list loaded onto the website for you to use, preferably with multiple taxon
     groups.
   * a fresh copy of Instant Indicia, updated with the latest code.
-
-.. only:: html
-
-  .. image:: ../../images/jigsaw.jpg
-    :width: 400px
-    :alt: Indicia solves your online recording puzzles
-
-Welcome to the Indicia Advanced Training course. This course takes you through the steps
-required to build a complete working website similar to `iRecord
-<http://www.brc.ac.uk/irecord>`_ starting with a blank Instant Indicia site. Rather than
-doing things the easy way, we'll be diving in to as much detail as we can fit in the day.
-This way we'll be learning some of the advanced configuration techniques available in the
-Indicia ecosystem including templating, notification emails and PHP coding using the
-Indicia Client Helpers API. Through the course you will cover:
+  
+In this suite of tutorials, we'll take a look at how to build a site similar to `iRecord
+<http://www.brc.ac.uk/irecord>`_, starting with a blank Instant Indicia site. In doing so
+we'll be learning some of the advanced configuration techniques available in the Indicia
+ecosystem including templating, notification emails and PHP coding using the Indicia
+Client Helpers API. During the tutorials you will cover:
 
 * The best way to associate users with their records.
 * Advanced configuration of data entry forms
@@ -39,9 +30,16 @@ Indicia Client Helpers API. Through the course you will cover:
   forms
 * Using the new Dynamic Reports page
 * Adding a custom home page
-
-.. tip::
-
-  All the course material is available via the new documentation website on 
-  `Read the Docs <http://indicia-docs.readthedocs.org>`_. 
-
+   
+.. toctree::
+  easy-login
+  dynamic-form
+  form-structure
+  custom-attributes
+  css-overrides
+  node-clone
+  nice-menus
+  forms-and-surveys-library
+  dynamic-reports
+  home-page
+  links-further-reading

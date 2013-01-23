@@ -22,8 +22,9 @@ help:
 	@echo "  epub               to make an epub"
 	@echo "  latex              to make LaTeX files, you can set PAPER=a4 or PAPER=letter"
 	@echo "  latexpdf           to make LaTeX files and run them through pdflatex"
-	@echo "  latexpdf-iiintro    to make LaTeX files for the Instant Indicia Introduction and run them through pdflatex"
-	@echo "  latexpdf-developer  to make LaTeX files for Indicia Developer Training and run them through pdflatex"
+	@echo "  latexpdf-iiintro   to make LaTeX files for the Instant Indicia Introduction and run them through pdflatex"
+	@echo "  latexpdf-developer to make LaTeX files for Indicia Developer Training and run them through pdflatex"
+	@echo "  latexpdf-advanced  to make LaTeX files for Indicia Advanced Training and run them through pdflatex"
 	@echo "  changes            to make an overview of all changed/added/deprecated items"
 	@echo "  linkcheck          to check all external links for integrity"
 	@echo "  doctest            to run all doctests embedded in the documentation (if enabled)"
@@ -40,6 +41,11 @@ html-developer:
 	$(SPHINXBUILD) -b html -t developer -c alternate-docs/developer $(ALLSPHINXOPTS) $(BUILDDIR)/html-developer
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html-developer."
+	
+html-advanced:
+	$(SPHINXBUILD) -b html -t advanced -c alternate-docs/advanced $(ALLSPHINXOPTS) $(BUILDDIR)/html-advanced
+	@echo
+	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html-advanced."
 
 epub:
 	$(SPHINXBUILD) -b epub $(ALLSPHINXOPTS) $(BUILDDIR)/epub
@@ -70,6 +76,12 @@ latexpdf-developer:
 	@echo "Running LaTeX files through pdflatex..."
 	$(MAKE) -C $(BUILDDIR)/latex-developer all-pdf
 	@echo "pdflatex finished; the PDF files are in $(BUILDDIR)/latex-developer."
+	
+latexpdf-advanced:
+	$(SPHINXBUILD) -b latex -t advanced -c alternate-docs/advanced $(ALLSPHINXOPTS) $(BUILDDIR)/latex-advanced
+	@echo "Running LaTeX files through pdflatex..."
+	$(MAKE) -C $(BUILDDIR)/latex-advanced all-pdf
+	@echo "pdflatex finished; the PDF files are in $(BUILDDIR)/latex-advanced."
 
 changes:
 	$(SPHINXBUILD) -b changes $(ALLSPHINXOPTS) $(BUILDDIR)/changes
