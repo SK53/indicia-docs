@@ -6,7 +6,7 @@ in the report which respects the permissions given to each client website
 regarding which records can be viewed. So, the report will allow a client 
 website to view any record in the system, obviously not good. We need to 
 implement a way of letting Indicia control the report to filter the records 
-returned by website ID. Before going any further, its a good idea to set up a 
+returned by website ID. Before going any further, it's a good idea to set up a 
 new Indicia Forms page on your Drupal website which uses this report as its 
 source, leaving all the other settings to their default values. Give the report 
 page a title and add it to the Drupal primary links menu so you can easily find 
