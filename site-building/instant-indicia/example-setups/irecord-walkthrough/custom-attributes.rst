@@ -96,6 +96,7 @@ the survey you are working on. Your page should look something like this:
 
 .. image:: ../../../../images/screenshots/warehouse/setup-postcode-attribute.png
      :width: 300pt
+     :align: center
      :alt: Adding a postcode attribute to the warehouse
 
 Finally, save the attribute. 

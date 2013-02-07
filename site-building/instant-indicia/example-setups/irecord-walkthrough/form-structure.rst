@@ -47,7 +47,7 @@ a few configuration options which are available for any Indicia control, e.g.:
 
 * **label** - the control's label.
 * **helpText** - the hint messsage displayed below the control.
-* **helpText** - can the control's value be locked, for future data entry?
+* **lockable** - can the control's value be locked, for future data entry?
 
 Plus there are some options specific to a date picker, for example:
 
@@ -139,7 +139,7 @@ We'll take a look at fixing this problem in a later tutorial on styling. For now
 add another tab to capture the species records. Add the following to the end of your
 Form Structure block::
 
-  ==Species==
+  =Species=
   [species]
   
 Now save and view your form. You will need to input a date and click on the map before you

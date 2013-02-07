@@ -59,12 +59,12 @@ Adding forms to the library
 
 Although everything is now working, we've not yet told Indicia that we want any of our
 existing forms to actually appear in the library (since appearance in the library is
-optional). To add out "Enter a list of Records" form to the library:
+optional). To add our "Enter a list of Records" form to the library:
 
 #. Go to the Edit tab for the form.
 #. Near the bottom you will find a new section that has been added by the Forms and 
    Surveys Library feature called **Forms and surveys library settings**. Expand this 
-   section and tick the **Include in library** checbox.
+   section and tick the **Include in library** checkbox.
 #. You can overwrite the **Library title**, or leave the default. This is the title which
    will be shown on the **My Forms** page.
 #. Fill in the **Library description** which will appear in the panel shown on the **My
