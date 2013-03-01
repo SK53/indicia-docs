@@ -13,7 +13,7 @@ Setting up a website agreement
 ------------------------------
 
 **Website agreements** are a feature of Indicia that allow websites to report on records
-from other records. For example, iRecord acts as a centralised portal allowing reporting
+from other websites. For example, iRecord acts as a centralised portal allowing reporting
 on records which were input via a number of different websites. It also allows
 verification of records from other sites - the websites which will participate in this
 arrangement are configured using a website agreement.
@@ -44,7 +44,7 @@ agreements, we will need to set one up before proceeding. Here are the steps:
    **Agreements** tab.
 #. Click the **Join website agreement** button.
 #. On the **New Websites Website Agreement** page, set the **Agreement to participate in**
-   to "My Website". Normally you would need to specify which parts of the agreement your
+   to the title of the agreement you just created. Normally you would need to specify which parts of the agreement your
    website wants to opt into, but that is not necessary for our purposes. For example,
    the iRecord agreement allows participating websites to provide records to iRecord's
    reporting pages or verification pages, but it is up to each website which of these they
