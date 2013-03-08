@@ -61,7 +61,7 @@ This method requires the following parameters in either the GET or POST data:
 * **cms_user_id** --Required. User ID from the client website's login system.
 * **force** - Optional. Only relevant after a request has returned an array of 
   several possible matches. Set to **merge** or **split** to define the outcome.
-* users_to_merge - If force=merge, then this parameter can be optionally used to 
+* **users_to_merge** - If force=merge, then this parameter can be optionally used to 
   limit the list of users in the merge operation. Pass a JSON encoded array of 
   user IDs.
 * **attribute_values** - Optional list of custom attribute values for the person 
