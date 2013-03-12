@@ -24,6 +24,11 @@ are required.
 #. Next, log into your Indicia Warehouse and visit the home page. You should see a
    notification that an upgrade needs to be run. Click the button to upgrade your
    warehouse.
+#. Take careful note of any messages shown to ensure that the upgrade ran successfully. In
+   particular, there may be scripts which you need to run against the warehouse database
+   using the *postgres* user account if full database permissions are required - in this 
+   case we suggest you log in to pgAdmin and paste the supplied scripts into a query
+   window to run them.
 #. Re-enable access to the warehouse if you had denied it.
 
 That's it!
