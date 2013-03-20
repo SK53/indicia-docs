@@ -25,6 +25,15 @@ Easy Login also enables the following information to be stored in a user's profi
 * For all users, whether their records can be shared outside the website which they 
   contributed the record to. This option is hidden by default.
   
+.. tip::
+
+  Because Easy Login supports storing a correct *created_by_id* field value for all 
+  records stored in the warehouse, this allows additional functionality to be supported.
+  For example, it allows the **location_autocomplete** control to make available all the 
+  sites that a user has saved for selection during data entry. When a site is selected,
+  the data entry form can use previous samples saved for that site by the user to get 
+  default values for fields related to the site, such as the habitat. 
+  
 .. advanced
 
   In the next section, we'll take a look at installing and configuring the Easy Login 
