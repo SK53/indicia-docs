@@ -300,6 +300,8 @@ Attributes
   most cases will return no records. Consider replacing the SQL with ``WHERE 
   (id=#id# OR #id#=0)`` to create a filter that will return all records when 
   left blank.
+* **default** - 
+  A parameter with a default value
 * **fieldname** -
   Use in conjunction with the **idlist** datatype. For more information see
   :ref:`idlist-label`
@@ -339,6 +341,41 @@ you would expect a parameter defined like:
       description="Comma separated list of occurrence IDs to filter to." 
       datatype="idlist" fieldname="o.id" alias="occurrence_id" />
 
+Parameters which require additional filters in the WHERE section
+----------------------------------------------------------------
+
+If a query should have a filter in the WHERE section only if one of the parameters is 
+specified or has a certain value, you can add a ``<where>`` element to the ``<param>``.
+For example, a filter on taxon group could include the filter SQL only when a taxon 
+group has been specified. 
+
+.. code-block:: xml
+
+  <param name='taxon_groups' display='Taxon Groups' 
+      description='Comma separated list of taxon group IDs to filter the report by, if
+      any'>
+    <join>
+      o.taxon_group_id in (#taxon_groups#)
+    </join>  
+  </param>
+
+It is also possible to qualify the filter, by specifying attributes **operator** 
+and **value**. The operator must be set to equal or notequal and the value 
+should then be set to define a condition on when this filter is applied to the report 
+SQL. In this example, a taxon groups preferences parameter is only applied to the report
+if the ownGroups param is checked.
+
+.. code-block:: xml
+
+  <param name="taxon_groups" display="Taxon Groups"
+      description="Comma separated list of taxon group IDs to filter the report by, if
+      any"/>
+  <param name="ownGroups"
+    <join>
+      o.taxon_group_id in (#taxon_groups#)
+    </join>  
+  </param>
+  
 Parameters which require additional joins
 -----------------------------------------
 
@@ -495,6 +532,16 @@ Attributes
   Described in the section :ref:`declaring-column-sql-label` below.
 * **in_count** 
   Described in the section :ref:`declaring-column-sql-label` below.
+* **on_demand** can be set to true to mark a column which does not need to be included in 
+  the results set, but can be used in the report filter on demand. A good example of the
+  use of this is when a report grid and a report map are on the same page and 
+  synchronised. The report grid allows column based filtering, but the report used to 
+  populate the map must be as efficient as possible and therefore should only return the
+  geometry related data. The filterable grid columns can be included in the map report so 
+  that the map report can have the exact same filter applied when the grid is filtered
+  without impacting on the performance of the map load.
+* **internal_sql**
+
 * **feature_style** can be used when there is a mappable column on the report, 
   to define a column which provides the value for one of the map styling 
   parameters supported in OpenLayers. Supported options include **strokeColor** 
