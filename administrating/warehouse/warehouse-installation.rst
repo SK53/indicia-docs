@@ -190,8 +190,18 @@ Run the Setup
 
 The Setup procedure will automatically start if you access the index.php file in the root
 of the website. So, just enter this into your web browser, for example
-http://localhost/indicia/index.php, and load the page. This should display the Indicia
-Setup Check page, which with any luck will show something similar to the following:
+http://localhost/indicia/index.php, and load the page. 
+
+.. tip::
+
+  The setup procedure copies the domain in the url that you enter and stores it in two places, 
+  as $config['site_domain'] in application/config/config.php and as $base_url in 
+  client_helpers/helper_config.php. If you initially access index.php via http://localhost and
+  subsequently want your warehouse to work from a different url then you will need to edit these
+  two files.
+
+The Indicia Setup Check page should be displayed which, with any luck, will show something 
+similar to the following:
 
 .. image:: ../../images/screenshots/warehouse/setup_check.png
   :width: 700px
