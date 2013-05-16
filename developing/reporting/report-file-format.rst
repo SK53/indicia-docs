@@ -419,8 +419,15 @@ The parameter datatypes *smpattrs*, *occattrs* and *locattrs* are special types
 used to allow the input of a comma separated list of custom attributes to be 
 added to the report output. Attributes can be sample attributes, occurrence 
 attributes and location attributes respectively and can be provided either by 
-specifying the attribute caption or ID in the comma separated list. To use 
-parameters of these types it is necessary to fulfill several requirements in the 
+specifying the attribute caption or ID in the comma separated list. A third option is to 
+specify a hash followed by the key of a system function in which case the appropriate
+attributes for that system function will be automatically pulled into the report. For 
+example you might include the sex, stage and identifier of a record by referring to the 
+system functions of the columns as ::
+
+  smpattrs=#sex,#stage,#det_full_name
+  
+To use parameters of these types it is necessary to fulfill several requirements in the 
 way your report is specified:
 
 #. The report must use the *field_sql* element to separate the field list from 
@@ -461,6 +468,8 @@ Parameter request for smpattrs  Output column name       sample_attribute_value.
 CMS User ID                     attr_sample_cms_user_id  attr_id_location_cms_user_id
 ==============================  =======================  =====================================
 
+For system function references, there is just a single column called attr followed by an
+underscore then the key of the system function, e.g. attr_det_full_name.
 .. _columns-label: 
 
 Element <columns>
