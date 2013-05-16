@@ -137,7 +137,11 @@ run:
   in the unusual circumstance that the clause needs to be inserted into the 
   query somewhere other than the very end of the report SQL, e.g. if it needs
   to precede a ``LIMIT`` statement. 
-
+* #training# - If the report includes either the occurrences or cache_occurrences table
+  with a website filter, then the training mode on the logged in user's account will be
+  automatically applied to filter the report. In some cases however you may want to handle
+  training mode filtering in a different way, in which case your report can use the 
+  #training# replacement, which will be set to **true** or **false** as appropriate.
 In addition any declared :ref:`parameters <parameters-label>` are available as 
 replacement tokens, so if there is a parameter called "survey_id" then the
 replacement token ``#survey_id#`` can be used in the report and it will be 
