@@ -33,7 +33,7 @@ Child elements
 * :ref:`query <query-label>`
 * :ref:`order-bys <order-bys-label>`
 * :ref:`field-sql <field-sql-label>`
-* :ref:`parameters <parameters-label>`
+* :ref:`params <params-label>`
 * :ref:`columns <columns-label>`
 * :ref:`vagueDate <vaguedate-label>`
 
@@ -216,9 +216,22 @@ Example
   <field_sql>id, preferred_taxon_name, public_entered_sref</field_sql>
   ...
 
-.. _parameters-label:
+.. _params-label:
 
-Element <parameters>
+Element <params>
+=================
+
+The ``<params>`` element provides an area within the report definition to list
+parameters for the query and provide configuration for each. 
+
+Child elements
+--------------
+
+* :ref:`param <param-label>`
+
+.. _param-label:
+
+Element <param>
 ====================
 
 Attributes
