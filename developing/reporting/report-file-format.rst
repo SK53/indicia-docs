@@ -142,7 +142,8 @@ run:
   automatically applied to filter the report. In some cases however you may want to handle
   training mode filtering in a different way, in which case your report can use the 
   #training# replacement, which will be set to **true** or **false** as appropriate.
-In addition any declared :ref:`parameters <parameters-label>` are available as 
+
+In addition any declared :ref:`parameters <params-label>` are available as 
 replacement tokens, so if there is a parameter called "survey_id" then the
 replacement token ``#survey_id#`` can be used in the report and it will be 
 replaced by the selected survey ID when the report is run.
@@ -483,6 +484,7 @@ CMS User ID                     attr_sample_cms_user_id  attr_id_location_cms_us
 
 For system function references, there is just a single column called attr followed by an
 underscore then the key of the system function, e.g. attr_det_full_name.
+
 .. _columns-label: 
 
 Element <columns>
