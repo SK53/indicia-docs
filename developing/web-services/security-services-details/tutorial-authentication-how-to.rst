@@ -79,6 +79,13 @@ order to fulfill the requirements of the digest authentication, we must use this
 nonce along with the website password to create the **auth token**. We use the 
 ``sha1`` algorithm to do this which is considered to be non-reversible.
 
+.. tip::
+
+  PHP's sha1 algorithm always returns a lowercase sequence of letters and numbers. There
+  are other implementations which return uppercase. Since we are authenticating against a
+  PHP web service, if your own implementation returns uppercase, then simply convert your
+  auth_token to lowercase before proceeding.
+
 .. code-block:: php
 
   <?php
