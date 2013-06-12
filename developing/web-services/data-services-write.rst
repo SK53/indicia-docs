@@ -1,3 +1,27 @@
 Data Services - writing data
 ============================
 
+The URLs supported for :doc:`reading data from each entity <data-services-reading>` on
+the Indicia warehouse can also be used to update existing records and add new records to
+the database. This is achieved by posting a **submission** to the URL. Because the
+submission can contain records for multiple entities and it embeds the name of the
+entity(s) you are posting into, it is also possible to post submissions to the URL
+**site root + /index.php/services/data/save**. This URL is the preferred approach of
+sending submissions.
+
+The submission content itself must be posted to the warehouse URL using a POST value
+called `submission` which is in the :doc:`format required for an Indicia submission
+<submission-format>`. Submissions must have the following information provided. All
+these values can be provided in the GET or POST information sent to the URL:
+
+  * **auth_token** - the write authentication token
+  * **nonce** - the write authentication token's nonce
+
+The following values can also be passed but are optional:
+
+  * **user_id** - the ID of the warehouse user, if known. Allows all records to be 
+    associated with their user account.
+
+The URL will parse the submission to determine the records to insert or update in the 
+database, validate the proposed changes, then either perform the changes to the database
+or will return the validation errors. 
