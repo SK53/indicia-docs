@@ -9,4 +9,5 @@ Some introduction to building your site section.
   building-your-website
   iform/index
   instant-indicia/index
+  warehouse/index
   
