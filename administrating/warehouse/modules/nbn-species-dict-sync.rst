@@ -1,6 +1,12 @@
 NBN Species Dictionary Synchronisation Module
 ---------------------------------------------
 
+.. warning:: 
+
+  This module has been deprecated in favour of importing via a dedicated script, as 
+  performance when using the current web services is too slow. It is no longer being 
+  maintained. See :doc:`../importing-uksi`.
+  
 This optional module provides various options for downloading species data from the NBN Species Dictionary web services
 into Indicia species lists. It provides the following functions:
 

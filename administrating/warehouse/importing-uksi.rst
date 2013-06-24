@@ -166,7 +166,7 @@ Starting with the exported text files
   
     .. code-block:: php
       
-      MODPATH.'taxon_designations',
+        MODPATH.'taxon_designations',
 
    #. Log into your warehouse and visit the ``index.php/home/upgrade`` page to ensure that 
       database upgrade scripts are run.
