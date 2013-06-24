@@ -9,10 +9,10 @@ building your online recording site or app.
 .. toctree::
 
   websites
+  surveys
   
 .. todo::
 
-  surveys
   taxon_lists
   custom_attributes
   
