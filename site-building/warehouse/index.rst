@@ -10,9 +10,6 @@ building your online recording site or app.
 
   websites
   surveys
-  
-.. todo::
-
-  taxon_lists
-  custom_attributes
+  taxon-lists
+  custom-attributes
   
