@@ -38,7 +38,7 @@ sample                           list, detail
 sample_attribute                 list, gv
 sample_attribute_value           list
 sample_comment                   list             
-sample_image                     gv               
+sample_image                     list, gv               
 survey                           list, detail, gv 
 taxa_taxon_list                  list, detail, gv no
 taxa_taxon_list_attribute        list, gv
