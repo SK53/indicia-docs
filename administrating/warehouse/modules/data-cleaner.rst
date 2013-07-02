@@ -2,7 +2,7 @@ Data Cleaner Module
 -------------------
 
 The Data Cleaner is Indicia's version of the `NBN Record Cleaner
-<www.nbn.org.uk/record-cleaner.aspx>`_ tool, in other words Data Cleaner provides
+<http://www.nbn.org.uk/record-cleaner.aspx>`_ tool, in other words Data Cleaner provides
 verification of incoming records.
 
 .. note::
