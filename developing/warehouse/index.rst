@@ -10,3 +10,4 @@ Developing for the Warehouse
   plugins
   tutorial-plugins
   tutorial-entity-module
+  phpunit
