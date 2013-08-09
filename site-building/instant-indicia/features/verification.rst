@@ -7,6 +7,8 @@ It is recommended that this feature is combined with the :doc:`easy-login` featu
 control of verifier preferences and that the Data Cleaner and associated rule modules
 are enabled on the warehouse to automate flagging of records which need thorough checking.
 
+The verification page uses Ajax to send your decisions to the server without updating the  whole page. For this to work your verifiers must be granted the "IForm AJAX Proxy passthrough" privilege.
+
 .. todo::
   
   Flesh this out and screenshot
