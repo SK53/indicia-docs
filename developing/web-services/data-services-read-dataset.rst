@@ -17,7 +17,10 @@ The following options control the records which are returned:
 
 * Provide a URL parameter with the same name as a field in the dataset you are loading
   from set to the value you want to filter to. Use an asterisk as a wildcard in string
-  filters or NULL to filter for null values.
+  filters or NULL to filter for null values. The fields available in the dataset which 
+  you can filter against are those available in the view which you are loading from, 
+  for example if you are accessing the sample model with a `view=list` parameter, then
+  the fields available will be those in the list_samples view.
 * Set a URL parameter called **limit** to a positive whole number in order to limit the
   number of records returned.
 * Set a URL parameter called **offset** to a positive whole number in order to skip a
