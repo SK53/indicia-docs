@@ -20,12 +20,31 @@ The following options control the records which are returned:
   filters or NULL to filter for null values. The fields available in the dataset which 
   you can filter against are those available in the view which you are loading from, 
   for example if you are accessing the sample model with a `view=list` parameter, then
-  the fields available will be those in the list_samples view.
+  the fields available will be those in the list_samples view. See the notes below for 
+  more information on accessing the available fields.
 * Set a URL parameter called **limit** to a positive whole number in order to limit the
   number of records returned.
 * Set a URL parameter called **offset** to a positive whole number in order to skip a
   certain number of records from the beginning of the dataset.
 * Set a parameter called **query** to specify an advanced query filter as described below.
+
+.. tip::
+
+  If you have access to the warehouse database via pgAdmin or a similar tool, then finding
+  out which columns are available in which views for the data services requests is easy.
+  However, if you are coding without direct access to the warehouse, you can download `a
+  list of the view columns <http://www.indicia.org.uk/sites/default/files/downloads/view-columns.csv>`_ 
+  for reference, currently correct to revision 6151. This list can be regenerated at any 
+  time using the following query, changing the schema and catalog name if required:
+  
+  .. code-block:: sql
+  
+    select table_name, column_name, data_type
+    from INFORMATION_SCHEMA.columns
+    where table_schema='indicia' and table_catalog='indicia'
+    and (table_name like 'list_%' or table_name like 'detail_%' or table_name like 'gv_%' 
+        or table_name like 'cache_%')
+    order by table_name, ordinal_position
 
 Where a simple field filter is not sufficient, you can use the query parameter to build
 more advanced queries against the data. This is achieved by passing a JSON object in the
