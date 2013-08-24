@@ -55,7 +55,15 @@ database on a more ad-hoc basis:
    each time it is accessed, so the performance will be better. 
 
 The upgrade process places each set of scripts required for upgrade in a folder called
-modules/indicia_setup/db/version_x_x_x, where x_x_x reflects the version number. In
-addition, any code that is required for an upgrade can be placed in a method called
+modules/indicia_setup/db/version_x_x_x, where x_x_x reflects the version number. If a 
+script needs to be run with superuser privileges, then insert the following comment on the
+first line of the script so that the upgrader can provide instructions to the user to 
+manually run the scripts using the postgres user:
+
+.. code-block:: sql
+
+  -- #postgres user#
+
+In addition, any code that is required for an upgrade can be placed in a method called
 ``version_x_x_x`` placed in the Upgrade_Model class, in
 modules/indicia_setup/models/upgrade.php.
