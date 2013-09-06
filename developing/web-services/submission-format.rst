@@ -75,11 +75,25 @@ value (or anything you like to make the fieldname unique:
 Automatic foreign key lookup
 ----------------------------
 
-If you need to automatically lookup a value to fill in a foreign key in the record being 
+You will often need to submit field values which are IDs that relate to records in other 
+tables, for example:
+
+  * when submitting a sample location the location_id needs to point to a record in the 
+    ``locations`` table.
+  * when submitting a custom attribute of type lookup, the custom attribute value must 
+    point to a value in the ``termlists_terms`` table.
+    
+In all cases, if possible you should keep a lookup table of the IDs you will need to 
+submit in these fields in your client website, so that submitting records is as fast as
+possible. However, if for some reason this is not practical Indicia provides an automatic
+lookup facility to fill in the foreign key values for you.
+    
+If you need to automatically lookup a value to fill in a foreign key in the record being
 saved, then specify a field called **fk_fieldname** which contains the lookup value. We'll
-take the example of submitting a location with a parish location type to explain this. If
-we knew the location_type_id which refers to parish, then we might specify a submission
-such as the following:
+take the example of submitting a location with a parish location type to explain this, but
+this technique applied to any other field holding a foreign key to another table,
+including custom attribute lookup values. If we knew the location_type_id which refers to
+parish, then we might specify a submission such as the following:
 
 .. code-block:: json
 
