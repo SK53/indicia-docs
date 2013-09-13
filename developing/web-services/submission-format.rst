@@ -71,6 +71,26 @@ value (or anything you like to make the fieldname unique:
   "smpAttr:14::0" : {"value" : 3}
   "smpAttr:14::1" : {"value" : 8}
   "smpAttr:14::2" : {"value" : 13}
+  
+Alternatively, on initial submission of a multi-valued custom attribute you can simply
+pass an array of the values, so the above could be written as:
+
+.. code-block:: json
+
+  "smpAttr:14" : {"value" : [3, 8, 13]}
+  
+This shorthand approach doesn't work when re-submitting existing custom value attributes
+after loading a record to edit, because you need to pass through the existing record IDs
+(in this case, the relevant attribute_values table record IDs) as the 3rd part of the 
+fieldname. The fieldnames are now unique so there is no need to provide a unique index in 
+the 4th element; if you do it will simply be ignored. Therefore a resubmission of the 
+above data might look like:
+
+.. code-block:: json
+
+  "smpAttr:14:98" : {"value" : 3}
+  "smpAttr:14:99" : {"value" : 8}
+  "smpAttr:14:100" : {"value" : 13}
 
 Automatic foreign key lookup
 ----------------------------
