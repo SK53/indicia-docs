@@ -2,7 +2,8 @@
 Building your site
 ##################
 
-Some introduction to building your site section.
+The following sections cover the various topics you'll need to know about when building a
+website using Indicia.
 
 .. toctree::
 
@@ -10,4 +11,5 @@ Some introduction to building your site section.
   iform/index
   instant-indicia/index
   warehouse/index
+  moving-data-around/index
   
