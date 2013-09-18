@@ -95,6 +95,71 @@ file cannot be found, then the addin will assist you in creating a new one as fo
   
 Configuring the import of custom attributes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Indicia has the ability for each online recording survey to define attributes which extend
+the data model and it is possible to configure the import of attribute values into
+Recorder 6. These custom attributes can be associated with occurrences or samples and can
+capture any single piece of information. Custom attributes have a single caption property
+which describes them.
+
+.. note::
+
+  You will need to be able to run queries against the Recorder 6 database in order to
+  perform this configuration task.
+
+In Recorder 6, the approach to extensible data is via the measurements system, with 
+equivalent tables to capture measurements against both the sample and occurrence. The
+main difference though is that Recorder 6 measurements are described by 3 properties:
+
+  * The measurement type - what are you measuring?
+  * The measurement unit - units of measurement
+  * The measurement qualifier - what exactly is the measurement of?
+
+**Example 1** - An Indicia attribute called Count. In Recorder 6 this would map to
+type=Abundance, unit=Count, qualifier=Unknown (since we don't have any information as to
+what was counted.
+
+**Example 2** - An Indicia attribute called Count of Larvae. In Recorder 6 this would map
+to type=Abundance, unit=Count, qualifier=Larvae.
+
+**Example 3** - An Indicia sample attribute called Surroundings linked to a termlist. In
+Recorder 6 this could map to type=Description, unit=Term, qualifier=Surroundings.
+
+So, before you can configure the addin to import any custom attributes from Indicia, you
+first need to decide which custom attributes you are going to import and you need to then
+create the required measurement types, units and qualifiers in Recorder to capture the
+data. You can do this via Recorder 6's **Tools > Termlists** screen. Once you have done
+this, follow the steps below to configure the import.
+
+  #. In your Public or My Documents\Indicia2Recorder folder, alongside the 
+     indiciaConnection.txt file, create a text file called config.txt and open it in a 
+     text editor.
+  #. In this file, you can insert mappings from an Indicia custom attribute to a Recorder
+     6 measurement. To do this. start by typing ``smpAttr:`` or ``occAttr:`` for a sample
+     attribute or an occurrence attribute respectively. Follow this with the ID of the 
+     custom attribute (read from the warehouse user interface screen which lists the 
+     attributes), then an equals sign. 
+  #. The mapping does not need to know the measurement type, since if you tell it the 
+     measurement unit or qualifier these both have pointers in the database to the 
+     correct measurement type. So, you need to find the respective keys for the 
+     measurement units and qualifiers that you have set up using a database query tool
+     such as SQL Server Management Studio. Here is an example of the querying steps you 
+     might follow:
+     
+     .. code-block:: sql
+       
+       SELECT MEASUREMENT_TYPE_KEY FROM MEASUREMENT_TYPE WHERE SHORT_NAME='Abundance'
+       -- this returned MEASUREMENT_TYPE_KEY='NBNSYS0000000004' so we copy that into the next 2 queries
+
+       SELECT MEASUREMENT_UNIT_KEY FROM MEASUREMENT_UNIT WHERE SHORT_NAME='Count' AND MEASUREMENT_TYPE_KEY='NBNSYS0000000004'
+       -- this returned MEASUREMENT_UNIT_KEY='NBNSYS0000000009'
+
+       SELECT MEASUREMENT_QUALIFIER_KEY FROM MEASUREMENT_QUALIFIER WHERE SHORT_NAME='Adult' AND MEASUREMENT_TYPE_KEY='NBNSYS0000000004'
+       -- this returned MEASUREMENT_QUALIFIER_KEY='NBNSYS0000000025'  
+       
+  #. Now all you need to do is to paste the MEASUREMENT_UNIT_KEY after the equals sign,
+     then add a comma and finally paste in the MEASUREMENT_UNIT_KEY.
+  #. Repeat steps 2-4 on a new line for each additional custom attribute then save it.
      
 Usage
 -----
@@ -136,4 +201,16 @@ the rest.
 
 Click the **Cancel** button to close the dialog when you are finished.
 
+Record Management
+^^^^^^^^^^^^^^^^^
+
+When you download records from an Indicia website using this addin, as long as other
+Recorder 6 users doing the same use the same connection configuration file then their
+downloaded records will get the same NBN Keys as the ones you download. Therefore these
+will be understood by Recorder as the same record and if you exchange data with other
+Recorder 6 users it will not create duplicate records. This also means that you can
+download a set of records multiple times and Recorder 6 will not create duplicates -
+subsequent downloads will overwrite the existing records. This means that if any record
+changes are required, making them on the top copy in the Indicia dataset then downloading
+into Recorder 6 ensures that changes are available to other Recorder 6 users.
 
