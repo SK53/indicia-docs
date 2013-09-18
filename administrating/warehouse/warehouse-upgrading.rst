@@ -63,6 +63,14 @@ manually run the scripts using the postgres user:
 .. code-block:: sql
 
   -- #postgres user#
+  
+Similarly, tag any scripts that are likely to be slow (such as those which do data
+manipulations) with the comment below so that the script can be given to the user to run
+manually after the upgrade:
+
+.. code-block:: sql
+
+  -- #slow script#
 
 In addition, any code that is required for an upgrade can be placed in a method called
 ``version_x_x_x`` placed in the Upgrade_Model class, in
