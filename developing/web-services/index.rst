@@ -23,6 +23,7 @@ handled on the client.
   data-services-write
   submission-format
   data-services-write-client-helpers
+  data-services-errors
   tutorial-data-services-write
   reporting-services
   user-identifiers
