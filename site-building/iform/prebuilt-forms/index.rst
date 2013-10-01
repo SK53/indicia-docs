@@ -5,6 +5,7 @@ The Prebuilt Form Library
 
   generic-settings
   dynamic-sample-occurrence
+  dynamic-weekly-counts
   dynamic-reports
   importer
   easy-download
