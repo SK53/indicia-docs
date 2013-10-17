@@ -2,10 +2,10 @@ Using the Indicia2Recorder addin for Recorder 6
 ===============================================
 
 The Indicia2Recorder addin is an extension to Recorder 6 which allows download of the
-records you have access to from an Indicia powered online recording website. Because the 
+records you have access to from an Indicia powered online recording website. The 
 addin depends on modules existing on the website which are currently only available for
-Drupal 6, this means that the addin can only download Indicia records via a Drupal 6 
-website such as iRecord at present.
+Drupal, this means that the addin can only download Indicia records via a Drupal 6 or 
+Drupal 7 website such as iRecord at present.
 
 If you already have the addin installed and configured, then jump straight to the section
 on usage further down the page.
