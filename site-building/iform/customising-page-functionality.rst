@@ -76,14 +76,13 @@ any post-setup changes or attach event handlers and so forth. For example:
 Overridding the HTML templates used to output the input controls
 ----------------------------------------------------------------
 
-The data_entry_helper declares a global array of templates called 
-$indicia_templates. To change any of the template values for an instance of a 
-form, you can create a folder called templates in 
-sites\all\modules\iform\client_helpers\prebuilt_forms\. In this folder, create a
-file called node.nid.php where nid is the node id of the form page. The file 
-simply changes entries in the $indicia_templates array to suit. The following 
-example shows template changes to remove the header above uploaded images as 
-well as add some instructions to the upload button:
+The data_entry_helper declares a global array of templates called $indicia_templates. To
+change any of the template values for an instance of a form, you need to create a PHP file
+in the correct place with the correct naming convention that simply changes the entries in
+``$indicia_templates`` that you need to change. The following example shows template
+changes to remove the header above uploaded images as well as add some instructions to the
+upload button:
+
 
 .. code-block:: php
 
@@ -98,11 +97,31 @@ well as add some instructions to the upload button:
       '<span class="tip">'.
       'You may upload up to four images of each species (max size per image of 4mb)</span>'.
       '<div class="filelist"></div>{uploadStartBtn}</fieldset>';
+      
+Overriding a single form
+^^^^^^^^^^^^^^^^^^^^^^^^
 
-Developers of prebuilt forms can also create a file in the templates folder 
-called form-name.php where form-name is the name of the form without the .php 
+Create a folder called templates in
+``sites/all/modules/iform/client_helpers/prebuilt_forms/`` if one does not already exist.
+In this folder, create your template file and call it node.nid.php where nid is the node
+id of the form page.
+
+Overriding all instances of a prebuilt form
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Developers of prebuilt forms can also create a file in the same templates folder 
+called ``form-name.php`` where form-name is the name of the form without the .php 
 extension. This provides a template override file which runs for all instances 
 of a particular form.
+
+Global overrides
+^^^^^^^^^^^^^^^^
+
+You can provide a template override file in the same templates folder called ``global.php``
+to provide custom template definitions for every single Indicia page on the site. 
+Alternatively, if you are developing a theme for Drupal, you can name your file 
+``indicia.templates.php`` and place it in the root of your theme's folder. This allows
+you to keep your template definitions together with your theme code when appropriate.
 
 Providing your own language files
 ---------------------------------
