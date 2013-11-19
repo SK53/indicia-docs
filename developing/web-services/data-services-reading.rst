@@ -45,6 +45,26 @@ services**. Some basic principles are:
   item in the response. If there are more than one pieces of information requested then 
   the top level of the response will be an array or list of the items, each containing the
   relevant set of records, set of columns or count as a sub-item.
+* When requesting a record or records, it is possible to add a parameter called 
+  ``columns`` to the request URL. The value of this parameter should be set to a comma 
+  separated list of the field names in the relevant view being used to access the table 
+  (e.g. detail_*, gv_*, list_*) – for example ``&columns=id,name``. These field names 
+  should be lower case. The list is then used when building the query to determine which 
+  fields are fetched from the database. If a field is included which is not in the view, 
+  it will be ignored.
+ 
+  If the request is a GET, this should put on the URL as normal, if the request is a POST, 
+  it should be included in the POST body. If ``columns`` is not included in the POST or 
+  GET, then all the fields in the table view will be returned.
+ 
+  For example::
+ 
+    http://localhost/index.php/services/data/location?mode=json&view=detail&auth_token=<>
+    &nonce=<>&parent_id=53&columns=id,name
+ 
+  will return the id and name of locations which have a parent location ID of 53. It will 
+  not return any geometry data. This can be used to greatly reduce the volume of data 
+  returned (and hence download times) for large queries.
 * For cross-site retrieval using **JSONP**, an optional callback method can be specified 
   by providing ?callback=methodname in the GET string.
 * Although RESTful standards dictate that the GET request is used to get information
