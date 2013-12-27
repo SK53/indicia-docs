@@ -242,4 +242,14 @@ Damselflies species list details page.
 
     Home >> Species lists >> UK Hymenoptera >> Bombus terrestris
 
-Then, click on the Taxa tab and check that the species have imported successfully. ￼
+Then, click on the Taxa tab and check that the species have imported successfully.
+
+.. tip::
+  
+  You might like to use the External key field (in the Taxon fields) to import an 
+  externally recognised unique key for each species, such as the preferred NBN Taxon 
+  Version Key. This makes integrating your data with external services that use the same 
+  keys much easier. You can also use the Other Fields > Parent External Key field to 
+  provide a hierarchical link in the data you are importing (e.g. to link species to their
+  genus), but make sure that the import file is sorted in the correct order so that parent
+  taxa are imported before their children, otherwise this link cannot be made.
