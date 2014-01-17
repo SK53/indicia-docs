@@ -93,6 +93,25 @@ file cannot be found, then the addin will assist you in creating a new one as fo
   ``Indicia2Recorder\indiciaConnection.txt``. Now restart the addin and it will guide you
   through creating the file again.
   
+Configuring known people
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+During the import process, where a record can be attributed to a definite person (i.e. there 
+is a link to a record in the people table), then the person's ID will be used to create a 
+unique local ID in your Recorder 6 database. However, in the circumstance that the person
+already exists in the Recorder 6 database, the addin cannot associate the records with the
+correct Recorder 6 NAME_KEY because a match on name alone is not guaranteed to be unique. 
+There is also the circumstance where a name has been filled in against a record in free text,
+either in the Recorder or Determiner field.
+
+So, to allow these names to be easily resolved to known people in your Recorder 6 database you 
+can create a file called ``knownPeople.txt`` in your configuration file folder. In this file
+put details of a person on each line, in the format ``surname,firstname=NAME_KEY``. You can 
+enter several permutations of a name on separate lines if required, e.g. to match the first
+name Dave and David to the same person. Note that where you are aware of 2 active recorders
+with a possible name clash, you cannot use this technique so may be best post-processing the
+data in Recorder 6 to resolve any issues.
+
 Configuring the import of custom attributes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
