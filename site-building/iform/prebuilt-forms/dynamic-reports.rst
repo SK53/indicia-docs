@@ -3,7 +3,7 @@ Dynamic Reports
 
 Dynamic Reports provides a highly configurable reporting page which uses a similar 
 technique to other dynamic forms to allow you to configure exactly what is output onto the
-page. 
+page. You can include maps, charts and data grids.
 
 :doc:`Read a tutorial on how to set up your own dynamic reports 
 <../../instant-indicia/example-setups/irecord-walkthrough/dynamic-reports>`.
@@ -16,10 +16,12 @@ how the page should be output.
 Defining the form structure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The form structure box allows you to type free text to define the page output. This text
-is parsed with 1 token per line and any unrecognised text is output as HTML into the page.
-The structure of the page output can be defined using the following tokens, which are 
-shared with the :doc:`other dynamic forms <dynamic-sample-occurrence>`.
+The **Form Structure** box, in the **User Interface** section of a dynamic report's
+**Edit** tab, allows you to type free text to define the page output. This text is parsed
+with 1 token per line and any unrecognised text is output as HTML into the page which
+allows you to output static custom content of any nature. The structure of the page output
+can be defined using the following tokens, which are shared with the :doc:`other dynamic
+forms <dynamic-sample-occurrence>`.
 
 * ``=<section>=`` - any text wrapped in equals signs defines a section on the page. This
   maps to a tab if using tabbed output mode.
@@ -31,11 +33,15 @@ Control content can then be added to the page by specifying square brackets arou
 name of the control you want to output. The following controls are available:
 
 * ``[params]`` - Outputs a parameters form for the report. 
+* ``[standard params]`` - Outputs a filter bar designed for setting up report parameters
+  against reports which support filtering occurrences using the standard set of 
+  parameters. 
 * ``[map]`` - Outputs a report map.
 * ``[reportgrid]`` - Outputs a grid of records for a report.
+* ``[reportchart]`` - Outputs a chart of the output of a report (line, bar or pie).
 
 You can provide options to each of the controls on the subsequent lines in the form 
-form structure, by specifing option values in the form::
+structure, by specifing option values in the form::
 
   @<option>=<value>
 
@@ -46,15 +52,19 @@ such as the following::
   @dataSource=library/totals/species_occurrence_image_counts
   
 Other options are available in the API documentation for `report_map 
-<http://www.biodiverseit.co.uk/indicia/dev/docs/classes/report_helper.html#method_report_map>`_ 
-and `report_grid <http://www.biodiverseit.co.uk/indicia/dev/docs/classes/report_helper.html#method_report_grid>`_ 
+<http://www.biodiverseit.co.uk/indicia/dev/docs/classes/report_helper.html#method_report_map>`_, 
+`report_grid <http://www.biodiverseit.co.uk/indicia/dev/docs/classes/report_helper.html#method_report_grid>`_ 
+and `report_chart <http://www.biodiverseit.co.uk/indicia/dev/docs/classes/report_helper.html#method_report_chart>`_ 
 controls.
 
 If you ensure that the parameters of each report on a single page are the same, then you
 can output a single [params] control using one of the reports as the @dataSource and the
 parameters will be passed through to all the other reports. You might use this technique,
 for example, to output a map of records, plus a list of records and a list of species
-for the same input criteria on one page.
+for the same input criteria on one page. Better still, if you are only using reports
+which support the standardised set of parameters built into the Warehouse's report engine,
+then you can use a single ``[standard params]`` control to filter all the reports and maps
+on one page.
 
 .. tip::
 
