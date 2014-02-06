@@ -73,6 +73,63 @@ on one page.
   rebuilt if their own cache expires. You can control the number of seconds before each
   individual cached report expires using the ``@cacheTimout`` option. 
 
+Example configuration - iRecord's Explore page
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The **Explore - All records** page on `iRecord <http://www.brc.ac.uk/irecord>`_ uses a 
+dynamic report page with standard paramater reports. Here are the key details you'll need
+to replicate this page on your site.
+
+**Initial Map View & Base Map Layers**: set these configuration settings as required.
+
+**Other Map Settings - Controls to add to the map**: set to::
+
+  layerSwitcher
+  panZoomBar
+  drawPolygon
+  drawLine
+  drawPoint
+  
+**User Interface - Interface Style Option**: Tabs
+
+**User Interface - Form Structure**: Set to the following, noting that the values for 
+``@taxon_list_id``, ``@indexedLocationTypeId`` and ``@otherLocationTypeId`` will need
+to be changed if using a different Warehouse to iRecord::
+
+  [standard_params]
+  @allowSave=true
+  @linkToMapDiv=map
+  @taxon_list_id=15
+  @filter-date_age=1 month
+  @filter-indexed_location_id={profile_location}
+  @filter-taxon_group_list={profile_taxon_groups}
+  @indexedLocationTypeIds=[15,1370]
+  @otherLocationTypeIds=[2412,2188]
+  [map]
+  @dataSource=library/occurrences/filterable_explore_list_mapping
+  @dataSourceLoRes=library/occurrences/filterable_explore_list_mapping_lores
+  =Records=
+  [report_grid]
+  @dataSource=library/occurrences/filterable_explore_list
+  @rowId=occurrence_id
+  =Species=
+  [report_grid]
+  @dataSource=library/taxa/filterable_explore_list
+  @downloadLink=true
+  @rowId=taxon_meaning_id
+  @linkFilterToMap=false
+  
+**Report settings - Preset parameter values** assuming you want no additional custom 
+attributes to appear on the report and have a default data entry form at the 
+``enter-record-list`` path::
+
+  smpattrs=
+  occattrs=
+  default_input_form=enter-record-list
+  
+You may also want to configure some action columns in the **Column configuration** to 
+link to other related pages such as record and species details or the record's edit page. 
+
 Using extension libraries
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
