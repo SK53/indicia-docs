@@ -31,4 +31,5 @@ handled on the client.
   import-services
   spatial-services
   validation-services
+  standalone-code
 
