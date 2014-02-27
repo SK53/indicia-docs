@@ -7,7 +7,7 @@ Prerequisites
 Before you install Instant Indicia, as well as the warehouse you need to make sure you
 have the following prerequisites in place:
 
-* Support for PHP 5.2 or higher
+* Support for PHP 5.3 or higher
 * The MySQL 5 database server is installed
 * A tool allowing you to access the MySQL database server such as PhpMyAdmin, MySQL Query 
   Browser or CPanel
@@ -21,9 +21,8 @@ able to confirm if your server supports them. 
 
 If you are installing Instant Indicia on a local machine for test or development
 purposes, then there are many tutorials on the web on how to install PHP and a
-webserver such as Apache. PHP version 5.3 is recommended though PHP 5.2 will also work.
-PHP 5.4 is not currently supported. The following guide explains installation of PHP,
-Apache and MySQL on Windows:
+webserver such as Apache. PHP version 5.3 or higher is required. The following guide 
+explains installation of PHP, Apache and MySQL on Windows:
 http://www.php-mysql-tutorial.com/install-apache-php-mysql.php. An easier alternative
 is to install a ready made 'stack' with a set of predefined components all packaged
 into one install kit. Rather than install each component individually, you might like
