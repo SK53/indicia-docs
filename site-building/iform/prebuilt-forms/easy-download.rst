@@ -43,9 +43,22 @@ The following configuration options are useful when setting up an **Easy Downloa
   then you will need to ensure it has compatible input parameters*. Note that you can 
   add custom attributes to the report using the **CSV Additional parameters** setting.
 * **CSV Additional parameters** - default parameters for the download report. Note that
-  **smpattrs** and **occattrs** can be configured to a comma separated list of attribute
-  IDs to download for sample and occurrence custom attributes respectively. The 
-  **quality** option allows you to set the minimum quality required for records to be 
+  the special parameters **smpattrs** and **occattrs** can be configured to contain one of
+  the following:
+  
+  * a comma separated list of attribute IDs to download for sample or occurrence custom 
+    attributes.
+  * a comma separated list of attribute system function names to automatically pick the 
+    attribute for each downloaded survey which fulfils a certain function in the survey.
+    Each system function name must be prefixed with a # character.
+    For sample data, choose from email, cms_user_id, cms_username, first_name, last_name, 
+    full_name, biotope, group_id. For occurrence data, choose from sex_stage, sex, stage,
+    sex_stage_count, certainty, det_first_name, det_last_name, det_full_name.
+  * Instead of or as well one of the above, specify #all_survey_attrs to specify that all
+    survey attributes except email and cms_user_id will be included. This only takes 
+    effect when the user has chosen a single survey to download.
+  
+  The **quality** option allows you to set the minimum quality required for records to be 
   included in the download. Choose from:
   
     * !R = anything not rejected
