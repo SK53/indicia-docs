@@ -1,7 +1,7 @@
-Data services - errors
-======================
+Web services - errors
+=====================
 
-When an error occurs as a result of a call to the Data Services, the response will 
+When an error occurs as a result of a call to the web services, the response will 
 be a JSON or XML formatted documented (depending on the format of your call) containing
 the error message and an error code:
 
@@ -71,4 +71,5 @@ Code Description
 2003 Validation failure on a submission 
 2004 Validation failure on an import
 3001 Internal error in secure message system - should not occur
+4001 Incorrect spatial reference format in spatial services request
 ==== ======================================================================================
