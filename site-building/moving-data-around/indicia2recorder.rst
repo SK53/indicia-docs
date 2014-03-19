@@ -13,8 +13,8 @@ on usage further down the page.
 Installation
 ------------
 
-Download the addin file from the `Indicia Google Code Downloads page
-<http://code.google.com/p/indicia/downloads/list>`_ and unzip it into a temporary folder,
+Download the addin file from the `Indicia Downloads page
+<http://www.indicia.org.uk/downloads>`_ and unzip it into a temporary folder,
 then install it into Recorder 6 as normal. This adds a new **Indicia2Recorder** menu item
 to the Recorder 6 Tools menu.
 
