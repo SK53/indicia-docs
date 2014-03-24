@@ -12,4 +12,5 @@ website using Indicia.
   instant-indicia/index
   warehouse/index
   moving-data-around/index
+  drupal-upgrading
   
