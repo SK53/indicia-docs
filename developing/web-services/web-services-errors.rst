@@ -15,7 +15,7 @@ the error message and an error code:
   
 or alternatively as JSON:
 
-.. code-block:: JSON
+.. code-block:: json
 
   {
     "error": "...",
@@ -25,7 +25,7 @@ or alternatively as JSON:
 For the JSON response format, an unexpected error will also contain the file the error 
 occurred in, line number and a trace of the error stack:
 
-.. code-block:: JSON
+.. code-block:: json
 
   {
     "error": "...",
@@ -38,7 +38,7 @@ occurred in, line number and a trace of the error stack:
 When a validation error occurs, the JSON contains a single summary error message as well
 as individual messages with keys indicating the fields that the errors occurred against:
 
-.. code-block:: JSON
+.. code-block:: json
 
   {
     "error": "Validation error",
