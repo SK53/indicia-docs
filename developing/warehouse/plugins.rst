@@ -194,6 +194,31 @@ Indicia. To enable access to a data entity via the data services:
   function taxon_designations_extend_data_services() {
     return array('taxon_designations'=>array('readOnly'=>true));
   }
+  
+scheduled_task hook
+^^^^^^^^^^^^^^^^^^^
+
+Implement this hook to provide a background process function that will run each time the 
+``scheduled_tasks`` URL is visited on your server. See ``../../administrating/warehouse/scheduled-tasks``
+for more information.
+
+metadata hook
+^^^^^^^^^^^^^
+
+This hook allows the plugin to return additional metadata and settings for the plugin. The
+function should return an array keyed by setting name. The only setting currently 
+supported applies to plugins which implement the `scheduled_task` hook:
+
+  * **requires_occurrences_delta** - set to TRUE to ensure that a temporary table called
+    occdelta table is available when this task is run. This table will contain a copy of
+    all the columns from `cache_occurrences` for all occurrence records which have changed
+    since the last time the scheduled tasks were run. A maximum of 200 records will be 
+    provided and records will be queued automatically should there be more than 200, to 
+    ensure that scheduled tasks do not cause performance problems when processing large
+    sets of new records. In addition to the columns in `cache_occurrences`, `occdelta` 
+    contains a column called `CUD` which contains C(reate) for newly created records, 
+    U(pdate) for updated records and D(elete) for deleted records. There is also a
+    ``timestamp`` column containing the time of the change.
 
 Caching
 -------
