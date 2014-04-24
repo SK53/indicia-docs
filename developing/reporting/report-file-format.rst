@@ -569,7 +569,33 @@ Attributes
   that the map report can have the exact same filter applied when the grid is filtered
   without impacting on the performance of the map load.
 * **internal_sql**
-
+* **template** provides an HTML template to put the column information in. It is not limited 
+  to the column tag it is hosted in and so can use the information from all the columns in
+  the report. Format is ``{column name}``. The simpliest form showing the column value looks 
+ 
+  .. code-block:: xml
+  
+    <column name="id" template="{id}" />
+    
+  from there it could be extened to include some text, in this case the percentage sign
+  
+  .. code-block:: xml
+  
+    <column name="percent" template="{percent}%" />
+    
+  or using an HTML temlpate, where < and > are replaced with &lt; and &gt; respectively, 
+  make the text bold
+  
+  .. code-block:: xml
+  
+    <column name="percent" template="&lt;b&gt; {id} &lt;/b&gt;" />
+    
+  it could even enhance the functionality by adding some JS code, like here
+  
+  .. code-block:: xml
+  
+    <column name="id" template="&lt;a href='#' onclick='alert({percent})' &gt; {id} &lt;/a&gt;"  />
+    
 * **feature_style** can be used when there is a mappable column on the report, 
   to define a column which provides the value for one of the map styling 
   parameters supported in OpenLayers. Supported options include **strokeColor** 
