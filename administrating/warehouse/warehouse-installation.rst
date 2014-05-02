@@ -296,6 +296,30 @@ will also be asked to enter a schema name - typically you can enter "indicia" as
 schema name but if you need to run more than one Indicia warehouse on a single PostgreSQL
 database you can use another name.
 
+.. tip::
+
+  If using a separate user account for the report user, then this account will not own the
+  objects created in Indicia's database so by default will have no access rights to see them.
+  At the very least, you will need to run the following script, replacing ``indicia_report_user``
+  with the correct username.
+  
+  .. code-block:: sql
+  
+    GRANT USAGE ON SCHEMA indicia TO indicia_report_user;
+    
+  In addition you could expose all tables to the report user via the following script.
+  
+  .. code-block:: sql
+  
+    ALTER DEFAULT PRIVILEGES IN SCHEMA indicia
+    GRANT SELECT ON TABLES TO indicia_report_user;
+    GRANT SELECT ON ALL TABLES IN SCHEMA indicia TO indicia_report_user;
+    
+  Bear in mind though that this approach does expose data in all tables to the reporting 
+  engine, whereas granting select rights on individual tables gives you a lot more control
+  but with the risk that some reports may not run until you've exposed the correct
+  permissions.
+
 The Host and Port can be left at their default settings if PostgreSQL is running on the
 local machine on the default port.
 
