@@ -363,7 +363,7 @@ If you are able to set the default search path for your indicia user that
 accesses the database, then it is possible to implement a performance improvement. To do
 this, run the following script replacing indicia_user with your username:
 
-.. code-block: sql
+.. code-block:: sql
 
   ALTER USER indicia_user SET search_path = indicia, public, pg_catalog; 
 
