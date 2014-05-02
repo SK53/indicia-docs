@@ -175,6 +175,13 @@ theme functions or template files etc). So, in the example above we change the
 English place tab title, even though the form developer had already provided a
 suitable string. Drupal does not do this.
 
+... tip::
+
+  If you add a URL parameter called ``notranslate`` to your page's address (it
+  doesn't matter what value you give it), then the page will output the untranslated
+  text for each translateable item, in square brackets. That makes it easy to work
+  out the keys you need to translate the page.
+
 Providing custom validation code
 --------------------------------
 
