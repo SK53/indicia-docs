@@ -118,8 +118,8 @@ you need for the web server. Here are a few examples for your consideration:
 
 * `XAMPP <http://www.apachefriends.org/en/xampp.html>`_
 
-Whichever you choose, please make sure you install a version which includes PHP 5.2.x or 
-(preferably) PHP 5.3.x, as PHP 5.4 is not yet supported for the Indicia warehouse code.
+Whichever you choose, please make sure you install a version which includes PHP 5.3.x,
+5.4.x or 5.5.x to ensure a supported version.
 
 After installation, all installations of a PHP web server will have 2 things you are going
 to need to find before going on:
