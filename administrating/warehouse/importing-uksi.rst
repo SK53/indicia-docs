@@ -23,7 +23,7 @@ in a text file format ready for import into Indicia. To do this, create the foll
 queries in your database. To add each query in Microsoft Access, first, create the query
 in Design View, then use the Views toolbutton to change to SQL View. Then paste the
 query in and save the query with the appropriate title. Repeat until all 8 queries are
-exported.
+created.
 
 **Query 1 - title=all_designation_kinds**
 
@@ -175,7 +175,7 @@ Starting with the exported text files
 #. Connect to your warehouse using the pgAdmin application. 
 #. Create a schema on your warehouse database called ``uksi`` if you don't already have 
    one. 
-#. Download the SQL script file from `http://indicia.googlecode.com/svn/support_files/UKSI/script.sql`_ 
+#. Download the SQL script file from http://indicia.googlecode.com/svn/support_files/UKSI/script.sql
    and open it using pgAdmin.
 #. The script assumes that your Indicia database is in a schema called ``indicia``. If 
    not, then search and replace the script replacing all instances of "indicia." with your 
