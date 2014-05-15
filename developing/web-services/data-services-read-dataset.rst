@@ -91,8 +91,8 @@ The supported filter type names are as follows:
   parameter which is the join SQL, or an associative array of fieldnames and values. 
   Multiple conditions are joined using an AND. If you need to support complex where syntax 
   (e.g. wrapping parenthesis around 2 OR'ed statements) then this can be achieved by 
-  supplying a single string parameter containing the full SQL required for the WHERE 
-  clause.
+  supplying an array containing a single string element, itself containing the full SQL 
+  required for the WHERE clause.
 * **orwhere** - Identical to the where filter type, but conditions are joined using an OR.
 * **in** - Takes 2 parameters, a fieldname and an array of values to generate an IN (...) 
   SQL clause.
