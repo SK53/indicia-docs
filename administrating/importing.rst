@@ -112,7 +112,13 @@ Indicia's import code supports remembering of the mappings from a previous impor
 that, for example, if the user maps a "Place" import column to the Sample Location Name
 database attribute, future imports of the same import file template will remember the
 mapping so not require user input. In order for this to work when using the import from
-within Drupal, the Drupal Profile module must be enabled and a Profile field must be
+within Drupal, you need a field attached to the user account to store the remembered
+mappings in.
+
+Drupal 6
+^^^^^^^^
+
+In Drupal 6, the Drupal Profile module must be enabled and a Profile field must be
 created to support the capturing of the remembered mappings. To do this:
 
 #. Visit the *Site building > Modules* page in your Drupal installation and 
@@ -133,6 +139,18 @@ account (accessed via My Account if you are using Instant Indicia) on the System
 tab, it will only appear for administrative users since the content is not
 intended to be human-readable.
   
+Drupal 7
+^^^^^^^^
+
+In Drupal 7 we use the user fields approach (part of core) rather than Profile. So, you need to:
+
+#. Select **Configuration** on the **admin toolbar**, then select **Account settings**.
+#. Select the **Manage fields** tab in the top right.
+#. In the Add new field row, specify "Import Field Mappings" and make sure the field name is 
+   ``field_import_field_mappings``. Field type should be set to **Long text**. Save the field 
+   and save the field settings in their default state. The Easy Login module will automatically
+   hide this field from the user profile pages for you.
+
 Additional tips
 ===============
 
