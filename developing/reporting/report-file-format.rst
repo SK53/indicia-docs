@@ -256,8 +256,8 @@ Attributes
   Gives a further description displayed alongside the parameter in the form.
 * **datatype** -
   Used in determining the type of control to show when requesting the parameter. 
-  Currently, the core module report interface supports datatypes 'text', 
-  'lookup', 'date', 'geometry', 'polygon', 'line', 'point', 'idlist', 
+  Currently, the core module report interface supports datatypes 'text', 'text[]',
+  'integer', 'integer[]', 'lookup', 'date', 'geometry', 'polygon', 'line', 'point', 'idlist', 
   'smpattrs', 'occattrs', 'locattrs'. All other values default to text. Date 
   will show a datepicker control. Lookup will show a select box. Geometry, 
   Polygon, Line and Point all require a map for the user to draw the input 
@@ -268,6 +268,9 @@ Attributes
   report_grid control in the data_entry_helper class, the contents of the lookup 
   are populated using the population_call attribute. Alternatively a fixed set 
   of values can be specified by using the lookup_values attribute.
+  Note that the datatypes with [] appended indicate cases where a list of comma 
+  separated values is provided to use in an SQL IN clause, allowing the system
+  to sanitise individual list elements.
 * **query** -
   Used to provide an SQL query used to populate the select box for 
   lookup parameters. The query should return 2 fields, the key and display 
