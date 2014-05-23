@@ -95,7 +95,9 @@ The supported filter type names are as follows:
   required for the WHERE clause.
 * **orwhere** - Identical to the where filter type, but conditions are joined using an OR.
 * **in** - Takes 2 parameters, a fieldname and an array of values to generate an IN (...) 
-  SQL clause.
+  SQL clause. If you need to provide multiple fields to filter with an IN (...) clause then
+  you can provide an associative array where the keys are the fieldnames and the values are
+  the arrays to filter against. 
 * **notin**	- Identical to in but generates a NOT IN clause.
 * **like** -	Takes 2 parameters, a fieldname and a value to generate a LIKE SQL 
   statement.
