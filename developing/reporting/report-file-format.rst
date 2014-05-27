@@ -142,6 +142,10 @@ run:
   automatically applied to filter the report. In some cases however you may want to handle
   training mode filtering in a different way, in which case your report can use the 
   #training# replacement, which will be set to **true** or **false** as appropriate.
+* #group_bys# - if your query contains aggregate columns, then Indicia wil automatically
+  generate a GROUP BY clause in the SQL. By default this is placed at the end of the 
+  query. Using this replacement token allows you to specify where in the query the
+  GROUP BY will appear, useful when grouping in a subquery for example.
 
 In addition any declared :ref:`parameters <params-label>` are available as 
 replacement tokens, so if there is a parameter called "survey_id" then the
