@@ -8,3 +8,4 @@ Indicia warehouse.
 .. toctree::
 
   indicia2recorder
+  autogenerate-downloads
