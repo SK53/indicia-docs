@@ -129,7 +129,7 @@ The `Honeypot module <https://www.drupal.org/project/honeypot>`_ works in two wa
 Additionally, the Honeypot module adds in a Timestamp-based deterrent. Usually, forms take at least a few seconds to fill out when a human is entering data into them—especially surveys, user registration forms, etc. Spam bots try to fill out as many forms as they can in as little time as possible, so they will often fill out a form within a couple seconds at most. The Honeypot module requires at least 5 seconds to pass (by default - you can adjust this too!) before a form can be submitted.
 
 The greatest advantage of the Honeypot method is that the user is given no extra obstacles to completing a form. In our experience, though not 100% effective, the Honeypot module does prevent the majority of spam user registrations.
-Adapted from '<http://www.midwesternmac.com/blogs/jeff-geerling/introducing-honeypot-form-spam>'_
+Adapted from <http://www.midwesternmac.com/blogs/jeff-geerling/introducing-honeypot-form-spam>
 
 Unwanted content additions
 --------------------------
