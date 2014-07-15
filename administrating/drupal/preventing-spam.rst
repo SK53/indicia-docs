@@ -122,6 +122,14 @@ user registration attempts where the user has not completed the registration aft
 configurable time period. This can save the manual task of removing unused user
 registrations created by spambots that did not provide a valid email address.
 
+Honeypot
+""""""""
+
+The `Honeypot module <https://www.drupal.org/project/honeypot>`_ works in two ways – a honeypot method and a timestamp-based method. These methods are effective against many spam bots, and are not as intrusive as CAPTCHAs. Spam bots are drawn towards form fields – they like to fill them all in. The Honeypot method basically inserts a hidden form field to Drupal (or other) forms with a field name like ''"homepage"'' (you can set it to whatever you want). End users don't see the field, so they don't fill it out. But spam bots (usually using prewritten scripts) do see the field (usually), and add something to it. The Honeypot module detects this and blocks the form submission if there's something in the field.
+Additionally, the Honeypot module adds in a Timestamp-based deterrent. Usually, forms take at least a few seconds to fill out when a human is entering data into them—especially surveys, user registration forms, etc. Spam bots try to fill out as many forms as they can in as little time as possible, so they will often fill out a form within a couple seconds at most. The Honeypot module requires at least 5 seconds to pass (by default - you can adjust this too!) before a form can be submitted.
+
+The greatest advantage of the Honeypot method is that the user is given no extra obstacles to completing a form. In our experience, though not 100% effective, the Honeypot module does prevent the majority of spam user registrations.
+
 Unwanted content additions
 --------------------------
 
