@@ -74,5 +74,6 @@ Module List
   sref-osie
   sref-utm
   survey-cleanup
+  survey-structure-export
   taxon-designations
   taxon-groups-taxon-lists
