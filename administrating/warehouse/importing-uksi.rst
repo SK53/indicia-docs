@@ -19,7 +19,24 @@ Starting with the Microsoft Access database
 
 If you have been provided with the original UKSI Microsoft Access database, as "curated"
 by London Natural History Museum, then you will first need to extract the species data
-in a text file format ready for import into Indicia. To do this, create the following
+in a text file format ready for import into Indicia. At the time of writing, the MARINE_FLAG
+field in the UKSI database is not populated, but since we can make use of this in Indicia,
+it can be populated by running the following SQL query against the Access database. 
+Create a new query in Design View, then use the Views toolbutton to change to SQL View and
+paste the following in, then run it.
+
+.. code-block:: sql
+
+  UPDATE ORGANISM_MASTER SET MARINE_FLAG='Y' WHERE Taxon_Version_Key IN (
+    SELECT NS1.Input_Taxon_Version_Key
+    FROM ((Nameserver NS1
+    INNER JOIN Nameserver NS2 ON NS2.Recommended_Taxon_Version_Key=NS1.Recommended_Taxon_Version_Key)
+    INNER JOIN Taxon_List_Item TLI ON TLI.Taxon_Version_Key=NS2.Input_Taxon_Version_Key)
+    INNER JOIN Taxon_List_Version TLV ON TLV.Taxon_List_Version_Key=TLI.Taxon_List_Version_Key
+    WHERE TLV.Taxon_List_Key='NHMSYS0021013728'
+  )
+
+To export the data into a text file format ready for the import, create the following
 queries in your database. To add each query in Microsoft Access, first, create the query
 in Design View, then use the Views toolbutton to change to SQL View. Then paste the
 query in and save the query with the appropriate title. Repeat until all 8 queries are
