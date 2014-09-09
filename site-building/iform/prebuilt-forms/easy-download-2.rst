@@ -22,7 +22,7 @@ iRecord's download page uses the Easy Download 2 prebuilt form. Here is the conf
 * **Download format permission - NBN** - access iform
 * **Custom formats** - click **Edit source** then paste in the following:
 
-  .. code-block:: json
+  .. code-block:: javascript
     [
     {
       "title":"LEVANA British National Grid",
@@ -45,37 +45,37 @@ iRecord's download page uses the Easy Download 2 prebuilt form. Here is the conf
       "params":"smpattrs=#biotope,#all_survey_attrs\noccattrs=#det_full_name,#sex,#stage,#sex_stage_count,#all_survey_attrs\nrelease_status=A",
       "format":"csv"
     }
-  ]
+    ]
 
 * **CSV download format report** - Library|Occurrences|Occurrences Download using standard filters
 * **CSV additional parameters** - paste in the following::
 
-  smpattrs=#biotope,#all_survey_attrs
-  occattrs=#det_full_name,#sex,#stage,#sex_stage_count,#all_survey_attrs
+    smpattrs=#biotope,#all_survey_attrs
+    occattrs=#det_full_name,#sex,#stage,#sex_stage_count,#all_survey_attrs
   
 * **TSV download format report** - Library|Occurrences|Occurrences Download using standard filters
 * **TSV additional parameters** - paste in the following::
 
-  smpattrs=#biotope,#all_survey_attrs
-  occattrs=#det_full_name,#sex,#stage,#sex_stage_count,#all_survey_attrs
+    smpattrs=#biotope,#all_survey_attrs
+    occattrs=#det_full_name,#sex,#stage,#sex_stage_count,#all_survey_attrs
   
 * **KML download format report** - Library|Occurrences|Occurrences Download using standard filters for GIS
 * **KML additional parameters** - paste in the following::
 
-  smpattrs=
-  occattrs=
+    smpattrs=
+    occattrs=
   
 * **GPX download format report** - Library|Occurrences|Occurrences Download using standard filters for GIS
 * **GPX additional parameters** - paste in the following::
 
-  smpattrs=
-  occattrs=
+    smpattrs=
+    occattrs=
   
 * **NBN download format report** - Library|Occurrences|Occurrences Download using standard filters for GIS
 * **NBN additional parameters** - paste in the following::
 
-  smpattrs=#biotope
-  occattrs=#det_full_name,#sex,#stage,#sex_stage_count
+    smpattrs=#biotope
+    occattrs=#det_full_name,#sex,#stage,#sex_stage_count
 
 Note that you need to assign the **download all users** permission to any user role that you
 want to allow to download all the records, not just their own. It is assumed that verifiers 
