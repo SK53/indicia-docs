@@ -23,6 +23,7 @@ iRecord's download page uses the Easy Download 2 prebuilt form. Here is the conf
 * **Custom formats** - click **Edit source** then paste in the following:
 
   .. code-block:: javascript
+  
     [
     {
       "title":"LEVANA British National Grid",
