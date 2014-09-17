@@ -2,8 +2,8 @@ Setting Up
 ==========
 
 
-Dependances
------------
+Prerequisites
+-------------
 
 Installation
 ------------

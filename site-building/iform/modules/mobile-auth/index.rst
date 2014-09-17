@@ -1,11 +1,9 @@
 Mobile Authentication Module
 ============================
 
-Mobile authentication module allows..
-
 .. toctree::
   intro
   setup
+  usage
   management
-  conclusions
   examples
