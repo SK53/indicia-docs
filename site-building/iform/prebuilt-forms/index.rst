@@ -9,6 +9,7 @@ The Prebuilt Form Library
   dynamic-reports
   importer
   easy-download
+  easy-download-2
   mnhnl-dynamic-1
   quick-species-maps
   ad-hoc-cetaceans
