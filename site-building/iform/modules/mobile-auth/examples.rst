@@ -8,19 +8,37 @@ Chrome extension called `POSTMan <http://www.getpostman.com/>`_,
 but any similar product can be used (eg. Firefox's
 `RESTClient <https://addons.mozilla.org/de/firefox/addon/restclient/>`_).
 
-Note: In the examples the server base URL I am using is ``localhost/drupal``,
-but please change it to match your drupal site's base path.
-
-Anonymous record
-----------------
-
-Sending an anonymous record does not require to have a user account on the drupal
-site, therefore the process is straightforward.
-
-Application account:
+All communications with the module should be authenticated by providing your
+application name and password:
 
 - appname: myApplication
 - appsecret: myApplicationPass
+
+Note: In the examples the server base URL I am using is ``localhost/drupal``,
+but please change it to match your drupal site's base path.
+
+Records
+*******
+
+The easiest way to send a record is anonymously, that way the record will not be
+attached to any user in the drupal system, but the authentication step is avoided.
+
+The minimum required information for sending a record its date, location and
+location system and the taxon id on the warehouse. Furthermore, the record should
+be attached to some website (e.g. iRecord) and one of the surveys defined on the
+warehouse.
+
+The ``'200 Success'`` response received from the module on record submit
+to the warehouse. Otherwise if some of the data was incorrect, it would either not pass the
+module's authentication (appsecret, appname) or the warehouse would refuse to
+accept records with insuficcent or incorrect data (e.g. no sref provided or some
+of the fields are not set in the survey).
+
+Anonymous
+---------
+
+Sending an anonymous record does not require to have a user account on the drupal
+site, therefore the process is straightforward.
 
 Warehouse information:
 
@@ -38,13 +56,23 @@ Record data:
 .. image:: ../../../../images/screenshots/drupal/modules/mobile_auth_examples_record_anonymous.png
   :alt: POSTMan sending anonymous record to the mobile auth module
 
-The ``'200 Success'`` response received from the module on record submit
-to the warehouse.
+Authenticated
+-------------
 
-Otherwise if some of the data was incorrect, it would either not pass the
-module's authentication (appsecret, appname) or the warehouse would refuse to
-accept records with insuficcent or incorrect data (e.g. no sref provided or some
-of the fields are not set in the survey).
+This is just like sending an anonymous record only that users email and usersecret (received
+ after login through the module) should be provided.
+
+User details:
+
+- email: person@person.com
+- usersecret: 9ZcirIsT6b
+
+.. image:: ../../../../images/screenshots/drupal/modules/mobile_auth_examples_record.png
+  :alt: POSTMan sending a record to the mobile auth module
+
+
+Authentication
+**************
 
 Login
 -----
@@ -57,12 +85,6 @@ User account:
 - email: person@person.com
 - password: myPersonPass
 
-Application account:
-
-- appname: myApplication
-- appsecret: myApplicationPass
-
-
 .. image:: ../../../../images/screenshots/drupal/modules/mobile_auth_examples_login.png
   :alt: POSTMan sending a login request to the module
 
@@ -73,17 +95,7 @@ ownership.
 .. image:: ../../../../images/screenshots/drupal/modules/mobile_auth_examples_login_response.png
   :alt: Module's responce to the login request
 
+Register
+--------
 
-Record
-------
-
-This is just like sending an anonymous record only that users email and usersecret (received
- after login through the module) should be provided.
-
-User details:
-
-- email: person@person.com
-- usersecret: 9ZcirIsT6b
-
-.. image:: ../../../../images/screenshots/drupal/modules/mobile_auth_examples_record.png
-  :alt: POSTMan sending a record to the mobile auth module
+.. todo:: Add registration example.
