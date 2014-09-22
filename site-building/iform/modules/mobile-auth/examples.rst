@@ -15,7 +15,7 @@ application name and password:
 - appsecret: myApplicationPass
 
 Note: In the examples the server base URL I am using is ``localhost/drupal``,
-but please change it to match your drupal site's base path.
+but please change it to match iRecord ``brc.ac.uk/irecord`` or your drupal site's base path.
 
 .. _send-record-example:
 
