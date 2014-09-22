@@ -17,6 +17,7 @@ application name and password:
 Note: In the examples the server base URL I am using is ``localhost/drupal``,
 but please change it to match your drupal site's base path.
 
+.. _send-record-example:
 Records
 *******
 
@@ -60,7 +61,7 @@ Authenticated
 -------------
 
 This is just like sending an anonymous record only that users email and usersecret (received
- after login through the module) should be provided.
+after login through the module) should be provided.
 
 User details:
 
@@ -74,6 +75,7 @@ User details:
 Authentication
 **************
 
+.. _user-login-example:
 Login
 -----
 
@@ -95,7 +97,14 @@ ownership.
 .. image:: ../../../../images/screenshots/drupal/modules/mobile_auth_examples_login_response.png
   :alt: Module's responce to the login request
 
+.. _user-register-example:
 Register
 --------
 
 .. todo:: Add registration example.
+
+.. _reports-example:
+Reports
+*******
+
+.. todo:: Add report example.

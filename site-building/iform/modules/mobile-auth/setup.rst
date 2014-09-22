@@ -1,7 +1,6 @@
 Setting Up
 ==========
 
-
 Prerequisites
 -------------
 
