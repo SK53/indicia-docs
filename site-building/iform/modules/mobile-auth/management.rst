@@ -17,7 +17,7 @@ To create an app account you first need to have some minimum required permission
 A site user with 'View personal dashboard' permission can access its personal dashboard,
 where all the management lies.
 
-The dashboard can be accessed by visiting a link *'admin/config/iform/mobile/dashboard'*
+The dashboard can be accessed by visiting a link ``'admin/config/iform/mobile/dashboard'``
 or through the admin menu (if shown to the user).
 
   .. image:: ../../../../images/screenshots/drupal/modules/mobile_auth_dashboard_empty.png
