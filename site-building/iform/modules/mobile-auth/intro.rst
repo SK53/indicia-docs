@@ -2,28 +2,34 @@ Introduction
 ============
 
 Mobile Authentication module extends the Indicia's iForm module towards the support of
-external applications.
+external applications. Through multiple services it provides:
 
-Along with the recording forms input values Appsecret and Appname has to be provided, so that
-the module can authenticate your request and proceed the data to the Indicia's warehouse.
+- :ref:`send-record`
+- :ref:`reports`
+- :ref:`user-login`
+- :ref:`user-register`
 
-Through multiple services it provides :
+All the services the Mobile Auth module provides are accessed through a few
+dedicated links using POST requests.
 
-- :ref:`record submission <send-record>`
-- :ref:`warehouse report downloading <reports>`
-- :ref:`user authentication <user-login>`
-- :ref:`user registration <user-register>`
+The main requirement for being able to use the services is the application authorisation,
+more specifically - valid Appsecret and Appname has to be setup and provided.
+Read more about :ref:`account-management`.
 
-
-The services it provides are accessed through a few dedicated links using
-POST requests.
+.. note:: Both, this and iFrom modules, could be hosted and configured
+  to use specific warehouses on any Drupal site (please read :ref:`setup`),
+  but since all the infrastructure is set up on a
+  `BRC's iRecord website <http://www.brc.ac.uk/irecord>`_
+  all the examples here will be using the iRecord.
 
 .. _send-record:
-Send a record
--------------
 
-Sending a record is straightforward. The submission service endpoint is at *'mobile/submit'*.
-The minimal POST message fields that need to be provided are:
+Sending a record
+----------------
+
+There are two types of record submission: *authenticated* and *anonymous*.
+Sending an anonymous record is quite straightforward. The submission service endpoint
+is at ``'mobile/submit'``. The minimal POST message fields that need to be provided are:
 
 Warehouse information:
 
@@ -37,31 +43,64 @@ Record data:
 - sample:entered_sref_system
 - occurrence:taxa_taxon_list_id
 
-Please check the :ref:`example <send-record-example>`.
+*Authenticated record* submission adds a requirement: the record should go along with either
+iRecord active *session cookie*, which would authenticate the user, or attaching to the record
+user's ``usersecret`` along with its ``email``.
+The ``usersecret`` can be manually set up and obtained using iRecords web interface by visiting
+user account settings ``brc.ac.uk/irecord/user -> Edit -> Indicia mobile auth``
+updating ``User shared secret`` field. Or through :ref:`login service<user-login>` that provides a generated
+``usersecret`` if there is none set up yet.
 
-.. _user-register:
-Register With the website
--------------------------
+You should keep in mind that the recording survey, website and extra recording
+fields might need to be set up in the iRecord's warehouse,
+read more about that in :ref:`setting up a survey <survey-register>`.
 
-To register with the website that the module is hosted at, an endpoint of
-*'user/mobile/register'* is used.
+Please check the :ref:`recording examples <send-record-example>`.
 
-Please check the :ref:`example <user-register-example>`.
+.. note:: To module will only check your app authorisation and warehouse information
+  after which your request is proceeded to the Indicia's warehouse where the recording
+  data is checked.
 
 .. _user-login:
-Login
------
 
-As with registering a new user account, signing in through the module to an existing one
-is through the same service endpoint *'user/mobile/register'*.
+User authentication
+-------------------
+
+As with registering a new user account, signing in through the module
+is through the same service endpoint ``'user/mobile/register'``.
+
+Here the drupal user account details need to be provided:
+
+- email
+- password
+
+On successful login, a new generated password is send back which could be used
+to authenticate your records in the future.
+
+The new password can be changed through iRecord interface by visiting
+user account settings ``brc.ac.uk/irecord/user -> Edit -> Indicia mobile auth``
+updating ``User shared secret`` field.
 
 Please check the :ref:`example <user-login-example>`.
 
+.. _user-register:
+
+Registering with the website
+----------------------------
+
+To register with the website that the module is hosted at, an endpoint of
+``'user/mobile/register'`` is used.
+
+.. todo:: Add more information about the user registratin process.
+
+Please check the :ref:`example <user-register-example>`.
+
 .. _reports:
-Access Warehouse Reports
-------------------------
+
+Accessing warehouse reports
+---------------------------
 
 The module allows to retrieve data from associated warehouse using its reports.
-The endpoint for this is  *'mobile/report'*.
+The endpoint for this is  ``'mobile/report'``.
 
 Please check the :ref:`example <reports-example>`.

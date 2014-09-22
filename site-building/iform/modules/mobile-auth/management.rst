@@ -1,6 +1,7 @@
+.. _account-management:
+
 Managing app accounts
 =====================
-
 
 Intro
 -----

@@ -18,8 +18,9 @@ Note: In the examples the server base URL I am using is ``localhost/drupal``,
 but please change it to match your drupal site's base path.
 
 .. _send-record-example:
+
 Records
-*******
+-------
 
 The easiest way to send a record is anonymously, that way the record will not be
 attached to any user in the drupal system, but the authentication step is avoided.
@@ -36,7 +37,7 @@ accept records with insuficcent or incorrect data (e.g. no sref provided or some
 of the fields are not set in the survey).
 
 Anonymous
----------
+^^^^^^^^^
 
 Sending an anonymous record does not require to have a user account on the drupal
 site, therefore the process is straightforward.
@@ -58,7 +59,7 @@ Record data:
   :alt: POSTMan sending anonymous record to the mobile auth module
 
 Authenticated
--------------
+^^^^^^^^^^^^^
 
 This is just like sending an anonymous record only that users email and usersecret (received
 after login through the module) should be provided.
@@ -73,11 +74,12 @@ User details:
 
 
 Authentication
-**************
+--------------
 
 .. _user-login-example:
+
 Login
------
+^^^^^
 
 If a user account has been setup on the website, we can try to authenticate with
 the account.
@@ -98,13 +100,15 @@ ownership.
   :alt: Module's responce to the login request
 
 .. _user-register-example:
+
 Register
---------
+^^^^^^^^
 
 .. todo:: Add registration example.
 
 .. _reports-example:
+
 Reports
-*******
+-------
 
 .. todo:: Add report example.

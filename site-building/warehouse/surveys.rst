@@ -1,3 +1,5 @@
+.. _survey-register:
+
 Registering your survey
 =======================
 
