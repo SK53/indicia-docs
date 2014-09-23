@@ -30,5 +30,12 @@ modules folder -``sites\all\modules``.
 Setting permissions
 -------------------
 
-.. todo:: Add info about the types of permissions.
+There are two types of permissions that the module provides:
+
+* Administrator
+* User
+
+The main and only difference is that a person with Administrator permissions can
+access and modify with all existing application accounts on the site, while the
+user can only see and edit those of his creation.
 
