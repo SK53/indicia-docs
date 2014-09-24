@@ -3,16 +3,15 @@
 Setting Up
 ==========
 
-This section deals with the setting up process of the module. Since all the functionality
-is set up on iRecord website, the following information applies only
-to those who want to install their own system of recording.
+This section deals with setting up the module. The following information applies only
+to website administrators. If you are an app developer and this module is being used to allow you to submit records through a website that you do not administer then you do not need to read this.
 
 .. note:: This documentation covers only Drupal 7.
 
 Prerequisites
 -------------
 
-The main and only requirement for setting up Mobile Auth module is the
+The only requirement for setting up the Mobile Auth module is for the
 **iForm module** to be installed and configured on your Drupal site.
 
 
@@ -30,12 +29,14 @@ modules folder -``sites\all\modules``.
 Setting permissions
 -------------------
 
-There are two types of permissions that the module provides:
+The module provides two permissions:
 
-* Administrator
-* User
+* View the administrative dashboard
+* View personal dashboard
 
-The main and only difference is that a person with Administrator permissions can
-access and modify with all existing application accounts on the site, while the
+A user must be assigned one of these permissions in order to manage app accounts.
+
+The only difference is that a person with Administrator permissions can
+access and modify all existing application accounts on the site, while the
 user can only see and edit those of his creation.
 
