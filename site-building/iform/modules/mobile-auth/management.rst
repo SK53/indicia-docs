@@ -13,9 +13,8 @@ Create a new account
 
 To create an app account go to the dashboard by either 
 
-* visiting a link ``'admin/config/iform/mobile/dashboard'``
-* selecting Configuration > IForm > Mobile Authentication in the admin menu or 
-* visiting your personal dashboard (if the dashboard module is enabled and 'View personal dashboard' permission is granted). 
+* navigating to ``'admin/config/iform/mobile/dashboard'`` or
+* selecting Configuration > IForm > Mobile Authentication in the admin menu.
 
   .. image:: ../../../../images/screenshots/drupal/modules/mobile_auth_dashboard_empty.png
     :alt: Mobile Auth module's dashboard
