@@ -1,3 +1,8 @@
+.. _services:
+
+Services
+========
+
 The Mobile Authentication module provides the following  services:
 
 - :ref:`send-record`
