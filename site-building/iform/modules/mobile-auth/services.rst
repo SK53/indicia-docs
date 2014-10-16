@@ -5,23 +5,94 @@ Services
 
 The Mobile Authentication module provides the following  services:
 
+- :ref:`user-register`
+- :ref:`user-validate`
+- :ref:`user-login`
 - :ref:`send-record`
 - :ref:`reports`
-- :ref:`user-login`
-- :ref:`user-register`
 
 All the services the Mobile Auth module provides are accessed through a few
-dedicated links using POST requests.
+dedicated URLs using POST requests.
 
-The main requirement for being able to use the services is the application authorisation,
-more specifically - valid Appsecret and Appname has to be setup and provided.
+Before you can use these services a valid App secret and App name have to be set up.
 Read more about :ref:`account-management`.
 
-.. note:: Both, this and iFrom modules, could be hosted and configured
-  to use specific warehouses on any Drupal site (please read :ref:`setup`),
-  but since all the infrastructure is set up on a
-  `BRC's iRecord website <http://www.brc.ac.uk/irecord>`_
-  all the examples here will be using the iRecord.
+.. _user-register:
+
+User registration
+-----------------
+
+To register a new user with the website that hosts the module, an endpoint of
+``'user/mobile/register'`` is used.
+
+The app must post the following inputs:
+
+==========  =====================================================================================
+Name        Value
+==========  =====================================================================================
+firstname   Required. A first name.
+secondname  Required. A last name.
+email       Required. An email address for the new user.
+password    Required. A password for the new user account.
+appname     Required (unless anonymous). Must match the app name that was configured.
+appsecret   Required. Must match the app secret set for the app name in the module configuration.
+==========  =====================================================================================
+
+The following responses may be returned:
+
+======  ======================  ======================================  ========================================
+Status  Message                 Logged message                          Cause
+======  ======================  ======================================  ========================================
+400     Bad request             Missing parameter                       Email, password or appsecret missing.
+400     Bad request             Missing or incorrect shared app secret  Incorrect appname-appsecret combination.
+400     Invalid password        Password not strong enough              Zero length password.
+400     Missing name parameter  First or secondname empty               Firsname or secondname empty.
+200     *user secret*           Nothing                                 Successful registration of the user
+                                                                        on the website returns the variables
+                                                                        as indicated.
+        *firstname*
+        
+        *secondname*
+        
+        *error*                                                         Possible error on registering with
+                                                                        warehouse.
+======  ======================  ======================================  ========================================
+
+Please check the :ref:`example <user-register-example>`.
+
+.. _user-validate:
+
+Validation of new users
+-----------------------
+
+To register with the website that the module is hosted at, an endpoint of
+``'user/mobile/activate/%/%'`` is used.
+
+.. todo:: Add more information about the user registratin process.
+
+Please check the :ref:`example <user-register-example>`.
+
+.. _user-login:
+
+User authentication
+-------------------
+
+As with registering a new user account, signing in through the module
+is through the same service endpoint ``'user/mobile/register'``.
+
+Here the drupal user account details need to be provided:
+
+- email
+- password
+
+On successful login, a new generated password is send back which could be used
+to authenticate your records in the future.
+
+The new password can be changed through iRecord interface by visiting
+user account settings ``brc.ac.uk/irecord/user -> Edit -> Indicia mobile auth``
+updating ``User shared secret`` field.
+
+Please check the :ref:`example <user-login-example>`.
 
 .. _send-record:
 
@@ -61,40 +132,6 @@ Please check the :ref:`recording examples <send-record-example>`.
 .. note:: To module will only check your app authorisation and warehouse information
   after which your request is proceeded to the Indicia's warehouse where the recording
   data is checked.
-
-.. _user-login:
-
-User authentication
--------------------
-
-As with registering a new user account, signing in through the module
-is through the same service endpoint ``'user/mobile/register'``.
-
-Here the drupal user account details need to be provided:
-
-- email
-- password
-
-On successful login, a new generated password is send back which could be used
-to authenticate your records in the future.
-
-The new password can be changed through iRecord interface by visiting
-user account settings ``brc.ac.uk/irecord/user -> Edit -> Indicia mobile auth``
-updating ``User shared secret`` field.
-
-Please check the :ref:`example <user-login-example>`.
-
-.. _user-register:
-
-Registering with the website
-----------------------------
-
-To register with the website that the module is hosted at, an endpoint of
-``'user/mobile/register'`` is used.
-
-.. todo:: Add more information about the user registratin process.
-
-Please check the :ref:`example <user-register-example>`.
 
 .. _reports:
 
