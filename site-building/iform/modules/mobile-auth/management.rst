@@ -28,33 +28,32 @@ application account page is opened.
 
 Complete the form with the following information:
 
-===============  ===========
-Field            Description
-===============  ===========
-Enabled          This box must be checked to allow the app to communicate via this module.
-Debug mode       If this box is checked, debugging information will be saved to the Drupal log.
-                 Do not leave this enabled on a production site.
-Title            The title used to list the app in the configuration page.
-App description  A description of the app that appears in the configuratin page.
-App name         This value must be included in any post to the services provided by this module.
-App secret       This value must be included in any post to the services provided by this module.
-===============  ===========
+========================  ===================================================================================
+Field                     Description
+========================  ===================================================================================
+Enabled                   This box must be checked to allow the app to communicate via this module.
+Debug mode                If this box is checked, debugging information will be saved to the Drupal log.
+                          Do not leave this enabled on a production site.
+Title                     The title used to list the app in the configuration page.
+App description           A description of the app that appears in the configuratin page.
+App name                  This value must be included in any post to the services provided by this module.
+App secret                This value must be included in any post to the services provided by this module.
+========================  ===================================================================================
 
 The following extra parameters may also be configured which relate to behaviour on user registration
 through the app.
 
-=========================   ===========
-Field                       Description
-=========================   ===========
-Subject                     The subject line of the registration activation email. '!site' will be 
-                            substituted with the website name.
-Body                        The body of the activation email. '!activation_url' will be substituted with 
-                            the link the user must follow to complete registration.
-Redirection link            The url where users will be redirected to after clicking on the activation link.
-Invalid redirection link    The url where users will be redirected to if following an expired or invalid
-                            activation link.
-=========================   ===========
-
+========================  ===================================================================================
+Field                     Description
+========================  ===================================================================================
+Subject                   The subject line of the registration activation email. '!site' will be 
+                          substituted with the website name.
+Body                      The body of the activation email. '!activation_url' will be substituted with 
+                          the link the user must follow to complete registration.
+Redirection link          The url where users will be redirected to after clicking on the activation link.
+Invalid redirection link  The url where users will be redirected to if following an expired or invalid
+                          activation link.
+========================  ===================================================================================
 
 The anonymous app
 -----------------
