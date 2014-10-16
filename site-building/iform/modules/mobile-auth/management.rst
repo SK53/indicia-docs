@@ -6,12 +6,13 @@ Managing app accounts
 Introduction
 ------------
 
-The module allows the creation of multiple accounts for apps to authenticate with the host website using name-secret pairs. The accounts can be enabled/dissabled individually, as well as deleted and edited.
+The module allows the creation of multiple accounts for apps to authenticate with the host website using 
+name-secret pairs. The accounts can be enabled/dissabled individually, as well as deleted and edited.
 
 Create a new account
 --------------------
 
-To create an app account go to the dashboard by either 
+To create an app account go to the configuration page by either 
 
 * navigating to ``'admin/config/iform/mobile/dashboard'`` or
 * selecting Configuration > IForm > Mobile Authentication in the admin menu.
@@ -25,6 +26,18 @@ application account page is opened.
   .. image:: ../../../../images/screenshots/drupal/modules/mobile_auth_new_account.png
     :alt: Mobile Auth module's dashboard
 
+Complete the form with the following information:
+
+===============  ===========
+Field            Description
+===============  ===========
+Enabled          False
+Debug mode       False
+Title            True
+App description  True
+App name         This value must be included in any post to the services provided by this module.
+App secret
+===============  ===========
 
 Anonymous case
 --------------
