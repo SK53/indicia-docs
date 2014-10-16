@@ -31,35 +31,52 @@ Complete the form with the following information:
 ===============  ===========
 Field            Description
 ===============  ===========
-Enabled          False
-Debug mode       False
-Title            True
-App description  True
+Enabled          This box must be checked to allow the app to communicate via this module.
+Debug mode       If this box is checked, debugging information will be saved to the Drupal log.
+                 Do not leave this enabled on a production site.
+Title            The title used to list the app in the configuration page.
+App description  A description of the app that appears in the configuratin page.
 App name         This value must be included in any post to the services provided by this module.
-App secret
+App secret       This value must be included in any post to the services provided by this module.
 ===============  ===========
 
-Anonymous case
---------------
+The following extra parameters may also be configured which relate to behaviour on user registration
+through the app.
 
-For backwards compatibility with the previous applications that all used a single
+=========================   ===========
+Field                       Description
+=========================   ===========
+Subject                     The subject line of the registration activation email. '!site' will be 
+                            substituted with the website name.
+Body                        The body of the activation email. '!activation_url' will be substituted with 
+                            the link the user must follow to complete registration.
+Redirection link            The url where users will be redirected to after clicking on the activation link.
+Invalid redirection link    The url where users will be redirected to if following an expired or invalid
+                            activation link.
+=========================   ===========
+
+
+The anonymous app
+-----------------
+
+For backwards compatibility with  previous applications that all used a single
 shared Appsecret without any Appname, there is an anonymous case introduced.
 
-Saving an account with an Appname of 'anonymous' allows you to authenticate your application using an
-Appsecret only.
+Saving an account with an App name of 'anonymous' allows you to authenticate your application using an
+App secret only. New apps should not use this feature.
 
-Multi Appsecrets
-----------------
+Multiple app secrets
+--------------------
 
-The module allows multiple application accounts to share the same Appname; it allows the
-creation of multiple Appname-Appsecret pairs using the same Appname.
+The module allows multiple application accounts to share the same App name; it allows the
+creation of multiple App name-App secret pairs using the same App name.
 
 This allows you to manage your applications in multiple ways. For example, in the case of multiple
 mobile application versions there might be a need to disable one version (e.g. to dissable the
 flow of records from old app versions) while keeping the other versions enabled.
 
-Options
--------
+Editing and deleting accounts
+-----------------------------
 
-.. todo::
-    Expand on account configuration options - debugging, emails etc.
+Return to the configuration page to see a listing of your apps (or all apps if you have administrative permissions).
+There are links in the table to edit and delete app settings.
