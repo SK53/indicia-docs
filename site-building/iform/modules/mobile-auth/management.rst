@@ -7,7 +7,8 @@ Introduction
 ------------
 
 The module allows the creation of multiple accounts for apps to authenticate with the host website using 
-name-secret pairs. The accounts can be enabled/dissabled individually, as well as deleted and edited.
+name-secret pairs. The accounts can be enabled/dissabled individually, as well as deleted and edited. It 
+is expected that administrators will give app developers  permission to maintain their own accounts.
 
 Create a new account
 --------------------
