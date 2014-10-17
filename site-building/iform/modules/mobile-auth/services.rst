@@ -41,21 +41,17 @@ appsecret   Required. Must match the app secret set for the app name in the modu
 The following responses may be returned:
 
 ======  ======================  ======================================  ========================================
-Status  Message                 Logged message                          Cause
+Status  Message                 Logged message (if enabled)             Cause
 ======  ======================  ======================================  ========================================
 400     Bad request             Missing parameter                       Email, password or appsecret missing.
 400     Bad request             Missing or incorrect shared app secret  Incorrect appname-appsecret combination.
 400     Invalid password        Password not strong enough              Zero length password.
 400     Missing name parameter  First or secondname empty               Firsname or secondname empty.
-200     *user secret*           Nothing                                 Successful registration of the user
-                                                                        on the website returns the variables
-                                                                        as indicated.
-        *firstname*
-        
-        *secondname*
-        
-        *error*                                                         Possible error on registering with
-                                                                        warehouse.
+200     | *user secret*         Nothing                                 Successful registration of the user
+        | *firstname*                                                   on the website returns the variables
+        | *secondname*                                                  as indicated. This may end with any 
+        | *error*                                                       error from user registration on the 
+        |                                                               warehouse.
 ======  ======================  ======================================  ========================================
 
 Please check the :ref:`example <user-register-example>`.
@@ -65,17 +61,25 @@ Please check the :ref:`example <user-register-example>`.
 Validation of new users
 -----------------------
 
-To register with the website that the module is hosted at, an endpoint of
-``'user/mobile/activate/%/%'`` is used.
+Having sent a user registration request as described above, the user is sent an email to validate that the 
+address is correct. Within the email is a link to click which calls the validation service.
 
-.. todo:: Add more information about the user registratin process.
+The endpoint for validation is ``user/mobile/activate/%/%`` where the first % is substituted with the
+Drupal user id and the second with a unique confirmation code. This is a simple GET request and there are 
+no values to POST.
 
-Please check the :ref:`example <user-register-example>`.
+If the user id and confirmation code match with expected values then
 
-.. _user-login:
+#. The user account is enabled.
+#. The user is redirected to a page of the website declared in the configuration.
+#. If logging is enabled a message ``Activating user $uid with code $code`` is saved.
 
-User authentication
--------------------
+If the user id and confirmation code do not match with expected values then the user is simply redirected
+to a page declared in the configuration. If the page to which the user is redirected is the <front> page, 
+which is the default, the user will not be aware that there has been a problem.
+
+User login
+----------
 
 As with registering a new user account, signing in through the module
 is through the same service endpoint ``'user/mobile/register'``.
