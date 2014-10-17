@@ -45,14 +45,22 @@ Status  Message                 Logged message (if enabled)             Cause
 ======  ======================  ======================================  ========================================
 400     Bad request             Missing parameter                       Email, password or appsecret missing.
 400     Bad request             Missing or incorrect shared app secret  Incorrect appname-appsecret combination.
+400     Invalid email           Invalid email                           Fails the Drupal valid_email_address()
+                                                                        test.
 400     Invalid password        Password not strong enough              Zero length password.
+401     Invalid password        Invalid password                        An email for an existing user has been
+                                                                        supplied.
+409     First or second name    First or second name missmatch          An email and password for an existing 
+        missmatch                                                       user have been supplied.
 400     Missing name parameter  First or secondname empty               Firsname or secondname empty.
-200     | *user secret*         Nothing                                 Successful registration of the user
+200     | *user secret*         User *email* registered                 Successful registration of the user
         | *firstname*                                                   on the website returns the variables
         | *secondname*                                                  as indicated. This may end with any 
         | *error*                                                       error from user registration on the 
-        |                                                               warehouse.
+                                                                        warehouse.
 ======  ======================  ======================================  ========================================
+
+The app needs to save the user secret that is returned on successful registration to use when submitting records.
 
 Please check the :ref:`example <user-register-example>`.
 
@@ -81,20 +89,47 @@ which is the default, the user will not be aware that there has been a problem.
 User login
 ----------
 
-As with registering a new user account, signing in through the module
-is through the same service endpoint ``'user/mobile/register'``.
+A user may need to connect an app to an existing account on the host website under various circumstances.
 
-Here the drupal user account details need to be provided:
+* An app may allow a user to log out so that a different user may log in.
+* A user may install the app on multiple devices.
+* A user may have previously created an account via the host website.
+* A host website may support multiple apps, one of which has previously created an account.
 
-- email
-- password
+Logging in through the module uses the same endpoint as registering a new user account ``user/mobile/register``.
 
-On successful login, a new generated password is send back which could be used
-to authenticate your records in the future.
+The app must post the following inputs:
 
-The new password can be changed through iRecord interface by visiting
-user account settings ``brc.ac.uk/irecord/user -> Edit -> Indicia mobile auth``
-updating ``User shared secret`` field.
+==========  =====================================================================================
+Name        Value
+==========  =====================================================================================
+email       Required. The email address for the existing user.
+password    Required. The password for the existing user account.
+appname     Required (unless anonymous). Must match the app name that was configured.
+appsecret   Required. Must match the app secret set for the app name in the module configuration.
+==========  =====================================================================================
+
+The following responses may be returned:
+
+======  ======================  ======================================  ========================================
+Status  Message                 Logged message (if enabled)             Cause
+======  ======================  ======================================  ========================================
+400     Bad request             Missing parameter                       Email, password or appsecret missing.
+400     Bad request             Missing or incorrect shared app secret  Incorrect appname-appsecret combination.
+400     Invalid email           Invalid email                           Fails the Drupal valid_email_address()
+                                                                        test.
+400     Invalid password        Password not strong enough              Zero length password.
+401     Invalid password        Invalid password                        The password was not correct.
+400     Missing name parameter  First or secondname empty               The email was not that of an existing 
+                                                                        user.
+200     | *user secret*         | Creating new shared secret            Successful registration of the user
+        | *firstname*           (if new shared secret needed)           on the website returns the variables
+        | *secondname*          | Creating new indicia_user_id          as indicated. This may end with any 
+        | *error*               (if new id is needed)                   error from user registration on the 
+                                | User *email* logged in                warehouse.
+======  ======================  ======================================  ========================================
+
+The app needs to save the user secret that is returned on successful log in to use when submitting records.
 
 Please check the :ref:`example <user-login-example>`.
 
