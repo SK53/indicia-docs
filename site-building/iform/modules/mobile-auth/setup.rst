@@ -7,8 +7,7 @@ This section deals with setting up the module. The following information applies
 to website administrators. If you are an app developer and this module is being used to allow you to submit 
 records through a website that you do not administer then you do not need to read this.
 
-.. note:: This documentation covers only Drupal 7. The module is available for Drupal 6 but future development 
-and support will target D7.
+.. note:: This documentation covers only Drupal 7. The module is available for Drupal 6 but future development and support will target D7.
 
 Prerequisites
 -------------
