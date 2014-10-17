@@ -124,12 +124,12 @@ Status  Message                 Logged message (if enabled)             Cause
                                                                         user.
 200     | *user secret*         | Creating new shared secret            Successful registration of the user
         | *firstname*           (if new shared secret needed)           on the website returns the variables
-        | *secondname*          | Creating new indicia_user_id          as indicated. This may end with any 
+        | *secondname*          | Associating indicia user id           as indicated. This may end with any 
         | *error*               (if new id is needed)                   error from user registration on the 
                                 | User *email* logged in                warehouse.
 ======  ======================  ======================================  ========================================
 
-The app needs to save the user secret that is returned on successful log in to use when submitting records.
+The app needs to save the user secret that is returned on successful log in to use when submitting records. It probably wants to save the firstname and secondname too, in order to report who is logged in.
 
 Please check the :ref:`example <user-login-example>`.
 
@@ -138,14 +138,76 @@ Please check the :ref:`example <user-login-example>`.
 Sending a record
 ----------------
 
-There are two types of record submission: *authenticated* and *anonymous*.
-Sending an anonymous record is quite straightforward. The submission service endpoint
-is at ``'mobile/submit'``. The minimal POST message fields that need to be provided are:
+When posting a record, the number of variables to be sent and the names of them depends upon how the survey has been configured in the warehouse. It also depends upon whether a sample is being sent with a single occurrence or with multiple occurrences. 
 
-Warehouse information:
+There is an option to send records without requiring user registration. This is highly discouraged as, though it lowers the initial barrier to recording, it results in an inferior user experience overall as a person's records can never be reliably accessed by them again.
 
-- website_id
-- survey_id
+The submission service endpoint is at ``mobile/submit``. 
+
+The app must post the following basic inputs:
+
+======================  =====================================================================================
+Name                    Value
+======================  =====================================================================================
+website_id              Required. The Indicia website_id of the Drupal site (23 for iRecord)
+survey_id               Required. An Indicia survey_id belonging to the website_id in to which records will
+                        be placed. The attributes that we post have to match those required by the survey.
+                        (42 for iRecord General survey)
+appname                 Required (unless anonymous). Must match the app name that was configured.
+appsecret               Required. Must match the app secret set for the app name in the module configuration.
+email                   Required for registered users. If not provided or not recognised then the record is 
+                        submitted anonymously.
+usersecret              Required for registered users and must match the value expected for the user. This is
+                        returned by the registration/log in service.
+======================  =====================================================================================
+
+The sample inputs, some of which are required, are as follows:
+
+======================  =====================================================================================
+Name                    Value
+======================  =====================================================================================
+======================  =====================================================================================
+
+The occurrence inputs for a single occurrence, some of which are required, are as follows:
+
+======================  =====================================================================================
+Name                    Value
+======================  =====================================================================================
+======================  =====================================================================================
+
+The survey-specific custom sample attributes, which have to conform with validation rules set on the warehouse, have the format ``smpAttr:*N* = *value*``
+
+The sample attributes for the iRecord General survey are as follows.
+
+======================  =====================================================================================
+Name                    Value
+======================  =====================================================================================
+======================  =====================================================================================
+
+The survey-specific custom occurrence attributes, which have to conform with validation rules set on the warehouse, have the format ``occAttr:*N* = *value*`` when submitting a single occurrence.
+
+The occurrence attributes for the iRecord General survey are as follows.
+
+======================  =====================================================================================
+Name                    Value
+======================  =====================================================================================
+======================  =====================================================================================
+
+
+The following responses may be returned:
+
+======  ======================  ======================================  ========================================
+Status  Message                 Logged message (if enabled)             Cause
+======  ======================  ======================================  ========================================
+400     Bad request             Missing or incorrect shared app secret  Incorrect appname-appsecret combination.
+400     Bad request             User secret incorrect                   User secret missing or incorrect.
+407     User not activated      User not activated                      The user is disabled in Drupal, probably
+                                                                        because they have not followed the 
+                                                                        activation link they were emailed after
+                                                                        registration.
+======  ======================  ======================================  ========================================
+                                                                        
+
 
 Record data:
 
@@ -157,10 +219,6 @@ Record data:
 *Authenticated record* submission adds a requirement: the record should go along with either
 iRecord active *session cookie*, which would authenticate the user, or attaching to the record
 user's ``usersecret`` along with its ``email``.
-The ``usersecret`` can be manually set up and obtained using iRecords web interface by visiting
-user account settings ``brc.ac.uk/irecord/user -> Edit -> Indicia mobile auth``
-updating ``User shared secret`` field. Or through :ref:`login service<user-login>` that provides a generated
-``usersecret`` if there is none set up yet.
 
 You should keep in mind that the recording survey, website and extra recording
 fields might need to be set up in the iRecord's warehouse,
