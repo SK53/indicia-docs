@@ -5,7 +5,14 @@ The Easy Download 2 prebuilt form provides an alternative download page to the :
 The most significant difference is that it integrates with saved filters so that users can download
 predefined sets of records.
 
-iRecord's download page uses the Easy Download 2 prebuilt form. Here is the configuration required:
+iRecord's download page uses the Easy Download 2 prebuilt form. To create the content page in Drupal 7:
+
+  * Select **Add content** then **Indicia pages**.
+  * Give your page a title, then set the **Select form category** box to "Utilities". 
+  * Set the **Select form** box to "Easy download 2".
+  * Click the **Load Settings Form** button.
+  
+Here is the configuration required:
 
 * **View access control** and **Permission name for view access control** - as described
   under :doc:`generic-settings`.
