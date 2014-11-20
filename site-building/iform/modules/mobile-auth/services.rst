@@ -163,19 +163,34 @@ usersecret              Required for registered users and must match the value e
 
 The sample inputs, some of which are required, are as follows:
 
-======================  =====================================================================================
-Name                    Value
-======================  =====================================================================================
-======================  =====================================================================================
+==========================  =================================================================================
+Name                        Value
+==========================  =================================================================================
+sample:date                 Required.
+sample:entered_sref_system  Required. The system being used to submit the spatial reference. e.g.
+                            OSGB for British National Grid
+                            OSIE for Irish Grid
+                            4326 for Latitude and Longitude in decimal form (WGS84 datum)
+sample:entered_sref         Required. The spatial reference in the format defined by the above system e.g.
+                            ``SJ70`` for a 10km OSGB grid square
+                            ``SJ7404`` for a 1km OSGB grid square
+                            ``SJ743047`` for a 100m OSGB grid square
+                            ``SJ74350474`` for a 10m OSGB grid square
+                            ``M98286465`` for a 10m OSIE grid square
+                            ``51.43279N 2.57369E`` for a point using Lat/Long
+sample:comment              Any plain text.
+==========================  =================================================================================
 
 The occurrence inputs for a single occurrence, some of which are required, are as follows:
 
-======================  =====================================================================================
-Name                    Value
-======================  =====================================================================================
-======================  =====================================================================================
+=============================  ==============================================================================
+Name                           Value
+=============================  ==============================================================================
+occurrence:taxa_taxon_list_id  Required. The id of the species name within a species list.
+=============================  ==============================================================================
 
-The survey-specific custom sample attributes, which have to conform with validation rules set on the warehouse, have the format ``smpAttr:*N* = *value*``
+The survey-specific custom sample attributes, which have to conform with validation rules set on the 
+warehouse, have the format ``smpAttr:*N* = *value*``
 
 The sample attributes for the iRecord General survey are as follows.
 
