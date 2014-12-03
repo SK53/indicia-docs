@@ -3,9 +3,13 @@
 Sending a record
 ----------------
 
-When posting a record, the number of variables to be sent and the names of them depends upon how the survey has been configured in the warehouse. It also depends upon whether a sample is being sent with a single occurrence or with multiple occurrences. 
+When posting a record, the number of variables to be sent and the names of them depends upon how the survey has 
+been configured in the warehouse. It also depends upon whether a sample is being sent with a single occurrence 
+or with multiple occurrences. 
 
-There is an option to send records without requiring user registration. This is highly discouraged as, though it lowers the initial barrier to recording, it results in an inferior user experience overall as a person's records can never be reliably accessed by them again.
+There is an option to send records without requiring user registration. This is highly discouraged as, though 
+it lowers the initial barrier to recording, it results in an inferior user experience overall as a person's 
+records can never be reliably accessed by them again.
 
 The submission service endpoint is at ``mobile/submit``. 
 
@@ -33,15 +37,24 @@ Name                        Value
 ==========================  =================================================================================
 sample:date                 Required.
 sample:entered_sref_system  Required. The system being used to submit the spatial reference. e.g.
-                            OSGB for British National Grid
-                            OSIE for Irish Grid
-                            4326 for Latitude and Longitude in decimal form (WGS84 datum)
+
+                            ``OSGB`` for British National Grid
+                            
+                            ``OSIE`` for Irish Grid
+                            
+                            ``4326`` for Latitude and Longitude in decimal form (WGS84 datum)
 sample:entered_sref         Required. The spatial reference in the format defined by the above system e.g.
+
                             ``SJ70`` for a 10km OSGB grid square
+                            
                             ``SJ7404`` for a 1km OSGB grid square
+                            
                             ``SJ743047`` for a 100m OSGB grid square
+                            
                             ``SJ74350474`` for a 10m OSGB grid square
+                            
                             ``M98286465`` for a 10m OSIE grid square
+                            
                             ``51.43279N 2.57369E`` for a point using Lat/Long
 sample:comment              Any plain text.
 ==========================  =================================================================================
@@ -62,9 +75,40 @@ The sample attributes for the iRecord General survey are as follows.
 ======================  =====================================================================================
 Name                    Value
 ======================  =====================================================================================
+smpAttr:127             Recorder Name.
+smpAttr:209             EUNIS Habitat. A numeric value indicates a habitat term as follows
+                        
+                        ``1716`` Arable land, gardens or parks
+                        
+                          ``1718`` Arable and horticultural land
+                          
+                          ``1720`` Gardens and parks
+                          
+                        ``1656`` Bogs and fens
+                        
+                          ``1666`` Inland saline and brackish marshes and reedbeds
 ======================  =====================================================================================
 
-The survey-specific custom occurrence attributes, which have to conform with validation rules set on the warehouse, have the format ``occAttr:*N* = *value*`` when submitting a single occurrence.
+There are five other sample attributes which exist for historic reasons and are now largely redundant because
+the Indicia User Id is saved with each record. For completeness, these are
+
+======================  =====================================================================================
+Name                    Value
+======================  =====================================================================================
+smpAttr:8               Email. Submit a value of ``[email]`` and the email address of the logged in user will 
+                        be substituted.
+smpAttr:21              CMS User ID. Submit a value of ``[userid]`` and the Drupal user id of the logged in
+                        user will be substituted.
+smpAttr:22              CMS Username. Submit a value of ``[username]`` and the Drupal username of the logged 
+                        in user will be substituted.
+smpAttr:36              First Name.  Submit a value of ``[firstname]`` and the first name of the logged 
+                        in user will be substituted.
+smpAttr:58              Last Name. Submit a value of ``[surname]`` and the last name of the logged 
+                        in user will be substituted.
+======================  =====================================================================================
+
+The survey-specific custom occurrence attributes, which have to conform with validation rules set on the warehouse, 
+have the format ``occAttr:*N* = *value*`` when submitting a single occurrence.
 
 The occurrence attributes for the iRecord General survey are as follows.
 
@@ -87,14 +131,6 @@ Status  Message                 Logged message (if enabled)             Cause
                                                                         registration.
 ======  ======================  ======================================  ========================================
                                                                         
-
-
-Record data:
-
-- sample:date
-- sample:entered_sref
-- sample:entered_sref_system
-- occurrence:taxa_taxon_list_id
 
 *Authenticated record* submission adds a requirement: the record should go along with either
 iRecord active *session cookie*, which would authenticate the user, or attaching to the record
