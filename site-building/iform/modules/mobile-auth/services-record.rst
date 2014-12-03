@@ -37,16 +37,20 @@ Name                        Value
 ==========================  =================================================================================
 sample:date                 Required.
 sample:entered_sref_system  Required. The system being used to submit the spatial reference. e.g.
+
                             | ``OSGB`` for British National Grid
                             | ``OSIE`` for Irish Grid
                             | ``4326`` for Latitude and Longitude in decimal form (WGS84 datum)
+                            
 sample:entered_sref         Required. The spatial reference in the format defined by the above system e.g.
+
                             | ``SJ70`` for a 10km OSGB grid square
                             | ``SJ7404`` for a 1km OSGB grid square
                             | ``SJ743047`` for a 100m OSGB grid square
                             | ``SJ74350474`` for a 10m OSGB grid square
                             | ``M98286465`` for a 10m OSIE grid square
                             | ``51.43279N 2.57369E`` for a point using Lat/Long
+                            
 sample:comment              Any plain text.
 ==========================  =================================================================================
 
