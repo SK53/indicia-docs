@@ -39,7 +39,7 @@ The module provides two permissions:
 
 A user must be assigned one of these permissions in order to manage app accounts.
 
-The only difference is that a person with Administrator permissions can
-access and modify all existing application accounts on the site, while the
-user can only see and edit those of his creation.
+The difference is that a person with the administrator permission can
+access and modify all application accounts on the site while a user who 
+has the personal permission can only see and edit those of his own creation.
 
