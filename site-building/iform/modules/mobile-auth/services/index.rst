@@ -5,4 +5,5 @@ Mobile Authentication Module Services
   intro
   user
   record
+  irecord
   report
