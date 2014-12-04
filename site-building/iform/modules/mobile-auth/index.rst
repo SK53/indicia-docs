@@ -5,5 +5,5 @@ Mobile Authentication Module
   intro
   setup
   management
-  services
+  services/index
   examples
