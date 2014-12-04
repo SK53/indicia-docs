@@ -1,5 +1,0 @@
-Mobile Module
-=============
-
-.. toctree::
-  intro
