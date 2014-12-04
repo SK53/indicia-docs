@@ -1,8 +1,6 @@
 IForm User UI Options Module
 ----------------------------
 
-This module is currently for Drupal 6 only.
-
 This module allows configuration files to define choices which users can make about the
 user interface provided by other Indicia forms. For example, a configuration file might
 define alternatives so that the user can choose between Bing and Google map layers. These
