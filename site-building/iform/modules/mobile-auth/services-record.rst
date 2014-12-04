@@ -36,10 +36,12 @@ The sample inputs, some of which are required, are as follows:
 Name                        Value
 ==========================  =================================================================================
 sample:date                 Required.
-sample:entered_sref_system  |Required. The system being used to submit the spatial reference. e.g.
+sample:entered_sref_system  
+                            |Required. The system being used to submit the spatial reference. e.g.
                             |``OSGB`` for British National Grid
                             |``OSIE`` for Irish Grid
                             |``4326`` for Latitude and Longitude in decimal form (WGS84 datum)
+                            
 sample:entered_sref         |Required. The spatial reference in the format defined by the above system e.g.
                             |``SJ70`` for a 10km OSGB grid square
                             |``SJ7404`` for a 1km OSGB grid square
@@ -122,18 +124,25 @@ smpAttr:209             |EUNIS Habitat. A numeric value indicates a habitat term
                         |  ``1740`` Brackish coastal lagoons
                         |  ``1742`` Snow patches
                         |  ``1744`` Crops shaded by trees
-                        |  ``1746`` Intensively-farmed crops interspersed with strips of natural and/or semi-natural vegetation
+                        |  ``1746`` Intensively-farmed crops interspersed with strips of natural and/or 
+                        semi-natural vegetation
                         |  ``1748`` Bottom of the water body
                         |  ``1750`` Mixed rock and sediment in the intertidal and splash zone
-                        |  ``1752`` Mixed rock & sediment of shallow subtidal zone with enough light for communities of seaweeds
-                        |  ``1754`` Mixed rock & sediment of subtidal zone at depths with little light and animal communities dominate
+                        |  ``1752`` Mixed rock & sediment of shallow subtidal zone with enough light for 
+                        communities of seaweeds
+                        |  ``1754`` Mixed rock & sediment of subtidal zone at depths with little light and 
+                        animal communities dominate
                         |  ``1756`` Coastal caves
                         |``1758`` Marine
                         |  ``1760`` Rock and other hard surfaces in the intertidal and splash zone
-                        |  ``1762`` Sediment (shingles, gravels, sands and muds) in the intertidal and splash zone including saltmarshes
-                        |  ``1764`` Rocky or cobbled seabed in the shallow subtidal zone with enough light for communities of seaweeds
-                        |  ``1766`` Rocky or cobbled seabed in the subtidal zone with little light and animal communities dominate
-                        |  ``1768`` Sediments (shingles, gravels, sands and muds)  permanently covered with seawater
+                        |  ``1762`` Sediment (shingles, gravels, sands and muds) in the intertidal and s
+                        plash zone including saltmarshes
+                        |  ``1764`` Rocky or cobbled seabed in the shallow subtidal zone with enough 
+                        light for communities of seaweeds
+                        |  ``1766`` Rocky or cobbled seabed in the subtidal zone with little light and 
+                        animal communities dominate
+                        |  ``1768`` Sediments (shingles, gravels, sands and muds)  permanently covered 
+                        with seawater
                         |  ``1770`` Seabed in deep water beyond the continental shelf edge
                         |  ``1772`` Water column of shallow or deep water
                         |  ``1774`` Sea ice, icebergs and other ice-associated marine habitats
