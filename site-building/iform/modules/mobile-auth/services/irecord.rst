@@ -1,3 +1,8 @@
+.. _send-irecord:
+
+Sending to iRecord
+==================
+
 By way of specific example and to document the iRecord General survey, since some apps may wish to submit to this,
 below is a list of the name value pairs that it accepts.
 
