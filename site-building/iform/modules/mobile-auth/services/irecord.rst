@@ -1,28 +1,21 @@
 By way of specific example and to document the iRecord General survey, since some apps may wish to submit to this,
 below is a list of the name value pairs that it accepts.
-======================  =====================================================================================
-Name                    Value
-======================  =====================================================================================
-website_id              ``23``
-survey_id               ``42``
-appname                 The app name that was configured.
-appsecret               The app secret set for the app name.
-email                   Email of the user submitting the record.
-usersecret              Secret of the user submitting the record.
-======================  =====================================================================================
 
-==========================  =================================================================================
-Name                        Value
-==========================  =================================================================================
-sample:date                 E.g. ``04/12/2014``
-sample:entered_sref_system  E.g. ``OSGB`` 
-sample:entered_sref         E.g. ``SJ74350474``
-sample:comment              Any plain text.
-==========================  =================================================================================
+Firstly there are the basic inputs and standard sample and occurrence values.
 
 =============================  ==============================================================================
 Name                           Value
 =============================  ==============================================================================
+website_id                     ``23``
+survey_id                      ``42``
+appname                        The app name that was configured.
+appsecret                      The app secret set for the app name.
+email                          Email of the user submitting the record.
+usersecret                     Secret of the user submitting the record.
+sample:date                    E.g. ``04/12/2014``
+sample:entered_sref_system     E.g. ``OSGB`` 
+sample:entered_sref            E.g. ``SJ74350474``
+sample:comment                 Any plain text.
 occurrence:taxa_taxon_list_id  Required. The id of the species name within a species list.
 =============================  ==============================================================================
 
