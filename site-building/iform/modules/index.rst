@@ -7,7 +7,6 @@ sibling modules extending its functionality. These are all described in the link
 .. toctree::
 
   sub-modules/index
-  mobile/index
   mobile-auth/index
 
   
