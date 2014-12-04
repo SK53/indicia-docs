@@ -1,35 +1,22 @@
+By way of specific example and to document the iRecord General survey, since some apps may wish to submit to this,
+below is a list of the name value pairs that it accepts.
 ======================  =====================================================================================
 Name                    Value
 ======================  =====================================================================================
-website_id              Required. The Indicia website_id of the Drupal site (23 for iRecord)
-survey_id               Required. An Indicia survey_id belonging to the website_id in to which records will
-                        be placed. The attributes that we post have to match those required by the survey.
-                        (42 for iRecord General survey)
-appname                 Required (unless anonymous). Must match the app name that was configured.
-appsecret               Required. Must match the app secret set for the app name in the module configuration.
-email                   Required for registered users. If not provided or not recognised then the record is 
-                        submitted anonymously.
-usersecret              Required for registered users and must match the value expected for the user. This is
-                        returned by the registration/log in service.
+website_id              ``23``
+survey_id               ``42``
+appname                 The app name that was configured.
+appsecret               The app secret set for the app name.
+email                   Email of the user submitting the record.
+usersecret              Secret of the user submitting the record.
 ======================  =====================================================================================
 
 ==========================  =================================================================================
 Name                        Value
 ==========================  =================================================================================
-sample:date                 Required.
-sample:entered_sref_system  
-                            | Required. The system being used to submit the spatial reference. e.g.
-                            | ``OSGB`` for British National Grid
-                            | ``OSIE`` for Irish Grid
-                            | ``4326`` for Latitude and Longitude in decimal form (WGS84 datum)
-                            
-sample:entered_sref         | Required. The spatial reference in the format defined by the above system e.g.
-                            | ``SJ70`` for a 10km OSGB grid square
-                            | ``SJ7404`` for a 1km OSGB grid square
-                            | ``SJ743047`` for a 100m OSGB grid square
-                            | ``SJ74350474`` for a 10m OSGB grid square
-                            | ``M98286465`` for a 10m OSIE grid square
-                            | ``51.43279N 2.57369E`` for a point using Lat/Long
+sample:date                 E.g. ``04/12/2014``
+sample:entered_sref_system  E.g. ``OSGB`` 
+sample:entered_sref         E.g. ``SJ74350474``
 sample:comment              Any plain text.
 ==========================  =================================================================================
 
@@ -45,7 +32,7 @@ The sample attributes for the iRecord General survey are as follows.
 Name                    Value
 ======================  =====================================================================================
 smpAttr:127             Recorder Name.
-smpAttr:209             | EUNIS Habitat. A numeric value indicates a habitat term as follows
+smpAttr:209             | EUNIS Habitat. A numeric value indicates a habitat as follows
                         | ``1640`` **Coast**
                         |   ``1642`` Coastal dunes and sandy shores
                         |   ``1644`` Coastal shingle
@@ -123,10 +110,46 @@ smpAttr:209             | EUNIS Habitat. A numeric value indicates a habitat ter
                         |   ``1774`` Sea ice, icebergs and other ice-associated marine habitats
 ======================  =====================================================================================
 
+There are five other sample attributes which exist for historic reasons and are now largely redundant because
+the Indicia User Id is saved with each record. For completeness, these are
+
+======================  =====================================================================================
+Name                    Value
+======================  =====================================================================================
+smpAttr:8               Email. Submit a value of ``[email]`` and the email address of the logged in user will 
+                        be substituted.
+smpAttr:21              CMS User ID. Submit a value of ``[userid]`` and the Drupal user id of the logged in
+                        user will be substituted.
+smpAttr:22              CMS Username. Submit a value of ``[username]`` and the Drupal username of the logged 
+                        in user will be substituted.
+smpAttr:36              First Name.  Submit a value of ``[firstname]`` and the first name of the logged 
+                        in user will be substituted.
+smpAttr:58              Last Name. Submit a value of ``[surname]`` and the last name of the logged 
+                        in user will be substituted.
+======================  =====================================================================================
+
 The occurrence attributes for the iRecord General survey are as follows.
 
 ======================  =====================================================================================
 Name                    Value
 ======================  =====================================================================================
+occAttr:18              Identified By. A text value indicating who identified the specimen as this might be
+                        different from both the recorder and the person submitting the record.
+occAttr:54              | Certainty. A numeric value indicates the recorders certainty as follows
+                        | ``859`` Certain
+                        | ``860`` Likely
+                        | ``861`` Uncertain
+occAttr:93              Quantity. A test value indicating the number of specimens of the species that were
+                        observed.
+occAttr:105             | Sex. A numeric value indicates the sex of the specimen as follows
+                        | ``1946`` Not recorded
+                        | ``1947`` Male
+                        | ``1948`` Female
+                        | ``3482`` Mixed
+occAttr:106             | Stage. A numeric value indicates the life stage of the specimen as follows
+                        | ``1949`` Not recorded
+                        | ``1950`` Adult
+                        | ``1951`` Pre-adult
+                        | ``1952`` Other
 ======================  =====================================================================================
 
