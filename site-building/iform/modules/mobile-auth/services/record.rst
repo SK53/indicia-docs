@@ -1,7 +1,7 @@
 .. _send-record:
 
 Sending a record
-----------------
+================
 
 When posting a record, the number of variables to be sent and the names of them depends upon how the survey has 
 been configured in the warehouse. It also depends upon whether a sample is being sent with a single occurrence 
@@ -64,23 +64,6 @@ The survey-specific custom sample attributes, which have to conform with validat
 warehouse, have the format ``smpAttr:*N* = *value*``
 
 
-There are five other sample attributes which exist for historic reasons and are now largely redundant because
-the Indicia User Id is saved with each record. For completeness, these are
-
-======================  =====================================================================================
-Name                    Value
-======================  =====================================================================================
-smpAttr:8               Email. Submit a value of ``[email]`` and the email address of the logged in user will 
-                        be substituted.
-smpAttr:21              CMS User ID. Submit a value of ``[userid]`` and the Drupal user id of the logged in
-                        user will be substituted.
-smpAttr:22              CMS Username. Submit a value of ``[username]`` and the Drupal username of the logged 
-                        in user will be substituted.
-smpAttr:36              First Name.  Submit a value of ``[firstname]`` and the first name of the logged 
-                        in user will be substituted.
-smpAttr:58              Last Name. Submit a value of ``[surname]`` and the last name of the logged 
-                        in user will be substituted.
-======================  =====================================================================================
 
 The survey-specific custom occurrence attributes, which have to conform with validation rules set on the warehouse, 
 have the format ``occAttr:*N* = *value*`` when submitting a single occurrence.
