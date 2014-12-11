@@ -2,6 +2,12 @@
 Instant Indicia
 ***************
 
+..note::
+
+  Instant Indicia was based on Drupal 6. We strongly recommend that if you are starting to 
+  build a new online recording website that you use Drupal 7 and the IForm module since
+  Drupal 6 is no longer the preferred version of Drupal. 
+  
 Introduction
 ============
 
