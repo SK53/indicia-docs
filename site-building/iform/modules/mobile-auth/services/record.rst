@@ -86,6 +86,9 @@ Status  Message                 Logged message (if enabled)             Cause
                                                                         because they have not followed the 
                                                                         activation link they were emailed after
                                                                         registration.
+502     *Html description of    *Description of error on warehouse*     The submission failed validation by
+        error on warehouse*                                             the warehouse. E.g. required values
+                                                                        missing.
 ======  ======================  ======================================  ========================================
                                                                         
 
