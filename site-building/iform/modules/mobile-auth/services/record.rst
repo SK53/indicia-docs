@@ -77,6 +77,11 @@ Status  Message                 Logged message (if enabled)             Cause
 ======  ======================  ======================================  ========================================
 400     Bad request             Missing or incorrect shared app secret  Incorrect appname-appsecret combination.
 400     Bad request             User secret incorrect                   User secret missing or incorrect.
+400     Bad request             Missing or incorrect website_id         Website_id does not match that entered
+                                                                        in the iFrom configuration.
+400     Bad request             Missing or incorrect survey_id          Survey_id evaluates to 0 so is definitely
+                                                                        incorrect. No check is made to ensure the
+                                                                        survey_id is valid for the website.
 407     User not activated      User not activated                      The user is disabled in Drupal, probably
                                                                         because they have not followed the 
                                                                         activation link they were emailed after
