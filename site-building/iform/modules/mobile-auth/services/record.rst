@@ -75,6 +75,7 @@ The following responses may be returned:
 ======  ======================  ======================================  ========================================
 Status  Message                 Logged message (if enabled)             Cause
 ======  ======================  ======================================  ========================================
+200                             [success] => *sample_id*                Record submitted successfully.
 400     Bad request             Missing or incorrect shared app secret  Incorrect appname-appsecret combination.
 400     Bad request             User secret incorrect                   User secret missing or incorrect.
 400     Bad request             Missing or incorrect website_id         Website_id does not match that entered
