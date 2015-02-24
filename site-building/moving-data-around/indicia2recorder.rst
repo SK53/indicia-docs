@@ -150,7 +150,7 @@ create the required measurement types, units and qualifiers in Recorder to captu
 data. You can do this via Recorder 6's **Tools > Termlists** screen. Once you have done
 this, follow the steps below to configure the import.
 
-  #. In your Public or My Documents\Indicia2Recorder folder, alongside the 
+  #. In your ``Public`` or ``My Documents\Indicia2Recorder`` folder, alongside the 
      indiciaConnection.txt file, create a text file called config.txt and open it in a 
      text editor.
   #. In this file, you can insert mappings from an Indicia custom attribute to a Recorder
@@ -177,7 +177,7 @@ this, follow the steps below to configure the import.
        -- this returned MEASUREMENT_QUALIFIER_KEY='NBNSYS0000000025'  
        
   #. Now all you need to do is to paste the MEASUREMENT_UNIT_KEY after the equals sign,
-     then add a comma and finally paste in the MEASUREMENT_UNIT_KEY.
+     then add a comma and finally paste in the MEASUREMENT_QUALIFIER_KEY.
   #. Repeat steps 2-4 on a new line for each additional custom attribute then save it.
      
 Usage
