@@ -37,6 +37,7 @@ Module List
 .. toctree::
   :maxdepth: 1
 
+  custom-cache-tables
   cache-builder
   data-cleaner
   data-cleaner-ancillary-species
