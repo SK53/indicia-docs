@@ -1,972 +1,980 @@
-"table_name","column_name","data_type"
-"detail_languages","id","integer"
-"detail_languages","language","character varying"
-"detail_languages","iso","character"
-"detail_languages","created_by_id","integer"
-"detail_languages","created_by","character varying"
-"detail_languages","updated_by_id","integer"
-"detail_languages","updated_by","character varying"
-"detail_languages","website_id","integer"
-"detail_locations","id","integer"
-"detail_locations","name","character varying"
-"detail_locations","code","character varying"
-"detail_locations","comment","text"
-"detail_locations","parent_id","integer"
-"detail_locations","parent","character varying"
-"detail_locations","centroid_sref","character varying"
-"detail_locations","location_type_id","integer"
-"detail_locations","centroid_sref_system","character varying"
-"detail_locations","centroid_geom","text"
-"detail_locations","boundary_geom","text"
-"detail_locations","geom","USER-DEFINED"
-"detail_locations","created_by_id","integer"
-"detail_locations","created_by","character varying"
-"detail_locations","updated_by_id","integer"
-"detail_locations","updated_by","character varying"
-"detail_locations","website_id","integer"
-"detail_locations","public","boolean"
-"detail_occurrence_comments","id","integer"
-"detail_occurrence_comments","comment","text"
-"detail_occurrence_comments","occurrence_id","integer"
-"detail_occurrence_comments","email_address","character varying"
-"detail_occurrence_comments","updated_on","timestamp without time zone"
-"detail_occurrence_comments","person_name","character varying"
-"detail_occurrence_comments","username","character varying"
-"detail_occurrence_comments","website_id","integer"
-"detail_occurrence_comments","created_on","timestamp without time zone"
-"detail_occurrence_comments","created_by_id","integer"
-"detail_occurrence_comments","created_by","character varying"
-"detail_occurrence_comments","updated_by_id","integer"
-"detail_occurrence_comments","updated_by","character varying"
-"detail_occurrences","id","integer"
-"detail_occurrences","confidential","boolean"
-"detail_occurrences","comment","text"
-"detail_occurrences","taxa_taxon_list_id","integer"
-"detail_occurrences","taxon_meaning_id","integer"
-"detail_occurrences","record_status","character"
-"detail_occurrences","determiner_id","integer"
-"detail_occurrences","taxon","character varying"
-"detail_occurrences","entered_sref","character varying"
-"detail_occurrences","entered_sref_system","character varying"
-"detail_occurrences","geom","USER-DEFINED"
-"detail_occurrences","wkt","text"
-"detail_occurrences","location_name","character varying"
-"detail_occurrences","survey_id","integer"
-"detail_occurrences","date_start","date"
-"detail_occurrences","date_end","date"
-"detail_occurrences","date_type","character varying"
-"detail_occurrences","location_id","integer"
-"detail_occurrences","location","character varying"
-"detail_occurrences","location_code","character varying"
-"detail_occurrences","recorder_names","character varying"
-"detail_occurrences","determiner","text"
-"detail_occurrences","website_id","integer"
-"detail_occurrences","external_key","character varying"
-"detail_occurrences","created_by_id","integer"
-"detail_occurrences","created_by","character varying"
-"detail_occurrences","created_on","timestamp without time zone"
-"detail_occurrences","updated_by_id","integer"
-"detail_occurrences","updated_by","character varying"
-"detail_occurrences","updated_on","timestamp without time zone"
-"detail_occurrences","downloaded_flag","character"
-"detail_occurrences","sample_id","integer"
-"detail_occurrences","deleted","boolean"
-"detail_occurrences","zero_abundance","boolean"
-"detail_occurrences","taxon_external_key","character varying"
-"detail_occurrences","taxon_list_id","integer"
-"detail_occurrences","sensitivity_precision","integer"
-"detail_people","id","integer"
-"detail_people","first_name","character varying"
-"detail_people","surname","character varying"
-"detail_people","initials","character varying"
-"detail_people","email_address","character varying"
-"detail_people","website_url","character varying"
-"detail_people","external_key","character varying"
-"detail_people","created_by_id","integer"
-"detail_people","created_by","character varying"
-"detail_people","updated_by_id","integer"
-"detail_people","updated_by","character varying"
-"detail_people","website_id","integer"
-"detail_people","created_on","timestamp without time zone"
-"detail_people","updated_on","timestamp without time zone"
-"detail_sample_comments","id","integer"
-"detail_sample_comments","comment","text"
-"detail_sample_comments","sample_id","integer"
-"detail_sample_comments","email_address","character varying"
-"detail_sample_comments","updated_on","timestamp without time zone"
-"detail_sample_comments","person_name","character varying"
-"detail_sample_comments","username","character varying"
-"detail_sample_comments","created_on","timestamp without time zone"
-"detail_sample_comments","created_by_id","integer"
-"detail_sample_comments","created_by","character varying"
-"detail_sample_comments","updated_by_id","integer"
-"detail_sample_comments","updated_by","character varying"
-"detail_sample_comments","website_id","integer"
-"detail_samples","id","integer"
-"detail_samples","entered_sref","character varying"
-"detail_samples","entered_sref_system","character varying"
-"detail_samples","geom","USER-DEFINED"
-"detail_samples","wkt","text"
-"detail_samples","location_name","character varying"
-"detail_samples","date_start","date"
-"detail_samples","date_end","date"
-"detail_samples","date_type","character varying"
-"detail_samples","location_id","integer"
-"detail_samples","location","character varying"
-"detail_samples","location_code","character varying"
-"detail_samples","created_by_id","integer"
-"detail_samples","created_by","character varying"
-"detail_samples","created_on","timestamp without time zone"
-"detail_samples","updated_by_id","integer"
-"detail_samples","updated_by","character varying"
-"detail_samples","updated_on","timestamp without time zone"
-"detail_samples","website_id","integer"
-"detail_samples","parent_id","integer"
-"detail_samples","comment","text"
-"detail_samples","recorder_names","character varying"
-"detail_samples","survey_id","integer"
-"detail_samples","survey_title","character varying"
-"detail_samples","sample_method_id","integer"
-"detail_samples","external_key","character varying"
-"detail_surveys","id","integer"
-"detail_surveys","title","character varying"
-"detail_surveys","owner_id","integer"
-"detail_surveys","owner","character varying"
-"detail_surveys","description","text"
-"detail_surveys","website_id","integer"
-"detail_surveys","website","character varying"
-"detail_surveys","created_by_id","integer"
-"detail_surveys","created_by","character varying"
-"detail_surveys","updated_by_id","integer"
-"detail_surveys","updated_by","character varying"
-"detail_taxa_taxon_designations","id","integer"
-"detail_taxa_taxon_designations","title","character varying"
-"detail_taxa_taxon_designations","code","character varying"
-"detail_taxa_taxon_designations","abbreviation","character varying"
-"detail_taxa_taxon_designations","taxon","character varying"
-"detail_taxa_taxon_designations","common","character varying"
-"detail_taxa_taxon_designations","preferred_name","character varying"
-"detail_taxa_taxon_designations","language","character"
-"detail_taxa_taxon_designations","taxon_group","character varying"
-"detail_taxa_taxon_designations","category","character varying"
-"detail_taxa_taxon_designations","created_by_id","integer"
-"detail_taxa_taxon_designations","created_by","character varying"
-"detail_taxa_taxon_designations","updated_by_id","integer"
-"detail_taxa_taxon_designations","updated_by","character varying"
-"detail_taxa_taxon_designations","created_on","timestamp without time zone"
-"detail_taxa_taxon_designations","updated_on","timestamp without time zone"
-"detail_taxa_taxon_lists","id","integer"
-"detail_taxa_taxon_lists","taxon_id","integer"
-"detail_taxa_taxon_lists","taxon","character varying"
-"detail_taxa_taxon_lists","authority","character varying"
-"detail_taxa_taxon_lists","language_iso","character"
-"detail_taxa_taxon_lists","common","character varying"
-"detail_taxa_taxon_lists","taxon_list_id","integer"
-"detail_taxa_taxon_lists","taxon_list","character varying"
-"detail_taxa_taxon_lists","taxon_meaning_id","integer"
-"detail_taxa_taxon_lists","preferred","boolean"
-"detail_taxa_taxon_lists","taxonomic_sort_order","bigint"
-"detail_taxa_taxon_lists","description_in_list","character varying"
-"detail_taxa_taxon_lists","general_description","character varying"
-"detail_taxa_taxon_lists","parent_id","integer"
-"detail_taxa_taxon_lists","parent","character varying"
-"detail_taxa_taxon_lists","image_path","character varying"
-"detail_taxa_taxon_lists","image_caption","character varying"
-"detail_taxa_taxon_lists","created_by_id","integer"
-"detail_taxa_taxon_lists","created_by","character varying"
-"detail_taxa_taxon_lists","updated_by_id","integer"
-"detail_taxa_taxon_lists","updated_by","character varying"
-"detail_taxa_taxon_lists","external_key","character varying"
-"detail_taxa_taxon_lists","allow_data_entry","boolean"
-"detail_taxon_codes","id","integer"
-"detail_taxon_codes","taxon_meaning_id","integer"
-"detail_taxon_codes","code","character varying"
-"detail_taxon_codes","term","character varying"
-"detail_taxon_codes","created_by_id","integer"
-"detail_taxon_codes","created_by","character varying"
-"detail_taxon_codes","created_on","timestamp without time zone"
-"detail_taxon_codes","updated_by_id","integer"
-"detail_taxon_codes","updated_by","character varying"
-"detail_taxon_codes","updated_on","timestamp without time zone"
-"detail_taxon_designations","id","integer"
-"detail_taxon_designations","title","character varying"
-"detail_taxon_designations","code","character varying"
-"detail_taxon_designations","abbreviation","character varying"
-"detail_taxon_designations","description","character varying"
-"detail_taxon_designations","category","character varying"
-"detail_taxon_designations","created_by_id","integer"
-"detail_taxon_designations","created_by","character varying"
-"detail_taxon_designations","updated_by_id","integer"
-"detail_taxon_designations","updated_by","character varying"
-"detail_taxon_designations","created_on","timestamp without time zone"
-"detail_taxon_designations","updated_on","timestamp without time zone"
-"detail_taxon_groups","id","integer"
-"detail_taxon_groups","title","character varying"
-"detail_taxon_groups","created_by_id","integer"
-"detail_taxon_groups","created_by","character varying"
-"detail_taxon_groups","updated_by_id","integer"
-"detail_taxon_groups","updated_by","character varying"
-"detail_taxon_groups","website_id","integer"
-"detail_taxon_images","id","integer"
-"detail_taxon_images","path","character varying"
-"detail_taxon_images","caption","character varying"
-"detail_taxon_images","deleted","boolean"
-"detail_taxon_images","taxon_meaning_id","integer"
-"detail_taxon_images","created_by_id","integer"
-"detail_taxon_images","created_by","character varying"
-"detail_taxon_images","updated_by_id","integer"
-"detail_taxon_images","updated_by","character varying"
-"detail_taxon_lists","id","integer"
-"detail_taxon_lists","title","character varying"
-"detail_taxon_lists","description","text"
-"detail_taxon_lists","website_id","integer"
-"detail_taxon_lists","website","character varying"
-"detail_taxon_lists","parent_id","integer"
-"detail_taxon_lists","parent","character varying"
-"detail_taxon_lists","created_by_id","integer"
-"detail_taxon_lists","created_by","character varying"
-"detail_taxon_lists","updated_by_id","integer"
-"detail_taxon_lists","updated_by","character varying"
-"detail_taxon_relation_types","id","integer"
-"detail_taxon_relation_types","caption","character varying"
-"detail_taxon_relation_types","forward_term","character varying"
-"detail_taxon_relation_types","reverse_term","character varying"
-"detail_taxon_relation_types","relation_code","integer"
-"detail_taxon_relation_types","special","character"
-"detail_taxon_relation_types","created_by_id","integer"
-"detail_taxon_relation_types","created_by","character varying"
-"detail_taxon_relation_types","updated_by_id","integer"
-"detail_taxon_relation_types","updated_by","character varying"
-"detail_termlists","id","integer"
-"detail_termlists","title","character varying"
-"detail_termlists","description","text"
-"detail_termlists","website_id","integer"
-"detail_termlists","website","character varying"
-"detail_termlists","parent_id","integer"
-"detail_termlists","parent","character varying"
-"detail_termlists","created_by_id","integer"
-"detail_termlists","created_by","character varying"
-"detail_termlists","updated_by_id","integer"
-"detail_termlists","updated_by","character varying"
-"detail_termlists","external_key","character varying"
-"detail_termlists_terms","id","integer"
-"detail_termlists_terms","term_id","integer"
-"detail_termlists_terms","term","character varying"
-"detail_termlists_terms","termlist_id","integer"
-"detail_termlists_terms","termlist","character varying"
-"detail_termlists_terms","meaning_id","integer"
-"detail_termlists_terms","preferred","boolean"
-"detail_termlists_terms","parent_id","integer"
-"detail_termlists_terms","parent","character varying"
-"detail_termlists_terms","sort_order","integer"
-"detail_termlists_terms","website_id","integer"
-"detail_termlists_terms","created_by_id","integer"
-"detail_termlists_terms","created_by","character varying"
-"detail_termlists_terms","updated_by_id","integer"
-"detail_termlists_terms","updated_by","character varying"
-"detail_termlists_terms","iso","character"
-"detail_termlists_terms","termlist_external_key","character varying"
-"detail_terms","id","integer"
-"detail_terms","term","character varying"
-"detail_terms","language_id","integer"
-"detail_terms","language","character varying"
-"detail_terms","iso","character"
-"detail_terms","created_by_id","integer"
-"detail_terms","created_by","character varying"
-"detail_terms","updated_by_id","integer"
-"detail_terms","updated_by","character varying"
-"detail_terms","website_id","integer"
-"detail_titles","id","integer"
-"detail_titles","title","character varying"
-"detail_titles","created_by_id","integer"
-"detail_titles","created_by","character varying"
-"detail_titles","updated_by_id","integer"
-"detail_titles","updated_by","character varying"
-"detail_users","id","integer"
-"detail_users","username","character varying"
-"detail_users","website_id","integer"
-"detail_users","person_id","integer"
-"detail_users","created_by_id","integer"
-"detail_users","created_by","character varying"
-"detail_users","updated_by_id","integer"
-"detail_users","created_on","timestamp without time zone"
-"detail_users","updated_on","timestamp without time zone"
-"detail_users","updated_by","character varying"
-"detail_website_agreements","id","integer"
-"detail_website_agreements","title","character varying"
-"detail_website_agreements","description","character varying"
-"detail_website_agreements","public","boolean"
-"detail_website_agreements","provide_for_reporting","character"
-"detail_website_agreements","receive_for_reporting","character"
-"detail_website_agreements","provide_for_peer_review","character"
-"detail_website_agreements","receive_for_peer_review","character"
-"detail_website_agreements","provide_for_verification","character"
-"detail_website_agreements","receive_for_verification","character"
-"detail_website_agreements","provide_for_data_flow","character"
-"detail_website_agreements","receive_for_data_flow","character"
-"detail_website_agreements","provide_for_moderation","character"
-"detail_website_agreements","receive_for_moderation","character"
-"detail_website_agreements","created_by_id","integer"
-"detail_website_agreements","created_by","character varying"
-"detail_website_agreements","updated_by_id","integer"
-"detail_website_agreements","updated_by","character varying"
-"detail_websites","id","integer"
-"detail_websites","title","character varying"
-"detail_websites","url","character varying"
-"detail_websites","description","text"
-"detail_websites","created_by_id","integer"
-"detail_websites","created_by","character varying"
-"detail_websites","updated_by_id","integer"
-"detail_websites","updated_by","character varying"
-"detail_websites","website_id","integer"
-"detail_websites_website_agreements","id","integer"
-"detail_websites_website_agreements","website","character varying"
-"detail_websites_website_agreements","agreement","character varying"
-"detail_websites_website_agreements","created_by_id","integer"
-"detail_websites_website_agreements","created_by","character varying"
-"detail_websites_website_agreements","updated_by_id","integer"
-"detail_websites_website_agreements","updated_by","character varying"
-"gv_languages","id","integer"
-"gv_languages","language","character varying"
-"gv_languages","iso","character"
-"gv_languages","website_id","integer"
-"gv_location_attributes","id","integer"
-"gv_location_attributes","website_id","integer"
-"gv_location_attributes","survey_id","integer"
-"gv_location_attributes","website","character varying"
-"gv_location_attributes","survey","character varying"
-"gv_location_attributes","caption","character varying"
-"gv_location_attributes","data_type","character"
-"gv_location_attributes","public","boolean"
-"gv_location_attributes","created_by_id","integer"
-"gv_location_attributes","deleted","boolean"
-"gv_location_images","id","integer"
-"gv_location_images","path","character varying"
-"gv_location_images","caption","character varying"
-"gv_location_images","deleted","boolean"
-"gv_location_images","location_id","integer"
-"gv_locations","id","integer"
-"gv_locations","name","character varying"
-"gv_locations","code","character varying"
-"gv_locations","centroid_sref","character varying"
-"gv_locations","website_id","integer"
-"gv_locations","type","character varying"
-"gv_locations","website","character varying"
-"gv_occurrence_attributes","id","integer"
-"gv_occurrence_attributes","website_id","integer"
-"gv_occurrence_attributes","survey_id","integer"
-"gv_occurrence_attributes","website","character varying"
-"gv_occurrence_attributes","survey","character varying"
-"gv_occurrence_attributes","caption","character varying"
-"gv_occurrence_attributes","data_type","character"
-"gv_occurrence_attributes","public","boolean"
-"gv_occurrence_attributes","created_by_id","integer"
-"gv_occurrence_attributes","deleted","boolean"
-"gv_occurrence_comments","id","integer"
-"gv_occurrence_comments","comment","text"
-"gv_occurrence_comments","occurrence_id","integer"
-"gv_occurrence_comments","email_address","character varying"
-"gv_occurrence_comments","updated_on","timestamp without time zone"
-"gv_occurrence_comments","person_name","character varying"
-"gv_occurrence_comments","username","character varying"
-"gv_occurrence_comments","website_id","integer"
-"gv_occurrence_images","id","integer"
-"gv_occurrence_images","path","character varying"
-"gv_occurrence_images","caption","character varying"
-"gv_occurrence_images","deleted","boolean"
-"gv_occurrence_images","occurrence_id","integer"
-"gv_occurrences","id","integer"
-"gv_occurrences","website","character varying"
-"gv_occurrences","survey","character varying"
-"gv_occurrences","sample_id","integer"
-"gv_occurrences","taxon","character varying"
-"gv_occurrences","date_start","date"
-"gv_occurrences","date_end","date"
-"gv_occurrences","date_type","character varying"
-"gv_occurrences","entered_sref","character varying"
-"gv_occurrences","entered_sref_system","character varying"
-"gv_occurrences","location_name","character varying"
-"gv_occurrences","name","character varying"
-"gv_occurrences","deleted","boolean"
-"gv_occurrences","website_id","integer"
-"gv_people","id","integer"
-"gv_people","first_name","character varying"
-"gv_people","surname","character varying"
-"gv_people","initials","character varying"
-"gv_people","caption","text"
-"gv_people","email_address","character varying"
-"gv_people","website_id","integer"
-"gv_person_attributes","id","integer"
-"gv_person_attributes","website_id","integer"
-"gv_person_attributes","website","character varying"
-"gv_person_attributes","caption","character varying"
-"gv_person_attributes","data_type","character"
-"gv_person_attributes","public","boolean"
-"gv_person_attributes","created_by_id","integer"
-"gv_person_attributes","deleted","boolean"
-"gv_sample_attribute_by_surveys","weight1","integer"
-"gv_sample_attribute_by_surveys","weight2","integer"
-"gv_sample_attribute_by_surveys","weight3","integer"
-"gv_sample_attribute_by_surveys","id","integer"
-"gv_sample_attribute_by_surveys","outer_structure_block","character varying"
-"gv_sample_attribute_by_surveys","inner_structure_block","character varying"
-"gv_sample_attribute_by_surveys","website_id","integer"
-"gv_sample_attribute_by_surveys","survey_id","integer"
-"gv_sample_attribute_by_surveys","website","character varying"
-"gv_sample_attribute_by_surveys","survey","character varying"
-"gv_sample_attribute_by_surveys","caption","character varying"
-"gv_sample_attribute_by_surveys","data_type","character"
-"gv_sample_attribute_by_surveys","control","character varying"
-"gv_sample_attribute_by_surveys","public","boolean"
-"gv_sample_attribute_by_surveys","created_by_id","integer"
-"gv_sample_attribute_by_surveys","deleted","boolean"
-"gv_sample_attributes","id","integer"
-"gv_sample_attributes","website_id","integer"
-"gv_sample_attributes","survey_id","integer"
-"gv_sample_attributes","website","character varying"
-"gv_sample_attributes","survey","character varying"
-"gv_sample_attributes","caption","character varying"
-"gv_sample_attributes","data_type","character"
-"gv_sample_attributes","public","boolean"
-"gv_sample_attributes","created_by_id","integer"
-"gv_sample_attributes","deleted","boolean"
-"gv_sample_images","id","integer"
-"gv_sample_images","path","character varying"
-"gv_sample_images","caption","character varying"
-"gv_sample_images","deleted","boolean"
-"gv_sample_images","sample_id","integer"
-"gv_samples","id","integer"
-"gv_samples","date_start","date"
-"gv_samples","date_end","date"
-"gv_samples","date_type","character varying"
-"gv_samples","entered_sref","character varying"
-"gv_samples","entered_sref_system","character varying"
-"gv_samples","location_name","character varying"
-"gv_samples","deleted","boolean"
-"gv_samples","survey","character varying"
-"gv_samples","website","character varying"
-"gv_samples","location","character varying"
-"gv_samples","website_id","integer"
-"gv_surveys","id","integer"
-"gv_surveys","title","character varying"
-"gv_surveys","description","text"
-"gv_surveys","website","character varying"
-"gv_surveys","deleted","boolean"
-"gv_surveys","website_id","integer"
-"gv_taxa_taxon_designations","id","integer"
-"gv_taxa_taxon_designations","taxon_designation_id","integer"
-"gv_taxa_taxon_designations","taxa_taxon_list_id","integer"
-"gv_taxa_taxon_designations","taxon_id","integer"
-"gv_taxa_taxon_designations","taxon","character varying"
-"gv_taxa_taxon_designations","title","character varying"
-"gv_taxa_taxon_designations","category","character varying"
-"gv_taxa_taxon_designations","deleted","boolean"
-"gv_taxa_taxon_list_attributes","id","integer"
-"gv_taxa_taxon_list_attributes","taxon_list_id","integer"
-"gv_taxa_taxon_list_attributes","taxon_list","character varying"
-"gv_taxa_taxon_list_attributes","caption","character varying"
-"gv_taxa_taxon_list_attributes","data_type","character"
-"gv_taxa_taxon_list_attributes","public","boolean"
-"gv_taxa_taxon_list_attributes","created_by_id","integer"
-"gv_taxa_taxon_list_attributes","deleted","boolean"
-"gv_taxa_taxon_list_attributes","website_id","integer"
-"gv_taxa_taxon_lists","id","integer"
-"gv_taxa_taxon_lists","taxon_list_id","integer"
-"gv_taxa_taxon_lists","taxon_id","integer"
-"gv_taxa_taxon_lists","created_on","timestamp without time zone"
-"gv_taxa_taxon_lists","created_by_id","integer"
-"gv_taxa_taxon_lists","parent_id","integer"
-"gv_taxa_taxon_lists","taxon_meaning_id","integer"
-"gv_taxa_taxon_lists","taxonomic_sort_order","bigint"
-"gv_taxa_taxon_lists","preferred","boolean"
-"gv_taxa_taxon_lists","deleted","boolean"
-"gv_taxa_taxon_lists","taxon","character varying"
-"gv_taxa_taxon_lists","taxon_group_id","integer"
-"gv_taxa_taxon_lists","language_id","integer"
-"gv_taxa_taxon_lists","authority","character varying"
-"gv_taxa_taxon_lists","search_code","character varying"
-"gv_taxa_taxon_lists","scientific","boolean"
-"gv_taxa_taxon_lists","language","character varying"
-"gv_taxa_taxon_lists","taxon_group","character varying"
-"gv_taxon_codes","id","integer"
-"gv_taxon_codes","taxon_meaning_id","integer"
-"gv_taxon_codes","code","character varying"
-"gv_taxon_codes","term","character varying"
-"gv_taxon_designations","id","integer"
-"gv_taxon_designations","title","character varying"
-"gv_taxon_designations","category","character varying"
-"gv_taxon_designations","deleted","boolean"
-"gv_taxon_groups","id","integer"
-"gv_taxon_groups","title","character varying"
-"gv_taxon_groups","website_id","integer"
-"gv_taxon_images","id","integer"
-"gv_taxon_images","path","character varying"
-"gv_taxon_images","caption","character varying"
-"gv_taxon_images","deleted","boolean"
-"gv_taxon_images","taxon_meaning_id","integer"
-"gv_taxon_lists","id","integer"
-"gv_taxon_lists","title","character varying"
-"gv_taxon_lists","website_id","integer"
-"gv_taxon_lists","parent_id","integer"
-"gv_taxon_lists","description","text"
-"gv_taxon_relation_types","id","integer"
-"gv_taxon_relation_types","caption","character varying"
-"gv_taxon_relation_types","forward_term","character varying"
-"gv_taxon_relation_types","reverse_term","character varying"
-"gv_taxon_relation_types","relation_code","integer"
-"gv_taxon_relations","id","integer"
-"gv_taxon_relations","my_taxon_meaning_id","integer"
-"gv_taxon_relations","my_taxon","character varying"
-"gv_taxon_relations","other_taxon_meaning_id","integer"
-"gv_taxon_relations","other_taxon","character varying"
-"gv_taxon_relations","taxon_relation_type_id","integer"
-"gv_taxon_relations","term","character varying"
-"gv_taxon_relations","deleted","boolean"
-"gv_term_termlists","id","integer"
-"gv_term_termlists","termlist_id","integer"
-"gv_term_termlists","term_id","integer"
-"gv_term_termlists","created_on","timestamp without time zone"
-"gv_term_termlists","created_by_id","integer"
-"gv_term_termlists","updated_on","timestamp without time zone"
-"gv_term_termlists","updated_by_id","integer"
-"gv_term_termlists","parent_id","integer"
-"gv_term_termlists","meaning_id","integer"
-"gv_term_termlists","preferred","boolean"
-"gv_term_termlists","sort_order","integer"
-"gv_term_termlists","title","character varying"
-"gv_term_termlists","description","text"
-"gv_termlists","id","integer"
-"gv_termlists","title","character varying"
-"gv_termlists","description","text"
-"gv_termlists","website_id","integer"
-"gv_termlists","parent_id","integer"
-"gv_termlists","deleted","boolean"
-"gv_termlists","created_on","timestamp without time zone"
-"gv_termlists","created_by_id","integer"
-"gv_termlists","updated_on","timestamp without time zone"
-"gv_termlists","updated_by_id","integer"
-"gv_termlists","website","character varying"
-"gv_termlists","creator","character varying"
-"gv_termlists_terms","id","integer"
-"gv_termlists_terms","termlist_id","integer"
-"gv_termlists_terms","term_id","integer"
-"gv_termlists_terms","created_on","timestamp without time zone"
-"gv_termlists_terms","created_by_id","integer"
-"gv_termlists_terms","updated_on","timestamp without time zone"
-"gv_termlists_terms","updated_by_id","integer"
-"gv_termlists_terms","parent_id","integer"
-"gv_termlists_terms","meaning_id","integer"
-"gv_termlists_terms","preferred","boolean"
-"gv_termlists_terms","sort_order","integer"
-"gv_termlists_terms","deleted","boolean"
-"gv_termlists_terms","term","character varying"
-"gv_termlists_terms","language","character varying"
-"gv_titles","id","integer"
-"gv_titles","title","character varying"
-"gv_triggers","id","integer"
-"gv_triggers","name","character varying"
-"gv_triggers","description","text"
-"gv_triggers","public","boolean"
-"gv_triggers","created_by_name","text"
-"gv_triggers","private_for_user_id","integer"
-"gv_triggers","deleted","boolean"
-"gv_triggers","user_id","integer"
-"gv_triggers","edit_trigger","boolean"
-"gv_triggers","subscribe","boolean"
-"gv_triggers","edit_subscription","boolean"
-"gv_user_identifiers","id","integer"
-"gv_user_identifiers","identifier","character varying"
-"gv_user_identifiers","user_id","integer"
-"gv_user_identifiers","person_id","integer"
-"gv_user_identifiers","type","character varying"
-"gv_users","person_id","integer"
-"gv_users","name","text"
-"gv_users","id","integer"
-"gv_users","username","character varying"
-"gv_users","core_role","character varying"
-"gv_users","deleted","boolean"
-"gv_verification_rules","id","integer"
-"gv_verification_rules","title","character varying"
-"gv_verification_rules","description","character varying"
-"gv_verification_rules","test_type","character varying"
-"gv_website_agreements","id","integer"
-"gv_website_agreements","title","character varying"
-"gv_website_agreements","description","character varying"
-"gv_websites","id","integer"
-"gv_websites","title","character varying"
-"gv_websites","description","text"
-"gv_websites","url","character varying"
-"gv_websites","website_id","integer"
-"gv_websites_website_agreements","id","integer"
-"gv_websites_website_agreements","website_id","integer"
-"gv_websites_website_agreements","website","character varying"
-"gv_websites_website_agreements","agreement","character varying"
-"list_determinations","id","integer"
-"list_determinations","taxa_taxon_list_id","integer"
-"list_determinations","taxon","character varying"
-"list_determinations","comment","text"
-"list_determinations","taxon_extra_info","text"
-"list_determinations","occurrence_id","integer"
-"list_determinations","taxon_details","text"
-"list_determinations","taxa_taxon_list_id_list","ARRAY"
-"list_determinations","email_address","character varying"
-"list_determinations","person_name","character varying"
-"list_determinations","cms_ref","integer"
-"list_determinations","deleted","boolean"
-"list_determinations","updated_on","timestamp without time zone"
-"list_determinations","determination_type","character"
-"list_determinations","website_id","integer"
-"list_filters","id","integer"
-"list_filters","title","character varying"
-"list_filters","description","character varying"
-"list_filters","definition","character varying"
-"list_filters","sharing","character"
-"list_filters","public","boolean"
-"list_filters","created_by_id","integer"
-"list_languages","id","integer"
-"list_languages","language","character varying"
-"list_languages","iso","character"
-"list_languages","website_id","integer"
-"list_location_attribute_values","id","integer"
-"list_location_attribute_values","location_id","integer"
-"list_location_attribute_values","location_attribute_id","integer"
-"list_location_attribute_values","data_type","character"
-"list_location_attribute_values","caption","character varying"
-"list_location_attribute_values","value","text"
-"list_location_attribute_values","raw_value","text"
-"list_location_attribute_values","termlist_id","integer"
-"list_location_attribute_values","iso","character"
-"list_location_attribute_values","website_id","integer"
-"list_location_attribute_values","location_type_id","integer"
-"list_location_attributes","id","integer"
-"list_location_attributes","caption","character varying"
-"list_location_attributes","outer_structure_block","character varying"
-"list_location_attributes","inner_structure_block","character varying"
-"list_location_attributes","data_type","character"
-"list_location_attributes","control_type","character varying"
-"list_location_attributes","termlist_id","integer"
-"list_location_attributes","multi_value","boolean"
-"list_location_attributes","website_id","integer"
-"list_location_attributes","restrict_to_survey_id","integer"
-"list_location_attributes","signature","text"
-"list_location_attributes","default_text_value","text"
-"list_location_attributes","default_int_value","integer"
-"list_location_attributes","default_float_value","double precision"
-"list_location_attributes","default_date_start_value","date"
-"list_location_attributes","default_date_end_value","date"
-"list_location_attributes","default_date_type_value","character varying"
-"list_location_attributes","validation_rules","text"
-"list_location_attributes","deleted","boolean"
-"list_location_attributes","website_deleted","boolean"
-"list_location_attributes","restrict_to_location_type_id","integer"
-"list_location_images","id","integer"
-"list_location_images","location_id","integer"
-"list_location_images","path","character varying"
-"list_location_images","caption","character varying"
-"list_location_images","created_on","timestamp without time zone"
-"list_location_images","created_by_id","integer"
-"list_location_images","updated_on","timestamp without time zone"
-"list_location_images","updated_by_id","integer"
-"list_location_images","deleted","boolean"
-"list_location_images","website_id","integer"
-"list_locations","id","integer"
-"list_locations","name","character varying"
-"list_locations","code","character varying"
-"list_locations","centroid_sref","character varying"
-"list_locations","website_id","integer"
-"list_locations","location_type_id","integer"
-"list_notifications","id","integer"
-"list_notifications","source","character varying"
-"list_notifications","source_type","character"
-"list_notifications","data","character varying"
-"list_notifications","acknowledged","boolean"
-"list_notifications","user_id","integer"
-"list_notifications","triggered_on","timestamp with time zone"
-"list_notifications","digest_mode","character"
-"list_notifications","cc","character varying"
-"list_occurrence_attribute_values","id","integer"
-"list_occurrence_attribute_values","occurrence_id","integer"
-"list_occurrence_attribute_values","occurrence_attribute_id","integer"
-"list_occurrence_attribute_values","data_type","character"
-"list_occurrence_attribute_values","caption","character varying"
-"list_occurrence_attribute_values","value","text"
-"list_occurrence_attribute_values","raw_value","text"
-"list_occurrence_attribute_values","termlist_id","integer"
-"list_occurrence_attribute_values","iso","character"
-"list_occurrence_attribute_values","website_id","integer"
-"list_occurrence_attributes","id","integer"
-"list_occurrence_attributes","caption","character varying"
-"list_occurrence_attributes","outer_structure_block","character varying"
-"list_occurrence_attributes","inner_structure_block","character varying"
-"list_occurrence_attributes","data_type","character"
-"list_occurrence_attributes","control_type","character varying"
-"list_occurrence_attributes","termlist_id","integer"
-"list_occurrence_attributes","multi_value","boolean"
-"list_occurrence_attributes","website_id","integer"
-"list_occurrence_attributes","restrict_to_survey_id","integer"
-"list_occurrence_attributes","signature","text"
-"list_occurrence_attributes","default_text_value","text"
-"list_occurrence_attributes","default_int_value","integer"
-"list_occurrence_attributes","default_float_value","double precision"
-"list_occurrence_attributes","default_date_start_value","date"
-"list_occurrence_attributes","default_date_end_value","date"
-"list_occurrence_attributes","default_date_type_value","character varying"
-"list_occurrence_attributes","validation_rules","text"
-"list_occurrence_attributes","deleted","boolean"
-"list_occurrence_attributes","website_deleted","boolean"
-"list_occurrence_comments","id","integer"
-"list_occurrence_comments","comment","text"
-"list_occurrence_comments","occurrence_id","integer"
-"list_occurrence_comments","email_address","character varying"
-"list_occurrence_comments","updated_on","timestamp without time zone"
-"list_occurrence_comments","person_name","character varying"
-"list_occurrence_comments","username","character varying"
-"list_occurrence_comments","website_id","integer"
-"list_occurrence_images","id","integer"
-"list_occurrence_images","occurrence_id","integer"
-"list_occurrence_images","path","character varying"
-"list_occurrence_images","caption","character varying"
-"list_occurrence_images","created_on","timestamp without time zone"
-"list_occurrence_images","created_by_id","integer"
-"list_occurrence_images","updated_on","timestamp without time zone"
-"list_occurrence_images","updated_by_id","integer"
-"list_occurrence_images","deleted","boolean"
-"list_occurrence_images","external_details","character varying"
-"list_occurrence_images","website_id","integer"
-"list_occurrences","survey","character varying"
-"list_occurrences","location","character varying"
-"list_occurrences","date_start","date"
-"list_occurrences","date_end","date"
-"list_occurrences","date_type","character varying"
-"list_occurrences","entered_sref","character varying"
-"list_occurrences","entered_sref_system","character varying"
-"list_occurrences","taxon","character varying"
-"list_occurrences","website_id","integer"
-"list_occurrences","id","integer"
-"list_occurrences","recorder_names","character varying"
-"list_occurrences","zero_abundance","boolean"
-"list_occurrences","taxon_list_id","integer"
-"list_people","id","integer"
-"list_people","first_name","character varying"
-"list_people","surname","character varying"
-"list_people","initials","character varying"
-"list_people","caption","text"
-"list_people","website_id","integer"
-"list_person_attribute_values","id","integer"
-"list_person_attribute_values","person_id","integer"
-"list_person_attribute_values","person_attribute_id","integer"
-"list_person_attribute_values","data_type","character"
-"list_person_attribute_values","caption","character varying"
-"list_person_attribute_values","value","text"
-"list_person_attribute_values","raw_value","text"
-"list_person_attribute_values","termlist_id","integer"
-"list_person_attribute_values","iso","character"
-"list_person_attribute_values","website_id","integer"
-"list_person_attributes","id","integer"
-"list_person_attributes","caption","character varying"
-"list_person_attributes","outer_structure_block","character varying"
-"list_person_attributes","inner_structure_block","character varying"
-"list_person_attributes","data_type","character"
-"list_person_attributes","control_type","character varying"
-"list_person_attributes","termlist_id","integer"
-"list_person_attributes","multi_value","boolean"
-"list_person_attributes","website_id","integer"
-"list_person_attributes","signature","text"
-"list_person_attributes","default_text_value","text"
-"list_person_attributes","default_int_value","integer"
-"list_person_attributes","default_float_value","double precision"
-"list_person_attributes","default_date_start_value","date"
-"list_person_attributes","default_date_end_value","date"
-"list_person_attributes","default_date_type_value","character varying"
-"list_person_attributes","validation_rules","text"
-"list_person_attributes","deleted","boolean"
-"list_person_attributes","website_deleted","boolean"
-"list_person_attributes","public","boolean"
-"list_sample_attribute_values","id","integer"
-"list_sample_attribute_values","sample_id","integer"
-"list_sample_attribute_values","sample_attribute_id","integer"
-"list_sample_attribute_values","data_type","character"
-"list_sample_attribute_values","caption","character varying"
-"list_sample_attribute_values","value","text"
-"list_sample_attribute_values","raw_value","text"
-"list_sample_attribute_values","termlist_id","integer"
-"list_sample_attribute_values","iso","character"
-"list_sample_attribute_values","website_id","integer"
-"list_sample_attributes","id","integer"
-"list_sample_attributes","caption","character varying"
-"list_sample_attributes","outer_structure_block","character varying"
-"list_sample_attributes","inner_structure_block","character varying"
-"list_sample_attributes","data_type","character"
-"list_sample_attributes","control_type","character varying"
-"list_sample_attributes","termlist_id","integer"
-"list_sample_attributes","multi_value","boolean"
-"list_sample_attributes","website_id","integer"
-"list_sample_attributes","restrict_to_survey_id","integer"
-"list_sample_attributes","signature","text"
-"list_sample_attributes","default_text_value","text"
-"list_sample_attributes","default_int_value","integer"
-"list_sample_attributes","default_float_value","double precision"
-"list_sample_attributes","default_date_start_value","date"
-"list_sample_attributes","default_date_end_value","date"
-"list_sample_attributes","default_date_type_value","character varying"
-"list_sample_attributes","validation_rules","text"
-"list_sample_attributes","deleted","boolean"
-"list_sample_attributes","website_deleted","boolean"
-"list_sample_attributes","restrict_to_sample_method_id","integer"
-"list_sample_comments","id","integer"
-"list_sample_comments","comment","text"
-"list_sample_comments","sample_id","integer"
-"list_sample_comments","email_address","character varying"
-"list_sample_comments","updated_on","timestamp without time zone"
-"list_sample_comments","person_name","character varying"
-"list_sample_comments","username","character varying"
-"list_sample_comments","website_id","integer"
-"list_sample_images","id","integer"
-"list_sample_images","sample_id","integer"
-"list_sample_images","path","character varying"
-"list_sample_images","caption","character varying"
-"list_sample_images","created_on","timestamp without time zone"
-"list_sample_images","created_by_id","integer"
-"list_sample_images","updated_on","timestamp without time zone"
-"list_sample_images","updated_by_id","integer"
-"list_sample_images","deleted","boolean"
-"list_sample_images","website_id","integer"
-"list_samples","id","integer"
-"list_samples","survey","character varying"
-"list_samples","location","character varying"
-"list_samples","date_start","date"
-"list_samples","date_end","date"
-"list_samples","date_type","character varying"
-"list_samples","entered_sref","character varying"
-"list_samples","entered_sref_system","character varying"
-"list_samples","website_id","integer"
-"list_surveys","id","integer"
-"list_surveys","title","character varying"
-"list_surveys","website_id","integer"
-"list_taxa_taxon_designations","id","integer"
-"list_taxa_taxon_designations","title","character varying"
-"list_taxa_taxon_designations","code","character varying"
-"list_taxa_taxon_designations","abbreviation","character varying"
-"list_taxa_taxon_designations","taxon","character varying"
-"list_taxa_taxon_designations","common","character varying"
-"list_taxa_taxon_designations","preferred_name","character varying"
-"list_taxa_taxon_designations","language","character varying"
-"list_taxa_taxon_designations","taxon_group","character varying"
-"list_taxa_taxon_list_attribute_values","id","integer"
-"list_taxa_taxon_list_attribute_values","taxa_taxon_list_id","integer"
-"list_taxa_taxon_list_attribute_values","taxa_taxon_list_attribute_id","integer"
-"list_taxa_taxon_list_attribute_values","data_type","character"
-"list_taxa_taxon_list_attribute_values","caption","character varying"
-"list_taxa_taxon_list_attribute_values","termlist_id","integer"
-"list_taxa_taxon_list_attribute_values","value","text"
-"list_taxa_taxon_list_attribute_values","raw_value","text"
-"list_taxa_taxon_list_attribute_values","iso","character"
-"list_taxa_taxon_list_attribute_values","taxon_list_id","integer"
-"list_taxa_taxon_list_attributes","id","integer"
-"list_taxa_taxon_list_attributes","caption","character varying"
-"list_taxa_taxon_list_attributes","outer_structure_block","character varying"
-"list_taxa_taxon_list_attributes","inner_structure_block","character varying"
-"list_taxa_taxon_list_attributes","data_type","character"
-"list_taxa_taxon_list_attributes","control_type","character varying"
-"list_taxa_taxon_list_attributes","termlist_id","integer"
-"list_taxa_taxon_list_attributes","multi_value","boolean"
-"list_taxa_taxon_list_attributes","taxon_list_id","integer"
-"list_taxa_taxon_list_attributes","signature","text"
-"list_taxa_taxon_list_attributes","default_text_value","text"
-"list_taxa_taxon_list_attributes","default_int_value","integer"
-"list_taxa_taxon_list_attributes","default_float_value","double precision"
-"list_taxa_taxon_list_attributes","default_date_start_value","date"
-"list_taxa_taxon_list_attributes","default_date_end_value","date"
-"list_taxa_taxon_list_attributes","default_date_type_value","character varying"
-"list_taxa_taxon_list_attributes","validation_rules","text"
-"list_taxa_taxon_list_attributes","deleted","boolean"
-"list_taxa_taxon_list_attributes","taxon_list_deleted","boolean"
-"list_taxa_taxon_lists","id","integer"
-"list_taxa_taxon_lists","taxon_id","integer"
-"list_taxa_taxon_lists","taxon","character varying"
-"list_taxa_taxon_lists","authority","character varying"
-"list_taxa_taxon_lists","language","character"
-"list_taxa_taxon_lists","common","character varying"
-"list_taxa_taxon_lists","preferred_name","character varying"
-"list_taxa_taxon_lists","taxon_group","character varying"
-"list_taxa_taxon_lists","taxon_list_id","integer"
-"list_taxa_taxon_lists","preferred","boolean"
-"list_taxa_taxon_lists","taxon_list","character varying"
-"list_taxa_taxon_lists","website_id","integer"
-"list_taxa_taxon_lists","external_key","character varying"
-"list_taxa_taxon_lists","allow_data_entry","boolean"
-"list_taxa_taxon_lists","taxon_meaning_id","integer"
-"list_taxa_taxon_lists","taxon_group_id","integer"
-"list_taxon_codes","id","integer"
-"list_taxon_codes","taxon_meaning_id","integer"
-"list_taxon_codes","code","character varying"
-"list_taxon_codes","term","character varying"
-"list_taxon_designations","id","integer"
-"list_taxon_designations","title","character varying"
-"list_taxon_designations","code","character varying"
-"list_taxon_designations","abbreviation","character varying"
-"list_taxon_groups","id","integer"
-"list_taxon_groups","title","character varying"
-"list_taxon_groups","website_id","integer"
-"list_taxon_images","id","integer"
-"list_taxon_images","path","character varying"
-"list_taxon_images","caption","character varying"
-"list_taxon_images","deleted","boolean"
-"list_taxon_images","taxon_meaning_id","integer"
-"list_taxon_lists","id","integer"
-"list_taxon_lists","title","character varying"
-"list_taxon_lists","website_id","integer"
-"list_taxon_relation_types","id","integer"
-"list_taxon_relation_types","caption","character varying"
-"list_taxon_relation_types","forward_term","character varying"
-"list_taxon_relation_types","reverse_term","character varying"
-"list_taxon_relation_types","relation_code","integer"
-"list_taxon_relations","id","integer"
-"list_taxon_relations","from_taxon_meaning_id","integer"
-"list_taxon_relations","to_taxon_meaning_id","integer"
-"list_taxon_relations","taxon_relation_type_id","integer"
-"list_taxon_relations","deleted","boolean"
-"list_termlists","id","integer"
-"list_termlists","title","character varying"
-"list_termlists","website_id","integer"
-"list_termlists","external_key","character varying"
-"list_termlists_terms","id","integer"
-"list_termlists_terms","term_id","integer"
-"list_termlists_terms","term","character varying"
-"list_termlists_terms","termlist_id","integer"
-"list_termlists_terms","termlist","character varying"
-"list_termlists_terms","website_id","integer"
-"list_termlists_terms","termlist_external_key","character varying"
-"list_termlists_terms","iso","character"
-"list_termlists_terms","sort_order","integer"
-"list_terms","id","integer"
-"list_terms","term","character varying"
-"list_terms","language_id","integer"
-"list_terms","language","character varying"
-"list_terms","iso","character"
-"list_terms","website_id","integer"
-"list_titles","id","integer"
-"list_titles","title","character varying"
-"list_user_trusts","id","integer"
-"list_user_trusts","user_id","integer"
-"list_user_trusts","survey_id","integer"
-"list_user_trusts","location_id","integer"
-"list_user_trusts","taxon_group_id","integer"
-"list_user_trusts","created_on","timestamp without time zone"
-"list_user_trusts","created_by_id","integer"
-"list_user_trusts","updated_on","timestamp without time zone"
-"list_user_trusts","updated_by_id","integer"
-"list_user_trusts","deleted","boolean"
-"list_users","id","integer"
-"list_users","username","character varying"
-"list_users","website_id","integer"
-"list_users","person_id","integer"
-"list_website_agreements","id","integer"
-"list_website_agreements","title","character varying"
-"list_website_agreements","description","character varying"
-"list_websites","id","integer"
-"list_websites","title","character varying"
-"list_websites","website_id","integer"
-"list_websites_website_agreements","id","integer"
-"list_websites_website_agreements","website","character varying"
-"list_websites_website_agreements","agreement","character varying"
+table_name,column_name,data_type,,
+detail_languages,id,integer,,
+detail_languages,language,character varying,,
+detail_languages,iso,character,,
+detail_languages,created_by_id,integer,,
+detail_languages,created_by,character varying,,
+detail_languages,updated_by_id,integer,,
+detail_languages,updated_by,character varying,,
+detail_languages,website_id,integer,,
+detail_locations,id,integer,,
+detail_locations,name,character varying,,
+detail_locations,code,character varying,,
+detail_locations,comment,text,,
+detail_locations,parent_id,integer,,
+detail_locations,parent,character varying,,
+detail_locations,centroid_sref,character varying,,
+detail_locations,location_type_id,integer,,
+detail_locations,centroid_sref_system,character varying,,
+detail_locations,centroid_geom,text,,
+detail_locations,boundary_geom,text,,
+detail_locations,geom,USER-DEFINED,,
+detail_locations,created_by_id,integer,,
+detail_locations,created_by,character varying,,
+detail_locations,updated_by_id,integer,,
+detail_locations,updated_by,character varying,,
+detail_locations,website_id,integer,,
+detail_locations,public,boolean,,
+detail_occurrence_comments,id,integer,,
+detail_occurrence_comments,comment,text,,
+detail_occurrence_comments,occurrence_id,integer,,
+detail_occurrence_comments,email_address,character varying,,
+detail_occurrence_comments,updated_on,timestamp without time zone,,
+detail_occurrence_comments,person_name,character varying,,
+detail_occurrence_comments,username,character varying,,
+detail_occurrence_comments,website_id,integer,,
+detail_occurrence_comments,created_on,timestamp without time zone,,
+detail_occurrence_comments,created_by_id,integer,,
+detail_occurrence_comments,created_by,character varying,,
+detail_occurrence_comments,updated_by_id,integer,,
+detail_occurrence_comments,updated_by,character varying,,
+detail_occurrences,id,integer,,
+detail_occurrences,confidential,boolean,,
+detail_occurrences,comment,text,,
+detail_occurrences,taxa_taxon_list_id,integer,,
+detail_occurrences,taxon_meaning_id,integer,,
+detail_occurrences,record_status,character,,
+detail_occurrences,determiner_id,integer,,
+detail_occurrences,taxon,character varying,,
+detail_occurrences,entered_sref,character varying,,
+detail_occurrences,entered_sref_system,character varying,,
+detail_occurrences,geom,USER-DEFINED,,
+detail_occurrences,wkt,text,,
+detail_occurrences,location_name,character varying,,
+detail_occurrences,survey_id,integer,,
+detail_occurrences,date_start,date,,
+detail_occurrences,date_end,date,,
+detail_occurrences,date_type,character varying,,
+detail_occurrences,location_id,integer,,
+detail_occurrences,location,character varying,,
+detail_occurrences,location_code,character varying,,
+detail_occurrences,recorder_names,character varying,,
+detail_occurrences,determiner,text,,
+detail_occurrences,website_id,integer,,
+detail_occurrences,external_key,character varying,,
+detail_occurrences,created_by_id,integer,,
+detail_occurrences,created_by,character varying,,
+detail_occurrences,created_on,timestamp without time zone,,
+detail_occurrences,updated_by_id,integer,,
+detail_occurrences,updated_by,character varying,,
+detail_occurrences,updated_on,timestamp without time zone,,
+detail_occurrences,downloaded_flag,character,,
+detail_occurrences,sample_id,integer,,
+detail_occurrences,deleted,boolean,,
+detail_occurrences,zero_abundance,boolean,,
+detail_occurrences,taxon_external_key,character varying,,
+detail_occurrences,taxon_list_id,integer,,
+detail_occurrences,sensitivity_precision,integer,,
+detail_people,id,integer,,
+detail_people,first_name,character varying,,
+detail_people,surname,character varying,,
+detail_people,initials,character varying,,
+detail_people,email_address,character varying,,
+detail_people,website_url,character varying,,
+detail_people,external_key,character varying,,
+detail_people,created_by_id,integer,,
+detail_people,created_by,character varying,,
+detail_people,updated_by_id,integer,,
+detail_people,updated_by,character varying,,
+detail_people,website_id,integer,,
+detail_people,created_on,timestamp without time zone,,
+detail_people,updated_on,timestamp without time zone,,
+detail_sample_comments,id,integer,,
+detail_sample_comments,comment,text,,
+detail_sample_comments,sample_id,integer,,
+detail_sample_comments,email_address,character varying,,
+detail_sample_comments,updated_on,timestamp without time zone,,
+detail_sample_comments,person_name,character varying,,
+detail_sample_comments,username,character varying,,
+detail_sample_comments,created_on,timestamp without time zone,,
+detail_sample_comments,created_by_id,integer,,
+detail_sample_comments,created_by,character varying,,
+detail_sample_comments,updated_by_id,integer,,
+detail_sample_comments,updated_by,character varying,,
+detail_sample_comments,website_id,integer,,
+detail_samples,id,integer,,
+detail_samples,entered_sref,character varying,,
+detail_samples,entered_sref_system,character varying,,
+detail_samples,geom,USER-DEFINED,,
+detail_samples,wkt,text,,
+detail_samples,location_name,character varying,,
+detail_samples,date_start,date,,
+detail_samples,date_end,date,,
+detail_samples,date_type,character varying,,
+detail_samples,location_id,integer,,
+detail_samples,location,character varying,,
+detail_samples,location_code,character varying,,
+detail_samples,created_by_id,integer,,
+detail_samples,created_by,character varying,,
+detail_samples,created_on,timestamp without time zone,,
+detail_samples,updated_by_id,integer,,
+detail_samples,updated_by,character varying,,
+detail_samples,updated_on,timestamp without time zone,,
+detail_samples,website_id,integer,,
+detail_samples,parent_id,integer,,
+detail_samples,comment,text,,
+detail_samples,recorder_names,character varying,,
+detail_samples,survey_id,integer,,
+detail_samples,survey_title,character varying,,
+detail_samples,sample_method_id,integer,,
+detail_samples,external_key,character varying,,
+detail_surveys,id,integer,,
+detail_surveys,title,character varying,,
+detail_surveys,owner_id,integer,,
+detail_surveys,owner,character varying,,
+detail_surveys,description,text,,
+detail_surveys,website_id,integer,,
+detail_surveys,website,character varying,,
+detail_surveys,created_by_id,integer,,
+detail_surveys,created_by,character varying,,
+detail_surveys,updated_by_id,integer,,
+detail_surveys,updated_by,character varying,,
+detail_taxa_taxon_designations,id,integer,,
+detail_taxa_taxon_designations,title,character varying,,
+detail_taxa_taxon_designations,code,character varying,,
+detail_taxa_taxon_designations,abbreviation,character varying,,
+detail_taxa_taxon_designations,taxon,character varying,,
+detail_taxa_taxon_designations,common,character varying,,
+detail_taxa_taxon_designations,preferred_name,character varying,,
+detail_taxa_taxon_designations,language,character,,
+detail_taxa_taxon_designations,taxon_group,character varying,,
+detail_taxa_taxon_designations,category,character varying,,
+detail_taxa_taxon_designations,created_by_id,integer,,
+detail_taxa_taxon_designations,created_by,character varying,,
+detail_taxa_taxon_designations,updated_by_id,integer,,
+detail_taxa_taxon_designations,updated_by,character varying,,
+detail_taxa_taxon_designations,created_on,timestamp without time zone,,
+detail_taxa_taxon_designations,updated_on,timestamp without time zone,,
+detail_taxa_taxon_lists,id,integer,,
+detail_taxa_taxon_lists,taxon_id,integer,,
+detail_taxa_taxon_lists,taxon,character varying,,
+detail_taxa_taxon_lists,authority,character varying,,
+detail_taxa_taxon_lists,language_iso,character,,
+detail_taxa_taxon_lists,common,character varying,,
+detail_taxa_taxon_lists,taxon_list_id,integer,,
+detail_taxa_taxon_lists,taxon_list,character varying,,
+detail_taxa_taxon_lists,taxon_meaning_id,integer,,
+detail_taxa_taxon_lists,preferred,boolean,,
+detail_taxa_taxon_lists,taxonomic_sort_order,bigint,,
+detail_taxa_taxon_lists,description_in_list,character varying,,
+detail_taxa_taxon_lists,general_description,character varying,,
+detail_taxa_taxon_lists,parent_id,integer,,
+detail_taxa_taxon_lists,parent,character varying,,
+detail_taxa_taxon_lists,image_path,character varying,,
+detail_taxa_taxon_lists,image_caption,character varying,,
+detail_taxa_taxon_lists,created_by_id,integer,,
+detail_taxa_taxon_lists,created_by,character varying,,
+detail_taxa_taxon_lists,updated_by_id,integer,,
+detail_taxa_taxon_lists,updated_by,character varying,,
+detail_taxa_taxon_lists,external_key,character varying,,
+detail_taxa_taxon_lists,allow_data_entry,boolean,,
+detail_taxon_codes,id,integer,,
+detail_taxon_codes,taxon_meaning_id,integer,,
+detail_taxon_codes,code,character varying,,
+detail_taxon_codes,term,character varying,,
+detail_taxon_codes,created_by_id,integer,,
+detail_taxon_codes,created_by,character varying,,
+detail_taxon_codes,created_on,timestamp without time zone,,
+detail_taxon_codes,updated_by_id,integer,,
+detail_taxon_codes,updated_by,character varying,,
+detail_taxon_codes,updated_on,timestamp without time zone,,
+detail_taxon_designations,id,integer,,
+detail_taxon_designations,title,character varying,,
+detail_taxon_designations,code,character varying,,
+detail_taxon_designations,abbreviation,character varying,,
+detail_taxon_designations,description,character varying,,
+detail_taxon_designations,category,character varying,,
+detail_taxon_designations,created_by_id,integer,,
+detail_taxon_designations,created_by,character varying,,
+detail_taxon_designations,updated_by_id,integer,,
+detail_taxon_designations,updated_by,character varying,,
+detail_taxon_designations,created_on,timestamp without time zone,,
+detail_taxon_designations,updated_on,timestamp without time zone,,
+detail_taxon_groups,id,integer,,
+detail_taxon_groups,title,character varying,,
+detail_taxon_groups,created_by_id,integer,,
+detail_taxon_groups,created_by,character varying,,
+detail_taxon_groups,updated_by_id,integer,,
+detail_taxon_groups,updated_by,character varying,,
+detail_taxon_groups,website_id,integer,,
+detail_taxon_images,id,integer,,
+detail_taxon_images,path,character varying,,
+detail_taxon_images,caption,character varying,,
+detail_taxon_images,deleted,boolean,,
+detail_taxon_images,taxon_meaning_id,integer,,
+detail_taxon_images,created_by_id,integer,,
+detail_taxon_images,created_by,character varying,,
+detail_taxon_images,updated_by_id,integer,,
+detail_taxon_images,updated_by,character varying,,
+detail_taxon_lists,id,integer,,
+detail_taxon_lists,title,character varying,,
+detail_taxon_lists,description,text,,
+detail_taxon_lists,website_id,integer,,
+detail_taxon_lists,website,character varying,,
+detail_taxon_lists,parent_id,integer,,
+detail_taxon_lists,parent,character varying,,
+detail_taxon_lists,created_by_id,integer,,
+detail_taxon_lists,created_by,character varying,,
+detail_taxon_lists,updated_by_id,integer,,
+detail_taxon_lists,updated_by,character varying,,
+detail_taxon_relation_types,id,integer,,
+detail_taxon_relation_types,caption,character varying,,
+detail_taxon_relation_types,forward_term,character varying,,
+detail_taxon_relation_types,reverse_term,character varying,,
+detail_taxon_relation_types,relation_code,integer,,
+detail_taxon_relation_types,special,character,,
+detail_taxon_relation_types,created_by_id,integer,,
+detail_taxon_relation_types,created_by,character varying,,
+detail_taxon_relation_types,updated_by_id,integer,,
+detail_taxon_relation_types,updated_by,character varying,,
+detail_termlists,id,integer,,
+detail_termlists,title,character varying,,
+detail_termlists,description,text,,
+detail_termlists,website_id,integer,,
+detail_termlists,website,character varying,,
+detail_termlists,parent_id,integer,,
+detail_termlists,parent,character varying,,
+detail_termlists,created_by_id,integer,,
+detail_termlists,created_by,character varying,,
+detail_termlists,updated_by_id,integer,,
+detail_termlists,updated_by,character varying,,
+detail_termlists,external_key,character varying,,
+detail_termlists_terms,id,integer,,
+detail_termlists_terms,term_id,integer,,
+detail_termlists_terms,term,character varying,,
+detail_termlists_terms,termlist_id,integer,,
+detail_termlists_terms,termlist,character varying,,
+detail_termlists_terms,meaning_id,integer,,
+detail_termlists_terms,preferred,boolean,,
+detail_termlists_terms,parent_id,integer,,
+detail_termlists_terms,parent,character varying,,
+detail_termlists_terms,sort_order,integer,,
+detail_termlists_terms,website_id,integer,,
+detail_termlists_terms,created_by_id,integer,,
+detail_termlists_terms,created_by,character varying,,
+detail_termlists_terms,updated_by_id,integer,,
+detail_termlists_terms,updated_by,character varying,,
+detail_termlists_terms,iso,character,,
+detail_termlists_terms,termlist_external_key,character varying,,
+detail_terms,id,integer,,
+detail_terms,term,character varying,,
+detail_terms,language_id,integer,,
+detail_terms,language,character varying,,
+detail_terms,iso,character,,
+detail_terms,created_by_id,integer,,
+detail_terms,created_by,character varying,,
+detail_terms,updated_by_id,integer,,
+detail_terms,updated_by,character varying,,
+detail_terms,website_id,integer,,
+detail_titles,id,integer,,
+detail_titles,title,character varying,,
+detail_titles,created_by_id,integer,,
+detail_titles,created_by,character varying,,
+detail_titles,updated_by_id,integer,,
+detail_titles,updated_by,character varying,,
+detail_users,id,integer,,
+detail_users,username,character varying,,
+detail_users,website_id,integer,,
+detail_users,person_id,integer,,
+detail_users,created_by_id,integer,,
+detail_users,created_by,character varying,,
+detail_users,updated_by_id,integer,,
+detail_users,created_on,timestamp without time zone,,
+detail_users,updated_on,timestamp without time zone,,
+detail_users,updated_by,character varying,,
+detail_website_agreements,id,integer,,
+detail_website_agreements,title,character varying,,
+detail_website_agreements,description,character varying,,
+detail_website_agreements,public,boolean,,
+detail_website_agreements,provide_for_reporting,character,,
+detail_website_agreements,receive_for_reporting,character,,
+detail_website_agreements,provide_for_peer_review,character,,
+detail_website_agreements,receive_for_peer_review,character,,
+detail_website_agreements,provide_for_verification,character,,
+detail_website_agreements,receive_for_verification,character,,
+detail_website_agreements,provide_for_data_flow,character,,
+detail_website_agreements,receive_for_data_flow,character,,
+detail_website_agreements,provide_for_moderation,character,,
+detail_website_agreements,receive_for_moderation,character,,
+detail_website_agreements,created_by_id,integer,,
+detail_website_agreements,created_by,character varying,,
+detail_website_agreements,updated_by_id,integer,,
+detail_website_agreements,updated_by,character varying,,
+detail_websites,id,integer,,
+detail_websites,title,character varying,,
+detail_websites,url,character varying,,
+detail_websites,description,text,,
+detail_websites,created_by_id,integer,,
+detail_websites,created_by,character varying,,
+detail_websites,updated_by_id,integer,,
+detail_websites,updated_by,character varying,,
+detail_websites,website_id,integer,,
+detail_websites_website_agreements,id,integer,,
+detail_websites_website_agreements,website,character varying,,
+detail_websites_website_agreements,agreement,character varying,,
+detail_websites_website_agreements,created_by_id,integer,,
+detail_websites_website_agreements,created_by,character varying,,
+detail_websites_website_agreements,updated_by_id,integer,,
+detail_websites_website_agreements,updated_by,character varying,,
+gv_languages,id,integer,,
+gv_languages,language,character varying,,
+gv_languages,iso,character,,
+gv_languages,website_id,integer,,
+gv_location_attributes,id,integer,,
+gv_location_attributes,website_id,integer,,
+gv_location_attributes,survey_id,integer,,
+gv_location_attributes,website,character varying,,
+gv_location_attributes,survey,character varying,,
+gv_location_attributes,caption,character varying,,
+gv_location_attributes,data_type,character,,
+gv_location_attributes,public,boolean,,
+gv_location_attributes,created_by_id,integer,,
+gv_location_attributes,deleted,boolean,,
+gv_location_images,id,integer,,
+gv_location_images,path,character varying,,
+gv_location_images,caption,character varying,,
+gv_location_images,deleted,boolean,,
+gv_location_images,location_id,integer,,
+gv_locations,id,integer,,
+gv_locations,name,character varying,,
+gv_locations,code,character varying,,
+gv_locations,centroid_sref,character varying,,
+gv_locations,website_id,integer,,
+gv_locations,type,character varying,,
+gv_locations,website,character varying,,
+gv_occurrence_attributes,id,integer,,
+gv_occurrence_attributes,website_id,integer,,
+gv_occurrence_attributes,survey_id,integer,,
+gv_occurrence_attributes,website,character varying,,
+gv_occurrence_attributes,survey,character varying,,
+gv_occurrence_attributes,caption,character varying,,
+gv_occurrence_attributes,data_type,character,,
+gv_occurrence_attributes,public,boolean,,
+gv_occurrence_attributes,created_by_id,integer,,
+gv_occurrence_attributes,deleted,boolean,,
+gv_occurrence_comments,id,integer,,
+gv_occurrence_comments,comment,text,,
+gv_occurrence_comments,occurrence_id,integer,,
+gv_occurrence_comments,email_address,character varying,,
+gv_occurrence_comments,updated_on,timestamp without time zone,,
+gv_occurrence_comments,person_name,character varying,,
+gv_occurrence_comments,username,character varying,,
+gv_occurrence_comments,website_id,integer,,
+gv_occurrence_images,id,integer,,
+gv_occurrence_images,path,character varying,,
+gv_occurrence_images,caption,character varying,,
+gv_occurrence_images,deleted,boolean,,
+gv_occurrence_images,occurrence_id,integer,,
+gv_occurrences,id,integer,,
+gv_occurrences,website,character varying,,
+gv_occurrences,survey,character varying,,
+gv_occurrences,sample_id,integer,,
+gv_occurrences,taxon,character varying,,
+gv_occurrences,date_start,date,,
+gv_occurrences,date_end,date,,
+gv_occurrences,date_type,character varying,,
+gv_occurrences,entered_sref,character varying,,
+gv_occurrences,entered_sref_system,character varying,,
+gv_occurrences,location_name,character varying,,
+gv_occurrences,name,character varying,,
+gv_occurrences,deleted,boolean,,
+gv_occurrences,website_id,integer,,
+gv_people,id,integer,,
+gv_people,first_name,character varying,,
+gv_people,surname,character varying,,
+gv_people,initials,character varying,,
+gv_people,caption,text,,
+gv_people,email_address,character varying,,
+gv_people,website_id,integer,,
+gv_person_attributes,id,integer,,
+gv_person_attributes,website_id,integer,,
+gv_person_attributes,website,character varying,,
+gv_person_attributes,caption,character varying,,
+gv_person_attributes,data_type,character,,
+gv_person_attributes,public,boolean,,
+gv_person_attributes,created_by_id,integer,,
+gv_person_attributes,deleted,boolean,,
+gv_sample_attribute_by_surveys,weight1,integer,,
+gv_sample_attribute_by_surveys,weight2,integer,,
+gv_sample_attribute_by_surveys,weight3,integer,,
+gv_sample_attribute_by_surveys,id,integer,,
+gv_sample_attribute_by_surveys,outer_structure_block,character varying,,
+gv_sample_attribute_by_surveys,inner_structure_block,character varying,,
+gv_sample_attribute_by_surveys,website_id,integer,,
+gv_sample_attribute_by_surveys,survey_id,integer,,
+gv_sample_attribute_by_surveys,website,character varying,,
+gv_sample_attribute_by_surveys,survey,character varying,,
+gv_sample_attribute_by_surveys,caption,character varying,,
+gv_sample_attribute_by_surveys,data_type,character,,
+gv_sample_attribute_by_surveys,control,character varying,,
+gv_sample_attribute_by_surveys,public,boolean,,
+gv_sample_attribute_by_surveys,created_by_id,integer,,
+gv_sample_attribute_by_surveys,deleted,boolean,,
+gv_sample_attributes,id,integer,,
+gv_sample_attributes,website_id,integer,,
+gv_sample_attributes,survey_id,integer,,
+gv_sample_attributes,website,character varying,,
+gv_sample_attributes,survey,character varying,,
+gv_sample_attributes,caption,character varying,,
+gv_sample_attributes,data_type,character,,
+gv_sample_attributes,public,boolean,,
+gv_sample_attributes,created_by_id,integer,,
+gv_sample_attributes,deleted,boolean,,
+gv_sample_images,id,integer,,
+gv_sample_images,path,character varying,,
+gv_sample_images,caption,character varying,,
+gv_sample_images,deleted,boolean,,
+gv_sample_images,sample_id,integer,,
+gv_samples,id,integer,,
+gv_samples,date_start,date,,
+gv_samples,date_end,date,,
+gv_samples,date_type,character varying,,
+gv_samples,entered_sref,character varying,,
+gv_samples,entered_sref_system,character varying,,
+gv_samples,location_name,character varying,,
+gv_samples,deleted,boolean,,
+gv_samples,survey,character varying,,
+gv_samples,website,character varying,,
+gv_samples,location,character varying,,
+gv_samples,website_id,integer,,
+gv_surveys,id,integer,,
+gv_surveys,title,character varying,,
+gv_surveys,description,text,,
+gv_surveys,website,character varying,,
+gv_surveys,deleted,boolean,,
+gv_surveys,website_id,integer,,
+gv_taxa_taxon_designations,id,integer,,
+gv_taxa_taxon_designations,taxon_designation_id,integer,,
+gv_taxa_taxon_designations,taxa_taxon_list_id,integer,,
+gv_taxa_taxon_designations,taxon_id,integer,,
+gv_taxa_taxon_designations,taxon,character varying,,
+gv_taxa_taxon_designations,title,character varying,,
+gv_taxa_taxon_designations,category,character varying,,
+gv_taxa_taxon_designations,deleted,boolean,,
+gv_taxa_taxon_list_attributes,id,integer,,
+gv_taxa_taxon_list_attributes,taxon_list_id,integer,,
+gv_taxa_taxon_list_attributes,taxon_list,character varying,,
+gv_taxa_taxon_list_attributes,caption,character varying,,
+gv_taxa_taxon_list_attributes,data_type,character,,
+gv_taxa_taxon_list_attributes,public,boolean,,
+gv_taxa_taxon_list_attributes,created_by_id,integer,,
+gv_taxa_taxon_list_attributes,deleted,boolean,,
+gv_taxa_taxon_list_attributes,website_id,integer,,
+gv_taxa_taxon_lists,id,integer,,
+gv_taxa_taxon_lists,taxon_list_id,integer,,
+gv_taxa_taxon_lists,taxon_id,integer,,
+gv_taxa_taxon_lists,created_on,timestamp without time zone,,
+gv_taxa_taxon_lists,created_by_id,integer,,
+gv_taxa_taxon_lists,parent_id,integer,,
+gv_taxa_taxon_lists,taxon_meaning_id,integer,,
+gv_taxa_taxon_lists,taxonomic_sort_order,bigint,,
+gv_taxa_taxon_lists,preferred,boolean,,
+gv_taxa_taxon_lists,deleted,boolean,,
+gv_taxa_taxon_lists,taxon,character varying,,
+gv_taxa_taxon_lists,taxon_group_id,integer,,
+gv_taxa_taxon_lists,language_id,integer,,
+gv_taxa_taxon_lists,authority,character varying,,
+gv_taxa_taxon_lists,search_code,character varying,,
+gv_taxa_taxon_lists,scientific,boolean,,
+gv_taxa_taxon_lists,language,character varying,,
+gv_taxa_taxon_lists,taxon_group,character varying,,
+gv_taxon_codes,id,integer,,
+gv_taxon_codes,taxon_meaning_id,integer,,
+gv_taxon_codes,code,character varying,,
+gv_taxon_codes,term,character varying,,
+gv_taxon_designations,id,integer,,
+gv_taxon_designations,title,character varying,,
+gv_taxon_designations,category,character varying,,
+gv_taxon_designations,deleted,boolean,,
+gv_taxon_groups,id,integer,,
+gv_taxon_groups,title,character varying,,
+gv_taxon_groups,website_id,integer,,
+gv_taxon_images,id,integer,,
+gv_taxon_images,path,character varying,,
+gv_taxon_images,caption,character varying,,
+gv_taxon_images,deleted,boolean,,
+gv_taxon_images,taxon_meaning_id,integer,,
+gv_taxon_lists,id,integer,,
+gv_taxon_lists,title,character varying,,
+gv_taxon_lists,website_id,integer,,
+gv_taxon_lists,parent_id,integer,,
+gv_taxon_lists,description,text,,
+gv_taxon_ranks,id,integer,,
+gv_taxon_ranks,rank,character varying,,
+gv_taxon_ranks,sort_order,integer,,
+gv_taxon_relation_types,id,integer,,
+gv_taxon_relation_types,caption,character varying,,
+gv_taxon_relation_types,forward_term,character varying,,
+gv_taxon_relation_types,reverse_term,character varying,,
+gv_taxon_relation_types,relation_code,integer,,
+gv_taxon_relations,id,integer,,
+gv_taxon_relations,my_taxon_meaning_id,integer,,
+gv_taxon_relations,my_taxon,character varying,,
+gv_taxon_relations,other_taxon_meaning_id,integer,,
+gv_taxon_relations,other_taxon,character varying,,
+gv_taxon_relations,taxon_relation_type_id,integer,,
+gv_taxon_relations,term,character varying,,
+gv_taxon_relations,deleted,boolean,,
+gv_term_termlists,id,integer,,
+gv_term_termlists,termlist_id,integer,,
+gv_term_termlists,term_id,integer,,
+gv_term_termlists,created_on,timestamp without time zone,,
+gv_term_termlists,created_by_id,integer,,
+gv_term_termlists,updated_on,timestamp without time zone,,
+gv_term_termlists,updated_by_id,integer,,
+gv_term_termlists,parent_id,integer,,
+gv_term_termlists,meaning_id,integer,,
+gv_term_termlists,preferred,boolean,,
+gv_term_termlists,sort_order,integer,,
+gv_term_termlists,title,character varying,,
+gv_term_termlists,description,text,,
+gv_termlists,id,integer,,
+gv_termlists,title,character varying,,
+gv_termlists,description,text,,
+gv_termlists,website_id,integer,,
+gv_termlists,parent_id,integer,,
+gv_termlists,deleted,boolean,,
+gv_termlists,created_on,timestamp without time zone,,
+gv_termlists,created_by_id,integer,,
+gv_termlists,updated_on,timestamp without time zone,,
+gv_termlists,updated_by_id,integer,,
+gv_termlists,website,character varying,,
+gv_termlists,creator,character varying,,
+gv_termlists_terms,id,integer,,
+gv_termlists_terms,termlist_id,integer,,
+gv_termlists_terms,term_id,integer,,
+gv_termlists_terms,created_on,timestamp without time zone,,
+gv_termlists_terms,created_by_id,integer,,
+gv_termlists_terms,updated_on,timestamp without time zone,,
+gv_termlists_terms,updated_by_id,integer,,
+gv_termlists_terms,parent_id,integer,,
+gv_termlists_terms,meaning_id,integer,,
+gv_termlists_terms,preferred,boolean,,
+gv_termlists_terms,sort_order,integer,,
+gv_termlists_terms,deleted,boolean,,
+gv_termlists_terms,term,character varying,,
+gv_termlists_terms,language,character varying,,
+gv_titles,id,integer,,
+gv_titles,title,character varying,,
+gv_triggers,id,integer,,
+gv_triggers,name,character varying,,
+gv_triggers,description,text,,
+gv_triggers,public,boolean,,
+gv_triggers,created_by_name,text,,
+gv_triggers,private_for_user_id,integer,,
+gv_triggers,deleted,boolean,,
+gv_triggers,user_id,integer,,
+gv_triggers,edit_trigger,boolean,,
+gv_triggers,subscribe,boolean,,
+gv_triggers,edit_subscription,boolean,,
+gv_user_identifiers,id,integer,,
+gv_user_identifiers,identifier,character varying,,
+gv_user_identifiers,user_id,integer,,
+gv_user_identifiers,person_id,integer,,
+gv_user_identifiers,type,character varying,,
+gv_users,person_id,integer,,
+gv_users,name,text,,
+gv_users,id,integer,,
+gv_users,username,character varying,,
+gv_users,core_role,character varying,,
+gv_users,deleted,boolean,,
+gv_verification_rules,id,integer,,
+gv_verification_rules,title,character varying,,
+gv_verification_rules,description,character varying,,
+gv_verification_rules,test_type,character varying,,
+gv_website_agreements,id,integer,,
+gv_website_agreements,title,character varying,,
+gv_website_agreements,description,character varying,,
+gv_websites,id,integer,,
+gv_websites,title,character varying,,
+gv_websites,description,text,,
+gv_websites,url,character varying,,
+gv_websites,website_id,integer,,
+gv_websites_website_agreements,id,integer,,
+gv_websites_website_agreements,website_id,integer,,
+gv_websites_website_agreements,website,character varying,,
+gv_websites_website_agreements,agreement,character varying,,
+list_determinations,id,integer,,
+list_determinations,taxa_taxon_list_id,integer,,
+list_determinations,taxon,character varying,,
+list_determinations,comment,text,,
+list_determinations,taxon_extra_info,text,,
+list_determinations,occurrence_id,integer,,
+list_determinations,taxon_details,text,,
+list_determinations,taxa_taxon_list_id_list,ARRAY,,
+list_determinations,email_address,character varying,,
+list_determinations,person_name,character varying,,
+list_determinations,cms_ref,integer,,
+list_determinations,deleted,boolean,,
+list_determinations,updated_on,timestamp without time zone,,
+list_determinations,determination_type,character,,
+list_determinations,website_id,integer,,
+list_filters,id,integer,,
+list_filters,title,character varying,,
+list_filters,description,character varying,,
+list_filters,definition,character varying,,
+list_filters,sharing,character,,
+list_filters,public,boolean,,
+list_filters,created_by_id,integer,,
+list_languages,id,integer,,
+list_languages,language,character varying,,
+list_languages,iso,character,,
+list_languages,website_id,integer,,
+list_location_attribute_values,id,integer,,
+list_location_attribute_values,location_id,integer,,
+list_location_attribute_values,location_attribute_id,integer,,
+list_location_attribute_values,data_type,character,,
+list_location_attribute_values,caption,character varying,,
+list_location_attribute_values,value,text,,
+list_location_attribute_values,raw_value,text,,
+list_location_attribute_values,termlist_id,integer,,
+list_location_attribute_values,iso,character,,
+list_location_attribute_values,website_id,integer,,
+list_location_attribute_values,location_type_id,integer,,
+list_location_attributes,id,integer,,
+list_location_attributes,caption,character varying,,
+list_location_attributes,outer_structure_block,character varying,,
+list_location_attributes,inner_structure_block,character varying,,
+list_location_attributes,data_type,character,,
+list_location_attributes,control_type,character varying,,
+list_location_attributes,termlist_id,integer,,
+list_location_attributes,multi_value,boolean,,
+list_location_attributes,website_id,integer,,
+list_location_attributes,restrict_to_survey_id,integer,,
+list_location_attributes,signature,text,,
+list_location_attributes,default_text_value,text,,
+list_location_attributes,default_int_value,integer,,
+list_location_attributes,default_float_value,double precision,,
+list_location_attributes,default_date_start_value,date,,
+list_location_attributes,default_date_end_value,date,,
+list_location_attributes,default_date_type_value,character varying,,
+list_location_attributes,validation_rules,text,,
+list_location_attributes,deleted,boolean,,
+list_location_attributes,website_deleted,boolean,,
+list_location_attributes,restrict_to_location_type_id,integer,,
+list_location_images,id,integer,,
+list_location_images,location_id,integer,,
+list_location_images,path,character varying,,
+list_location_images,caption,character varying,,
+list_location_images,created_on,timestamp without time zone,,
+list_location_images,created_by_id,integer,,
+list_location_images,updated_on,timestamp without time zone,,
+list_location_images,updated_by_id,integer,,
+list_location_images,deleted,boolean,,
+list_location_images,website_id,integer,,
+list_locations,id,integer,,
+list_locations,name,character varying,,
+list_locations,code,character varying,,
+list_locations,centroid_sref,character varying,,
+list_locations,website_id,integer,,
+list_locations,location_type_id,integer,,
+list_notifications,id,integer,,
+list_notifications,source,character varying,,
+list_notifications,source_type,character,,
+list_notifications,data,character varying,,
+list_notifications,acknowledged,boolean,,
+list_notifications,user_id,integer,,
+list_notifications,triggered_on,timestamp with time zone,,
+list_notifications,digest_mode,character,,
+list_notifications,cc,character varying,,
+list_occurrence_attribute_values,id,integer,,
+list_occurrence_attribute_values,occurrence_id,integer,,
+list_occurrence_attribute_values,occurrence_attribute_id,integer,,
+list_occurrence_attribute_values,data_type,character,,
+list_occurrence_attribute_values,caption,character varying,,
+list_occurrence_attribute_values,value,text,,
+list_occurrence_attribute_values,raw_value,text,,
+list_occurrence_attribute_values,termlist_id,integer,,
+list_occurrence_attribute_values,iso,character,,
+list_occurrence_attribute_values,website_id,integer,,
+list_occurrence_attributes,id,integer,,
+list_occurrence_attributes,caption,character varying,,
+list_occurrence_attributes,outer_structure_block,character varying,,
+list_occurrence_attributes,inner_structure_block,character varying,,
+list_occurrence_attributes,data_type,character,,
+list_occurrence_attributes,control_type,character varying,,
+list_occurrence_attributes,termlist_id,integer,,
+list_occurrence_attributes,multi_value,boolean,,
+list_occurrence_attributes,website_id,integer,,
+list_occurrence_attributes,restrict_to_survey_id,integer,,
+list_occurrence_attributes,signature,text,,
+list_occurrence_attributes,default_text_value,text,,
+list_occurrence_attributes,default_int_value,integer,,
+list_occurrence_attributes,default_float_value,double precision,,
+list_occurrence_attributes,default_date_start_value,date,,
+list_occurrence_attributes,default_date_end_value,date,,
+list_occurrence_attributes,default_date_type_value,character varying,,
+list_occurrence_attributes,validation_rules,text,,
+list_occurrence_attributes,deleted,boolean,,
+list_occurrence_attributes,website_deleted,boolean,,
+list_occurrence_comments,id,integer,,
+list_occurrence_comments,comment,text,,
+list_occurrence_comments,occurrence_id,integer,,
+list_occurrence_comments,email_address,character varying,,
+list_occurrence_comments,updated_on,timestamp without time zone,,
+list_occurrence_comments,person_name,character varying,,
+list_occurrence_comments,username,character varying,,
+list_occurrence_comments,website_id,integer,,
+list_occurrence_images,id,integer,,
+list_occurrence_images,occurrence_id,integer,,
+list_occurrence_images,path,character varying,,
+list_occurrence_images,caption,character varying,,
+list_occurrence_images,created_on,timestamp without time zone,,
+list_occurrence_images,created_by_id,integer,,
+list_occurrence_images,updated_on,timestamp without time zone,,
+list_occurrence_images,updated_by_id,integer,,
+list_occurrence_images,deleted,boolean,,
+list_occurrence_images,external_details,character varying,,
+list_occurrence_images,website_id,integer,,
+list_occurrences,survey,character varying,,
+list_occurrences,location,character varying,,
+list_occurrences,date_start,date,,
+list_occurrences,date_end,date,,
+list_occurrences,date_type,character varying,,
+list_occurrences,entered_sref,character varying,,
+list_occurrences,entered_sref_system,character varying,,
+list_occurrences,taxon,character varying,,
+list_occurrences,website_id,integer,,
+list_occurrences,id,integer,,
+list_occurrences,recorder_names,character varying,,
+list_occurrences,zero_abundance,boolean,,
+list_occurrences,taxon_list_id,integer,,
+list_people,id,integer,,
+list_people,first_name,character varying,,
+list_people,surname,character varying,,
+list_people,initials,character varying,,
+list_people,caption,text,,
+list_people,website_id,integer,,
+list_person_attribute_values,id,integer,,
+list_person_attribute_values,person_id,integer,,
+list_person_attribute_values,person_attribute_id,integer,,
+list_person_attribute_values,data_type,character,,
+list_person_attribute_values,caption,character varying,,
+list_person_attribute_values,value,text,,
+list_person_attribute_values,raw_value,text,,
+list_person_attribute_values,termlist_id,integer,,
+list_person_attribute_values,iso,character,,
+list_person_attribute_values,website_id,integer,,
+list_person_attributes,id,integer,,
+list_person_attributes,caption,character varying,,
+list_person_attributes,outer_structure_block,character varying,,
+list_person_attributes,inner_structure_block,character varying,,
+list_person_attributes,data_type,character,,
+list_person_attributes,control_type,character varying,,
+list_person_attributes,termlist_id,integer,,
+list_person_attributes,multi_value,boolean,,
+list_person_attributes,website_id,integer,,
+list_person_attributes,signature,text,,
+list_person_attributes,default_text_value,text,,
+list_person_attributes,default_int_value,integer,,
+list_person_attributes,default_float_value,double precision,,
+list_person_attributes,default_date_start_value,date,,
+list_person_attributes,default_date_end_value,date,,
+list_person_attributes,default_date_type_value,character varying,,
+list_person_attributes,validation_rules,text,,
+list_person_attributes,deleted,boolean,,
+list_person_attributes,website_deleted,boolean,,
+list_person_attributes,public,boolean,,
+list_sample_attribute_values,id,integer,,
+list_sample_attribute_values,sample_id,integer,,
+list_sample_attribute_values,sample_attribute_id,integer,,
+list_sample_attribute_values,data_type,character,,
+list_sample_attribute_values,caption,character varying,,
+list_sample_attribute_values,value,text,,
+list_sample_attribute_values,raw_value,text,,
+list_sample_attribute_values,termlist_id,integer,,
+list_sample_attribute_values,iso,character,,
+list_sample_attribute_values,website_id,integer,,
+list_sample_attributes,id,integer,,
+list_sample_attributes,caption,character varying,,
+list_sample_attributes,outer_structure_block,character varying,,
+list_sample_attributes,inner_structure_block,character varying,,
+list_sample_attributes,data_type,character,,
+list_sample_attributes,control_type,character varying,,
+list_sample_attributes,termlist_id,integer,,
+list_sample_attributes,multi_value,boolean,,
+list_sample_attributes,website_id,integer,,
+list_sample_attributes,restrict_to_survey_id,integer,,
+list_sample_attributes,signature,text,,
+list_sample_attributes,default_text_value,text,,
+list_sample_attributes,default_int_value,integer,,
+list_sample_attributes,default_float_value,double precision,,
+list_sample_attributes,default_date_start_value,date,,
+list_sample_attributes,default_date_end_value,date,,
+list_sample_attributes,default_date_type_value,character varying,,
+list_sample_attributes,validation_rules,text,,
+list_sample_attributes,deleted,boolean,,
+list_sample_attributes,website_deleted,boolean,,
+list_sample_attributes,restrict_to_sample_method_id,integer,,
+list_sample_comments,id,integer,,
+list_sample_comments,comment,text,,
+list_sample_comments,sample_id,integer,,
+list_sample_comments,email_address,character varying,,
+list_sample_comments,updated_on,timestamp without time zone,,
+list_sample_comments,person_name,character varying,,
+list_sample_comments,username,character varying,,
+list_sample_comments,website_id,integer,,
+list_sample_images,id,integer,,
+list_sample_images,sample_id,integer,,
+list_sample_images,path,character varying,,
+list_sample_images,caption,character varying,,
+list_sample_images,created_on,timestamp without time zone,,
+list_sample_images,created_by_id,integer,,
+list_sample_images,updated_on,timestamp without time zone,,
+list_sample_images,updated_by_id,integer,,
+list_sample_images,deleted,boolean,,
+list_sample_images,website_id,integer,,
+list_samples,id,integer,,
+list_samples,survey,character varying,,
+list_samples,location,character varying,,
+list_samples,date_start,date,,
+list_samples,date_end,date,,
+list_samples,date_type,character varying,,
+list_samples,entered_sref,character varying,,
+list_samples,entered_sref_system,character varying,,
+list_samples,website_id,integer,,
+list_surveys,id,integer,,
+list_surveys,title,character varying,,
+list_surveys,website_id,integer,,
+list_taxa_taxon_designations,id,integer,,
+list_taxa_taxon_designations,title,character varying,,
+list_taxa_taxon_designations,code,character varying,,
+list_taxa_taxon_designations,abbreviation,character varying,,
+list_taxa_taxon_designations,taxon,character varying,,
+list_taxa_taxon_designations,common,character varying,,
+list_taxa_taxon_designations,preferred_name,character varying,,
+list_taxa_taxon_designations,language,character varying,,
+list_taxa_taxon_designations,taxon_group,character varying,,
+list_taxa_taxon_list_attribute_values,id,integer,,
+list_taxa_taxon_list_attribute_values,taxa_taxon_list_id,integer,,
+list_taxa_taxon_list_attribute_values,taxa_taxon_list_attribute_id,integer,,
+list_taxa_taxon_list_attribute_values,data_type,character,,
+list_taxa_taxon_list_attribute_values,caption,character varying,,
+list_taxa_taxon_list_attribute_values,termlist_id,integer,,
+list_taxa_taxon_list_attribute_values,value,text,,
+list_taxa_taxon_list_attribute_values,raw_value,text,,
+list_taxa_taxon_list_attribute_values,iso,character,,
+list_taxa_taxon_list_attribute_values,taxon_list_id,integer,,
+list_taxa_taxon_list_attributes,id,integer,,
+list_taxa_taxon_list_attributes,caption,character varying,,
+list_taxa_taxon_list_attributes,outer_structure_block,character varying,,
+list_taxa_taxon_list_attributes,inner_structure_block,character varying,,
+list_taxa_taxon_list_attributes,data_type,character,,
+list_taxa_taxon_list_attributes,control_type,character varying,,
+list_taxa_taxon_list_attributes,termlist_id,integer,,
+list_taxa_taxon_list_attributes,multi_value,boolean,,
+list_taxa_taxon_list_attributes,taxon_list_id,integer,,
+list_taxa_taxon_list_attributes,signature,text,,
+list_taxa_taxon_list_attributes,default_text_value,text,,
+list_taxa_taxon_list_attributes,default_int_value,integer,,
+list_taxa_taxon_list_attributes,default_float_value,double precision,,
+list_taxa_taxon_list_attributes,default_date_start_value,date,,
+list_taxa_taxon_list_attributes,default_date_end_value,date,,
+list_taxa_taxon_list_attributes,default_date_type_value,character varying,,
+list_taxa_taxon_list_attributes,validation_rules,text,,
+list_taxa_taxon_list_attributes,deleted,boolean,,
+list_taxa_taxon_list_attributes,taxon_list_deleted,boolean,,
+list_taxa_taxon_lists,id,integer,,
+list_taxa_taxon_lists,taxon_id,integer,,
+list_taxa_taxon_lists,taxon,character varying,,
+list_taxa_taxon_lists,authority,character varying,,
+list_taxa_taxon_lists,language,character,,
+list_taxa_taxon_lists,common,character varying,,
+list_taxa_taxon_lists,preferred_name,character varying,,
+list_taxa_taxon_lists,taxon_group,character varying,,
+list_taxa_taxon_lists,taxon_list_id,integer,,
+list_taxa_taxon_lists,preferred,boolean,,
+list_taxa_taxon_lists,taxon_list,character varying,,
+list_taxa_taxon_lists,website_id,integer,,
+list_taxa_taxon_lists,external_key,character varying,,
+list_taxa_taxon_lists,allow_data_entry,boolean,,
+list_taxa_taxon_lists,taxon_meaning_id,integer,,
+list_taxa_taxon_lists,taxon_group_id,integer,,
+list_taxon_codes,id,integer,,
+list_taxon_codes,taxon_meaning_id,integer,,
+list_taxon_codes,code,character varying,,
+list_taxon_codes,term,character varying,,
+list_taxon_designations,id,integer,,
+list_taxon_designations,title,character varying,,
+list_taxon_designations,code,character varying,,
+list_taxon_designations,abbreviation,character varying,,
+list_taxon_groups,id,integer,,
+list_taxon_groups,title,character varying,,
+list_taxon_groups,website_id,integer,,
+list_taxon_images,id,integer,,
+list_taxon_images,path,character varying,,
+list_taxon_images,caption,character varying,,
+list_taxon_images,deleted,boolean,,
+list_taxon_images,taxon_meaning_id,integer,,
+list_taxon_lists,id,integer,,
+list_taxon_lists,title,character varying,,
+list_taxon_lists,website_id,integer,,
+list_taxon_ranks,id,integer,,
+list_taxon_ranks,rank,character varying,,
+list_taxon_ranks,sort_order,integer,,
+list_taxon_ranks,short_name,character varying,,
+list_taxon_ranks,italicise_taxon,boolean,,
+list_taxon_relation_types,id,integer,,
+list_taxon_relation_types,caption,character varying,,
+list_taxon_relation_types,forward_term,character varying,,
+list_taxon_relation_types,reverse_term,character varying,,
+list_taxon_relation_types,relation_code,integer,,
+list_taxon_relations,id,integer,,
+list_taxon_relations,from_taxon_meaning_id,integer,,
+list_taxon_relations,to_taxon_meaning_id,integer,,
+list_taxon_relations,taxon_relation_type_id,integer,,
+list_taxon_relations,deleted,boolean,,
+list_termlists,id,integer,,
+list_termlists,title,character varying,,
+list_termlists,website_id,integer,,
+list_termlists,external_key,character varying,,
+list_termlists_terms,id,integer,,
+list_termlists_terms,term_id,integer,,
+list_termlists_terms,term,character varying,,
+list_termlists_terms,termlist_id,integer,,
+list_termlists_terms,termlist,character varying,,
+list_termlists_terms,website_id,integer,,
+list_termlists_terms,termlist_external_key,character varying,,
+list_termlists_terms,iso,character,,
+list_termlists_terms,sort_order,integer,,
+list_terms,id,integer,,
+list_terms,term,character varying,,
+list_terms,language_id,integer,,
+list_terms,language,character varying,,
+list_terms,iso,character,,
+list_terms,website_id,integer,,
+list_titles,id,integer,,
+list_titles,title,character varying,,
+list_user_trusts,id,integer,,
+list_user_trusts,user_id,integer,,
+list_user_trusts,survey_id,integer,,
+list_user_trusts,location_id,integer,,
+list_user_trusts,taxon_group_id,integer,,
+list_user_trusts,created_on,timestamp without time zone,,
+list_user_trusts,created_by_id,integer,,
+list_user_trusts,updated_on,timestamp without time zone,,
+list_user_trusts,updated_by_id,integer,,
+list_user_trusts,deleted,boolean,,
+list_users,id,integer,,
+list_users,username,character varying,,
+list_users,website_id,integer,,
+list_users,person_id,integer,,
+list_website_agreements,id,integer,,
+list_website_agreements,title,character varying,,
+list_website_agreements,description,character varying,,
+list_websites,id,integer,,
+list_websites,title,character varying,,
+list_websites,website_id,integer,,
+list_websites_website_agreements,id,integer,,
+list_websites_website_agreements,website,character varying,,
+list_websites_website_agreements,agreement,character varying,,
