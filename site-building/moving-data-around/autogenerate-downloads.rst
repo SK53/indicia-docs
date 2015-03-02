@@ -24,7 +24,7 @@ Usage
    on the report filter panel control. 
 #. Assign ``autogenerate downloads`` permissions to the users you want to be able to 
    trigger the creation of the download files.
-#. Visit the path ``/remote_download/autogenerate?indicia_user_id=nn`` where ``nn` is 
+#. Visit the path ``/remote_download/autogenerate?indicia_user_id=nn`` where ``nn`` is 
    the Indicia user ID of the account you have created data flow filters for. Assuming
    that no errors are output, this will generate 1 file per filter assigned to the user.
 #. The CSV files are generated in a folder 

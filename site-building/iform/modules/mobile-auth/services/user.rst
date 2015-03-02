@@ -106,13 +106,17 @@ Status  Message                 Logged message (if enabled)             Cause
 400     Missing name parameter  First or secondname empty               The email was not that of an existing 
                                                                         user.
 200     | *user secret*         | Creating new shared secret            Successful registration of the user
-        | *firstname*           (if new shared secret needed)           on the website returns the variables
-        | *secondname*          | Associating indicia user id           as indicated. This may end with any 
-        | *error*               (if new id is needed)                   error from user registration on the 
-                                | User *email* logged in                warehouse.
+        | *firstname*             (if new shared secret needed)         on the website returns the variables
+        | *secondname*                                                  as indicated. This may end with any 
+        | *error*               | Associating indicia user id           error from user registration on the
+                                  (if new id is needed)                 warehouse. 
+
+                                | User *email* logged in
+
 ======  ======================  ======================================  ========================================
 
-The app needs to save the user secret that is returned on successful log in to use when submitting records. It probably wants to save the firstname and secondname too, in order to report who is logged in.
+The app needs to save the user secret that is returned on successful log in to use when submitting records. 
+It probably wants to save the firstname and secondname too, in order to report who is logged in.
 
 Please check the :ref:`example <user-login-example>`.
 
