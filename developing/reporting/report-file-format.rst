@@ -563,9 +563,10 @@ Attributes
   ``orderby="sort_order"`` for the term column, this causes the logical rather
   than alphabetical sort to be used when clicking on this column's header.
 * **datatype** can be used to declare the datatype of a column to enable column 
-  filtering in the grid. Set to one of text, date, integer or float. When set,
+  filtering in the grid. Set to one of text, species, date, integer or float. When set,
   a text box is shown at the top of the column into which the user can type
-  filters.
+  filters. Note that the species datatype is a variant of text which removes subgenera and
+  spaces from the search text to make it more tolerant.
 * **aggregate**
   Described in the section :ref:`declaring-column-sql-label` below.
 * **distincton**
