@@ -11,7 +11,9 @@ page. You can include maps, charts and data grids.
 Setting up a dynamic report page involves configuring the default view of the map (same
 process as for other forms), providing a set of report parameter values in the **Report
 Settings** section of the edit page, then using the **User Interface** section to define
-how the page should be output. 
+how the page should be output. If you are starting from a new Indicia page, then in the 
+**Form Selection** section, set the **Form Category** to **Reporting** and the **Select 
+Form** drop down to **Dynamic Report Explorer**.
 
 Defining the form structure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
