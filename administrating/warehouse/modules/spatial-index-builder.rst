@@ -78,3 +78,21 @@ Installation notes
        'National Nature Reserves'
      );
      ?>
+     
+#. You can further restrict the indexing for a given location type to records captured from
+   a particular survey dataset or list of survey dataset. To do this, you need to add a 
+   second configuration item to the config file called ``survey_restrictions``. This must
+   use the location type term as the key and the value of the array should be an array of 
+   survey IDs. You can omit this configuration item if not required, or only list the location
+   types which are restricted by survey. For example, if the indexing of the National Parks
+   location boundaries is only relevant to survey datasets with IDs 14 and 15, then you can
+   add this configuration:
+   
+   .. code-block:: php
+   
+     <?php
+     $config['survey_restrictions']=array(
+       'National Parks' => array(14,15)
+     );
+     
+     ?>
