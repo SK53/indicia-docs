@@ -66,6 +66,7 @@ Module List
   log-browser
   nbn-species-dict-sync
   notify-verifications-and-comments
+  occurrence-associations
   people-tidier
   phpunit
   spatial-index-builder
