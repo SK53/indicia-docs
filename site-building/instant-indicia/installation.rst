@@ -355,7 +355,7 @@ you are going to connect to. There are several pre-configured warehouses availab
 from including one for localhost (if the warehouse is setup on your current machine in a
 folder called indicia) as well as the warehouses provided by the Biological Records Centre
 in the UK (BRC). To use the BRC warehouses you will need to obtain permission, which can
-be done by asking on the Indicia forum at http://forums.nbn.org.uk/viewforum.php?id=19).
+be done by asking on the Indicia forum at http://forums.nbn.org.uk/viewforum.php?id=25).
 If you have to setup for a different warehouse then choose the Other option and enter the
 path to the indicia site excluding the index.php part but including the trailing slash,
 e.g. “http://www.mysite.com/indicia/”. The second box in this section lets you configure a
