@@ -33,7 +33,7 @@ on Windows it is worth reviewing the `Windows installation notes
 <http://postgis.refractions.net/download/windows/>`_ before selecting a version. 
 For example, at the current point in time version 9.1 is the latest version 
 which supports installation of PostGIS using the Application Stack Builder, so 
-opting for this version rather than 9.2 will make things simpler later.
+opting for this version rather than 9.2 will make things simpler later. PostGIS > 2.0.0 is required.
 
 If you are installing PostgreSQL on a Linux server then you may find the 
 following links extremely useful:
