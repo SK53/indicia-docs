@@ -15,13 +15,13 @@ Add your own CSS stylesheets
 
 To include your own CSS files, you need to create a .css file and place it in 
 the folder ``sites\all\modules\iform\client_helpers\prebuilt_forms\css``. The file 
-should be called node.nid.css where nid is the node id of the Drupal page your 
+should be called node.\ *nid*\ .css where *nid* is the node id of the Drupal page your 
 form is on.
 
 In addition, developers of prebuilt forms can provide CSS that is added to the 
 page for all instances of a particular form by creating a file called 
-``sites\all\modules\iform\client_helpers\prebuilt_forms\css\form-name.css``, 
-replacing form-name with the name of the form. For example you will find a file 
+*form-name*\ .css, 
+replacing *form-name* with the name of the form. For example you will find a file 
 called verification_1.css in this location which is used for all instances of 
 the verification_1.php form.
 
@@ -30,16 +30,16 @@ Adding your own JavaScript
 
 To include your own JavaScript files, you need to create a .js file and place 
 it in the folder ``sites\all\modules\iform\client_helpers\prebuilt_forms\js``. The 
-file should be called node.nid.js where nid is the node id of the Drupal page 
+file should be called node.\ *nid*\ .js where *nid* is the node id of the Drupal page 
 your form is on.
 
 Your JavaScript code can use the `jQuery <http://jquery.com>`_ library version 
 1.3.2 which is linked in to all Indicia powered forms.
 
-In addition, developers of prebuilt forms can provide JavaScript? that is added 
+In addition, developers of prebuilt forms can provide JavaScript that is added 
 to the page for all instances of a particular form by creating a file called 
-sites\all\modules\iform\client_helpers\prebuilt_forms\js\form-name.js, replacing
-form-name with the name of the form. For example you will find a file called 
+*form-name*\ .js, replacing
+*form-name* with the name of the form. For example you will find a file called 
 verification_1.js in this location which runs for all instances of the 
 verification_1.php form.
 
@@ -103,14 +103,14 @@ Overriding a single form
 
 Create a folder called templates in
 ``sites/all/modules/iform/client_helpers/prebuilt_forms/`` if one does not already exist.
-In this folder, create your template file and call it node.nid.php where nid is the node
+In this folder, create your template file and call it node.\ *nid*\ .php where *nid* is the node
 id of the form page.
 
 Overriding all instances of a prebuilt form
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Developers of prebuilt forms can also create a file in the same templates folder 
-called ``form-name.php`` where form-name is the name of the form without the .php 
+called *form-name*\ .php where *form-name* is the name of the form without the .php 
 extension. This provides a template override file which runs for all instances 
 of a particular form.
 
@@ -127,14 +127,14 @@ Providing your own language files
 ---------------------------------
 
 Language files for each prebuilt form are placed in the folder 
-sites\all\modules\iform\client_helpers\prebuilt_forms\lang and are called 
-form-name.lang.php where lang is the 2 character ISO language code matching the
-declared code in Drupal.
+``sites\all\modules\iform\client_helpers\prebuilt_forms\lang`` and are called 
+*form-name.lang*\ .php where *form-name* is the name of the form and  *lang* 
+is the 2 character ISO language code matching the declared code in Drupal.
 
 In addition, a single form instance can either replace or change the language 
-file for a form by declaring a file in the lang folder called node.nid.en.php 
-where nid is the form page's node id. Provide a complete set of custom terms by 
-using the global $custom_terms array:
+file for a form by declaring a file in the lang folder called node.\ *nid.lang*\ .php 
+where *nid* is the form page's node id and *lang* is the 2 characher ISO language code. 
+Provide a complete set of custom terms by using the global $custom_terms array:
 
 .. code-block:: php
 
@@ -189,7 +189,7 @@ When the form submission has been built, ready to send to the warehouse, it is
 possible to run custom PHP to validation the form POST data and return an array
 of errors. To do this, create a folder within your iform module 
 iform\client_helpers\prebuilt_forms\validation. Inside this folder, create a 
-file called validate.nid.php where the nid is replaced by your page's Drupal 
+file called validate.\ *nid*\ .php where the *nid* is replaced by your page's Drupal 
 node ID. This file will be automatically loaded by the iform module at the 
 appropriate point. Inside the PHP file, create a single function called 
 iform_custom_validation which recieves a $post parameter containing form post 
