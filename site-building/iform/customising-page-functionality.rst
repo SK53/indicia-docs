@@ -29,7 +29,7 @@ Adding your own JavaScript
 --------------------------
 
 To include your own JavaScript files, you need to create a .js file and place 
-it in the folder sites\all\modules\iform\client_helpers\prebuilt_forms\js. The 
+it in the folder ``sites\all\modules\iform\client_helpers\prebuilt_forms\js``. The 
 file should be called node.nid.js where nid is the node id of the Drupal page 
 your form is on.
 
