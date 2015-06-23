@@ -367,6 +367,7 @@ this, run the following script replacing indicia_user with your username:
 
   ALTER USER indicia_user SET search_path = indicia, public, pg_catalog; 
 
+You will also need to report this for your report user's username if you have a separate one.
 Now, open the indicia.php file in the application/config folder using a text editor. Find
 the entry called apply_schema and set it to false. You can create the entry if it is not
 already present:
