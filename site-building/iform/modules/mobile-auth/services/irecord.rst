@@ -24,6 +24,16 @@ sample:comment                 Any plain text.
 occurrence:taxa_taxon_list_id  Required. The id of the species name within a species list.
 =============================  ==============================================================================
 
+.. tip::
+
+You can grab taxa_taxon_list_id values from iRecord by examining HTML with a browser debugger.
+Go to http://www.brc.ac.uk/irecord/enter-casual-record and start typing the name of the species you want to look up in the species input. The name will pop up in a list from which you can select it.
+If the name does not appear then it is not in the list for some reason, e.g. incorrect spelling.
+Having selected the species, inspect the HTML around the species input. You will find a hidden input like 
+``<input id="occurrence:taxa_taxon_list_id" class="hidden" type="hidden" value="123169" name="occurrence:taxa_taxon_list_id">``
+The value attribute holds the number you are looking for, 123169 in this case.
+
+
 The sample attributes for the iRecord General survey are as follows.
 
 ======================  =====================================================================================
