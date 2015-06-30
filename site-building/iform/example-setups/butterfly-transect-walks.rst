@@ -26,16 +26,16 @@ Here are some files you may like to have available to import into the system:
 | Habitats   | Provide a list of the habitats that will be available for       |
 | CSV        | describing sites in your recording scheme.                      |
 |            | This should be provided as a CSV file with a single column      |
-|            | containing the county names, including a column title (which can|
-|            | be anything you like). If available, a sort order column        |
+|            | containing the habitat names, including a column title (which   |
+|            | can be anything you like). If available, a sort order column    |
 |            | containing an integer for each term can be used to enforce a    |
 |            | non-alphabetical sort order.                                    |
 +------------+-----------------------------------------------------------------+
 | Management | Provide a list of the management terms that will be available   |
 | CSV        | for describing sites in your recording scheme.                  |
 |            | This should be provided as a CSV file with a single column      |
-|            | containing the county names, including a column title (which can|
-|            | be anything you like).                                          |
+|            | containing the management terms, including a column title (which|
+|            | can be anything you like).                                      |
 +------------+-----------------------------------------------------------------+
 | Branches   | This file is only required if your recording scheme is divided  |
 | CSV        | into regional branches. An ESRI SHP file format list of the     |
