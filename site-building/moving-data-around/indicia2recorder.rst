@@ -6,7 +6,7 @@ records you have access to from an Indicia powered online recording website. The
 addin depends on modules existing on the website which are currently only available for
 Drupal, this means that the addin can only download Indicia records via a Drupal 6 or 
 Drupal 7 website such as iRecord at present.
-
+t
 If you already have the addin installed and configured, then jump straight to the section
 on usage further down the page.
 
@@ -73,9 +73,11 @@ file cannot be found, then the addin will assist you in creating a new one as fo
      ``http://www.brc.ac.uk/irecord``.
      
   #. Click OK and a further popup will appear asking you to fill in the Shared App Secret
-     of the website. This setting is defined on the Indicia Mobile Auth settings page
-     (under Site configuration > IForm > Mobile Auth Settings) in a field called **Shared
-     Secret**. Fill this in then click OK.
+     of the application. This setting is defined on the Indicia Mobile Auth settings page
+     (under Site configuration > IForm > Mobile Authentication). You need to click the 
+     link to add a mobile application and fill in the form fields and save it. One of the
+     fields is called **Shared Secret**. Copy the shared secret into the popup in Recorder
+     6 and click OK.
      
   #. A further popup will appear asking you to fill in the Site ID for records to be 
      created in Recorder. You should obtain a new Site ID for your remote site in the same
