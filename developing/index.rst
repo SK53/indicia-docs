@@ -16,7 +16,7 @@ Developing
 .. toctree::
 
   architecture-overview
-  subversion
+  github
   tutorial-quick-tortoisesvn-primer
   client-website/index
   reporting/index
