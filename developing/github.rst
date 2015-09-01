@@ -193,5 +193,33 @@ In GitHub, add a release to tag the new version number against the code.
 ...develop a new feature
 ------------------------
 
+New features are developed by creating a branch from the develop branch. The branch name 
+should describe the feature and can be anything that does not clash with one of the other 
+branch naming conventions, i.e. not master, develop, hotfix-* or release-*. Feature 
+branches can be kept locally or pushed to remote (GitHub), which can be useful especially
+when several developers are working on the feature. 
+
+For example::
+
+  git checkout -b my-new-feature develop
+  
+Then implement the feature and commit each atomic change as you proceed. When finished and
+tested, publish/push the feature branch to the GitHub repo::
+
+  git push origin my-new-feature
+  
+Login to GitHub and find the repository you are working on. Switch to your feature branch
+then click the Pull request button. Make sure that the base is set to develop and follow
+the steps to create the pull request, check the changes then merge it.
+
+.. todo::
+
+  Some information on how to use the command line to resolve conflicts. E.g. using a 
+  conflict resolution branch.
+
 ...make a release
 -----------------
+
+.. todo::
+
+  Notes on using a release branch.
