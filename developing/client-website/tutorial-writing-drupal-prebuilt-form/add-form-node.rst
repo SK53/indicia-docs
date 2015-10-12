@@ -2,7 +2,8 @@ Adding an IForm node
 --------------------
 
 Now, go to your Drupal site and log in as administrator. On the admin menu,
-select **Content management > Create content > Indicia forms** to access the
+select **Content > Add content > Indicia pages** (Content management > Create 
+content > Indicia forms in Drupal 6) to access the
 page used to add and configure an Indicia form. Set the following options:
 
 * Set *Page title* to "Add tutorial record".
