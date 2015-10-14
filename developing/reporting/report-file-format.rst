@@ -384,9 +384,9 @@ group has been specified.
   <param name='taxon_groups' display='Taxon Groups' 
       description='Comma separated list of taxon group IDs to filter the report by, if
       any'>
-    <join>
+    <where>
       o.taxon_group_id in (#taxon_groups#)
-    </join>  
+    </where>  
   </param>
 
 It is also possible to qualify the filter, by specifying attributes **operator** 
@@ -401,9 +401,9 @@ if the ownGroups param is checked.
       description="Comma separated list of taxon group IDs to filter the report by, if
       any"/>
   <param name="ownGroups"
-    <join>
+    <where operator="equal" value="true">
       o.taxon_group_id in (#taxon_groups#)
-    </join>  
+    </where>  
   </param>
   
 Parameters which require additional joins
