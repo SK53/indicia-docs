@@ -62,7 +62,7 @@ Code Description
 ==== ======================================================================================
 0    Unspecified error
 1    Authentication failure - tokens expired or incorrect
-1001 Read authorisation failure - website ID of requested data does not match request
+1001 Read failure - record not found or website ID of requested data does not match request
 1002 Read failure - requested a custom view which does not exist for this entity
 1003 Read failure - requested a standard view which does not exist for this entity
 1004 Read failure - requested an entity not restricted to a website but without full access
