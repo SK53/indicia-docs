@@ -200,4 +200,15 @@ Starting with the exported text files
 
 Finally, don't forget to put the sites that use your warehouse back online.
 
+.. tip::
 
+  If you don't have full access to the warehouse you are importing on to (for example if using 
+  shared hosting) then you might not be able to place the files on the server anywhere that
+  the PostgreSQL process can see. Therefore in the script, the COPY FROM statements will not 
+  be possible. If this is the case, then a possible solution is to use psql on your client 
+  machine to connect to the server's IP address. Once connectied, you can use the `\copy` 
+  command to copy from a local file across the network. It's generally slow but will work. Here's
+  an example command::
+  
+    \COPY uksi.all_names FROM 'c:\tmp\uksi\all_names.txt' DELIMITER ',' CSV ENCODING 'UTF8';
+  
