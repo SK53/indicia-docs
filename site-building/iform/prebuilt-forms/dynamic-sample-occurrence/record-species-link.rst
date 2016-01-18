@@ -1,21 +1,22 @@
 Setting up a Record this Species link
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In this example configuration of the **dynamic sample occurrence** consider the case where
-we have an external website which has a list of species account pages and we want to 
-provide a link from each of those page to make it as simple as possible to provide a 
-record of the species. Through this technique we can create a form which records a species
-where the species is defined by a parameter in the URL used to load the form, so the user
-does not have to reselect the species they are already looking at.
+In this example configuration of the **Enter single record or list of records
+(customisable)** form consider the case where we have an external website which has a list
+of species account pages and we want to provide a link from each of those page to make it
+as simple as possible to provide a record of the species. Through this technique we can
+create a form which records a species where the species is defined by a parameter in the
+URL used to load the form, so the user does not have to reselect the species they are
+already looking at.
 
-Before starting you should have a working form using the dynamic sample occurrence form
-which is linked to a species list that includes all the species which the external 
-species account library includes. The species names should match, or there should be an 
-ID for each species which is held in Indicia's **external_key** field, such as a Taxon 
-Version Key as used in the UK. You want your form to be as you would want it to work
-should the user visit the form without providing a valid species in the URL parameters, so
-for example you might want it to work for entering a single record at a time where the 
-user has to pick the species from an autocomplete. 
+Before starting you should have a working form using this form which is linked to a
+species list that includes all the species which the external species account library
+includes. The species names should match, or there should be an ID for each species which
+is held in Indicia's **external_key** field, such as a Taxon Version Key as used in the
+UK. You want your form to be as you would want it to work should the user visit the form
+without providing a valid species in the URL parameters, so for example you might want it
+to work for entering a single record at a time where the user has to pick the species from
+an autocomplete. 
 
 .. tip::
 
