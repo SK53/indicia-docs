@@ -49,9 +49,10 @@ you to tweak the page's behaviour.
    Indicia goodness begins as it allows us to pick from one of a library of ready made
    pieces of functionality, called :doc:`prebuilt forms <../../../iform/prebuilt-forms/index>`.
    We want a general purpose way of inputting records, so as good a place to start as any
-   is to set the **Form Category** to "General Purpose Data Entry Forms" and **Select
-   Form** to "Sample with occurrences form", that is, a form designed for inputting a 
-   single sample, containing a list of any number of occurrence records.
+   is to set the **Page Category** to "Data Entry Forms" and **Select
+   Form** to "Enter single record or list of records (customisable)", that is, a form 
+   designed for inputting a single sample, containing a list of any number of occurrence 
+   records.
    
    .. image:: ../../../../images/screenshots/prebuilt-forms/picking-dynamic-form.png
      :width: 700px
@@ -59,10 +60,10 @@ you to tweak the page's behaviour.
      
    .. tip::
    
-     The Sample with occurrences form is one of several Indicia forms that are described
-     as *dynamic*. This means that they are highly configurable and can automatically add
-     controls to the input form to reflect the custom attributes you have attached to 
-     your survey.
+     The Enter single record or list of records (customisable) form is one of several 
+     Indicia forms that are described as *dynamic*. This means that they are highly 
+     configurable and can automatically add controls to the input form to reflect the 
+     custom attributes you have attached to your survey.
  
 #. Once you have selected the correct form, click the **Load Settings Form** button to 
    send a request to the server for the configuration required to set this type of form 
