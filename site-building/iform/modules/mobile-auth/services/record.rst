@@ -61,12 +61,12 @@ occurrence:taxa_taxon_list_id  Required. The id of the species name within a spe
 =============================  ==============================================================================
 
 The survey-specific custom sample attributes, which have to conform with validation rules set on the 
-warehouse, have the format ``smpAttr:*N* = *value*``
+warehouse, have the format smpAttr:*N* = *value*
 
 
 
 The survey-specific custom occurrence attributes, which have to conform with validation rules set on the warehouse, 
-have the format ``occAttr:*N* = *value*`` when submitting a single occurrence.
+have the format occAttr:*N* = *value* when submitting a single occurrence.
 
 
 
@@ -103,7 +103,30 @@ read more about that in :ref:`setting up a survey <survey-register>`.
 
 Please check the :ref:`recording examples <send-record-example>`.
 
-.. note:: To module will only check your app authorisation and warehouse information
+.. note:: The module will only check your app authorisation and warehouse information
   after which your request is proceeded to the Indicia's warehouse where the recording
   data is checked.
 
+You can also send multiple occurrences in one submission by replicating the inputs from a species checklist. The pattern for adding species is sc:*grid_id-row_id*::present = *taxa_taxon_list_id*
+
+*grid_id* is simple a unique value to distinguish multiple grids on one page.
+*row_id* is a sequential number starting from 0 identifying an occurrence.
+*taxa_taxon_list_id* identifies the species.
+
+This example submits 3 occurrences
+
+```
+sc:species-0::present = 521853
+sc:species-1::present = 521867
+sc:species-2::present = 521879
+```
+
+Occurrence attributes can also be set for each occurrence using inputs with the pattern sc:*grid_id-row_id*::occAttr:*occurrence_attribute_id* = *value*
+
+For example, to set an attribute with id, 230, on the three occurrences above submit the following
+
+```
+sc:species-0::occAttr:230 = adult
+sc:species-1::occAttr:230 = pupa
+sc:species-2::occAttr:230 = larva
+```
