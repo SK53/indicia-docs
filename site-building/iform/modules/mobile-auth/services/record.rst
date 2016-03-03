@@ -113,20 +113,16 @@ You can also send multiple occurrences in one submission by replicating the inpu
 *row_id* is a sequential number starting from 0 identifying an occurrence.
 *taxa_taxon_list_id* identifies the species.
 
-This example submits 3 occurrences
+This example submits 3 occurrences::
 
-```
-sc:species-0::present = 521853
-sc:species-1::present = 521867
-sc:species-2::present = 521879
-```
+    sc:species-0::present = 521853
+    sc:species-1::present = 521867
+    sc:species-2::present = 521879
 
 Occurrence attributes can also be set for each occurrence using inputs with the pattern sc:*grid_id-row_id*::occAttr:*occurrence_attribute_id* = *value*
 
-For example, to set an attribute with id, 230, on the three occurrences above submit the following
+For example, to set an attribute with id, 230, on the three occurrences above submit the following::
 
-```
-sc:species-0::occAttr:230 = adult
-sc:species-1::occAttr:230 = pupa
-sc:species-2::occAttr:230 = larva
-```
+    sc:species-0::occAttr:230 = adult
+    sc:species-1::occAttr:230 = pupa
+    sc:species-2::occAttr:230 = larva
