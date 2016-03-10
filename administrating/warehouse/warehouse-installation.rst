@@ -67,6 +67,23 @@ database should be active, and the 'template_postgis' one not. The above
 statement should now be able to be run without issue. The dummy database may 
 then be deleted.
 
+
+Note from March 2016. 
+
+After installing PostGreSQL 9.3.11 on Windows the bundled Stack Builder
+was run to install PostGIS 2.1.7. The SQL required to create the database was ::
+  
+  CREATE DATABASE indicia;
+  
+Then, having switched to that database ::
+  
+  CREATE EXTENSION postgis;
+  CREATE EXTENSION postgis_topology;
+  
+template_postgis did not exist.
+
+End of note.
+
 You can use the postgres super-user account to run Indicia if you like, which is
 the easiest but least secure method. Please do **NOT** use the super-user account 
 for anything other than development purposes. Assuming you want to create your 
