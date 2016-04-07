@@ -9,3 +9,4 @@ Administering and maintaining Indicia
   drupal/index
   geoserver-setup
   importing
+  importing-shp
