@@ -16,6 +16,7 @@ Developing
 .. toctree::
 
   architecture-overview
+  coding-standards
   github
   client-website/index
   reporting/index
