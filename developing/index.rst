@@ -17,7 +17,6 @@ Developing
 
   architecture-overview
   github
-  tutorial-quick-tortoisesvn-primer
   client-website/index
   reporting/index
   web-services/index
