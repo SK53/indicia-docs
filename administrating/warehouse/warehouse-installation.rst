@@ -93,6 +93,16 @@ to the database, changing the username, password and database name as required: 
   CREATE USER indicia_user WITH PASSWORD 'indicia';
   GRANT ALL PRIVILEGES ON DATABASE indicia TO indicia_user;
 
+It is also highly recommended that you create a second user for Indicia's
+reporting system to use. This user account can have read only access to the
+database tables thereby ensuring there is no risk of a maliscious report query
+being run which changes any data. For a development setup you can skip this step
+and use the above user account as both the main user and the reporting user. 
+Here's a suitable script to create the report user but you can change the 
+username, password and database name as required. ::
+
+  CREATE USER indicia_report_user WITH PASSWORD 'indicia';
+
 Now, connect your query tool to the new indicia database by using the drop down 
 in the toolbar then selecting <new connection>, and run the following script 
 which allows the Indicia user just enough rights to access the PostGIS 
@@ -315,10 +325,10 @@ database you can use another name.
 
 .. tip::
 
-  If using a separate user account for the report user, then this account will not own the
-  objects created in Indicia's database so by default will have no access rights to see them.
-  At the very least, you will need to run the following script, replacing ``indicia_report_user``
-  with the correct username.
+  If using a separate user account for the report user, then this account will
+  not own the objects created in Indicia's database so by default will have no
+  access rights to see them. At the very least, you will need to run the
+  following script, replacing ``indicia_report_user`` with the correct username.
   
   .. code-block:: sql
   
@@ -376,18 +386,18 @@ to just .htaccess.
 Optimisation 
 ------------
   
-If you are able to set the default search path for your indicia user that
-accesses the database, then it is possible to implement a performance improvement. To do
-this, run the following script replacing indicia_user with your username:
+If you are able to set the default search path for your indicia user that accesses the
+database, then it is possible to implement a performance improvement. To do this, run the
+following script replacing indicia_user with your username:
 
 .. code-block:: sql
 
   ALTER USER indicia_user SET search_path = indicia, public, pg_catalog; 
 
-You will also need to report this for your report user's username if you have a separate one.
-Now, open the indicia.php file in the application/config folder using a text editor. Find
-the entry called apply_schema and set it to false. You can create the entry if it is not
-already present:
+You will also need to do this for your report user's username if you have a separate
+one. Now, open the indicia.php file in the application/config folder using a text editor.
+Find the entry called apply_schema and set it to false. You can create the entry if it is
+not already present and do this for the report configuration as well:
 
 .. code-block:: php
 
