@@ -31,6 +31,11 @@ are required.
    window to run them.
 #. Re-enable access to the warehouse if you had denied it.
 
+.. note::
+
+  If upgrading from version 0.2.3 of the warehouse or earlier, you will first need to 
+  upgrade using 0.9.x of the warehouse before upgrading to versions after version 1.0.0.
+
 That's it!
 
 Developer Notes
