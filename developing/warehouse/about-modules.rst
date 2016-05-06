@@ -21,6 +21,14 @@ for example a module called *specimens* would declare controller classes in the
 folder *modules/specimens/controllers*, view code in *modules/specimens/views*
 and model classes in *modules/specimens/models*.
 
+.. note::
+    
+  The warehouse uses [http://semver.org/ Semantic Versioning] and there is a single 
+  version number which applies to the whole warehouse repository including the core 
+  code and modules. Therefore when releasing scripts for modules your version folder
+  name must reflect the next version appropriate to the whole warehouse. If your module
+  needs its own versioning then it should be in a separate repository.
+  
 The module controllers provide public methods and therefore additional URLs 
 available within the warehouse, such as the URL paths which support the web 
 services or installation procedures. However, although the modules folder can be 
