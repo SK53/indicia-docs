@@ -25,3 +25,16 @@ Import Steps
 Note, if there are existing locations with the same name and website, then they are updated rather than new locations created.
 
 When you are ready to import, click the Upload Data button.
+
+Indexing Locations
+==================
+
+If you have the spatial index builder enabled then, when a location is added which is of a type that is indexed,  samples will be checked to see if they fall within the new location. You may be uploading a  location of a new type in which case you need to create a term for that type in the 'location types' term list first and add the location type to the configuration file for the spatial index builder (modules\spatial_index_builder\config\spatial_index_builder.php). If you do the config first, then upload the locations, they should get indexed next time the scheduled tasks run. There is a risk though that when you do this the index building code will choke if you add a lot of locations in one go. If you upload the locations, then add the configuration, the index building code will only index any new locations added, so you will need to run a one-off query to fill in the missing index entries. This will be exactly the same query that the index builder would have run, but  running it manually makes sense as you can monitor it more easily, it won’t timeout and if it appears too slow you could always break it up into chunks (e.g. locations beginning a..., then b... to z...). 
+
+Therefore, additional step for indexing might be 
+
+1. Create a term in the 'location types' term list.
+2. Upload the locations using this location type (no indexing).
+3. Run st_isvalid(boundary_geom) and st_isvalidreason(boundary_geom) on all the new locations to check there are no boundary anomalies. If so, run st_makevalid() to fix them and check that it works. If you find problems then they should be resolved before proceeding.
+4. Run some test queries using some of the more complex locations (e.g. by copying queries from the log and changing the location ID). Check they work and perform OK.
+5. If OK, then add the location type to the index builder’s config file and also run a one-off query to populate the spatial index table for the new locations.
