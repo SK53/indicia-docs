@@ -24,7 +24,7 @@ group                            list, detail
 group_page                       list
 groups_user                      detail
 group_invitation                 list
-group_relation
+group_relation                   list
 language                         list, detail, gv
 location                         list, detail, gv 
 location_attribute               list, gv
