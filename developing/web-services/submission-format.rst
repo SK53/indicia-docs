@@ -46,7 +46,7 @@ Sending custom attributes
 -------------------------
 
 To send a custom attribute value in a submission, specify field names of the format
-``(smp|occ|psn|loc)Attr:attrId``. So, for example you might have a custom occurrence 
+``(smp|occ|psn|loc|srv)Attr:attrId``. So, for example you might have a custom occurrence 
 attribute ID 14 which holds the count for a record. To submit a value of 3, include the 
 following in your JSON fields list:
 
