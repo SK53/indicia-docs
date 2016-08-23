@@ -199,7 +199,7 @@ cURL and pgsql libraries are loaded.
 Get the Warehouse code
 ======================
 First, create yourself a folder inside your web server's root folder, for example
-htdocs\indicia. Now, download the `Indicia warehouse code <http://code.google.com/p/indicia/downloads/list>`_
+htdocs\indicia. Now, download the `Indicia warehouse code <http://www.indicia.org.uk/downloads>`_
 and unzip it. Inside the zip file you will find a file called Indicia. Copy the contents
 of this folder into the folder you have just created on your webserver. Please note, if
 you are re-installing the Indicia Warehouse for whatever reason, always remove the
