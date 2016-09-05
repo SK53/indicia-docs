@@ -19,19 +19,20 @@ In .travis.yml, the last instruction in the after_script section outputs the con
 to your tests as well as to your code and review the output after the tests have run. This can be very helpful when debugging.
 
 When writing tests you will be following the guidelines in https://phpunit.de/manual/current/en/writing-tests-for-phpunit.html. Look
-at the tests in modules\phpUnit\tests for some examples created by the developers of Kohana.
+at the tests in modules/phpUnit/tests for some examples created by the developers of Kohana.
 
-However, once your tests require interaction with the indicia database things become a fair bit more complicated. The content of the 
+However, once your tests require interaction with the indicia database things become a fair bit more complicated. The content of the
 database has to be setup for each test as described in https://phpunit.de/manual/current/en/database.html. Fortunately much is 
 already in place to simplify this. Your test class should
+
 #. Extend the class Indicia_DatabaseTestCase. This handles all database connections using the credentials stored in 
-modules\phpUnit\config\database.php. You should ensure the credentials are consistent with your database configuration.
+   modules/phpUnit/config/database.php. You should ensure the credentials are consistent with your database configuration.
 #. Add a getDataSet() function which should load and return, as a minimum, the core fixture. This sets up a default website,
-survey, sample, occurrence, taxon list, cache tables and more in a consistent fashion.
+   survey, sample, occurrence, taxon list, cache tables and more in a consistent fashion.
 #. Optionally add more data to the database fixture in getDataSet() to serve the needs of your particular test. This is easily
-done in code using an instance of the Indicia_ArrayDataSet class.
+   done in code using an instance of the Indicia_ArrayDataSet class.
 #. Add a setUp() function which should call parent::setUp() as a minimum. The setUp function is called before each test method is 
-executed and the parent function establishes the database in the state defined by the getDataSet() function.
+   executed and the parent function establishes the database in the state defined by the getDataSet() function.
 
 For example
 
@@ -41,6 +42,7 @@ For example
 
     public function getDataSet()
     {
+      // Load the core database fixture
       $ds1 =  new PHPUnit_Extensions_Database_DataSet_YamlDataSet('modules/phpUnit/config/core_fixture.yaml');
     
       // Add database tables for my module.
@@ -63,6 +65,7 @@ For example
         ),
       );
     
+      // Combine the two datasets.
       $compositeDs = new PHPUnit_Extensions_Database_DataSet_CompositeDataSet();
       $compositeDs->addDataSet($ds1);
       $compositeDs->addDataSet($ds2); 
