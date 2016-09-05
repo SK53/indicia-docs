@@ -82,4 +82,7 @@ For example
     }
   }
     
+.. note::
 
+  When PHPUnit sets up the database fixture it begins by truncating the existing tables to get them in a known state. If your
+  database contains information you value, back it up!
