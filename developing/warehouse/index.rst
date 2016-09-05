@@ -11,3 +11,4 @@ Developing for the Warehouse
   tutorial-plugins
   tutorial-entity-module
   phpunit
+  travis-ci
