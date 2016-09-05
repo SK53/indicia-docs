@@ -36,7 +36,6 @@ executed and the parent function establishes the database in the state defined b
 For example
 
 .. code-block:: php
-
 class MyModuleTest extends Indicia_DatabaseTestCase {
 
   public function getDataSet()
