@@ -10,8 +10,8 @@ to the biological recording community at no extra cost.
 
 .. note::
   
-  Don't forget, contributing to Indicia's development is a really great way to 
-  contribute to biological recording!
+   Don't forget, contributing to Indicia's development is a really great way to
+   contribute to biological recording!
 
 Here are a few ways you might consider contributing to the Indicia project.
 
@@ -28,7 +28,11 @@ Here are a few ways you might consider contributing to the Indicia project.
   <../developing/index>`.
 
 .. toctree::
-  :hidden:
+   :hidden:
 
-  documentation
+   documentation
+   documentation-windows
+   documentation-mac
+   documentation-tutorial
+   sphinx-setup
   
