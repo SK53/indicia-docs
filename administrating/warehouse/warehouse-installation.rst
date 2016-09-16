@@ -200,12 +200,11 @@ Get the Warehouse code
 ======================
 First, create yourself a folder inside your web server's root folder, for example
 htdocs\indicia. Now, download the `Indicia warehouse code <http://www.indicia.org.uk/downloads>`_
-and unzip it. Inside the zip file you will find a file called Indicia. Copy the contents
-of this folder into the folder you have just created on your webserver. Please note, if
-you are re-installing the Indicia Warehouse for whatever reason, always remove the
-contents of the previous installation from the folder completely before copying over the
-new files, otherwise the configuration files created during installation will be still
-present and you won't be able to reinstall from scratch.
+and unzip it. Copy the contents of this zip file into the folder you have just created on your 
+webserver. Please note, if you are re-installing the Indicia Warehouse for whatever reason, 
+always remove the contents of the previous installation from the folder completely before 
+copying over the new files, otherwise the configuration files created during installation will 
+be still present and you won't be able to reinstall from scratch.
 
 If you are running on a hosted server, it may be easiest to download and unzip the code
 into a local folder then use an FTP tool to upload it into a folder created on your web
