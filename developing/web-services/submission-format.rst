@@ -92,6 +92,23 @@ above data might look like:
   "smpAttr:14:99" : {"value" : 8}
   "smpAttr:14:100" : {"value" : 13}
 
+If you need to delete custom attribute values you have to resubmit only the values you want to
+keep, eg. if you want to delete the attribute with the value "13" from the above example you
+have to have a submission like this:
+
+.. code-block:: json
+
+  "smpAttr:14:98" : {"value" : 3}
+  "smpAttr:14:99" : {"value" : 8}
+
+Note, that if you wan to delete all values you need a submission like:
+
+.. code-block:: json
+
+  "smpAttr:14" : {"value" : ""}
+
+else the values keep untouched.
+
 Automatic foreign key lookup
 ----------------------------
 
