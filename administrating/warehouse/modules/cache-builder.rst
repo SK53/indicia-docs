@@ -51,8 +51,18 @@ complexity reduced massively, the performance of the query is considerably incre
 
 The following tables are included:
 
-* **cache_occurrences** - Use this table to get the key information of each occurrence
-  record, including basic sample and taxon information. 
+* **cache_occurrences_functional** - contains fields that provide summary information 
+  about a single occurrence and are commonly used in filtering, sorting and grouping 
+  operations in SQL queries.
+* **cache_occurrences_nonfunctional** - contains fields that provide summary information
+  about a single occurrence and are normally text labels which are not likely to be used
+  in filtering, sorting and grouping operations in SQL queries.
+* **cache_samples_functional** - contains fields that provide summary information 
+  about a single sample and are commonly used in filtering, sorting and grouping 
+  operations in SQL queries.
+* **cache_samples_nonfunctional** - contains fields that provide summary information
+  about a single sample and are normally text labels which are not likely to be used
+  in filtering, sorting and grouping operations in SQL queries.
 * **cache_taxa_taxon_lists** - Use this table to get the key information for taxa,
   including the name, common and preferred name and list information. 
 * **cache_taxon_searchterms** - This table provides a
