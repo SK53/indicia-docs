@@ -1,5 +1,5 @@
 Report File Format
-------------------
+==================
 
 .. seealso::
 
@@ -17,7 +17,7 @@ input parameters and the output columns. Report files must be valid XML
 documents with the following element structure.
 
 Element <report>
-================
+----------------
 
 This is the top level element of the XML document.
 
@@ -49,7 +49,7 @@ Example
 .. _query-label:
 
 Element <query>
-===============
+---------------
 
 There is a single element called query in the XML document, which should be a 
 direct child of the report element. This contains the SQL statement to run, 
@@ -178,21 +178,21 @@ Example
 .. _order-bys-label:
 
 Element <order_bys>
-===================
+-------------------
 
 Contains elements defining the default sort order of the report. This can be
 overriding by an ascending or descending sort on any column, e.g. when clicking
 on a report grid title.
 
 Child elements
---------------
+^^^^^^^^^^^^^^
 
 * :ref:`order_by <order-by-label>`
 
 .. _order-by-label:
 
 Element <order_by>
-===================
+------------------
 
 Contains the SQL for a single sort order field or comma separated group of 
 fields, e.g. ``s.date_start ASC``.
@@ -201,7 +201,7 @@ fields, e.g. ``s.date_start ASC``.
 .. _field-sql-label:
 
 Element <field_sql>
-===================
+-------------------
 
 When the #field_sql# replacement token is used in the query, provide the SQL for
 the list of fields in this element which will be replaced into the token when 
@@ -217,7 +217,7 @@ impacts on the server for inefficient queries or large result sets. Using a
 ``count(*)``  query is much faster.
 
 Example
--------
+^^^^^^^
 
 .. code-block:: xml
 
@@ -229,23 +229,25 @@ Example
 .. _params-label:
 
 Element <params>
-=================
+----------------
 
 The ``<params>`` element provides an area within the report definition to list
 parameters for the query and provide configuration for each. 
 
 Child elements
---------------
+^^^^^^^^^^^^^^
 
 * :ref:`param <param-label>`
 
 .. _param-label:
 
 Element <param>
-====================
+---------------
+
+Configuration for a single report parameter.
 
 Attributes
-----------
+^^^^^^^^^^
 
 * **name** -
   The name of the attribute. Must consist of alphabetic characters,
@@ -342,7 +344,7 @@ Attributes
 .. _idlist-label:
 
 More information on the idlist datatype
----------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The **idlist** is a special datatype that will not add a control to the input 
 form. Instead it provides a hidden input in the form which other code on the 
@@ -372,7 +374,7 @@ you would expect a parameter defined like:
       datatype="idlist" fieldname="o.id" alias="occurrence_id" />
 
 Parameters which require additional filters in the WHERE section
-----------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If a query should have a filter in the WHERE section only if one of the parameters is 
 specified or has a certain value, you can add a ``<where>`` element to the ``<param>``.
@@ -407,7 +409,7 @@ if the ownGroups param is checked.
   </param>
   
 Parameters which require additional joins
------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Sometimes, a query join is required in a report only when a parameter has a 
 value, or has a certain value. Including the join in the report at all times 
@@ -439,7 +441,7 @@ SQL.
 .. _attrs-label:
 
 Optional custom attributes
---------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The parameter datatypes *smpattrs*, *occattrs* and *locattrs* are special types 
 used to allow the input of a comma separated list of custom attributes to be 
@@ -500,7 +502,7 @@ underscore then the key of the system function, e.g. attr_det_full_name.
 .. _columns-label: 
 
 Element <columns>
-=================
+-----------------
 
 The ``<columns>`` element provides an area within the report definition to list
 output columns and provide configuration for each column. A report which lists
@@ -509,19 +511,19 @@ to specify the columns here to work, although the flexibility of the report is
 greatly increased if columns are specified.
 
 Child elements
---------------
+^^^^^^^^^^^^^^
 
 * :ref:`column <column-label>`
 
 .. _column-label:
 
 Element <column>
-================
+----------------
 
 Provides the definition of a single output column for the report query.
 
 Attributes
-----------
+^^^^^^^^^^
 
 * **name**
   Should match the name used in the query:
@@ -632,7 +634,7 @@ Attributes
 .. _declaring-column-sql-label:
 
 Declaring SQL for each column
------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 There are certain limitations to what the Indicia reporting engine can do with 
 the columns SQL all defined in a single block, either in the query or using the 
@@ -710,7 +712,7 @@ available in earlier versions.
 .. _vaguedate-label:
 
 Element <vagueDate>
-===================
+-------------------
 
 By default, vague dates provided as a **date_start**, **date_end** and 
 **date_type** field in the report output columns are processed to result in a 
