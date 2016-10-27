@@ -65,7 +65,9 @@ Module List
   individuals-and-associations
   log-browser
   nbn-species-dict-sync
+  notification-emails
   notify-verifications-and-comments
+  notify-pending-groups-users
   occurrence-associations
   people-tidier
   phpunit

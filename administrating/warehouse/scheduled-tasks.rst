@@ -73,4 +73,9 @@ order to work:
   boundaries.
 * The warehouse :doc:`modules/notify-verifications-and-comments`. This sends notifications of
   automated verifications and record comments back to the original recorder of the record.
+* The warehouse :doc:`modules/notify-pending-groups-users`. This sends notifications when
+  a user requests membership of a group to the group's administrators.
+* The warehouse :doc:`modules/notification-emails`. This module sends notifications as 
+  emails or digest emails according to the settings in the `user_email_notification_settings`
+  table for each user.
 * The warehouse functionality for :doc:`triggers-actions`.
