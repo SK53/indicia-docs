@@ -25,77 +25,25 @@ then visiting the ``update.php`` path on your website. Review the **Available up
 report occasionally to look for modules which need to be upgraded. Read the `official 
 documentation on how to upgrade modules <https://drupal.org/node/250790>`_.
 
-Upgrading Indicia code
-======================
+Upgrading Indicia modules
+=========================
 
 Because Indicia themes and modules are very specific and not really of interest to the 
 rest of the Drupal community, they are kept along with the other Indicia code on the
 `Downloads page <http://www.indicia.org.uk/downloads>`_ site rather than on `drupal.org 
-<http://drupal.org>`_. Therefore the update process is different. Formal releases of code
-were originally all available from the `Google Code Downloads page 
-<http://code.google.com/p/indicia/downloads/list>`_, though this facility is in the 
-process of being withdrawn by Google, so new downloadable releases will be made available
-from `indicia.org <http://www.indicia.org.uk/downloads>`_. 
+<http://drupal.org>`_. Therefore the update process is different. 
 
-You may also on occasion want to download a release directly from Subversion (the 
-repository used to hold all Indicia code). This allows you to access the very latest copy
-of a module or theme. If you want to do this you will need to ensure that you have a
-Subversion client installed on your machine. This is often provided on Linux & Mac OS X
-installations (type ``svn help`` in a terminal window to check this). On Windows you might
-like to install `TortoiseSVN <http://tortoisesvn.net/>`_ which integrates Subversion 
-functionality into the context menu of Windows Explorer, or `slick subversion 
-<http://www.sliksvn.com/en/download>`_ if you prefer the command line approach. If you are
-simply trying to get the latest code in order to copy to your webserver, then in all 
-cases you will need to create a local folder in which to obtain the code. Navigate to that
-folder using the appropriate tool (e.g. Windows command prompt for slik subversion, 
-Windows Explorer for TortoiseSVN, or a terminal window for Linux/Mac OS X). Then issue
-an SVN Export command specifying the path to the resource you want to obtain, for example
-this command gets the latest **iform** module for Drupal 7::
+You may also, on occasion, want to download a particular version directly from Github (the 
+place used to hold all Indicia code). This allows you to access any copy of a module
+or theme including the latest development. If you visit `Indicia Team on Github 
+<https://github.com/Indicia-Team>`_ and select the repository of interest there is a 
+"Clone or download" button which, by default, gets the latest release from the master
+branch. You can switch to the develop branch to get the latest development version.
 
-  svn export http://indicia.googlecode.com/svn/drupal_7/modules/iform/trunk/iform
-  
-If you are using TortoiseSVN, then there is a TortoiseSVN menu item on the context menu
-if you right click on the folder. 
-
-Upgrading Indicia modules
-=========================
-
-There are several modules available for Indicia to integrate with both Drupal 6 & 7. In
-all cases you need to download and unzip or export the module folder(s), then copy the
+There are several modules available for Indicia to integrate with both Drupal 6, 7 & 8. In
+all cases you need to download and unzip the module folder(s), then copy the
 folder(s) to your ``sites/all/modules`` folder on your webserver, using an FTP client or
 other file access if required to access the remote server. Although most updates will not
 require it, you should visit Drupal's ``update.php`` path after installation in case there
 are any database schema updates required.
-
-The following SVN commands are available.
-
-#. Extract the latest version of the iform module code for Drupal 7, which is the primary 
-   module used to integrate Indicia into Drupal::
-
-     svn export http://indicia.googlecode.com/svn/drupal_7/modules/iform/trunk/iform
-     
-#. Extract the latest version of the indicia features modules for Drupal 7, which provide
-   several installable features to setup common site patterns such as recording groups
-   and Explore reports::
-   
-     svn export http://indicia.googlecode.com/svn/drupal_7/modules/indicia_features/trunk/indicia_features
-
-#. Extract the latest version of the iform module code for Drupal 6::
-
-     svn export http://indicia.googlecode.com/svn/drupal/modules/iform/trunk/iform
-     
-#. Extract a previous release of the iform module code for Drupal 6::
-
-     svn export http://indicia.googlecode.com/svn/drupal/modules/iform/branches/version 0.8.1/iform
-     
-   See `Google Code <http://code.google.com/p/indicia/source/browse/#svn%2Fdrupal%2Fmodules%2Fiform%2Fbranches>`_
-   to check the available versions.
-
-#. Extract the latest version of the indicia features modules for Drupal 6, which provide
-   several installable features used to create Instant Indicia setups::
-   
-     svn export http://indicia.googlecode.com/svn/drupal/modules/indicia_features/trunk/indicia_features
-
-Upgrading Indicia themes
-========================
 
