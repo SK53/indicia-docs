@@ -4,9 +4,10 @@ Instant Indicia
 
 .. warning::
 
-  Instant Indicia was based on Drupal 6. We strongly recommend that if you are starting to 
-  build a new online recording website that you use Drupal 7 and the IForm module since
-  Drupal 6 is no longer the preferred version of Drupal. 
+  Instant Indicia was based on Drupal 6 which is no longer supported. It should be considered
+  obsolete. We currently (Nov 2016) recommend that, if you are building a new online recording 
+  website, you use Drupal 7 and the IForm module. There is also an initial release of the IForm module 
+  for Drupal 8  on `Github <https://github.com/Indicia-Team/drupal-8-module-iform/releases>`_.
   
 Introduction
 ============
