@@ -21,9 +21,9 @@ your web browser to access this url if required, though this is only really appr
 for development and testing purposes as you would need to do this regularly throughout
 the day.
 
-When using a scheduler on the server itself you do not need to launch and kill a browser
-process as php/kohana can be run from the command line. The command to execute will be
-in the form:
+When using cron to run the scheduled tasks link, it is common practice to call PHP
+directly via the command line, rather than call it by visiting the URL. The command to 
+execute will be in the form:
 
   php path/to/file/index.php scheduled_tasks
 
@@ -34,7 +34,11 @@ commas if it contains spaces.
 
   If using the command line then you must ensure that the task is run using the same user
   as the web-server process (e.g. Apache or IIS) so that if the task creates a new log
-  file on the warehouse, the file has the correct ownership.
+  file on the warehouse, the file has the correct ownership. If you cannot do this, then
+  rather than invoke PHP directly as above, you can run the scheduled_tasks link with the
+  following command:
+  
+    wget -0 - -q -t 1 http://my.warehouse.url/index.php/scheduled_tasks
 
 Controlling which task is run
 -----------------------------
