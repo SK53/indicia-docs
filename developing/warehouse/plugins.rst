@@ -219,6 +219,17 @@ supported applies to plugins which implement the `scheduled_task` hook:
     contains a column called `CUD` which contains C(reate) for newly created records, 
     U(pdate) for updated records and D(elete) for deleted records. There is also a
     ``timestamp`` column containing the time of the change.
+    
+.. note::
+
+  The occdelta table is provided to help efficiently inform plugins about which records
+  have new information requiring reprocessing by the plugin. It is not an audit of all 
+  changes. Therefore, if a record is created then immediately edited before the next
+  run of the `scheduled_tasks`, the occdelta table will only contain a single entry with 
+  CUD set to 'C', indicating that this is the first time the plugin has been informed 
+  about the record. The update operation will not be notified to the plugin unless it
+  occurs after the next run of the tasks, in which case the plugin needs to be notified
+  in case there is new information in the record that requires reprocessing. 
 
 Caching
 -------
