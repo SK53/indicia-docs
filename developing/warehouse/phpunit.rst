@@ -10,6 +10,13 @@ implemented.
 #. You MUST install your warehouse against a local database called 'indicia' and the 
    warehouse MUST only be used for unit testing, since each test run may clear existing
    data from the database.
+#. Enable the following modules by adding them to the list in 
+   `application/config/config.php`:
+   
+     * rest_api
+     * sref_mtb
+     * data_cleaner_period_within_year
+     
 #. Enable the phpUnit warehouse module. You will need to disable it after running your
    tests. Whilst the phpUnit module is enabled, your warehouse will not be fully 
    functional so do not run tests on a live server. :doc:`Click here for more information 
