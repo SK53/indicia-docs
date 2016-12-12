@@ -17,14 +17,11 @@ already have a website with static HTML pages.
 Starting from scratch
 =====================
 
-If you are starting from scratch you might like to consider using **Instant 
-Indicia** as a tool to build your website, which is based on the **Drupal** 
-content management system. Like Indicia Drupal is free, open source and based on
-the PHP programming language. Instant Indicia provides an integrated environment 
-for setting up online recording websites, by packaging everything you are likely 
-to need for a biodiversity website into a single installation. Alternatively if 
-you already have a Drupal website there is good integration between Drupal and 
-Indicia which can be enabled simply by installing some modules, plus there are a 
+If you are starting from scratch you might like to consider using the `Drupal <http://www.drupal.org>`_
+content management system to build your website. Like Indicia, Drupal is free, open source and based on
+the PHP programming language. Drupal provides a very capable environment 
+for setting up online recording websites and integrates with Indicia
+through the installation of modules that have been created for this purpose. Moreover, there are a 
 number of other sites using this combination of technology so you won't be on 
 your own. Drupal not only provides a system for building and publishing the 
 content of the website, but it can be extended with a choice of many thousands 
@@ -33,9 +30,6 @@ other features just by using the modules. With Drupal installed, it is possible
 to setup Indicia forms as a site editor without needing to understand any PHP 
 code, though if you do have PHP skills available then more possibilities will be 
 available to you.
-
-For a brief introduction to the capabilities of Instant Indicia see the `Instant 
-Indicia Trailer <http://www.youtube.com/watch?v=0ZjINCVDc7E>`_.
 
 Another option when starting from scratch would be to develop a site using hand 
 coded PHP. This approach is useful if you have good PHP programming skills 
