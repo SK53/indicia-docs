@@ -167,7 +167,7 @@ so to ensure that the correct entry is found, we need to filter the lookup as fo
     "fields" : {
       "name" : {"value" : "{value1}"},
       "fk_location_type_id" : {"value" : "parish"},
-      "fkFilter:termlists_term:termlist_id:" : 5
+      "fkFilter:termlists_term:termlist_id:" : {"value": 5}
     }
   }
 
@@ -201,8 +201,8 @@ which describes a hierarchy of records. This can be achieved as in the following
       "model" : {
         "id" : "occurrence",
         "fields" : {
-          "taxa_taxon_list_id" : 12345,
-          "occAttr:14" : 3
+          "taxa_taxon_list_id" : {"value": 12345},
+          "occAttr:14" : {"value": 3}
         }
       }
     }, {
@@ -210,8 +210,8 @@ which describes a hierarchy of records. This can be achieved as in the following
       "model" : {
         "id" : "occurrence",
         "fields" : {
-          "taxa_taxon_list_id" : 54321,
-          "occAttr:14" : 1
+          "taxa_taxon_list_id" : {"value": 54321},
+          "occAttr:14" : {"value": 1}
         }
       }
     }]
