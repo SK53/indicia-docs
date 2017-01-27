@@ -22,7 +22,7 @@ record.
 Request::
 
   http://www.mywarehouse.com/index.php/services/data/occurrence/10
-  &nonce=<nonce>&auth_token=<auth_token>
+  ?nonce=<nonce>&auth_token=<auth_token>
 
 Example response:
 
@@ -79,7 +79,7 @@ record.
 Request::
 
   http://www.mywarehouse.com/index.php/services/data/occurrence/10
-  &view=detail&mode=xml&nonce=<nonce>&auth_token=<auth_token>
+  ?view=detail&mode=xml&nonce=<nonce>&auth_token=<auth_token>
 
 Example response:
 
