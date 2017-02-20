@@ -132,9 +132,18 @@ Language files for each prebuilt form are placed in the folder
 is the 2 character ISO language code matching the declared code in Drupal.
 
 In addition, a single form instance can either replace or change the language 
-file for a form by declaring a file in the lang folder called node.\ *nid.lang*\ .php 
-where *nid* is the form page's node id and *lang* is the 2 characher ISO language code. 
-Provide a complete set of custom terms by using the global $custom_terms array:
+file for a form by declaring a file called node.\ *nid.lang*\ .php where *nid* is the 
+form page's node id and *lang* is the 2 characher ISO language code. Place the file in the
+Drupal files folder, in a sub-folder called ``indicia/lang``, or in the 
+``sites\all\modules\iform\client_helpers\prebuilt_forms\lang`` folder. The former is 
+preferable so you don't need to modify the iform module files. You can also specify a file
+in the ``files/indicia/lang`` folder called default.nn.php (where nn is the language code)
+to provide custom terms that will apply to every form on the site.
+
+
+When adding a page specific translation file or a file for translations for the whole 
+site, you should provide a complete set of custom terms by using the global 
+$custom_terms array, e.g.:
 
 .. code-block:: php
 
