@@ -36,6 +36,14 @@ could be said to be an attribute of the site, we can tick the **Applies to locat
   based recording where the attributes which have this flag ticked will default to the
   values recorded the last time this site was visited.
   
+.. tip::
+  When adding an attribute using the Lookup datatype you can link the attribute to a pre-
+  existing termlist in order to create a drop-down list of terms to pick from. For simple
+  lists of terms you can do this in one step - click the **Create a new termlist** option
+  which appears when you pick the Lookup data type. You can then enter the list of terms
+  into the box which appears, one per line. A termlist will then be created for you with 
+  the same name as the attribute.
+  
 Validation rules
 ----------------
 
@@ -91,7 +99,7 @@ the survey you are working on. Your page should look something like this:
 
 Finally, save the attribute. 
 
-If you are using the Drupal IForm module or Instant Indicia, then many of the forms 
-Indicia provides for you to add to the page will automatically show a control allowing a
-value for this attribute to be input. However note that the control will only appear after
-you clear the Indicia cache on the Drupal website.
+If you are using the Drupal IForm module, then many of the forms Indicia provides for you
+to add to the page will automatically show a control allowing a value for this attribute 
+to be input. However note that the control will only appear after you clear the Indicia 
+cache on the Drupal website.

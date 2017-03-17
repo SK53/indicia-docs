@@ -814,8 +814,14 @@ The report will then support the following list of parameters:
   
   * ``exclude_sensitive`` - provide 't' to hide sensitive records completely. Note that the
     cache_occurrences table already blurs the information for sensitive records.
-  * ``release_status`` - filter on the release status of records. The following options are
-    available:
+  * ``confidential`` - filter on the record's confidential status. This is different to 
+    sensitivity in that it is generally set by the dataset administrator in order to 
+    disable communications regarding a record, e.g. it prevents notifications being sent
+    out to a recorder when the record is verified. Set the filter to 'f' to exclude
+    confidential records, 't' to include only confidential records or 'all' to disable 
+    this filter. Default is 'f' so confidential records are excluded.
+  * ``release_status`` - filter on the release status of records. The following options 
+    are available:
   
       * R - released records only (default)
       * U - unreleased records only
