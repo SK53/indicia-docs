@@ -3,14 +3,14 @@ Warehouse Extension Modules
 
 The warehouse is designed as a lightweight core essential for all biological recording
 usages of Indicia, with a set of optional extension modules that each enable a specific
-area of functionality. 
+area of functionality.
 
 Installation
 ^^^^^^^^^^^^
 
 Modules can be installed on warehouses by editing the
 application/config/config.php file using a text editor, then finding the definition of the
-$config['modules'] array. Ensure that this contains the following line, replacing 
+$config['modules'] array. Ensure that this contains the following line, replacing
 module_name with the name of the file system folder which contains the module:
 
 .. code-block:: php
@@ -20,11 +20,11 @@ module_name with the name of the file system folder which contains the module:
   MODPATH.'module_name',
   ...
   ?>
-  
-In some cases, the modules install additional menu items or tabs into the Indicia 
+
+In some cases, the modules install additional menu items or tabs into the Indicia
 warehouse user interface. Because the warehouse's user interface is cached for performance
 reasons, when you install such a module you will need to remove the files from the
-``application/cache`` folder in the warehouse installation folder which follow either of 
+``application/cache`` folder in the warehouse installation folder which follow either of
 the following patterns otherwise the user interface updates will not take place until
 after the next cache update:
 
@@ -71,6 +71,7 @@ Module List
   occurrence-associations
   people-tidier
   phpunit
+  rest-api
   spatial-index-builder
   sref-channel-islands
   sref-mtb
