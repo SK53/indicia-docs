@@ -1,0 +1,134 @@
+RESTful web service authentication
+==================================
+
+Indicia's web services provide support for a variety of different types of clients,
+including:
+
+  * Standard websites with online recording and reporting facilities.
+  * Mobile applications.
+  * Other databases which synchronise data with the Indicia instance.
+  * Developers working on site building or report writing.
+
+In order to meet the needs of the different types of client, there are several
+options for approaches to authentication.
+
+  * A website might wish to authenticate as the registered website on the warehouse
+    and will therefore gain access to all records contributed via that website or
+    shared with the website for reporting purposes.
+  * A mobile application user might authenticate as that specific user/application
+    combination to gain access to just their records.
+  * A remote database which synchronises with the warehouse needs to identify
+    itself in order for the warehouse to ensure the correct filtered set of
+    records is made available to it.
+  * A developer will want to be able to simulate all these options without the
+    authentication process hindering the simplicity of development.
+
+Given the above requirements, Indicia provides 3 options for identifying the
+client making a web-service request:
+
+#. The warehouse has a list of website registrations in the websites table. This
+   describes each of the online recording websites that contribute records to
+   the warehouse. Authentication of web service requests can be achieved by
+   providing a website_id and using the website's password as the secret for
+   authentication. This gives the client access to the records belonging to the
+   given website registration as well as any which are shared with the website
+   via warehouse configuration.
+#. The warehouse also has a list of user accounts which can be used for
+   authentication. Authentication of web service requests can be achieved by
+   providing a user_id and website_id and using the user's warehouse password as
+   the secret for authentication. This gives the client access to the user's
+   records which they've contributed to the website identified by the given
+   website_id. The user must of course be a member of the website. Optionally,
+   provide a filter_id for a filter linked to the user which has
+   defines_permissions=t (e.g. a filter granting verification rights) to give
+   the client access to the filtered set of records.
+#. Configure the warehouse REST API with a list of client systems that have
+   access to records on the warehouse for synchronisation purposes. Provide the
+   client system ID and use the configured secret for authentication to gain
+   access to a set of records defined by a filter given in the configuration.
+
+oAuth2
+------
+
+Support will be added in a future release.
+
+HMAC
+----
+
+This approach to authentication relies on the client process using a shared
+secret to build a hash value using the URL plus all the data values supplied in
+the request. The hash (HMAC, or keyed-hash message authentication code) is
+provided with the request but not the secret. The server side can then hash the
+request's data with the secret (which it also knows) to generate the HMAC. If
+they match then the request is authentic.
+
+In more detail:
+
+#. The requesting entity creates a HMAC-SHA1 value of the complete request url
+   (including parameters). The hash value uses the user password as the shared secret.
+#. The requesting entity adds an Authorization header to the request containing the
+   following string [user type]:[user identifier]:HMAC:[hmac] where:
+
+     * [user_type] is a token which identifies whether a registered website
+       (WEBSITE_ID), warehouse user account (USER_ID) or client system defined
+       in the REST API's configuration file (USER).
+     * [user identifier] is the requesting client's identifier, either the website_id,
+       user_id or client system ID as described above.
+     * [hmac] is the HMAC-SHA1 value computed in (1)
+
+#. The receiving entity recomputes the HMAC-SHA1 in the same manner as (1) and any
+   authorisation failure is returned as HTTP 401 Unauthorized.
+
+This authentication should provide suitable protection against tampering and sufficient
+level of authentication providing the shared secret is sufficiently long.
+
+The following example PHP snippet illustrates the code required for authentication against
+the REST API as a client system described in the REST API's configuration file:
+
+.. code-block:: php
+
+  <?php
+  $shared_secret = 'mypassword';
+  $userId = 'ME';
+  $url = 'http://www.example.com/rest/projects';
+  $session = curl_init();
+  // Set the POST options.
+  curl_setopt ($session, CURLOPT_URL, $url);
+  curl_setopt($session, CURLOPT_HEADER, false);
+  curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
+  // Create the authentication HMAC
+  $hmac = hash_hmac("sha1", $url, $shared_secret, $raw_output=FALSE);
+  curl_setopt($session,
+      CURLOPT_HTTPHEADER,
+      array("Authorization: USER:$userId:HMAC:$hmac")
+  );
+  // Do the request
+  $response = curl_exec($session);
+  $httpCode = curl_getinfo($session, CURLINFO_HTTP_CODE);
+  $curlErrno = curl_errno($session);
+  // Check for an error, or check if the http response was not OK.
+  if ($curlErrno || $httpCode != 200) {
+    echo "Error occurred accessing $url<br/>";
+    echo "Rest API Sync error $httpCode<br/>";
+    if ($curlErrno) {
+      echo 'Error number: '.$curlErrno;
+      echo 'Error message: '.curl_error($session);
+    }
+    throw new exception('Request to server failed');
+  }
+  $data = json_decode($response, true);
+  ?>
+
+Direct authentication
+---------------------
+
+HMAC authentication never require's the user's secret or password to be passed
+across the connection between the client and server so is inherently secure and
+it does not require a secure connection (https) to ensure the authentication
+details cannot be sniffed. When a secure connection is available over https, or
+when developing code so security is not a concern, it can be simpler to pass
+a password to the authentication process directly without calculating an HMAC.
+Note that the default configuration of a warehouse is to disallow directly
+passing a password or secret to the REST API authentication so this needs to be
+changed in the REST API's configuration where appropriate. See
+:doc:`../../administrating/warehouse/modules/rest-api` for more information.
