@@ -4,7 +4,7 @@ RESTful web service authentication
 Indicia's web services provide support for a variety of different types of clients,
 including:
 
-  * Standard websites with online recording and reporting facilities.
+  * Websites with online recording and reporting facilities.
   * Mobile applications.
   * Other databases which synchronise data with the Indicia instance.
   * Developers working on site building or report writing.
@@ -12,9 +12,9 @@ including:
 In order to meet the needs of the different types of client, there are several
 options for approaches to authentication.
 
-  * A website might wish to authenticate as the registered website on the warehouse
-    and will therefore gain access to all records contributed via that website or
-    shared with the website for reporting purposes.
+  * A website or application might wish to authenticate as the registered website
+    on the warehouse and will therefore gain access to all records contributed
+    via that website or shared with the website for reporting purposes.
   * A mobile application user might authenticate as that specific user/application
     combination to gain access to just their records.
   * A remote database which synchronises with the warehouse needs to identify
@@ -23,8 +23,8 @@ options for approaches to authentication.
   * A developer will want to be able to simulate all these options without the
     authentication process hindering the simplicity of development.
 
-Given the above requirements, Indicia provides 3 options for identifying the
-client making a web-service request:
+Given the above requirements, Indicia provides 3 types of identification that
+can be used when accessing the web services:
 
 #. The warehouse has a list of website registrations in the websites table. This
    describes each of the online recording websites that contribute records to
@@ -42,15 +42,45 @@ client making a web-service request:
    provide a filter_id for a filter linked to the user which has
    defines_permissions=t (e.g. a filter granting verification rights) to give
    the client access to the filtered set of records.
-#. Configure the warehouse REST API with a list of client systems that have
-   access to records on the warehouse for synchronisation purposes. Provide the
+#. The REST API has a list of client systems in its configuration file which
+   are given access to the web services for synchronisation purposes. Provide the
    client system ID and use the configured secret for authentication to gain
    access to a set of records defined by a filter given in the configuration.
+
+The following methods of authentication using these 3 categories of client user
+are available for the REST API:
 
 oAuth2
 ------
 
-Support will be added in a future release.
+The web services support the password grant flow only. By default this is
+possible over an https connection only though in development environments you
+can configure the REST API's `http_authentication_methods` setting to change
+this. Note that a client ID is automatically recognised for every registered
+website on the warehouse, in the format "website_id:<id>" replacing <id>
+with the numerical website ID.
+
+Example:
+
+#. POST to index.php/services/rest/token with the following POST data, replacing
+   the values in <> as appropriate:
+   grant_type=password&username=<user>&password=<password>&client_id=website_id:<n>
+#. The response is a JSON object with a value for access_token, e.g.:
+   ``{access_token:"12345",token_type:"bearer",expires_in:7200}``
+#. The bearer token type indicates we can supply the access token in subsequent
+   requests by setting the Authorization header to "Bearer <access_token>",
+   e.g. call index.php/services/rest/reports with the header set to
+   "Authorization: Bearer 12345".
+
+.. tip::
+
+  Accessing via oAuth in this way grants access only to the user's records on
+  the associated website registration given in the token request. In order to
+  grant access to a wider set of records you can create a filter (in the
+  filters table) and link it to the user, with defines_permissions=t. This grants
+  the records identified by the filter to the user when using that filter ID.
+  The ID of the filter to use can be passed in a query parameter in the URL
+  called filter_id.
 
 HMAC
 ----
@@ -60,7 +90,10 @@ secret to build a hash value using the URL plus all the data values supplied in
 the request. The hash (HMAC, or keyed-hash message authentication code) is
 provided with the request but not the secret. The server side can then hash the
 request's data with the secret (which it also knows) to generate the HMAC. If
-they match then the request is authentic.
+they match then the request is authentic. Although not as widely recognised as
+oAuth2, this approach does provide some protection when using http rather than
+https since the secrets are never passed between the client and server. It also
+has the advantage of being genuinely stateless and therefore RESTful.
 
 In more detail:
 
@@ -75,6 +108,20 @@ In more detail:
      * [user identifier] is the requesting client's identifier, either the website_id,
        user_id or client system ID as described above.
      * [hmac] is the HMAC-SHA1 value computed in (1)
+
+   When identifying as a warehouse user it is also necessary to provide the
+   website ID in the authentication string as follows, since a single user
+   account can have access to several website registrations::
+
+      USER_ID:[user id]:WEBSITE_ID:[website id]:HMAC:[hmac]
+
+.. tip::
+
+   When identifying as a warehouse user it is possible for them to have their
+   permissions extended by having an administrator create a filter for them
+   which has the defines_permissions flag set to true, just as you can with
+   oAuth authentication. The ID of the filter to use can be passed in a query
+   parameter in the URL called filter_id.
 
 #. The receiving entity recomputes the HMAC-SHA1 in the same manner as (1) and any
    authorisation failure is returned as HTTP 401 Unauthorized.
@@ -132,3 +179,9 @@ Note that the default configuration of a warehouse is to disallow directly
 passing a password or secret to the REST API authentication so this needs to be
 changed in the REST API's configuration where appropriate. See
 :doc:`../../administrating/warehouse/modules/rest-api` for more information.
+
+When using direct authentication, the process is the same as for HMAC but you
+set the password or client system shared secret in the authentication string
+as in the following example (using the token SECRET instead of HMAC)::
+
+  USER_ID:[user id]:WEBSITE_ID:[website id]:SECRET:[user password]
