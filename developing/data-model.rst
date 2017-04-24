@@ -402,8 +402,3 @@ intersect a point or polygon:
       900913
     )
   );
-
-
-WKT, postGIS functions (st_geomfromtext, st_astext, st_transform, st_buffer, st_intersects, st_touches)
-
-Locations, map squares,
