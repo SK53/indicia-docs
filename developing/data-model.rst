@@ -269,7 +269,7 @@ allow allow extension with custom attributes. In the following example, you can 
 sample_attributes.
 
 <table>_attributes
------------------
+------------------
 
 For each custom attribute, a record is created in the <table>_attributes table which
 describes the global properties of the attribute, including its caption, data type and
