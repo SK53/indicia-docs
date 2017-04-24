@@ -19,6 +19,7 @@ Developing
   coding-standards
   github
   client-website/index
+  data-model
   reporting/index
   web-services/index
   rest-web-services/index
