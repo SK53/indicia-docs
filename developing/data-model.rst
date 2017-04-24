@@ -387,7 +387,7 @@ These functions both work with the Well Known Text format for describing geometr
 As another example, you could also use the st_intersects function to find occurrences which
 intersect a point or polygon:
 
-.. code-block::
+.. code-block:: sql
 
   -- Find all occurrences within a 10km buffer of a known point.
   select *
