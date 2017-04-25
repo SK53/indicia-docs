@@ -315,7 +315,11 @@ the <table>_attribute_values table, which links the <table>_attributes attribute
 definition to the actual record in <table>.
 
 By means of illustration, the following query pulls out all the custom attribute values for
-samples in a given survey dataset:
+samples in a given survey dataset. Note the use of the coalesce() function to pull out the
+first non-null value in the list of different fields used to store custom attribute values
+of different data types. The int_value field is either used to store an integer number
+value, or in the case of lookup attributes, points to the ID of the selected term in the
+lookup:
 
 .. code-block:: sql
 
@@ -323,11 +327,18 @@ samples in a given survey dataset:
     s.id,
     string_agg(
       a.caption || ': ' ||
-        coalesce(v.text_value, v.int_value::varchar, v.float_value::varchar, vague_date_to_string(v.date_start_value, v.date_end_value, v.date_type_value)),
+        coalesce(
+          t.term,
+          v.text_value,
+          v.int_value::varchar,
+          v.float_value::varchar,
+          vague_date_to_string(v.date_start_value, v.date_end_value, v.date_type_value)
+        ),
       '; ') as values
   from samples s
   join sample_attribute_values v on v.sample_id=s.id and v.deleted=false
   join sample_attributes a on a.id=v.sample_attribute_id and v.deleted=false
+  left join cache_termlists_terms t on t.id=v.int_value and a.data_type='L'
   group by s.id
 
 Some attributes will have the system_function field populated in the <table>_attributes
@@ -342,6 +353,44 @@ example:
 
   select id, attr_biotope from cache_samples_nonfunctional
 
+People, users and groups
+========================
+
+This module contains information about people (including those which are users of the
+system in some way and those which aren't) and allows them to be grouped for any purpose,
+e.g. to work together on an activity, share records and reports etc.
+
+.. image:: ../images/diagrams/indicia-people-erd.png
+  :alt: Entity Relationship Diagram for the people, users and groups module of the database.
+  :width: 100%
+
+people
+------
+
+The people table is used to maintain a list of all known people, whether or not they are
+actually users.
+
+users
+-----
+
+The users table contains a record *in addition to the record in people* for all people
+who actually log in to the Indicia warehouse or a client recording website or app. A
+users table provides the id which gets tagged against all record metadata to imply
+ownership.
+
+groups
+------
+
+groups_users
+------------
+
+group_pages
+-----------
+
+filters
+-------
+
+Although not really part of the users, people and groups database module XXXXXXX
 
 Website agreements
 ==================
