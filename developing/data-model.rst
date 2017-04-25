@@ -11,7 +11,13 @@ websites > surveys > samples > occurrences
 ==========================================
 
 The main spine of the data model captures species observations and is covered by the
-websites,  surveys, samples and occurrences tables.
+websites,  surveys, samples, occurrences and determinations tables. The following diagram
+shows the relationships between these tables as well as the associated custom attribute
+tables described later on this page:
+
+.. image:: ../images/diagrams/indicia-species-observations-erd.png
+  :alt: Entity Relationship Diagram for the species observations module of the database.
+  :width: 100%
 
 websites
 --------
@@ -89,6 +95,12 @@ any taxonomic information - we'll cover that in a moment.
   where w.deleted=false
   order by o.id desc
   limit 1
+
+determinations
+--------------
+
+Where there have been multiple opinions on the identification of a record, the
+determinations table contains _previous_ identification details.
 
 taxon_lists > taxa_taxon_lists > taxa
 =====================================
