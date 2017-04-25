@@ -96,6 +96,10 @@ taxon_lists > taxa_taxon_lists > taxa
 The second key part of the database is the taxonomy module which captures information
 about the species and other taxa which you can record against.
 
+.. image:: ../images/diagrams/indicia-taxonomy-erd.png
+  :alt: Entity Relationship Diagram for the taxonomy module of the database.
+  :width: 100%
+
 taxon_lists
 -----------
 
@@ -149,6 +153,13 @@ The taxon_groups table provides a list of labels (sometimes called reporting cat
 which are often used in reporting to  help clarify taxon names in a user friendly way. Each
 taxon belongs to a single taxon group and group names can be taxonomic but don't have to
 be, for example a taxon group could  be called "aquatic insects" if desired.
+
+languages
+---------
+
+A simple lookup list of languages used in the taxonomy and termlists parts of the database,
+e.g. separates Latin names from English names. Includes the 3 letter iso language code
+which can be used as a shortcut to the full language name.
 
 Cache tables
 ============
