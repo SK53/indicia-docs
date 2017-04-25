@@ -67,3 +67,16 @@ Find a list of all species in the same polygon:
     )
   )
   order by cttl.kingdom_taxon, cttl.order_taxon, cttl.family_taxon, cttl.preferred_taxon;
+
+Find all species in a vice county, assuming that a layer of vice counties has been
+configured in the warehouse spatial index builder module:
+
+.. code-block::
+
+  select o.id,
+  cttl.taxon,
+  snf.public_entered_sref,
+  vague_date_to_string(o.date_start, o.date_end, o.date_type)
+  from cache_occurrences_functional o
+  join locations l on l.id=o.location_id_vice_county and l.deleted=false
+  where l.name='Dorset';

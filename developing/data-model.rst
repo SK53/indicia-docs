@@ -96,11 +96,49 @@ any taxonomic information - we'll cover that in a moment.
   order by o.id desc
   limit 1
 
+A key aspect of thee occurrences table is the ability to easily track the status of a
+record especially with respect to quality. This is achieved using 2 fields, record_status
+and record_substatus. The record_status field provides the broad status of the record and
+the optional record_substatus field provides a greater level of granularity. The
+record_status has the following possibilities:
+
+  * V = verified or accepted
+  * C = data entry complete and pending check
+  * R = rejected or not accepted
+
+When the record_status is combined with the record_substatus the possibilities are as
+follows:
+
+  * V + null = verified or accepted
+  * V + 1 = verified or accepted as correct (i.e. accepted as beyond reasonable doubt, e.g.
+    if specimen or good photographic evidence available).
+  * V + 2 = verified or accepted as considered correct (i.e. accepted but without
+    photographic or voucher specimen evidence)
+  * C + 3 = data entry complete, checked but not conclusive, marked as plausible.
+  * C + null = data entry complete and pending check
+  * C + 4 = rejected as considered incorrect
+  * C + 5 = rejected as incorrect (i.e. evidence available to prove it is incorrect beyond
+    reasonable doubt).
+
+Therefore a query to obtain all accepted records can simply filter on record_status=V and
+ignore the substatus.
+
+occurrence_comments
+-------------------
+
+The occurrence comments contains a log of all comments, including:
+
+  * those made by recorders on each others records
+  * queries made by experts
+  * verification decisions made by experts
+  * comments added by automatic record quality checks, e.g. flagging records outside the
+    expected range or time of year.
+
 determinations
 --------------
 
 Where there have been multiple opinions on the identification of a record, the
-determinations table contains _previous_ identification details.
+determinations table contains *previous* identification details.
 
 taxon_lists > taxa_taxon_lists > taxa
 =====================================
@@ -474,6 +512,14 @@ Location data
 
 Locations and location data deserves a special mention in any overview of the data model.
 
+When a polygon (e.g. a grid square or transect line) does not need to be re-used in the
+database, it may be appropriate to simply store the polygon in the geom attribute of the
+samples table. No other metadata relating to the polygon itself is collected in this
+instance (other than the point-in-time attribute values captured with the sample). Once
+a polygon needs to have some sort of persistent meaning in the database, for example
+a site that may be revisited, or an administrative boundary, it should be stored in the
+locations table.
+
 locations
 ---------
 
@@ -483,6 +529,25 @@ has geometry fields for the centroid and boundary which are proper spatial objec
 that use the PostGIS extensions for PostgreSQL. This means you can use the rich suite of
 PostGIS functions in your queries.
 
+Once a location has been added to the table, it may be used in several ways:
+
+  * As a filter for generating report outputs.
+  * Linked to a sample using a foreign key in samples.location_id. Note that a sample may
+    lie inside a boundary of a location without the sample linking directly to the location
+    - this means the relationship to the location would need to be implied by a spatial
+    query rather than a traditional database relationship.
+  * Any layer of locations which is frequently tagged against a record (e.g. vice counties
+    or other region) can be indexed using the warehouse spatial_index_builder module. This
+    module then runs spatial queries to link all the samples in the database to the
+    locations in the indexed layer and stores these links in the database. For example
+    the cache_occurrences.location_id_vice_county field gives a direct link to a record's
+    vice county in the BRC warehouse configuration.
+
+Spatial query support
+---------------------
+
+Indicia's database is spatially enabled, which means that it has an understanding of the
+shape data it contains and can perform functions such as near, distance, intersections etc.
 Geometry fields are stored in the database using an internal binary format. In order to
 make the field format usable by humans you can use the built in PostGIS functions
 st_geomfromtext and st_astext, e.g.
