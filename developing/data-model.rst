@@ -129,9 +129,7 @@ taxa
 
 The taxa table contains one row per taxon name. A single species concept, therefore, may
 have several rows in the taxa table, with one for the currently accepted name, plus others
-for synonyms and common names. The taxon_meaning_id field contains an ID that is unique
-for each species concept within the list so can be used to easily locate and translate
-between the different names available for a taxon.
+for synonyms and common names.
 
 Here's an example which grabs the taxon names in a list with common names:
 
@@ -152,11 +150,28 @@ Here's an example which grabs the taxon names in a list with common names:
 Don't worry if that query is looking a bit complex, later we'll see how the reporting cache
 tables make querying both observational and taxonomic data much simpler.
 
-.. tip::
+In the taxonomy module, there are several different "key" fields which can be used to
+refer to database records in different ways:
 
-  The taxa.external_key field is often used to store an externally recognised identifier
-  for the taxon. In the UK it is used to store the preferred Taxon Version Key as used
-  by the NBN.
+  * taxa_taxon_lists.id (taxa_taxon_list_id) is the primary key of every instance of a
+    unique taxon name within a taxonomic checklist or hierarchy. Every accepted latin name,
+    synonym and common name has a unique identifier. Generally when linking an occurrence
+    to its identification we use the taxa_taxon_list_id because it gives a precise
+    reference to the exact name used and the list it was selected from - reports can easily
+    work out from this the currently accepted name or common name for output for example.
+  * preferred_taxa_taxon_list_id is the taxa_taxon_list_id of the currently accepted name
+    on the list. It can be used to quickly identify a group of all the given names for a
+    taxon on a list since they will all share the same preferred_taxa_taxon_list_id.
+  * The taxa_taxon_lists.taxon_meaning_id field contains an ID that is unique for each
+    species concept so can be used to easily locate and translate between the  different
+    names available for a taxon. This is very similar to the preferred_taxa_taxon_list_id
+    except that taxon_meaning_id can be shared across lists (when the list creator chooses
+    to do so). This means that if you select all the records which have the same taxon
+    meaning ID you will get all the given combinations of taxon names and species
+    checklists across all lists.
+  * The taxa.external_key field is often used to store an externally recognised identifier
+    for the taxon. In the UK it is used to store the preferred Taxon Version Key as used
+    by the NBN.
 
 taxon_groups
 ------------
