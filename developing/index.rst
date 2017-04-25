@@ -20,6 +20,7 @@ Developing
   github
   client-website/index
   data-model
+  example-queries
   reporting/index
   web-services/index
   rest-web-services/index

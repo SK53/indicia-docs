@@ -519,6 +519,7 @@ intersect a point or polygon:
 .. code-block:: sql
 
   -- Find all occurrences within a 10km buffer of a known point.
+
   select *
   from cache_occurrences_functional
   where st_intersects(
