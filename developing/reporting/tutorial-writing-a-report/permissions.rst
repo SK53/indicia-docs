@@ -1,18 +1,17 @@
 Integrating with website permissions
 ------------------------------------
 
-The report we've been writing has, to this point, one major flaw. There
-is nothing in the report which respects the permissions given to each
-client website regarding which records can be viewed. So, the report
-will allow a client website to view any record in the system, obviously
-not good. We need to implement a way of letting Indicia control the
-report to filter the records returned by website ID. Before going any
-further, it's a good idea to set up a new Indicia Forms page on your
-Drupal website which uses this report as its source, leaving all the
-other settings to their default values. Give the report page a title and
-add it to the Drupal primary links menu so you can easily find it again.
-This gives us a report which we can use to test behaviour from the
-client website's perspective.
+The report we've been writing has, to this point, one major flaw. There is nothing in the
+report which respects the permissions given to each client website regarding which records
+can be viewed. So, the report will allow a client website to view any record in the system,
+obviously not good. We need to implement a way of letting Indicia control the report to
+filter the records returned by website ID. Before going any further, it's a good idea to
+set up a new Indicia Forms page on your Drupal website which uses this report as its
+source. Choose the page category **Reporting** and set the page type to **Report Grid**,
+then load the settings form and set the report (in the **Report Settings** section) to your
+report, leaving all the other settings to their default values. Give the report page a
+title and add it to the Drupal primary links menu so you can easily find it again. This
+gives us a report which we can use to test behaviour from the client website's perspective.
 
 There are 3 things you need to do to your report in order to get it to respect
 website permissions:
@@ -56,17 +55,17 @@ The result is an XML document which looks like the following:
       and o.created_on&gt;now()-'1 month'::interval
     </query>
     <columns>
-    <column name="id" sql="o.id" visible="false" datatype="integer"/>
-    <column name="public_entered_sref" sql="snf.public_entered_sref"
-            display="Grid Ref" datatype="text"/>
-    <column name="preferred_taxon" sql="cttl.preferred_taxon"
-            display="Species" datatype="text"/>
-    <column name="default_common_name" sql="cttl.default_common_name"
-            display="Common Name" datatype="text"/>
-    <column name="date_start" sql="o.date_start" visible="false"/>
-    <column name="date_end" sql="o.date_end" visible="false"/>
-    <column name="date_type" sql="o.date_type" visible="false"/>
-    <column name="date" display="Date" datatype="date"/>
+      <column name="id" sql="o.id" visible="false" datatype="integer"/>
+      <column name="public_entered_sref" sql="snf.public_entered_sref"
+              display="Grid Ref" datatype="text"/>
+      <column name="preferred_taxon" sql="cttl.preferred_taxon"
+              display="Species" datatype="text"/>
+      <column name="default_common_name" sql="cttl.default_common_name"
+              display="Common Name" datatype="text"/>
+      <column name="date_start" sql="o.date_start" visible="false"/>
+      <column name="date_end" sql="o.date_end" visible="false"/>
+      <column name="date_type" sql="o.date_type" visible="false"/>
+      <column name="date" display="Date" datatype="date"/>
     </columns>
   </report>
 
