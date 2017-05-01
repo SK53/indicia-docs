@@ -34,9 +34,10 @@ Find records of 7-spot ladybirds within a polygon:
 .. code-block:: sql
 
   select o.id,
-    cttl.taxon,
+    vague_date_to_string(o.date_start, o.date_end, o.date_type) as date,
     snf.public_entered_sref,
-    vague_date_to_string(o.date_start, o.date_end, o.date_type)
+    cttl.preferred_taxon,
+    cttl.default_common_name
   from cache_occurrences_functional o
   join cache_samples_nonfunctional snf on snf.id=o.sample_id
   join cache_taxa_taxon_lists cttl on cttl.id=o.taxa_taxon_list_id
@@ -68,15 +69,87 @@ Find a list of all species in the same polygon:
   )
   order by cttl.kingdom_taxon, cttl.order_taxon, cttl.family_taxon, cttl.preferred_taxon;
 
-Find all species in a vice county, assuming that a layer of vice counties has been
+Find all records in a vice county, assuming that a layer of vice counties has been
 configured in the warehouse spatial index builder module:
 
-.. code-block::
+.. code-block:: sql
 
   select o.id,
-  cttl.taxon,
-  snf.public_entered_sref,
-  vague_date_to_string(o.date_start, o.date_end, o.date_type)
+    vague_date_to_string(o.date_start, o.date_end, o.date_type) as date,
+    snf.public_entered_sref,
+    cttl.preferred_taxon,
+    cttl.default_common_name
   from cache_occurrences_functional o
+  join cache_samples_nonfunctional snf on snf.id=o.sample_id
+  join cache_taxa_taxon_lists cttl on cttl.id=o.taxa_taxon_list_id
   join locations l on l.id=o.location_id_vice_county and l.deleted=false
   where l.name='Dorset';
+
+Find a list of 7-spot ladybird records entered by a particular user for the past year:
+
+.. code-block:: sql
+
+  select o.id,
+    vague_date_to_string(o.date_start, o.date_end, o.date_type) as date,
+    snf.public_entered_sref,
+    cttl.preferred_taxon,
+    cttl.default_common_name
+  from cache_occurrences_functional o
+  join cache_samples_nonfunctional snf on snf.id=o.sample_id
+  join cache_taxa_taxon_lists cttl on cttl.id=o.taxa_taxon_list_id
+  where o.taxa_taxon_list_external_key='NBNSYS0000008324'
+  and o.created_by_id=<user_id>
+  and now() - o.date_start < '1 year'::interval;
+
+Find a list of records that have had their determination changed:
+
+.. code-block:: sql
+
+  select o.id,
+    vague_date_to_string(o.date_start, o.date_end, o.date_type) as date,
+    snf.public_entered_sref,
+    t.taxon as current_taxon,
+    string_agg(
+      t.taxon || coalesce(' (' || t.search_code || ')', '') || ', determined by ' || d.person_name ||
+      ' on ' || to_char(d.created_on, 'DD/MM/YYYY HH:MM'),
+      '; ' order by d.id)
+  from cache_occurrences_functional o
+  join cache_samples_nonfunctional snf on snf.id=o.sample_id
+  join taxa_taxon_lists ttl on ttl.id=o.taxa_taxon_list_id and ttl.deleted=false
+  join taxa t on t.id=ttl.taxon_id and t.deleted=false
+  join determinations d on d.occurrence_id=o.id
+  join cache_taxa_taxon_lists cttld on cttld.id=d.taxa_taxon_list_id
+  where o.website_id=<website_id>
+  group by o.id,
+    vague_date_to_string(o.date_start, o.date_end, o.date_type),
+    snf.public_entered_sref,
+    t.taxon
+
+Find list of records with some checking data based on the number of verified/rejected/total
+records of the same species in the same map square. Note you could join to the check table
+using the location_id_* columns to check against one of the indexed location boundaries
+instead of a map square:
+
+.. code-block:: sql
+
+  select o.id,
+    vague_date_to_string(
+      o.date_start, o.date_end, o.date_type) as date,
+    snf.public_entered_sref,
+    cttl.preferred_taxon,
+    cttl.default_common_name,
+    count(case when ocheck.record_status='V' then ocheck.id else null end) as verified_in_square,
+    count(case when ocheck.record_status='R' then ocheck.id else null end) as rejected_in_square,
+    count(ocheck.id) as total_in_square
+  from cache_occurrences_functional o
+  join cache_samples_nonfunctional snf on snf.id=o.sample_id
+  join cache_taxa_taxon_lists cttl on cttl.id=o.taxa_taxon_list_id
+  join cache_occurrences_functional ocheck
+    on ocheck.map_sq_10km_id=o.map_sq_10km_id
+    and ocheck.taxon_meaning_id=o.taxon_meaning_id
+  and o.created_on > now() - '2 days'::interval
+  group by o.id,
+    vague_date_to_string(o.date_start, o.date_end, o.date_type),
+    snf.public_entered_sref,
+    cttl.preferred_taxon,
+    cttl.default_common_name

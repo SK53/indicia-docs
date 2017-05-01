@@ -20,6 +20,7 @@ Developing
   github
   client-website/index
   data-model
+  locality-data
   example-queries
   reporting/index
   web-services/index

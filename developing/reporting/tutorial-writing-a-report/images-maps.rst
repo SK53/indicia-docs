@@ -156,11 +156,11 @@ then change the following settings:
   * **User Interface** - under **Form Structure**, add the following to the existing
     content inbetween the [standard params] and [reportgrid] controls::
 
-    [map]
-    @dataSource=<path to my report, excluding .xml suffix>
+      [map]
+      @dataSource=<path to my report, excluding .xml suffix>
 
   * You can also add the option `@rowId=id` to the [reportgrid] control if you want to
     enable clicking on a grid row to highlight the correct point on the map.
-    
+
 The options you've covered for building this report file are not exhaustive but
 hopefully you now have a good taste for what can be achieved.

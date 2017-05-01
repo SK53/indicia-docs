@@ -58,6 +58,10 @@ another sample record. This allows more complex surveying methodologies to be ca
 for example a transect sample can capture metadata about the overall transect, then
 sub-samples can capture the records at exact points along the transect.
 
+Samples capture the entered map reference as both a plain text field (as entered by the
+recorder) and a spatial object ready for drawing on a map. We'll cover spatial data in
+detail in the next section.
+
 .. tip::
 
   Since a sample date can span several days, or may not be precisely known (especially
@@ -229,18 +233,55 @@ which can be used as a shortcut to the full language name.
 Cache tables
 ============
 
-The Indicia data model is normalised, which means that data are split across multiple
-tables with relationships between the records, as opposed to a more flat "spreadsheet"
-approach where there a large number of columns in a single table. This is efficient in
-terms of storage and efficiency of updates and it also ensures the integrity of data since
-each data value is only stored once. However it can make queries more complex with multiple
-joins required to bring in all the tables required for the output of a query and in some
-cases the additional joins required can reduce the performance of queries.
+The Indicia data model is normalised, which means that data are organised in such a way as
+to reduce redundancy and improve integrity. The data required for a biological  record are
+split across multiple tables with relationships between the records, as opposed to a more
+flat "spreadsheet" approach where there a large number of columns in a single table. This
+is generally  desirable in that each item of information needs to only be stored once
+rather than repeated in several places, therefore ensuring consistency. However it can make
+queries more complex with multiple joins required to bring in all the tables required for
+the output of a query and in some cases the additional joins required can reduce the
+performance of queries. For  example, to provide the basic "what, where, when and who" of a
+biological record you need  something akin to the following SQL:
+
+.. code-block:: sql
+
+  select
+    t.taxon, tg.title as taxon_group,
+    s.entered_sref, l.name as location_name,
+    s.date_start, s.date_end, s.date_type,
+    who.text_value as recorder
+  from occurrences o
+  join samples s on s.id=o.sample_id and s.deleted=false
+  left join locations l on l.id = s.location_id and l.deleted=false
+  join taxa_taxon_lists ttl on ttl.id=o.taxa_taxon_list_id and ttl.deleted=false
+  join taxa t on t.id=ttl.taxon_id and t.deleted=false
+  join taxon_groups tg on tg.id=t.taxon_group_id and tg.deleted=false
+  join sample_attribute_values who on who.sample_id=s.id and who.deleted=false and
+    who.sample_attribute_id=<attribute ID>
 
 In order to make queries easier to write and also performant, Indicia includes a
 set of tables which "flatten" the multiple tables of key parts of the data model into
 a few tables which are easy to query and, more importantly, perform well when used to
-generate report outputs.
+generate report outputs. Here's an alternative version of the above query:
+
+.. code-block:: sql
+
+  select
+    cttl.taxon, cttl.taxon_group,
+    snf.public_entered_sref, o.location_name,
+    o.date_start, o.date_end, o.date_type,
+    snf.recorders
+  from cache_occurrences_functional o
+  join cache_samples_nonfunctional snf on snf.id=o.sample_id
+  join cache_taxa_taxon_lists cttl on cttl.id=o.taxa_taxon_list_id
+
+Not only are there less joins, but an important point is that the vast majority of fields
+you might want to filter on are in the `cache_occurrences_functional` table. Filtering
+in a single table then joining extra tables for addition of the information required for
+output fields is much faster than filtering in different tables in PostgreSQL.
+
+The cache_* tables available in the database are described below.
 
 cache_occurrences_functional
 ----------------------------
@@ -392,6 +433,7 @@ lookup:
   join sample_attribute_values v on v.sample_id=s.id and v.deleted=false
   join sample_attributes a on a.id=v.sample_attribute_id and v.deleted=false
   left join cache_termlists_terms t on t.id=v.int_value and a.data_type='L'
+  where s.survey_id=<survey_id>
   group by s.id
 
 Some attributes will have the system_function field populated in the <table>_attributes
@@ -399,7 +441,8 @@ table. This attribute flags up attributes which have a standard meaning that the
 can recognise, for example there might be a variety of attributes which capture the
 biotope associated with a sample and they can all be tagged as such. System function
 attributes values for occurrences and samples are automatically added to the
-cache_occurrences_nonfunctional and cache_samples_nonfunctional tables respectively, for
+cache_occurrences_nonfunctional and cache_samples_nonfunctional tables respectively with
+fieldnames prefixed `attr_*`, for
 example:
 
 .. code-block:: sql
@@ -503,14 +546,23 @@ It is possible to set different permissions for different "tasks", e.g. a websit
 contribute records to the iRecord portal for verification purposes but not general
 reporting.
 
+.. image:: ../images/diagrams/indicia-agreements-erd.png
+  :alt: Entity Relationship Diagram for the website agreements module of the database.
+  :width: 100%
+
 In general you don't need to write queries against the website agreement tables directly
 since the reporting system automatically builds the correct list of website_ids to filter
 against and inserts this into the report query for you.
 
-Location data
-=============
+Locations and sites
+===================
 
-Locations and location data deserves a special mention in any overview of the data model.
+.. image:: ../images/diagrams/indicia-species-observations-erd.png
+  :alt: Entity Relationship Diagram for the species observations module of the database.
+  :width: 100%
+
+locations
+---------
 
 When a polygon (e.g. a grid square or transect line) does not need to be re-used in the
 database, it may be appropriate to simply store the polygon in the geom attribute of the
@@ -519,9 +571,6 @@ instance (other than the point-in-time attribute values captured with the sample
 a polygon needs to have some sort of persistent meaning in the database, for example
 a site that may be revisited, or an administrative boundary, it should be stored in the
 locations table.
-
-locations
----------
 
 Any persistent boundary stored in the database is added as a record in the locations table.
 The location has traditional fields such as a name and centroid map reference. It also
@@ -543,57 +592,4 @@ Once a location has been added to the table, it may be used in several ways:
     the cache_occurrences.location_id_vice_county field gives a direct link to a record's
     vice county in the BRC warehouse configuration.
 
-Spatial query support
----------------------
-
-Indicia's database is spatially enabled, which means that it has an understanding of the
-shape data it contains and can perform functions such as near, distance, intersections etc.
-Geometry fields are stored in the database using an internal binary format. In order to
-make the field format usable by humans you can use the built in PostGIS functions
-st_geomfromtext and st_astext, e.g.
-
-.. code-block:: sql
-
-  -- read the boundary_geom of a location in Well Known Text format
-  select st_astext(boundary_geom) from locations where id=123;
-
-  -- Create a geometry using a Well Known Text format point string in EPSG:27700 (OSGB
-  -- Easting and Northing 1936), then transform it to web_mercator (EPSG:900913) and assign
-  -- it to a location boundary.
-  update locations
-  set boundary_geom=st_transform(
-    st_geomfromtext('POINT(461680 189630)', 27700),
-    900913
-  )
-  where id=123;
-
-These functions both work with the Well Known Text format for describing geometry objects.
-
-.. tip::
-
-  You'll often see the st_transform function in Indicia spatial queries. The geometry
-  objects are stored internally in web mercator (EPSG:900913) which is compatible with most
-  common web mapping providers such as Google, thus avoiding transformations when drawing
-  map layers in most situations. However users will often use local coordinate systems
-  like OSGB 1936 easting and northings which will need to be transformed if you want to get
-  the correct results.
-
-As another example, you could also use the st_intersects function to find occurrences which
-intersect a point or polygon:
-
-.. code-block:: sql
-
-  -- Find all occurrences within a 10km buffer of a known point.
-
-  select *
-  from cache_occurrences_functional
-  where st_intersects(
-    o.public_geom,
-    st_transform(
-      st_buffer(
-        st_geomfromtext('POINT(461680 189630)', 27700),
-        10000
-      ),
-      900913
-    )
-  );
+Locations support custom attributes so can be extended to support any metadata you require.
