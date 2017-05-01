@@ -137,9 +137,9 @@ with a summary of the prior determinations:
     p.surname || coalesce(', ' || p.first_name, '')
 
 Find list of records with some checking data based on the number of verified/rejected/total
-records of the same species in the same map square. Note you could join to the check table
-using the location_id_* columns to check against one of the indexed location boundaries
-instead of a map square:
+records of the same species in the same map square, limiting to those entered in the last 2
+days. Note you could join to the check table using the location_id_* columns to check
+against one of the indexed location boundaries instead of a map square:
 
 .. code-block:: sql
 
@@ -164,3 +164,31 @@ instead of a map square:
     snf.public_entered_sref,
     cttl.preferred_taxon,
     cttl.default_common_name
+
+History of a record. Note that this extracts the available information without relying on
+the optional audit module which may not be available:
+
+.. code-block:: sql
+
+  select o.id, o.created_on as event_date, p.surname || coalesce(', ' || p.first_name) as by, 'Input' as event, null as detail
+  from occurrences o
+  join cache_taxa_taxon_lists cttl on cttl.id=o.taxa_taxon_list_id
+  join users u on u.id=o.created_by_id and u.deleted=false
+  join people p on p.id=u.person_id and p.deleted=false
+  where o.id=4861423
+  union
+  select oc.occurrence_id, oc.created_on as event_date, p.surname || coalesce(', ' || p.first_name) as by,
+  case oc.auto_generated when 't' then 'Record cleaner' else case when oc.record_status is null then 'Comment' else 'Verification check' end end as event, oc.comment as detail
+  from occurrence_comments oc
+  join users u on u.id=oc.created_by_id and u.deleted=false
+  join people p on p.id=u.person_id and p.deleted=false
+  where oc.occurrence_id=4861423
+  union
+  select d.occurrence_id, d.created_on as event_date, p.surname || coalesce(', ' || p.first_name) as by, 'Determined' as event, cttl.taxon as detail
+  from determinations d
+  join cache_taxa_taxon_lists cttl on cttl.id=d.taxa_taxon_list_id
+  join users u on u.id=d.created_by_id and u.deleted=false
+  join people p on p.id=u.person_id and p.deleted=false
+  where d.occurrence_id=4861423
+  and d.deleted=false
+  order by id, event_date
