@@ -242,7 +242,8 @@ rather than repeated in several places, therefore ensuring consistency. However 
 queries more complex with multiple joins required to bring in all the tables required for
 the output of a query and in some cases the additional joins required can reduce the
 performance of queries. For  example, to provide the basic "what, where, when and who" of a
-biological record you need  something akin to the following SQL:
+set of biological records from the last week's input you need  something akin to the
+following SQL:
 
 .. code-block:: sql
 
@@ -254,11 +255,16 @@ biological record you need  something akin to the following SQL:
   from occurrences o
   join samples s on s.id=o.sample_id and s.deleted=false
   left join locations l on l.id = s.location_id and l.deleted=false
-  join taxa_taxon_lists ttl on ttl.id=o.taxa_taxon_list_id and ttl.deleted=false
+  join taxa_taxon_lists ttl on ttl.id=o.taxa_taxon_list_id
+    and ttl.deleted=false
   join taxa t on t.id=ttl.taxon_id and t.deleted=false
   join taxon_groups tg on tg.id=t.taxon_group_id and tg.deleted=false
-  join sample_attribute_values who on who.sample_id=s.id and who.deleted=false and
-    who.sample_attribute_id=<attribute ID>
+  left join (sample_attribute_values who
+  join sample_attributes whoa on whoa.id=who.sample_attribute_id
+    and whoa.deleted=false and whoa.system_function='full name'
+  ) on who.sample_id=s.id and who.deleted=false
+  where o.created_on>now() - '1 week'::interval
+  and t.taxon_group_id=<taxon_group_id>
 
 In order to make queries easier to write and also performant, Indicia includes a
 set of tables which "flatten" the multiple tables of key parts of the data model into
@@ -275,6 +281,8 @@ generate report outputs. Here's an alternative version of the above query:
   from cache_occurrences_functional o
   join cache_samples_nonfunctional snf on snf.id=o.sample_id
   join cache_taxa_taxon_lists cttl on cttl.id=o.taxa_taxon_list_id
+  where o.created_on>now() - '1 week'::interval
+  and o.taxon_group_id=<taxon_group_id>
 
 Not only are there less joins, but an important point is that the vast majority of fields
 you might want to filter on are in the `cache_occurrences_functional` table. Filtering
