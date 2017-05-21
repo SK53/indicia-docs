@@ -38,6 +38,11 @@ Attributes
     See the $featuredReports variable defined in `the report test class
     <https://github.com/Indicia-Team/warehouse/blob/master/modules/indicia_svc_data/tests/controllers/services/reportTest.php>`_.
 
+* **summary** - optional. Set to true for reports that only output summary data and
+  therefore can be accessed without concern for whether raw data is being made available.
+  The REST API uses this flag to limit reports available to users who shouldn't have raw
+  data access.
+
 Child elements
 ^^^^^^^^^^^^^^
 
