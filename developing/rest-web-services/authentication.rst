@@ -7,32 +7,45 @@ including:
   * Websites with online recording and reporting facilities.
   * Mobile applications.
   * Other databases which synchronise data with the Indicia instance.
+  * Users of the data.
   * Developers working on site building or report writing.
 
 In order to meet the needs of the different types of client, there are several
 options for approaches to authentication.
 
-  * A website or application might wish to authenticate as the registered website
-    on the warehouse and will therefore gain access to all records contributed
-    via that website or shared with the website for reporting purposes.
+  * A website or application might wish to authenticate as the registered website on the
+    warehouse and will therefore gain access to all records contributed  via that website
+    or shared with the website for reporting purposes.
   * A mobile application user might authenticate as that specific user/application
     combination to gain access to just their records.
-  * A remote database which synchronises with the warehouse needs to identify
-    itself in order for the warehouse to ensure the correct filtered set of
-    records is made available to it.
+  * A remote database which synchronises with the warehouse needs to identify itself in
+    order for the warehouse to ensure the correct filtered set of records is made available
+    to it.
+  * A user of the data needs to identify the filtered set of data they have permission to
+    view.
   * A developer will want to be able to simulate all these options without the
     authentication process hindering the simplicity of development.
 
 Given the above requirements, Indicia provides 3 types of identification that
 can be used when accessing the web services:
 
-#. The warehouse has a list of website registrations in the websites table. This
-   describes each of the online recording websites that contribute records to
-   the warehouse. Authentication of web service requests can be achieved by
-   providing a website_id and using the website's password as the secret for
-   authentication. This gives the client access to the records belonging to the
-   given website registration as well as any which are shared with the website
-   via warehouse configuration.
+#. The warehouse has a list of website registrations in the websites table. This describes
+   each of the online recording websites that contribute records to the warehouse.
+   Authentication of web service requests can be achieved by providing a website_id and
+   using the website's password as the secret for authentication. This gives the client
+   access to the records belonging to the given website registration as well as any which
+   are shared with the website via warehouse configuration.
+
+   .. tip::
+
+     Before giving a client the website_id and password for a website registration,  bear
+     in mind this grants them full permissions to read and write that website's data which
+     will not be appropriate in many cases. It also means you cannot disable that client's
+     access without also disabling your website or application's access since they share
+     the same authentication details. A better way is to create a "client"  for your data
+     users in the configuration file as described below and create a project which enables
+     them to access the website's records without a filter.
+
 #. The warehouse also has a list of user accounts which can be used for
    authentication. Authentication of web service requests can be achieved by
    providing a user_id and website_id and using the user's warehouse password as
@@ -42,10 +55,13 @@ can be used when accessing the web services:
    provide a filter_id for a filter linked to the user which has
    defines_permissions=t (e.g. a filter granting verification rights) to give
    the client access to the filtered set of records.
-#. The REST API has a list of client systems in its configuration file which
-   are given access to the web services for synchronisation purposes. Provide the
-   client system ID and use the configured secret for authentication to gain
-   access to a set of records defined by a filter given in the configuration.
+#. The REST API has a list of clients in its configuration file which
+   are being given access to the web services. Clients listed in the configuration file
+   can be other systems (e.g. other online recording databases) or could equally be a user
+   of the data. Provide the client ID and use the configured secret for authentication.
+   Each client has a number of projects defined in the configuration which define filtered
+   access to records for a given website, for example a project might be the Odonata
+   records available to the iRecord website registration.
 
 The following methods of authentication using these 3 categories of client user
 are available for the REST API:
@@ -74,13 +90,14 @@ Example:
 
 .. tip::
 
-  Accessing via oAuth in this way grants access only to the user's records on
-  the associated website registration given in the token request. In order to
-  grant access to a wider set of records you can create a filter (in the
-  filters table) and link it to the user, with defines_permissions=t. This grants
-  the records identified by the filter to the user when using that filter ID.
-  The ID of the filter to use can be passed in a query parameter in the URL
-  called filter_id.
+  Accessing via oAuth in this way grants can be configured to grant access only to the
+  user's records on the associated website registration given in the token request. This is
+  done by setting the 'limit_to_own_data' option for the reports resource as illustrated in
+  the Rest API's example configuration file. In this instance, in order to grant access to
+  a wider set of records you can create a filter (in the filters table) and link it to the
+  user, with defines_permissions=t. This grants the records identified by the filter to the
+  user when using that filter ID. The ID of the filter to use can be passed in a query
+  parameter in the URL called filter_id.
 
 HMAC
 ----
@@ -102,11 +119,11 @@ In more detail:
 #. The requesting entity adds an Authorization header to the request containing the
    following string [user type]:[user identifier]:HMAC:[hmac] where:
 
-     * [user_type] is a token which identifies whether a registered website
-       (WEBSITE_ID), warehouse user account (USER_ID) or client system defined
-       in the REST API's configuration file (USER).
+     * [user_type] is a token which identifies whether a registered website (WEBSITE_ID),
+     * warehouse user account (USER_ID) or client defined in the REST API's configuration
+       file (USER).
      * [user identifier] is the requesting client's identifier, either the website_id,
-       user_id or client system ID as described above.
+       user_id or client ID as described above.
      * [hmac] is the HMAC-SHA1 value computed in (1)
 
    When identifying as a warehouse user it is also necessary to provide the
@@ -130,7 +147,7 @@ This authentication should provide suitable protection against tampering and suf
 level of authentication providing the shared secret is sufficiently long.
 
 The following example PHP snippet illustrates the code required for authentication against
-the REST API as a client system described in the REST API's configuration file:
+the REST API as a client described in the REST API's configuration file:
 
 .. code-block:: php
 
@@ -181,7 +198,7 @@ changed in the REST API's configuration where appropriate. See
 :doc:`../../administrating/warehouse/modules/rest-api` for more information.
 
 When using direct authentication, the process is the same as for HMAC but you
-set the password or client system shared secret in the authentication string
+set the password or client shared secret in the authentication string
 as in the following example (using the token SECRET instead of HMAC)::
 
   USER_ID:[user id]:WEBSITE_ID:[website id]:SECRET:[user password]
