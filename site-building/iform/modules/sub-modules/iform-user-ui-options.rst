@@ -33,7 +33,9 @@ element can contain as many choices as you want. Each option set name correspond
 radio group which will appear on the user account's Preferences page. Each choice then
 corresponds to a radio button within this set of choices. A default radio button is 
 always present in the radio group, allowing the user to revert to the original settings
-specified for each form.
+specified for each form. If you define a choice where <choice name> is set to "default"
+then this choice will override the default radio button and will provide settings that
+are applied to all pages even if the user has never chosen an option in their profile.
 
 The params JSON object defines a list of properties which you are defining a replacement
 value for. Properties can be:
