@@ -120,9 +120,10 @@ follows:
     photographic or voucher specimen evidence)
   * C + 3 = data entry complete, checked but not conclusive, marked as plausible.
   * C + null = data entry complete and pending check
-  * C + 4 = rejected as considered incorrect
-  * C + 5 = rejected as incorrect (i.e. evidence available to prove it is incorrect beyond
+  * R + 4 = rejected as considered incorrect
+  * R + 5 = rejected as incorrect (i.e. evidence available to prove it is incorrect beyond
     reasonable doubt).
+  * R + null = rejected or not accepted
 
 Therefore a query to obtain all accepted records can simply filter on record_status=V and
 ignore the substatus.
