@@ -382,6 +382,13 @@ this on Apache, assuming that .htaccess is supported on your server and mod_rewr
 installed, rename the file example.htaccess in the root of the indicia installation folder
 to just .htaccess.
 
+Scheduled tasks
+---------------
+
+Certain aspects of warehouse functionality, in particular species name searches, depend on
+off-line processes which must be scheduled periodically on your warehouse. Therefore you
+must set these up as part of the installation of your warehouse. See :doc:`scheduled-tasks`.
+
 Optimisation 
 ------------
   
