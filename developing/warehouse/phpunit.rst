@@ -6,7 +6,8 @@ These provided automated tests ensuring that the code remains robust whilst chan
 implemented.
 
 #. To run phpUnit tests, you must first `install phpUnit 
-   <http://phpunit.de/manual/current/en/index.html>`_.
+   <http://phpunit.de/manual/current/en/index.html>`_. Currentlt phpUnit versions up to 5.x 
+   are supported.
 #. You MUST install your warehouse against a local database called 'indicia' and the 
    warehouse MUST only be used for unit testing, since each test run may clear existing
    data from the database.
@@ -42,4 +43,11 @@ Or you can run tests against a single class::
   phpUnit --bootstrap=index.php application/tests/helpers/vague_dateTest.php
   
 More information on writing tests is available on `the phpUnit website 
-<http://phpunit.de/manual/current/en/writing-tests-for-phpunit.html>`_.
+<http://phpunit.de/manual/current/en/writing-tests-for-phpunit.html>`_. 
+
+Continuous Integration
+----------------------
+
+The Indicia warehouse is automatically rebuilt and tested each time a code change is 
+committed into GitHub. The output of these builds including test results can be viewed
+`on Travis CI <https://travis-ci.org/Indicia-Team/warehouse>`_.
