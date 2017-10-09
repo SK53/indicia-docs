@@ -52,7 +52,7 @@ value for. Properties can be:
     
       {
         "params":{
-          "[date]|allowVagueDates":"true"
+          "[date]|allowVagueDates": true
         }
       }
     
