@@ -22,6 +22,7 @@ handled on the client.
   authentication-client-helpers
   data-services-reading
   data-services-entity-list
+  data-services-taxon-search
   data-services-read-record
   data-services-read-dataset
   data-services-read-client-helpers

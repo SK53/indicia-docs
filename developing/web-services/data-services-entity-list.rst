@@ -18,7 +18,7 @@ Entity                           Available views  Website restrictions?
 ================================ ================ =====================
 cache_taxa_taxon_lists           *none*           no
 cache_taxon_searchterms          *none*           no
-determination                    list             
+determination                    list
 index_websites_website_agreement *none*
 group                            list, detail
 group_page                       list
@@ -26,25 +26,25 @@ groups_user                      detail
 group_invitation                 list
 group_relation                   list
 language                         list, detail, gv
-location                         list, detail, gv 
+location                         list, detail, gv
 location_attribute               list, gv
-location_attribute_value         list             
+location_attribute_value         list
 location_media                   list, gv
 notification                     list             no
-occurrence                       list, detail, gv 
+occurrence                       list, detail, gv
 occurrence_attribute             list, gv
 occurrence_attribute_value       list
-occurrence_comment               list             
-occurrence_media                 list, gv         
-person                           list, detail, gv 
+occurrence_comment               list
+occurrence_media                 list, gv
+person                           list, detail, gv
 person_attribute                 list, gv
 person_attribute_value           list
-sample                           list, detail     
+sample                           list, detail
 sample_attribute                 list, gv
 sample_attribute_value           list
-sample_comment                   list             
-sample_media                     list, gv               
-survey                           list, detail, gv 
+sample_comment                   list
+sample_media                     list, gv
+survey                           list, detail, gv
 survey_media                     list, gv
 taxa_taxon_list                  list, detail, gv no
 taxa_taxon_list_attribute        list, gv
@@ -56,12 +56,13 @@ taxon_media                      list, detail, gv
 taxon_rank                       list, gv
 taxon_relation                   list, gv         no
 taxon_relation_type              list, detail, gv
+taxon_search                                      no
 term                             list, detail
 termlist                         list, detail, gv
 termlists_term                   list, detail, gv
 title                            list, detail, gv
 trigger                          gv
-user                             list, gv         
+user                             list, gv
 user_identifier                  gv
 website                          list, detail, gv
 website_agreement                list, detail, gv
