@@ -177,7 +177,7 @@ Starting with the exported text files
 #. Connect to your warehouse using the pgAdmin application. 
 #. Create a schema on your warehouse database called ``uksi`` if you don't already have 
    one. 
-#. Download the SQL script file from http://indicia.googlecode.com/svn/support_files/UKSI/script.sql
+#. Download the SQL script file from https://github.com/Indicia-Team/google-archive/blob/master/support_files/UKSI/script.sql
    and open it using pgAdmin.
 #. The script assumes that your Indicia database is in a schema called ``indicia``. If 
    not, then search and replace the script replacing all instances of "indicia." with your 
